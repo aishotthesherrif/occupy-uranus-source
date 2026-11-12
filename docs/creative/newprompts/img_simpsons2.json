@@ -1,0 +1,31 @@
+{
+  "metadata": {
+    "project_name": "simpsons",
+    "keywords": "Simpsons-style",
+    "style": "The Simpsons cartoon illustration, bold black outlines, flat bright color fills, minimal shading, small black eye pupils. Occupy Uranus — the Simpson family on an interplanetary space adventure, hauling cargo across the galaxy in a beaten-up spacecraft to colonize Uranus, because nobody at City Hall read the proposal before approving it. Deep space vistas, alien worlds, rickety spacecraft held together with duct tape and optimism. Duff Beer sponsorship decals on everything. Nuclear-powered engines that probably shouldn't have passed inspection. Cargo bays full of Springfield's finest exports. Every surface has a sight gag, every warning label is misspelled, every airlock has a donut stuck in it somewhere. Background details packed with visual jokes. Flat surfaces, smooth gradients, reads clearly at small sizes.",
+    "quality": "NTSC/PAL",
+    "base_palette": [
+      { "hex": "#FED90F", "description": "Simpsons skin yellow" },
+      { "hex": "#F05A28", "description": "Bart's shirt / Lisa's dress" },
+      { "hex": "#0B0B2B", "description": "Deep space" },
+      { "hex": "#151544", "description": "Space mid-tone" },
+      { "hex": "#6B3FA0", "description": "Nebula purple" },
+      { "hex": "#1E5F8A", "description": "Nebula teal-blue" },
+      { "hex": "#39FF14", "description": "Neon green (aliens / UFO glow)" },
+      { "hex": "#FFFFFF", "description": "Homer's shirt / clouds / stars" },
+      { "hex": "#FFD966", "description": "Window glow" }
+    ]
+  },
+  "images": [
+    {
+      "filename": "NewGame-01.png",
+      "prompt": "Classic Simpsons animation style, flat colors with bold black outlines. The Hauler spacecraft centered in frame, three-quarter angle. Boxy yellow hull (#FED90F). Duff Beer logo on cargo bay side, approximately 1/4 ship length. Fuzzy dice hanging in cockpit window. Bumper stickers on hull: 'MY OTHER SHIP IS ALSO POORLY MAINTAINED' on starboard side, 'SPRINGFIELD OR BUST' on cargo bay. Duct tape patch visible on port panel, light grey with cross pattern. Warm orange running lights (#FF8800) glowing at thruster ports and along edges. Simple rectangular cargo bay doors. Rounded cockpit dome with simple window reflection. Background: Deep blue-black space (#0B0B2B to #151544 gradient, smooth). White star dots scattered throughout, simple single pixels. Soft nebula clouds in purple (#6B3FA0) and pink upper-right, very subtle, keeping space mostly empty. Uranus in upper-right quadrant, teal-blue sphere (#1E5F8A) with simple ring detail, approximately 1/8 frame diameter. Earth visible lower-left as tiny blue dot (#2196F3), barely noticeable. Donut floating in foreground lower-right: classic pink frosting with sprinkles, approximately 1/12 frame height, iconic Springfield donut. Cartoon text floating in space: '2.8 BILLION KILOMETERS' in white outline text upper-left. Arrow pointing from ship to Uranus with 'THAT WAY' label. Simple white starburst on fuzzy dice (4-point cartoon lens flare). Flat shading throughout. Surfaces read clearly at small sizes. Bold black outlines on ship, donut, and foreground elements.",
+      "text_overlay": null
+    },
+    {
+      "filename": "Launch-01.png",
+      "prompt": "Classic Simpsons animation style, vertical composition. Rocket ascending through lower-third of frame, approximately 12% frame width. The Hauler mounted at top of booster stack. Yellow hull visible (#FED90F), Duff Beer logo on side, fuzzy dice in cockpit window, bumper sticker readable: 'MY OTHER SHIP IS ALSO POORLY MAINTAINED'. White rocket booster below, simple cylindrical shape with panel lines. Three main engines at base firing: bright orange-yellow flames (#FF8800 to #FFDD00) rendered as flat cartoon fire shapes with bold black outlines. White smoke (#FFFFFF) billowing across pad in puffy cloud shapes. Upward motion lines trail from rocket in classic animation style. Launch pad at bottom: grey concrete platform (#808080). Safety railings, one visibly bent. 'SPRINGFIELD SPACE CENTER' sign, the 'C' drawn flickering (partial letter). Observation bunker lower-right, yellow-skinned figures visible in window (3-4 pixels tall). Vending machine on pad left side. Fuel tanks labeled 'DEFINITELY NOT DUFF BEER'. Crane with 'OUT OF ORDER' sign. Small cargo crate tumbling in smoke mid-frame, labeled 'OOPS'. Donut in foreground lower-center: pink frosting with sprinkles, frozen mid-bounce above ground, approximately 1/15 frame height. Springfield nuclear cooling tower visible in far distance background, tiny, smoking. Sky gradient: atmosphere blue (#4A90E2) at horizon with white clouds, orange-yellow glow zone (#FF8800) mid-frame from engine reflection, darker blue (#2196F3) above, finally black space (#0B0B2B) at top. White star dots (simple points) visible in black section. Smoke trail behind rocket, white, thinning upward. Flat shading throughout, bold black outlines. All elements read clearly at small size.",
+      "text_overlay": null
+    }
+  ]
+}

@@ -1,0 +1,130 @@
+{
+  "metadata": {
+    "project_name": "pixel",
+    "keywords": "16-bit pixel art, retro game aesthetic, SNES/Genesis era",
+    "style": "16-bit pixel art game aesthetic \u2014 clean pixel work with limited color palette (128 colors max), dithering for gradients and atmospheric effects, no anti-aliasing. Every sprite and tile clearly readable at pixel level. Visual style references classic space games like StarFlight, Elite, Star Control, and Starfox. Crisp, functional, charming retro game presentation. The spacecraft is rendered as a small boxy vessel with visible pixel detail: grey hull with accent stripes, rectangular components, thruster glow effects using careful pixel animation techniques. Backgrounds use organized star scatter patterns, dithered gradients for atmospheric transitions, and simple geometric shapes for celestial bodies. Color palette discipline: 16-32 colors per scene, classic 16-bit game colors, dithering patterns for smooth transitions. Every pixel is intentional \u2014 proper pixel art, not filtered or processed modern imagery.",
+    "quality": "16-bit pixel art, 320x240 upscaled to 1024x1024",
+    "base_palette": [
+      {
+        "hex": "#000000",
+        "description": "Deep space black"
+      },
+      {
+        "hex": "#FFFFFF",
+        "description": "Stars, exhaust core, UI text"
+      },
+      {
+        "hex": "#808080",
+        "description": "Ship hull grey"
+      },
+      {
+        "hex": "#AAAAAA",
+        "description": "Highlights on metal"
+      },
+      {
+        "hex": "#606060",
+        "description": "Shadows on metal"
+      },
+      {
+        "hex": "#0088FF",
+        "description": "Blue accents, Earth ocean, atmosphere"
+      },
+      {
+        "hex": "#00CC44",
+        "description": "Green accents, Earth land"
+      },
+      {
+        "hex": "#FFDD00",
+        "description": "Yellow flames, warnings, stars"
+      },
+      {
+        "hex": "#FF8800",
+        "description": "Orange heat, thrusters"
+      },
+      {
+        "hex": "#FF0000",
+        "description": "Red danger, fire heat"
+      },
+      {
+        "hex": "#00CC88",
+        "description": "Teal for Uranus"
+      },
+      {
+        "hex": "#88CCFF",
+        "description": "Light blue for effects"
+      }
+    ]
+  },
+  "images": [
+    {
+      "filename": "Launch-01.png",
+      "prompt": "16-bit pixel art, vertical composition, 320x240 upscaled to 1024x1024. Rocket sprite ascending through lower-third of frame. Tall vertical structure: 12-16 pixels wide, 45-55 pixels tall. White (#FFFFFF) and grey (#808080) pixels with visible stage separation lines (single darker pixel line). Small spacecraft visible at top, 8x8 pixel cluster. Engines at base firing: bright white core (#FFFFFF), 4-6 pixels, surrounded by yellow (#FFDD00) pixels in flame shape, then orange (#FF8800) pixels. Classic 16-bit fire animation pattern. Exhaust plume expanding downward and sideways: dithered gradient using yellow-orange-red (#FFDD00 to #FF8800 to #FF0000), checkerboard dither pattern. Launch pad at bottom: grey platform (#808080) spanning frame width, 10-12 pixels tall. Yellow safety markings (#FFDD00), single-pixel lines. Support towers on sides: vertical grey structures, 6-8 pixels wide, 20-25 pixels tall, with yellow warning lights (single yellow pixels). Blast deflector center: darker grey (#606060) channeling flames sideways. White smoke (#FFFFFF) and light grey (#CCCCCC) dithered pixels billowing across pad, checkerboard pattern. Small details: fuel tanks (grey rectangles with yellow bands, 8x12 pixels), antenna (1-pixel vertical line, 15 pixels tall), observation bunker (grey structure, 12x8 pixels, single blue window pixel #0088FF). Sky gradient vertical: blue (#0088FF) at horizon with white cloud pixels scattered dithered, darkening to darker blue (#0044AA) mid-frame using dither transition, black (#000000) at top. White star pixels (#FFFFFF) in black section, organized scatter pattern, 20-30 stars. Rocket ascent trail: dithered white-yellow pixels from engines downward, thinning, 30-40 pixels long. No anti-aliasing. Every pixel intentional. Classic 16-bit palette: 16-24 colors total. Reference Starfox, F-Zero, Star Control launch aesthetics.",
+      "text_overlay": null
+    },
+    {
+      "filename": "NewGame-01.png",
+      "prompt": "16-bit pixel art, 320x240 upscaled to 1024x1024. Small spacecraft sprite centered in frame, side view. Boxy grey hull (#808080), 20-24 pixels wide. Blue accent stripe (#0088FF) along top edge, 2 pixels tall. Orange thruster glow (#FF8800) at rear, 3-4 pixels. Rectangular cargo pod on underside, 8x6 pixels. Cockpit window: single blue pixel (#0088FF) or 2x2 blue pixel cluster. No anti-aliasing, clean pixel edges. Background: Deep space black (#000000). Uranus in upper-right: teal sphere (#00CC88), 16-18 pixels diameter, simple circle with single-pixel ring. Earth lower-left: tiny blue dot (#0088FF), 4-6 pixels diameter. Stars: single white pixels (#FFFFFF) scattered in organized pattern, approximately 30-40 stars total. Some stars yellow (#FFDD00) or light blue (#88CCFF) for variety. UI elements in pixel art: upper-left text 'DISTANCE: 2.8B KM' in white 8-pixel font. Lower-right text 'DESTINATION: URANUS' in white. Simple arrow pixels pointing from ship to Uranus, yellow (#FFDD00), 1-2 pixels thick. Dithering used for subtle glow around Uranus: alternating teal and black pixels in checkerboard pattern at edge. Ship lit from below-left: lighter grey pixels (#AAAAAA) on bottom hull edge, darker grey (#606060) on top for shadow. Classic 16-bit game palette: 16-32 colors total. Crisp pixel work referencing StarFlight, Elite, Star Control. Every sprite reads clearly at pixel level.",
+      "text_overlay": null
+    },
+    {
+      "filename": "Waypoint-Ceres_Station.png",
+      "text_overlay": "Ceres Station",
+      "prompt": "8-bit pixel art, 256x224 upscaled to 1024x1024, strict 16-color CGA/EGA palette. Ceres centered in frame, circular sprite approximately 55-65 pixels diameter. Surface in dark grey (#555555) with light grey (#AAAAAA) highlights as block-dither pattern. Crater circles as 2-6 pixel dark grey rings. Mining scars as single-pixel dark lines, hard geometric angles. Space station foreground: grey (#AAAAAA) and dark grey (#555555) rectangle blocks forming cylindrical shape (30x18 pixels), docking arms as 1-pixel horizontal lines, row of bright yellow (#FFFF55) window pixels. Small asteroid sprites in background: brown (#AA5500) irregular blobs, 3-6 pixels each. Background: black space, 25-35 star pixels. ANSI block-art mechanical feel, no anti-aliasing."
+    },
+    {
+      "filename": "Waypoint-Deep_Space_69.png",
+      "text_overlay": "Station Deep 69",
+      "prompt": "8-bit pixel art, 256x224 upscaled to 1024x1024, strict 16-color CGA/EGA palette. Space station centered in frame, boxy block-art structure: grey (#AAAAAA) and dark grey (#555555) rectangles stacked, approximately 50-60 pixels tall, 28-35 pixels wide, heavy panel lines as 1-pixel dark grey separators. '69' stenciled on hull in white (#FFFFFF) pixel block letters, 8x6 pixels per digit. Rotating habitat: separate rectangle block with bright yellow (#FFFF55) motion-line pixels. Solar panels: dark blue (#0000AA) flat rectangles (16x3 pixels each side) with bright cyan (#55FFFF) trim pixels. Docking ports: notched rectangles with tiny ship blocks (6x4 pixels) attached. Windows: row of bright yellow (#FFFF55) pixels. Background: pure black, 40-50 white star pixels. ANSI terminal art station feel, no anti-aliasing."
+    },
+    {
+      "filename": "Waypoint-Earth_Launch.png",
+      "text_overlay": "Launch Day",
+      "prompt": "8-bit pixel art, 256x224 upscaled to 1024x1024, strict 16-color CGA/EGA palette. Earth centered in frame, circular sprite approximately 80-90 pixels diameter. Oceans in dark blue (#0000AA) blocks with bright blue highlights (#5555FF). Continents as chunky dark green (#00AA00) blobs, no fine detail. Atmosphere ring: 1-pixel bright cyan (#55FFFF) border. Block-dither clouds using white (#FFFFFF) and light grey (#AAAAAA) in checkerboard dither pattern. Tiny orbital satellite: grey rectangle (3x4 pixels) with single bright yellow light pixel. Night-side city lights: scattered bright yellow (#FFFF55) pixel dots. Background: pure black (#000000) space, white and bright yellow star pixels in sparse scatter, 30-40 stars. ANSI block-art framing feel. No anti-aliasing, hard pixel edges only."
+    },
+    {
+      "filename": "Waypoint-Jupiter_Slingshot.png",
+      "text_overlay": "Jupiter Gas Mine",
+      "prompt": "8-bit pixel art, 256x224 upscaled to 1024x1024, strict 16-color CGA/EGA palette. Jupiter massive in frame, approximately 110-130 pixels diameter. Atmosphere banded with flat horizontal stripes using only available palette colors: white (#FFFFFF), light grey (#AAAAAA), brown (#AA5500), bright yellow (#FFFF55), dark red (#AA0000) in alternating 4-8 pixel bands \u2014 hard edges between bands, no smooth gradients. Great Red Spot: bright red (#FF5555) oval block, 18x12 pixels, with dark red (#AA0000) border pixels. Europa foreground: white-bright blue (#5555FF) circle, 12-14 pixels, with grey crack lines (1-pixel dark grey lines). Background: near-black with Jupiter dominating, 10-15 star pixels at edges. ANSI block-art feel \u2014 chunky, bold, no anti-aliasing."
+    },
+    {
+      "filename": "Waypoint-Mars-Flyby.png",
+      "text_overlay": "Mars Base",
+      "prompt": "8-bit pixel art, 256x224 upscaled to 1024x1024, strict 16-color CGA/EGA palette. Mars centered in frame, circular sprite approximately 85-95 pixels diameter. Surface in dark red (#AA0000) with bright red (#FF5555) highlights in hard checkerboard dither. Olympus Mons: dark red (#AA0000) triangular block shape, 10x7 pixels. White (#FFFFFF) polar cap as flat rectangle on top of circle, 6-8 pixels wide. Dust storm: brown (#AA5500) block-dither patches on one hemisphere. Phobos: tiny dark grey (#555555) irregular shape, 5x4 pixels. Background: pure black with 30-40 white and bright yellow star pixels. No smooth gradients \u2014 hard dither steps only. ANSI terminal vibe."
+    },
+    {
+      "filename": "Waypoint-Moon.png",
+      "text_overlay": "Moon",
+      "prompt": "8-bit pixel art, 256x224 upscaled to 1024x1024, strict 16-color CGA/EGA palette. Moon centered in frame, circular sprite approximately 70-80 pixels diameter. Surface in light grey (#AAAAAA) with dark grey (#555555) maria regions as blocky flat patches. Crater circles using block-art: outer ring in grey, filled center in dark grey, 3-10 pixel diameters. Tiny lunar base: dark grey rectangle (6x4 pixels) for dome, 1-pixel antenna with bright yellow (#FFFF55) top pixel. Earth upper-right: chunky blue-green circle, 20-25 pixels, block-dithered. Background: pure black space, 30-35 white/bright yellow star pixels. Hard checkerboard dithering for crater depth. No anti-aliasing, ANSI block-art aesthetic."
+    },
+    {
+      "filename": "Waypoint-Saturn_Rings.png",
+      "text_overlay": "Saturns Rings",
+      "prompt": "8-bit pixel art, 256x224 upscaled to 1024x1024, strict 16-color CGA/EGA palette. Saturn centered lower-frame, circular sprite approximately 65-75 pixels diameter. Planet body in bright yellow (#FFFF55) with brown (#AA5500) band stripes (3-4 bands, 3-5 pixels each), flat hard edges. Ring system: series of 1-pixel horizontal lines spanning full frame width \u2014 bright yellow (#FFFF55) outer ring, brown (#AA5500) mid ring, Cassini Division as 2-pixel black (#000000) gap, light grey (#AAAAAA) inner ring. Total ring area 6-10 pixels tall. Titan upper-right: brown (#AA5500) circle, 9-11 pixels. Background: dark blue (#0000AA) block-dither to black at edges. White and bright yellow star pixels scattered. No anti-aliasing, ANSI block-art lines."
+    },
+    {
+      "filename": "Waypoint-Uranus_Arrival.png",
+      "text_overlay": "Uranus is Glorious",
+      "prompt": "8-bit pixel art, 256x224 upscaled to 1024x1024, strict 16-color CGA/EGA palette. Uranus centered in frame, circular sprite approximately 90-100 pixels diameter. Planet surface: dark cyan (#00AAAA) base with bright cyan (#55FFFF) checkerboard dither highlights covering 30-40% of pixels \u2014 hard block dither, no smooth blending. Horizontal banding: 4-5 alternating bands of dark cyan and bright cyan, each 6-10 pixels tall, flat hard edges. Ring: single 1-pixel white (#FFFFFF) horizontal line across equator. Moon dots: 2-pixel bright cyan or white circles. Background: dark magenta (#AA00AA) block-dither to black at frame edges \u2014 rare ANSI terminal purple-night vibe. 30-40 white and bright cyan star pixels scattered. No anti-aliasing, chunky block art."
+    },
+    {
+      "filename": "day_belt_01.png",
+      "prompt": "8-bit pixel art, 256x224 upscaled to 1024x1024, strict 16-color CGA/EGA palette. Chunky spacecraft centered, approximately 26-30 pixels wide, banking angle \u2014 blocky grey hull, bright yellow (#FFFF55) thruster fire pixels. Large asteroid foreground right: brown (#AA5500) and dark grey (#555555) chunky irregular shape, 45-55 pixels tall, crater pits as 3-7 pixel dark grey rings, shading as hard block-dither checkerboard. Medium asteroids scattered: brown/grey blobs, 10-18 pixels each. Debris: 1-3 pixel brown/grey single pixels scattered. Ceres in background: tiny light grey (#AAAAAA) circle, 5-7 pixels. Background: dark grey (#555555) and brown (#AA5500) sparse checkerboard dither on black \u2014 dusty belt atmosphere. 15-25 white star pixels. No anti-aliasing, blocky ANSI art asteroid field."
+    },
+    {
+      "filename": "day_earth_01.png",
+      "prompt": "8-bit pixel art, 256x224 upscaled to 1024x1024, strict 16-color CGA/EGA palette. Chunky spacecraft sprite in foreground lower-right, approximately 18-22 pixels wide, side-angled view \u2014 blocky hull in light grey (#AAAAAA) and dark grey (#555555), dark blue (#0000AA) accent stripe (1-pixel line), bright red (#FF5555) thruster pixels at rear (3-4 pixels). Earth upper-left: dark blue (#0000AA) and dark green (#00AA00) block-circle, 50-60 pixels diameter, cloud blocks as white/grey checkerboard dither. Engine trail: alternating bright yellow (#FFFF55) and bright red (#FF5555) pixel row behind ship (15-18 pixels). Tiny satellite: 2x3 grey rectangle. Background: black space, 35-45 white/bright yellow star pixels. ANSI block-art feel, no anti-aliasing."
+    },
+    {
+      "filename": "day_inner_01.png",
+      "prompt": "8-bit pixel art, 256x224 upscaled to 1024x1024, strict 16-color CGA/EGA palette. Chunky spacecraft mid-frame left, approximately 22-26 pixels wide, side profile \u2014 blocky light grey (#AAAAAA) hull with dark grey (#555555) panel seams. Engine trail: bright yellow (#FFFF55) then bright red (#FF5555) pixel row, 18-22 pixels long, hard-edged steps. Mars background right: dark red (#AA0000) and bright red (#FF5555) block-circle, 40-50 pixels diameter, brown (#AA5500) surface patches in block dither. Small asteroid sprites: brown (#AA5500) irregular pixel blobs, 3-6 pixels each. Background: black with dark red (#AA0000) glow dither (sparse checkerboard) near Mars. 20-28 white/bright yellow star pixels. No anti-aliasing."
+    },
+    {
+      "filename": "day_outer_01.png",
+      "prompt": "8-bit pixel art, 256x224 upscaled to 1024x1024, strict 16-color CGA/EGA palette. Chunky spacecraft foreground lower-center, approximately 16-20 pixels wide, front view showing stubby wing blocks \u2014 grey hull, bright yellow (#FFFF55) engine pixel at center. Jupiter background upper-right: massive block-circle, 70-90 pixels diameter, flat horizontal band stripes in bright yellow (#FFFF55), brown (#AA5500), white (#FFFFFF), and dark grey (#555555) \u2014 each band 4-7 pixels, hard edges. Great Red Spot: bright red (#FF5555) rectangle block, 14x9 pixels, dark red (#AA0000) border. Background: dark magenta (#AA00AA) block-dither to black \u2014 phosphor purple night sky. Jupiter amber glow: sparse brown/yellow checkerboard dither in surrounding area. 30-40 star pixels. No anti-aliasing."
+    },
+    {
+      "filename": "day_uranus_01.png",
+      "prompt": "8-bit pixel art, 256x224 upscaled to 1024x1024, strict 16-color CGA/EGA palette. Chunky spacecraft mid-frame right, approximately 20-24 pixels wide, rear three-quarter view \u2014 blocky light grey (#AAAAAA) hull, dark grey (#555555) panel lines, bright cyan (#55FFFF) and white engine exhaust pixels (4-6 pixels). Uranus left side: dark cyan (#00AAAA) and bright cyan (#55FFFF) block-circle, 70-80 pixels diameter, hard checkerboard dither banding. Ice particle sprites foreground: 1-2 pixel white (#FFFFFF) and bright cyan (#55FFFF) single pixels scattered in loose cluster. Background: dark magenta (#AA00AA) block-dither to black \u2014 deep terminal purple. Bright cyan glow from planet: sparse checkerboard dither in surrounding zone. 25-35 white/cyan star pixels. No anti-aliasing, ANSI block-art feel."
+    }
+  ]
+}

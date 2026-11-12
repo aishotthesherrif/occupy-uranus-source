@@ -1,0 +1,1295 @@
+{
+  "metadata": {
+    "project": "Occupy Uranus - Space Colony Game",
+    "theme": "Space travel, Oregon Trail parody, retro-futuristic",
+    "target_resolution": "1024x1024",
+    "format": "JPG",
+    "color_depth": "24-bit with alpha channel",
+    "version": "1.2",
+    "out_the_window_scope": "zones, waypoints, events (per-image out_the_window for art direction)"
+  },
+  "global_style": {
+    "aesthetic": "Modern space art, clean, visually striking",
+    "palette": "Deep space blues, purples, cosmic colors, vibrant but not garish",
+    "mood": "Adventure, exploration, slight retrofuturism",
+    "quality": "High detail, professional game art quality"
+  },
+  "images": [
+    {
+      "filename": "Title-01.jpg",
+      "category": "special",
+      "context": "title",
+      "style": "Bold, eye-catching, game title screen",
+      "content_description": "Dramatic view of Uranus from space with a spacecraft approaching. Planet should be prominent, showing its distinctive blue-green color and faint rings. Stars and nebulae in background.",
+      "text_overlay": "OCCUPY URANUS",
+      "text_style": "Large, bold, retro sci-fi font, glowing effect",
+      "mood": "Epic, adventurous, humorous undertone",
+      "color_palette": [
+        "#1a2332",
+        "#4a90e2",
+        "#50e3c2",
+        "#ffffff"
+      ],
+      "notes": "This is the main menu screen - make it memorable and inviting",
+      "out_the_window": null
+    },
+    {
+      "filename": "gameover.jpg",
+      "category": "special",
+      "context": "gameover",
+      "style": "Somber but not depressing, dramatic",
+      "content_description": "Disabled spacecraft drifting in deep space, emergency lights flickering, debris floating nearby. Distant planets visible but unreachable. Empty space conveys isolation.",
+      "text_overlay": null,
+      "mood": "Loss, dramatic end, but dignified",
+      "color_palette": [
+        "#1a1a2e",
+        "#e43f5a",
+        "#ff6b6b",
+        "#4a4a6a"
+      ],
+      "notes": "Should feel like 'end of mission' not 'horror' - respectful game over",
+      "out_the_window": null
+    },
+    {
+      "filename": "victory.jpg",
+      "category": "special",
+      "context": "victory",
+      "style": "Triumphant, celebratory, bright",
+      "content_description": "Spacecraft successfully landed on Uranus surface with colony structures deploying. Uranus's blue-green atmosphere visible above, Earth tiny in the distance. Victory flags or markers planted.",
+      "text_overlay": null,
+      "mood": "Achievement, celebration, pride",
+      "color_palette": [
+        "#50e3c2",
+        "#4a90e2",
+        "#ffd700",
+        "#ffffff"
+      ],
+      "notes": "Player should feel accomplished - this is the win screen",
+      "out_the_window": null
+    },
+    {
+      "filename": "Continue-01.jpg",
+      "category": "special",
+      "context": "shop_fallback",
+      "style": "Generic space station interior or exterior",
+      "content_description": "Generic space station or waypoint view - modular habitat modules connected by corridors, docked spacecraft, supply crates visible. Functional, industrial aesthetic.",
+      "text_overlay": null,
+      "mood": "Neutral, functional, safe harbor",
+      "color_palette": [
+        "#34495e",
+        "#95a5a6",
+        "#3498db",
+        "#ecf0f1"
+      ],
+      "notes": "Fallback image for shop when no specific waypoint image available",
+      "out_the_window": null
+    },
+    {
+      "filename": "NewGame-01.jpg",
+      "category": "special",
+      "context": "newgame",
+      "style": "Inspiring, preparatory, pre-launch excitement",
+      "content_description": "Spacecraft on launch pad or in hangar bay, fully prepped and ready for departure. Chad visible through windows making final preparations. Supplies being loaded, fuel lines connected. Earth visible in background through hangar opening or from orbital platform. Scene conveys readiness and anticipation.",
+      "text_overlay": null,
+      "mood": "Anticipation, preparation, excitement for journey ahead",
+      "color_palette": [
+        "#2c3e50",
+        "#3498db",
+        "#ecf0f1",
+        "#f39c12"
+      ],
+      "notes": "New game setup screen - chad assembled, ship ready, moment before launch",
+      "out_the_window": null
+    },
+    {
+      "filename": "Launch-01.jpg",
+      "category": "special",
+      "context": "launch",
+      "style": "Dynamic, powerful, dramatic moment",
+      "content_description": "Spacecraft launching from Earth orbit - engines firing with bright exhaust plumes, Earth receding in background, stars emerging into view. Dynamic angle showing acceleration and power. Ship breaking away from Earth's embrace into deep space.",
+      "text_overlay": null,
+      "mood": "Power, determination, point of no return, beginning of epic journey",
+      "color_palette": [
+        "#1a2332",
+        "#e74c3c",
+        "#f39c12",
+        "#3498db"
+      ],
+      "notes": "Launch sequence dramatic moment - engines igniting, Earth falling away, journey begins",
+      "out_the_window": "Launch from Earth orbit - engines firing, planet receding, stars ahead"
+    },
+    {
+      "filename": "Event-01.jpg",
+      "category": "event",
+      "context": "event",
+      "variant": 1,
+      "style": "Dramatic, attention-grabbing, tense",
+      "content_description": "Spacecraft encountering an asteroid field - multiple rocky asteroids of various sizes surrounding the ship, navigation lights on, slight motion blur on asteroids to suggest speed and danger.",
+      "text_overlay": null,
+      "mood": "Tense, exciting, unexpected",
+      "color_palette": [
+        "#2c3e50",
+        "#e74c3c",
+        "#95a5a6",
+        "#f39c12"
+      ],
+      "notes": "Generic enough to work for multiple event types - conveys 'something is happening'",
+      "out_the_window": "Whatever the random event depicts\u2014e.g. asteroid field, nebula/signal, solar storm, or derelict; the \"something is happening\" moment outside the window."
+    },
+    {
+      "filename": "Event-02.jpg",
+      "category": "event",
+      "context": "event",
+      "variant": 2,
+      "style": "Mysterious, intriguing, slightly ominous",
+      "content_description": "Strange cosmic phenomenon - nebula with unusual patterns, distant unknown signal source glowing, spacecraft instruments lit up. Could be alien artifact, spatial anomaly, or mysterious transmission.",
+      "text_overlay": null,
+      "mood": "Mystery, wonder, slight unease",
+      "color_palette": [
+        "#1a2332",
+        "#9b59b6",
+        "#3498db",
+        "#1abc9c"
+      ],
+      "notes": "Contrasts with Event-01 - more mysterious than dangerous",
+      "out_the_window": "Whatever the random event depicts\u2014e.g. asteroid field, nebula/signal, solar storm, or derelict; the \"something is happening\" moment outside the window."
+    },
+    {
+      "filename": "milestone-25.jpg",
+      "category": "milestone",
+      "context": "milestone",
+      "milestone": "25%",
+      "style": "Celebratory, achievement marker",
+      "content_description": "Spacecraft passing Mars orbit (red planet visible in distance), 1/4 journey marker hologram or display showing '25% COMPLETE'. Stars and inner solar system visible.",
+      "text_overlay": "25%",
+      "text_style": "Large percentage display, holographic or digital readout style",
+      "mood": "Achievement, progress, encouragement",
+      "color_palette": [
+        "#e74c3c",
+        "#f39c12",
+        "#3498db",
+        "#ffffff"
+      ],
+      "notes": "First major milestone - should feel like meaningful progress",
+      "out_the_window": null
+    },
+    {
+      "filename": "milestone-50.jpg",
+      "category": "milestone",
+      "context": "milestone",
+      "milestone": "50%",
+      "style": "Celebratory, halfway point marker",
+      "content_description": "Spacecraft at asteroid belt / Jupiter region, halfway marker prominent. Jupiter visible in distance if asteroid belt shown. Digital display or hologram showing '50% COMPLETE'.",
+      "text_overlay": "50%",
+      "text_style": "Large percentage display, holographic or digital readout style",
+      "mood": "Halfway there! Momentum, determination",
+      "color_palette": [
+        "#f39c12",
+        "#e67e22",
+        "#3498db",
+        "#ffffff"
+      ],
+      "notes": "Midpoint celebration - player is halfway to Uranus",
+      "out_the_window": null
+    },
+    {
+      "filename": "milestone-75.jpg",
+      "category": "milestone",
+      "context": "milestone",
+      "milestone": "75%",
+      "style": "Celebratory, final stretch marker",
+      "content_description": "Spacecraft approaching Saturn region (Saturn and rings visible in distance), 3/4 journey marker showing '75% COMPLETE'. Almost there - Uranus should be suggested in extreme distance.",
+      "text_overlay": "75%",
+      "text_style": "Large percentage display, holographic or digital readout style",
+      "mood": "Almost there! Anticipation, final push",
+      "color_palette": [
+        "#f1c40f",
+        "#9b59b6",
+        "#3498db",
+        "#ffffff"
+      ],
+      "notes": "Final milestone before arrival - should build anticipation",
+      "out_the_window": null
+    },
+    {
+      "filename": "Waypoint-Earth_Launch.jpg",
+      "category": "waypoint",
+      "context": "waypoint",
+      "waypoint_name": "Earth Orbit",
+      "style": "Familiar, starting point, hopeful",
+      "content_description": "Earth from low orbit, spacecraft in foreground, launch facilities visible on Earth's surface, International Space Station or orbital platform nearby. Blue planet, white clouds, clearly recognizable as home.",
+      "text_overlay": null,
+      "mood": "Beginning of journey, hope, excitement, leaving home",
+      "color_palette": [
+        "#3498db",
+        "#27ae60",
+        "#ffffff",
+        "#2c3e50"
+      ],
+      "notes": "Starting point - should feel like 'leaving home' for adventure",
+      "out_the_window": "Earth from low orbit\u2014blue planet, clouds, maybe ISS or launch facilities; \"leaving home.\""
+    },
+    {
+      "filename": "Waypoint-Moon.jpg",
+      "category": "waypoint",
+      "context": "waypoint",
+      "waypoint_name": "Moon",
+      "style": "Familiar but otherworldly, first stop",
+      "content_description": "Moon base or lunar station on Moon's surface, Earth visible in the background (smaller), grey lunar surface with craters, spacecraft docked at station. Mix of familiar and alien.",
+      "text_overlay": null,
+      "mood": "First waypoint, progress made, still close to home",
+      "color_palette": [
+        "#95a5a6",
+        "#7f8c8d",
+        "#3498db",
+        "#34495e"
+      ],
+      "notes": "First waypoint after Earth - nostalgic but adventurous",
+      "out_the_window": "Lunar surface, base or station, Earth small in the sky; first stop."
+    },
+    {
+      "filename": "Waypoint-Mars-Flyby.jpg",
+      "category": "waypoint",
+      "context": "waypoint",
+      "waypoint_name": "Mars Base",
+      "style": "Red planet, colonial outpost aesthetic",
+      "content_description": "Mars from orbit or surface base view, red rocky surface, Olympus Mons or Valles Marineris visible, space station or surface habitat, spacecraft refueling. Dusty red atmosphere.",
+      "text_overlay": null,
+      "mood": "Pioneering, frontier town feel, mid-journey progress",
+      "color_palette": [
+        "#e74c3c",
+        "#d35400",
+        "#c0392b",
+        "#34495e"
+      ],
+      "notes": "Classic Mars imagery - red planet, colonial feel",
+      "out_the_window": "Red planet, flyby or approach; Mars base or orbital presence."
+    },
+    {
+      "filename": "Waypoint-Ceres_Station.jpg",
+      "category": "waypoint",
+      "context": "waypoint",
+      "waypoint_name": "Ceres Asteroid Station",
+      "style": "Industrial, mining operation, rugged",
+      "content_description": "Ceres dwarf planet (spherical asteroid) with industrial mining station attached, ore processing facilities, asteroid mining equipment, multiple spacecraft docked. Rocky, cratered surface with industrial structures.",
+      "text_overlay": null,
+      "mood": "Industrial, hardworking, frontier mining town",
+      "color_palette": [
+        "#7f8c8d",
+        "#95a5a6",
+        "#f39c12",
+        "#34495e"
+      ],
+      "notes": "Asteroid belt waypoint - should feel industrial and functional",
+      "out_the_window": "Dwarf planet Ceres and/or asteroid station; belt region."
+    },
+    {
+      "filename": "Waypoint-Jupiter_Slingshot.jpg",
+      "category": "waypoint",
+      "context": "waypoint",
+      "waypoint_name": "Jupiter Gas Mine",
+      "style": "Massive scale, gas giant, atmospheric harvesting",
+      "content_description": "Jupiter filling much of frame with Great Red Spot visible, atmospheric harvesting station floating in upper atmosphere, massive gas giant feel, moons visible (Io, Europa, Ganymede). Station should feel tiny against Jupiter's scale.",
+      "text_overlay": null,
+      "mood": "Awe, scale, deep space operations",
+      "color_palette": [
+        "#e67e22",
+        "#f39c12",
+        "#d35400",
+        "#34495e"
+      ],
+      "notes": "Emphasize Jupiter's massive scale - station should look tiny",
+      "out_the_window": "Jupiter dominant, gas mine or slingshot geometry; gas giant and moons."
+    },
+    {
+      "filename": "Waypoint-Saturn_Rings.jpg",
+      "category": "waypoint",
+      "context": "waypoint",
+      "waypoint_name": "Saturn Outpost",
+      "style": "Majestic, rings prominent, beautiful",
+      "content_description": "Saturn with its iconic rings prominently displayed, station orbiting near rings or Titan moon, golden-brown planet, detailed ring structure with gaps visible. Perhaps Cassini Division visible in rings.",
+      "text_overlay": null,
+      "mood": "Majestic beauty, late-journey checkpoint, anticipation",
+      "color_palette": [
+        "#f1c40f",
+        "#f39c12",
+        "#e67e22",
+        "#34495e"
+      ],
+      "notes": "Final major waypoint - Saturn's rings should be stunning",
+      "out_the_window": "Saturn and rings, outpost or station; iconic ringed view."
+    },
+    {
+      "filename": "day_earth_01.jpg",
+      "category": "zone_day",
+      "context": "day",
+      "zone": "earth",
+      "variant": 1,
+      "style": "Near-Earth space, familiar but exciting",
+      "content_description": "View from spacecraft window showing Earth filling significant portion of frame, blue atmosphere glow, continents visible, maybe ISS or satellites in view. Still close to home.",
+      "text_overlay": null,
+      "mood": "Beginning journey, leaving home, anticipation",
+      "color_palette": [
+        "#3498db",
+        "#27ae60",
+        "#ffffff",
+        "#1a2332"
+      ],
+      "notes": "Day 1-14 of journey, still very close to Earth",
+      "out_the_window": "Earth still large, Moon nearby; familiar space, \"just left.\""
+    },
+    {
+      "filename": "day_earth_02.jpg",
+      "category": "zone_day",
+      "context": "day",
+      "zone": "earth",
+      "variant": 2,
+      "style": "Near-Earth space, Moon visible",
+      "content_description": "Earth and Moon both visible from spacecraft, showing their orbital relationship. Earth larger but Moon prominent. Stars in background. Spacecraft solar panels or exterior visible in frame corner.",
+      "text_overlay": null,
+      "mood": "Early journey, exploring near-Earth space",
+      "color_palette": [
+        "#3498db",
+        "#95a5a6",
+        "#ffffff",
+        "#1a2332"
+      ],
+      "notes": "Alternate Earth zone view with Moon context",
+      "out_the_window": "Earth still large, Moon nearby; familiar space, \"just left.\""
+    },
+    {
+      "filename": "day_earth_03.jpg",
+      "category": "zone_day",
+      "context": "day",
+      "zone": "earth",
+      "variant": 3,
+      "style": "Departure view, looking back",
+      "content_description": "View looking back at Earth from increasing distance, Earth now smaller but still dominant in frame, spacecraft trail or engine glow visible, stars becoming more prominent. Transition from home.",
+      "text_overlay": null,
+      "mood": "Leaving home, beginning the real journey",
+      "color_palette": [
+        "#1a2332",
+        "#3498db",
+        "#ffffff",
+        "#34495e"
+      ],
+      "notes": "Further out in Earth zone, transition feel",
+      "out_the_window": "Earth still large, Moon nearby; familiar space, \"just left.\""
+    },
+    {
+      "filename": "day_inner_01.jpg",
+      "category": "zone_day",
+      "context": "day",
+      "zone": "inner",
+      "variant": 1,
+      "style": "Inner solar system, Mars approach region",
+      "content_description": "Red-tinted space with Mars visible as a small reddish disc in distance, sun brighter and more prominent, fewer stars visible due to sun's brightness. Inner solar system feel.",
+      "text_overlay": null,
+      "mood": "Progress made, heading into inner planets region",
+      "color_palette": [
+        "#e74c3c",
+        "#f39c12",
+        "#d35400",
+        "#1a2332"
+      ],
+      "notes": "Day 15-49, Mars region approach",
+      "out_the_window": "Sun/Mars region; inner system, warmer space."
+    },
+    {
+      "filename": "day_inner_02.jpg",
+      "category": "zone_day",
+      "context": "day",
+      "zone": "inner",
+      "variant": 2,
+      "style": "Inner solar system, between Earth and Mars",
+      "content_description": "View of inner solar system with Sun prominent (but safe to view), Earth now just a bright blue dot, Mars a red dot ahead. Vastness of space between planets emphasized. Asteroid belt beginning to appear.",
+      "text_overlay": null,
+      "mood": "Long journey ahead, emptiness of space",
+      "color_palette": [
+        "#f39c12",
+        "#e67e22",
+        "#2c3e50",
+        "#1a2332"
+      ],
+      "notes": "Deep inner solar system, transition toward belt",
+      "out_the_window": "Sun/Mars region; inner system, warmer space."
+    },
+    {
+      "filename": "day_inner_03.jpg",
+      "category": "zone_day",
+      "context": "day",
+      "zone": "inner",
+      "variant": 3,
+      "style": "Inner solar system, Mars region",
+      "content_description": "Mars larger now, approaching Mars orbit distance. Phobos or Deimos moons potentially visible. Reddish cast to the view. Mars's polar ice caps visible as white spots.",
+      "text_overlay": null,
+      "mood": "Approaching first major planet milestone",
+      "color_palette": [
+        "#e74c3c",
+        "#c0392b",
+        "#ecf0f1",
+        "#1a2332"
+      ],
+      "notes": "Near Mars orbit, transition zone",
+      "out_the_window": "Sun/Mars region; inner system, warmer space."
+    },
+    {
+      "filename": "day_belt_01.jpg",
+      "category": "zone_day",
+      "context": "day",
+      "zone": "belt",
+      "variant": 1,
+      "style": "Asteroid belt region, rocky obstacles",
+      "content_description": "Multiple asteroids visible at various distances, largest ones showing cratered surfaces in detail. Spacecraft navigating through belt (not dense Hollywood style, but noticeable presence). Grey-brown rocks against black space.",
+      "text_overlay": null,
+      "mood": "Midpoint journey, navigating obstacles, adventure",
+      "color_palette": [
+        "#7f8c8d",
+        "#95a5a6",
+        "#34495e",
+        "#1a2332"
+      ],
+      "notes": "Day 50-77, asteroid belt region",
+      "out_the_window": "Asteroids, Jupiter in the distance; belt and gas giant."
+    },
+    {
+      "filename": "day_belt_02.jpg",
+      "category": "zone_day",
+      "context": "day",
+      "zone": "belt",
+      "variant": 2,
+      "style": "Asteroid belt, Jupiter in distance",
+      "content_description": "Asteroid belt with Jupiter visible as a large disc in the background, showing it's the target beyond the belt. Large asteroid in foreground showing detail, smaller ones scattered. Jupiter's bands faintly visible.",
+      "text_overlay": null,
+      "mood": "Midpoint, gas giant ahead, progress visible",
+      "color_palette": [
+        "#95a5a6",
+        "#e67e22",
+        "#f39c12",
+        "#1a2332"
+      ],
+      "notes": "Transition from belt to Jupiter region",
+      "out_the_window": "Asteroids, Jupiter in the distance; belt and gas giant."
+    },
+    {
+      "filename": "day_belt_03.jpg",
+      "category": "zone_day",
+      "context": "day",
+      "zone": "belt",
+      "variant": 3,
+      "style": "Dense asteroid region, Ceres visible",
+      "content_description": "View of denser asteroid cluster with Ceres (dwarf planet) visible as spherical body among irregular asteroids. Shows scale difference between Ceres and typical asteroids. Mining operations or markers visible on some asteroids.",
+      "text_overlay": null,
+      "mood": "Midpoint of journey, industrial frontier feel",
+      "color_palette": [
+        "#7f8c8d",
+        "#95a5a6",
+        "#bdc3c7",
+        "#1a2332"
+      ],
+      "notes": "Ceres region of asteroid belt",
+      "out_the_window": "Asteroids, Jupiter in the distance; belt and gas giant."
+    },
+    {
+      "filename": "day_outer_01.jpg",
+      "category": "zone_day",
+      "context": "day",
+      "zone": "outer",
+      "variant": 1,
+      "style": "Outer solar system, Jupiter region",
+      "content_description": "Jupiter dominating the view, Great Red Spot clearly visible, cloud bands in detail, multiple moons visible as dots (Io, Europa, Ganymede, Callisto). Spacecraft small against Jupiter's massive scale.",
+      "text_overlay": null,
+      "mood": "Awe at scale, deep in journey, gas giant majesty",
+      "color_palette": [
+        "#e67e22",
+        "#f39c12",
+        "#d35400",
+        "#1a2332"
+      ],
+      "notes": "Day 78-112, Jupiter region",
+      "out_the_window": "Saturn and rings, outer solar system; \"past the giants.\""
+    },
+    {
+      "filename": "day_outer_02.jpg",
+      "category": "zone_day",
+      "context": "day",
+      "zone": "outer",
+      "variant": 2,
+      "style": "Between Jupiter and Saturn",
+      "content_description": "Deep space between gas giants. Jupiter now smaller behind spacecraft, Saturn visible ahead but still small. Vastness of outer solar system emphasized. Stars more prominent, sun now just a bright star.",
+      "text_overlay": null,
+      "mood": "Deep space isolation, far from home, determined",
+      "color_palette": [
+        "#1a2332",
+        "#2c3e50",
+        "#34495e",
+        "#95a5a6"
+      ],
+      "notes": "Deep outer solar system, empty space",
+      "out_the_window": "Saturn and rings, outer solar system; \"past the giants.\""
+    },
+    {
+      "filename": "day_outer_03.jpg",
+      "category": "zone_day",
+      "context": "day",
+      "zone": "outer",
+      "variant": 3,
+      "style": "Saturn approach region",
+      "content_description": "Saturn visible with rings clearly distinguishable even from distance. Golden-brown planet with ring system showing gaps and structure. Titan moon visible as orange dot. Beautiful but cold view.",
+      "text_overlay": null,
+      "mood": "Late journey, approaching final waypoint, anticipation",
+      "color_palette": [
+        "#f1c40f",
+        "#f39c12",
+        "#e67e22",
+        "#1a2332"
+      ],
+      "notes": "Approaching Saturn, final major landmark before Uranus",
+      "out_the_window": "Saturn and rings, outer solar system; \"past the giants.\""
+    },
+    {
+      "filename": "day_uranus_01.jpg",
+      "category": "zone_day",
+      "context": "day",
+      "zone": "uranus",
+      "variant": 1,
+      "style": "Final approach, Uranus visible",
+      "content_description": "Uranus visible as blue-green disc, distinctive tilted axis apparent, faint rings visible if you look closely. Planet growing larger in view. Deep space around it, Saturn now behind spacecraft.",
+      "text_overlay": null,
+      "mood": "Final stretch, destination in sight, anticipation",
+      "color_palette": [
+        "#50e3c2",
+        "#4a90e2",
+        "#1abc9c",
+        "#1a2332"
+      ],
+      "notes": "Day 113-140, Uranus approach",
+      "out_the_window": "Uranus growing in the view; blue-green disk, final approach."
+    },
+    {
+      "filename": "day_uranus_02.jpg",
+      "category": "zone_day",
+      "context": "day",
+      "zone": "uranus",
+      "variant": 2,
+      "style": "Close approach to Uranus",
+      "content_description": "Uranus filling significant portion of view, blue-green color prominent, atmospheric bands visible, some moons visible (Titania, Oberon as dots). Planet details becoming clear, approaching orbit.",
+      "text_overlay": null,
+      "mood": "Almost there, final approach, excitement building",
+      "color_palette": [
+        "#4a90e2",
+        "#50e3c2",
+        "#3498db",
+        "#1a2332"
+      ],
+      "notes": "Very close to destination",
+      "out_the_window": "Uranus growing in the view; blue-green disk, final approach."
+    },
+    {
+      "filename": "day_uranus_03.jpg",
+      "category": "zone_day",
+      "context": "day",
+      "zone": "uranus",
+      "variant": 3,
+      "style": "Uranus orbital insertion",
+      "content_description": "Uranus extremely large in frame, spacecraft approaching orbital insertion. Blue-green planet filling most of view, atmospheric features visible, faint rings visible edge-on. Landing approach trajectory visible on instruments.",
+      "text_overlay": null,
+      "mood": "Final moments before arrival, mission nearly complete",
+      "color_palette": [
+        "#50e3c2",
+        "#1abc9c",
+        "#4a90e2",
+        "#2c3e50"
+      ],
+      "notes": "Final days before victory, orbit insertion phase",
+      "out_the_window": "Uranus growing in the view; blue-green disk, final approach."
+    },
+    {
+      "filename": "status_earth_01.jpg",
+      "category": "zone_status",
+      "context": "status",
+      "zone": "earth",
+      "variant": 1,
+      "style": "Status dashboard, Earth region",
+      "content_description": "View suitable for status screen: Earth prominent with orbital path indicators, holographic displays or UI elements showing mission stats, spacecraft visible with systems highlighted. Professional mission control aesthetic.",
+      "text_overlay": null,
+      "mood": "Mission beginning, organized, prepared",
+      "color_palette": [
+        "#3498db",
+        "#27ae60",
+        "#ecf0f1",
+        "#2c3e50"
+      ],
+      "notes": "Status screen version - more UI/dashboard feel than scenic",
+      "out_the_window": "Earth still large, Moon nearby; familiar space, \"just left.\"",
+      "interior_focus": "Main cockpit establishing shot \u2014 introduce the dashboard instruments, personal items, and early-mission readings. Everything fresh and new. Earth visible through viewport."
+    },
+    {
+      "filename": "status_earth_02.jpg",
+      "category": "zone_status",
+      "context": "status",
+      "zone": "earth",
+      "variant": 2,
+      "style": "Status dashboard, near-Earth operations",
+      "content_description": "Earth from orbital perspective with trajectory lines, waypoint markers, fuel indicators, chad stations visible in spacecraft interior. Mix of exterior view and interior systems. Dashboard-style composition.",
+      "text_overlay": null,
+      "mood": "Mission operations, systematic, professional",
+      "color_palette": [
+        "#3498db",
+        "#1abc9c",
+        "#ecf0f1",
+        "#34495e"
+      ],
+      "notes": "Alternate Earth status view with more UI elements",
+      "out_the_window": "Earth still large, Moon nearby; familiar space, \"just left.\"",
+      "interior_focus": "Navigation and trajectory focus \u2014 route displays, waypoint planning, resource gauges. Earth-Moon trajectory plotted. Operational and systematic."
+    },
+    {
+      "filename": "status_earth_03.jpg",
+      "category": "zone_status",
+      "context": "status",
+      "zone": "earth",
+      "variant": 3,
+      "style": "Status dashboard, departure phase",
+      "content_description": "Status view looking at Earth receding, navigation displays showing course to Mars, system readouts, chad preparing for long journey. Mix of nostalgia and determination.",
+      "text_overlay": null,
+      "mood": "Departure, leaving safety, beginning adventure",
+      "color_palette": [
+        "#2c3e50",
+        "#3498db",
+        "#95a5a6",
+        "#ecf0f1"
+      ],
+      "notes": "Departure phase status screen",
+      "out_the_window": "Earth still large, Moon nearby; familiar space, \"just left.\"",
+      "interior_focus": "Departure emotion \u2014 looking out at receding Earth through the viewport. Navigation showing course to Mars. The transition from home to journey."
+    },
+    {
+      "filename": "status_inner_01.jpg",
+      "category": "zone_status",
+      "context": "status",
+      "zone": "inner",
+      "variant": 1,
+      "style": "Status dashboard, Mars region",
+      "content_description": "Mars visible in status screen with trajectory overlays, system health displays, resource consumption charts, chad stations monitoring approach. Red-tinted dashboard view.",
+      "text_overlay": null,
+      "mood": "Mid-journey monitoring, systems nominal",
+      "color_palette": [
+        "#e74c3c",
+        "#f39c12",
+        "#ecf0f1",
+        "#2c3e50"
+      ],
+      "notes": "Inner solar system status monitoring",
+      "out_the_window": "Sun/Mars region; inner system, warmer space.",
+      "interior_focus": "Mars-region cockpit \u2014 red-tinted dashboard, temperature/heat themes, Mars visible through viewport as approach landmark."
+    },
+    {
+      "filename": "status_inner_02.jpg",
+      "category": "zone_status",
+      "context": "status",
+      "zone": "inner",
+      "variant": 2,
+      "style": "Status dashboard, between planets",
+      "content_description": "Status screen showing vast distance between Earth (behind) and Mars (ahead), fuel consumption tracking, chad activity schedules, life support systems functioning. Emphasis on journey duration.",
+      "text_overlay": null,
+      "mood": "Long haul, resource management focus",
+      "color_palette": [
+        "#34495e",
+        "#e67e22",
+        "#95a5a6",
+        "#ecf0f1"
+      ],
+      "notes": "Transit phase status screen",
+      "out_the_window": "Sun/Mars region; inner system, warmer space.",
+      "interior_focus": "Resource tracking in transit \u2014 fuel consumption, food inventory, systems health. The long haul between Earth and the belt. Duration and endurance themes."
+    },
+    {
+      "filename": "status_inner_03.jpg",
+      "category": "zone_status",
+      "context": "status",
+      "zone": "inner",
+      "variant": 3,
+      "style": "Status dashboard, Mars approach",
+      "content_description": "Status screen with Mars larger, orbital mechanics displays, chad preparing for Mars waypoint encounter, resource levels being checked before station arrival.",
+      "text_overlay": null,
+      "mood": "Approaching waypoint, preparation mode",
+      "color_palette": [
+        "#e74c3c",
+        "#c0392b",
+        "#ecf0f1",
+        "#2c3e50"
+      ],
+      "notes": "Pre-waypoint status check screen",
+      "out_the_window": "Sun/Mars region; inner system, warmer space.",
+      "interior_focus": "Pre-waypoint preparation \u2014 Mars growing on sensors, orbital mechanics displays, chad readying for the waypoint encounter."
+    },
+    {
+      "filename": "status_belt_01.jpg",
+      "category": "zone_status",
+      "context": "status",
+      "zone": "belt",
+      "variant": 1,
+      "style": "Status dashboard, asteroid belt navigation",
+      "content_description": "Status screen showing asteroid tracking radar, collision avoidance systems active, hull integrity monitors, chad at navigation stations. Rocky asteroids visible on sensors and through windows.",
+      "text_overlay": null,
+      "mood": "Active navigation, hazard awareness, focused",
+      "color_palette": [
+        "#7f8c8d",
+        "#95a5a6",
+        "#e74c3c",
+        "#ecf0f1"
+      ],
+      "notes": "Asteroid belt navigation status",
+      "out_the_window": "Asteroids, Jupiter in the distance; belt and gas giant.",
+      "interior_focus": "Asteroid navigation systems \u2014 proximity radar, collision avoidance displays, hull integrity monitors. Active hazard-awareness cockpit."
+    },
+    {
+      "filename": "status_belt_02.jpg",
+      "category": "zone_status",
+      "context": "status",
+      "zone": "belt",
+      "variant": 2,
+      "style": "Status dashboard, Ceres region",
+      "content_description": "Status screen showing Ceres on approach sensors, mining operations in background, resource levels (midpoint check), chad morale indicators, Jupiter visible on long-range sensors.",
+      "text_overlay": null,
+      "mood": "Midpoint journey, resource assessment",
+      "color_palette": [
+        "#95a5a6",
+        "#f39c12",
+        "#34495e",
+        "#ecf0f1"
+      ],
+      "notes": "Midpoint status assessment",
+      "out_the_window": "Asteroids, Jupiter in the distance; belt and gas giant.",
+      "interior_focus": "Midpoint resource assessment \u2014 Ceres on approach sensors, supply levels at midpoint check, Jupiter visible on long-range. Logistics and inventory."
+    },
+    {
+      "filename": "status_belt_03.jpg",
+      "category": "zone_status",
+      "context": "status",
+      "zone": "belt",
+      "variant": 3,
+      "style": "Status dashboard, exiting asteroid belt",
+      "content_description": "Status screen showing asteroid density decreasing, Jupiter looming on sensors, chad reviewing supplies after belt transit, systems check after navigation hazard zone.",
+      "text_overlay": null,
+      "mood": "Clearing hazard zone, approaching gas giant",
+      "color_palette": [
+        "#95a5a6",
+        "#e67e22",
+        "#2c3e50",
+        "#ecf0f1"
+      ],
+      "notes": "Post-belt status check",
+      "out_the_window": "Asteroids, Jupiter in the distance; belt and gas giant.",
+      "interior_focus": "Post-belt systems check \u2014 asteroid density decreasing on sensors, Jupiter looming, chad reviewing supplies after the hazard zone."
+    },
+    {
+      "filename": "status_outer_01.jpg",
+      "category": "zone_status",
+      "context": "status",
+      "zone": "outer",
+      "variant": 1,
+      "style": "Status dashboard, Jupiter region",
+      "content_description": "Status screen with Jupiter dominating external view, gravity assist calculations on displays, chad monitoring slingshot maneuver, radiation shielding active indicators. Gas giant operations.",
+      "text_overlay": null,
+      "mood": "Complex maneuver, deep space operations",
+      "color_palette": [
+        "#e67e22",
+        "#f39c12",
+        "#34495e",
+        "#ecf0f1"
+      ],
+      "notes": "Jupiter region status - gravity assist phase",
+      "out_the_window": "Saturn and rings, outer solar system; \"past the giants.\"",
+      "interior_focus": "Gas giant operations \u2014 Jupiter dominating external view, gravity assist displays, radiation shielding indicators. Complex maneuver cockpit."
+    },
+    {
+      "filename": "status_outer_02.jpg",
+      "category": "zone_status",
+      "context": "status",
+      "zone": "outer",
+      "variant": 2,
+      "style": "Status dashboard, deep outer system",
+      "content_description": "Status screen showing extreme isolation - both Jupiter behind and Saturn ahead visible but distant, chad in routine maintenance mode, life support systems emphasized, resource conservation displays.",
+      "text_overlay": null,
+      "mood": "Isolation, routine, endurance",
+      "color_palette": [
+        "#2c3e50",
+        "#34495e",
+        "#95a5a6",
+        "#ecf0f1"
+      ],
+      "notes": "Deep space isolation status",
+      "out_the_window": "Saturn and rings, outer solar system; \"past the giants.\"",
+      "interior_focus": "Deep space isolation \u2014 vast distance visible on navigation, routine maintenance mode, life support emphasis. The long quiet stretch."
+    },
+    {
+      "filename": "status_outer_03.jpg",
+      "category": "zone_status",
+      "context": "status",
+      "zone": "outer",
+      "variant": 3,
+      "style": "Status dashboard, Saturn approach",
+      "content_description": "Status screen with Saturn and rings visible on sensors, final waypoint approach planning, chad preparing for last supply stop, mission timeline showing final leg ahead to Uranus.",
+      "text_overlay": null,
+      "mood": "Final waypoint approach, anticipation",
+      "color_palette": [
+        "#f1c40f",
+        "#f39c12",
+        "#2c3e50",
+        "#ecf0f1"
+      ],
+      "notes": "Pre-Saturn status check",
+      "out_the_window": "Saturn and rings, outer solar system; \"past the giants.\"",
+      "interior_focus": "Saturn approach preparation \u2014 rings visible on sensors, final waypoint planning, mission timeline showing final leg to Uranus."
+    },
+    {
+      "filename": "status_uranus_01.jpg",
+      "category": "zone_status",
+      "context": "status",
+      "zone": "uranus",
+      "variant": 1,
+      "style": "Status dashboard, final approach",
+      "content_description": "Status screen with Uranus prominent, orbital insertion calculations on displays, chad preparing for arrival, landing site selection data, mission completion percentage high.",
+      "text_overlay": null,
+      "mood": "Final approach, mission nearly complete, focused",
+      "color_palette": [
+        "#50e3c2",
+        "#4a90e2",
+        "#2c3e50",
+        "#ecf0f1"
+      ],
+      "notes": "Final approach status",
+      "out_the_window": "Uranus growing in the view; blue-green disk, final approach.",
+      "interior_focus": "Final approach instruments \u2014 Uranus prominent through viewport, orbital insertion calculations, landing site data. Mission completion percentage high."
+    },
+    {
+      "filename": "status_uranus_02.jpg",
+      "category": "zone_status",
+      "context": "status",
+      "zone": "uranus",
+      "variant": 2,
+      "style": "Status dashboard, orbital operations",
+      "content_description": "Status screen in Uranus orbit, blue-green planet filling external view, chad conducting final systems checks, landing preparations visible, colony deployment equipment ready.",
+      "text_overlay": null,
+      "mood": "Final preparations, excitement, careful",
+      "color_palette": [
+        "#4a90e2",
+        "#1abc9c",
+        "#34495e",
+        "#ecf0f1"
+      ],
+      "notes": "Orbital operations status",
+      "out_the_window": "Uranus growing in the view; blue-green disk, final approach.",
+      "interior_focus": "Orbital operations \u2014 Uranus filling the viewport, final systems checks, colony deployment equipment readiness displays."
+    },
+    {
+      "filename": "status_uranus_03.jpg",
+      "category": "zone_status",
+      "context": "status",
+      "zone": "uranus",
+      "variant": 3,
+      "style": "Status dashboard, landing approach",
+      "content_description": "Status screen during landing approach, Uranus surface or upper atmosphere visible, descent trajectory on displays, chad at landing stations, all systems green for final descent.",
+      "text_overlay": null,
+      "mood": "Final moments, mission completion imminent",
+      "color_palette": [
+        "#50e3c2",
+        "#3498db",
+        "#2c3e50",
+        "#ecf0f1"
+      ],
+      "notes": "Pre-landing status screen",
+      "out_the_window": "Uranus growing in the view; blue-green disk, final approach.",
+      "interior_focus": "Landing descent \u2014 atmosphere or surface visible through viewport, descent trajectory on displays, all systems green for final approach. Maximum energy and activity."
+    },
+    {
+      "filename": "Waypoint-Deep_Space_69.jpg",
+      "category": "waypoint",
+      "context": "waypoint",
+      "waypoint_name": "Deep Space 69",
+      "style": "Isolation, deep space, minimal",
+      "content_description": "Deep space between Saturn and Uranus, empty void, distant stars, no nearby planets visible, spacecraft alone in vast darkness, perhaps distant nebula or galactic plane. Station beacon or marker barely visible.",
+      "text_overlay": null,
+      "mood": "Isolation, loneliness, deep space, far from everything",
+      "color_palette": [
+        "#1a2332",
+        "#2c3e50",
+        "#4a4a6a",
+        "#9b59b6"
+      ],
+      "notes": "75-80% of journey; alone in the void",
+      "out_the_window": "Empty deep space between Saturn and Uranus\u2014distant stars, maybe nebula; alone in the void."
+    },
+    {
+      "filename": "Waypoint-Uranus_Arrival.jpg",
+      "category": "waypoint",
+      "context": "waypoint",
+      "waypoint_name": "Uranus Arrival",
+      "style": "Arrival, accomplishment, final destination",
+      "content_description": "Uranus filling frame with blue-green color, faint rings visible, spacecraft approaching for landing, planet surface or atmosphere details visible, some moons visible as small dots. Final destination achieved.",
+      "text_overlay": null,
+      "mood": "Arrival, accomplishment, relief, excitement",
+      "color_palette": [
+        "#50e3c2",
+        "#4a90e2",
+        "#1abc9c",
+        "#1a2332"
+      ],
+      "notes": "100% - destination reached",
+      "out_the_window": "Uranus filling the view, blue-green disk, maybe rings or moons; final destination."
+    },
+    {
+      "filename": "Event-03.jpg",
+      "category": "event",
+      "context": "event",
+      "variant": 3,
+      "style": "Danger, urgency, natural cosmic forces",
+      "content_description": "Solar storm or radiation burst, bright energy waves, spacecraft shields activated, dramatic lighting effects, dangerous but beautiful cosmic phenomenon, chad taking evasive action.",
+      "text_overlay": null,
+      "mood": "Danger, urgency, natural cosmic forces",
+      "color_palette": [
+        "#e74c3c",
+        "#f39c12",
+        "#ffffff",
+        "#1a2332"
+      ],
+      "notes": "Event variant - solar/radiation hazard",
+      "out_the_window": "Whatever the random event depicts\u2014e.g. asteroid field, nebula/signal, solar storm, or derelict; the \"something is happening\" moment outside the window."
+    },
+    {
+      "filename": "Event-04.jpg",
+      "category": "event",
+      "context": "event",
+      "variant": 4,
+      "style": "Mystery, curiosity, unease, discovery",
+      "content_description": "Derelict spacecraft or station discovered, mysterious ancient or abandoned structure floating in space, opportunity or warning, scanner readings active, investigation decision moment.",
+      "text_overlay": null,
+      "mood": "Mystery, curiosity, unease, discovery",
+      "color_palette": [
+        "#7f8c8d",
+        "#95a5a6",
+        "#3498db",
+        "#2c3e50"
+      ],
+      "notes": "Event variant - derelict discovery",
+      "out_the_window": "Whatever the random event depicts\u2014e.g. asteroid field, nebula/signal, solar storm, or derelict; the \"something is happening\" moment outside the window."
+    },
+    {
+      "filename": "post_event_success_01.jpg",
+      "category": "post_event",
+      "context": "post_event",
+      "variant": 1,
+      "outcome": "success",
+      "style": "Relief and celebration \u2014 crisis resolved through action",
+      "content_description": "Ship cockpit interior after a successfully resolved crisis. All instrument indicators showing green/nominal. The atmosphere is one of active relief \u2014 the danger just passed, the solution just worked. Warning lights that were recently red are now clearing to green. Navigation displays show a clear path ahead. The cockpit shows signs of the crisis that just ended (a tool left out, a panel recently closed) but everything is functioning. The mood is \"we just pulled that off.\"",
+      "text_overlay": null,
+      "mood": "Relief, active triumph, the adrenaline of a crisis just survived",
+      "color_palette": [
+        "#27ae60",
+        "#2ecc71",
+        "#ecf0f1",
+        "#2c3e50"
+      ],
+      "notes": "Post-event success variant 1 \u2014 the \"crisis resolved\" flavor. Should feel like the moment right after the fix works. Interior cockpit scene, no specific exterior vista.",
+      "out_the_window": null,
+      "interior_focus": "Instruments transitioning from warning to nominal, evidence of recent hands-on crisis resolution, the immediate aftermath energy"
+    },
+    {
+      "filename": "post_event_success_02.jpg",
+      "category": "post_event",
+      "context": "post_event",
+      "variant": 2,
+      "outcome": "success",
+      "style": "Competence on display \u2014 systems repaired, everything working",
+      "content_description": "Ship cockpit interior after successful repair work. Systems that were previously malfunctioning now showing healthy readings. A repaired panel or component visible \u2014 the fix is fresh. Engineering tools or repair materials present on the console. All gauges reading nominal. The cockpit feels cleaner, more orderly than during the crisis \u2014 someone tidied up after fixing things. The mood is quiet professional satisfaction.",
+      "text_overlay": null,
+      "mood": "Quiet competence, engineering pride, the satisfaction of a good repair",
+      "color_palette": [
+        "#27ae60",
+        "#2ecc71",
+        "#ecf0f1",
+        "#2c3e50"
+      ],
+      "notes": "Post-event success variant 2 \u2014 the \"systems repaired\" flavor. Should feel like the calm after a successful fix. Interior cockpit scene, no specific exterior vista.",
+      "out_the_window": null,
+      "interior_focus": "Freshly repaired systems, engineering tools, the visible evidence of competent maintenance, instrument readings restored to healthy levels"
+    },
+    {
+      "filename": "post_event_success_03.jpg",
+      "category": "post_event",
+      "context": "post_event",
+      "variant": 3,
+      "outcome": "success",
+      "style": "Abundance restored \u2014 resources secured, supplies replenished",
+      "content_description": "Ship cockpit interior after a successful resource acquisition or resupply. Resource gauges and supply indicators showing improved levels \u2014 fuel, food, materials all reading higher than before. New supplies visible through a doorway or on a manifest display. The cockpit feels well-stocked, optimistic. Inventory displays updated with fresh numbers. The mood is the particular satisfaction of being resupplied \u2014 not just surviving but being better off than before.",
+      "text_overlay": null,
+      "mood": "Satisfaction, abundance, the comfort of a restocked ship",
+      "color_palette": [
+        "#27ae60",
+        "#2ecc71",
+        "#ecf0f1",
+        "#2c3e50"
+      ],
+      "notes": "Post-event success variant 3 \u2014 the \"resources secured\" flavor. Should feel like the ship just got a resupply windfall. Interior cockpit scene, no specific exterior vista.",
+      "out_the_window": null,
+      "interior_focus": "Resource gauges at healthy levels, supply inventory displays showing improvement, evidence of fresh provisions, the well-stocked feeling"
+    },
+    {
+      "filename": "post_event_failure_01.jpg",
+      "category": "post_event",
+      "context": "post_event",
+      "variant": 1,
+      "outcome": "failure",
+      "style": "Damage taken \u2014 systems compromised, warning indicators active",
+      "content_description": "Ship cockpit interior after taking damage. New warning lights active on the dashboard \u2014 hull integrity reduced, system alerts visible. A damage assessment readout or diagnostic display showing what went wrong. The cockpit shows physical evidence of the hit: something knocked loose, an indicator cracked, a panel sparking or dimmed. Not catastrophic \u2014 the ship is still flying \u2014 but clearly hurt. Navigation continues but with new constraints visible.",
+      "text_overlay": null,
+      "mood": "Concern, damage assessment, the weight of a setback absorbed",
+      "color_palette": [
+        "#e74c3c",
+        "#c0392b",
+        "#34495e",
+        "#ecf0f1"
+      ],
+      "notes": "Post-event failure variant 1 \u2014 the \"damage taken\" flavor. Should feel like the ship just absorbed a hit and is assessing. Interior cockpit scene, no specific exterior vista.",
+      "out_the_window": null,
+      "interior_focus": "Fresh warning indicators, damage readouts, physical evidence of impact on cockpit fixtures, systems in degraded-but-functional state"
+    },
+    {
+      "filename": "post_event_failure_02.jpg",
+      "category": "post_event",
+      "context": "post_event",
+      "variant": 2,
+      "outcome": "failure",
+      "style": "Resources lost \u2014 supplies depleted, operating in scarcity",
+      "content_description": "Ship cockpit interior after losing resources. Supply gauges and resource displays in warning range \u2014 fuel lower, food supply reduced, materials depleted. The cockpit feels thinner, less abundant than before. Some systems dimmed or in power-saving mode to conserve energy. Inventory displays showing reduced numbers. The mood is the specific glumness of having less than you did an hour ago \u2014 not desperate, but aware of new limits.",
+      "text_overlay": null,
+      "mood": "Loss, scarcity awareness, the glumness of depletion",
+      "color_palette": [
+        "#e74c3c",
+        "#c0392b",
+        "#34495e",
+        "#ecf0f1"
+      ],
+      "notes": "Post-event failure variant 2 \u2014 the \"resources lost\" flavor. Should feel like the ship just got poorer. Interior cockpit scene, no specific exterior vista.",
+      "out_the_window": null,
+      "interior_focus": "Resource gauges in warning range, depleted inventory displays, systems in conservation mode, the visual difference between well-stocked and running-low"
+    },
+    {
+      "filename": "post_event_failure_03.jpg",
+      "category": "post_event",
+      "context": "post_event",
+      "variant": 3,
+      "outcome": "failure",
+      "style": "Regrouping \u2014 aftermath processed, determined to continue despite setback",
+      "content_description": "Ship cockpit interior mid-recovery from a setback. Warning lights fading from red back toward amber \u2014 not fully recovered but stabilizing. Partial repairs visible. The cockpit shows resilience: the chad has addressed the worst of the damage and is pushing forward. Some systems restored, some still compromised. The mood is determination despite bruising \u2014 not defeated, just dented. Evidence of both the setback and the recovery effort.",
+      "text_overlay": null,
+      "mood": "Cautious determination, resilience after failure, the resolve to continue",
+      "color_palette": [
+        "#e74c3c",
+        "#c0392b",
+        "#34495e",
+        "#ecf0f1"
+      ],
+      "notes": "Post-event failure variant 3 \u2014 the \"regrouping\" flavor. Should feel like the chad is picking themselves up. Interior cockpit scene, no specific exterior vista.",
+      "out_the_window": null,
+      "interior_focus": "Systems partially restored, repair work in progress, the visual transition from crisis back toward normal operations, determination visible in the instruments"
+    },
+    {
+      "filename": "day_earth_04.jpg",
+      "category": "zone_day",
+      "context": "day",
+      "zone": "earth",
+      "variant": 4,
+      "style": "Earth zone, nightside perspective \u2014 auroral light, city glow, familiar-yet-alien",
+      "content_description": "Earth's nightside from orbit \u2014 the dark face of the planet lit by aurora borealis ribbons across polar regions and clusters of city lights on the continents. A dramatically different perspective from the daytime Earth views: familiar planet rendered alien and beautiful by darkness. The spacecraft visible in the scene, caught in the aurora's glow. Stars sharp and clear in the unlit sky around the planet's limb.",
+      "text_overlay": null,
+      "mood": "Familiar made strange, nocturnal beauty, intimate view of home from a new angle",
+      "color_palette": [
+        "#3498db",
+        "#1a2332",
+        "#ffffff",
+        "#2c3e50"
+      ],
+      "notes": "Earth zone variant offering maximum visual contrast to the daytime departure views in 01-03. The nightside perspective shows Earth as both recognizable and transformed.",
+      "out_the_window": "Earth still large, Moon nearby; familiar space, \"just left.\""
+    },
+    {
+      "filename": "status_earth_04.jpg",
+      "category": "zone_status",
+      "context": "status",
+      "zone": "earth",
+      "variant": 4,
+      "style": "Ship interior, alternative perspective \u2014 a different part of the ship or a different cockpit focus than variants 01-03",
+      "content_description": "Ship interior in the Earth zone \u2014 an alternative view from the standard cockpit perspectives. Could be a different room (chad quarters, cargo area, secondary console), a different angle on the main cockpit, or a different instrument cluster in focus. Earth-zone blue light comes through any viewport. The interior should feel fresh and early-journey: well-stocked, personal items recently arranged, everything still new. Distinct from the other earth status variants in composition and emphasis.",
+      "text_overlay": null,
+      "mood": "Mission beginning, fresh start, early-journey domesticity",
+      "color_palette": [
+        "#3498db",
+        "#ecf0f1",
+        "#2c3e50",
+        "#34495e"
+      ],
+      "notes": "Fourth status variant for earth zone",
+      "out_the_window": "Earth still large, Moon nearby; familiar space, \"just left.\"",
+      "interior_focus": "Alternative interior perspective \u2014 different angle, different room, or different instrument focus than earth_01 through earth_03. Early-journey feeling: everything fresh and new."
+    },
+    {
+      "filename": "day_inner_04.jpg",
+      "category": "zone_day",
+      "context": "day",
+      "zone": "inner",
+      "variant": 4,
+      "style": "Inner zone, solar spectacle \u2014 overwhelming natural power, the Sun at its most dramatic",
+      "content_description": "A massive solar prominence arching from the Sun's surface \u2014 an enormous curved structure of plasma and energy, dwarfing the spacecraft. The Sun partially in frame as a blazing disc at the image edge, the prominence rendered as a great curving arch of energy. The spacecraft caught in the reflected light, hull blazing with solar illumination. Radiation warnings implied by the intensity. Stars washed out by solar glare. Overwhelming natural scale.",
+      "text_overlay": null,
+      "mood": "Awe at overwhelming natural power, the Sun as both beautiful and dangerous",
+      "color_palette": [
+        "#1a2332",
+        "#2c3e50",
+        "#95a5a6",
+        "#ecf0f1"
+      ],
+      "notes": "Inner zone variant providing maximum dramatic spectacle. The solar prominence creates a unique composition distinct from the Mars-approach focus of 01-03.",
+      "out_the_window": "Sun/Mars region; inner system, warmer space."
+    },
+    {
+      "filename": "status_inner_04.jpg",
+      "category": "zone_status",
+      "context": "status",
+      "zone": "inner",
+      "variant": 4,
+      "style": "Ship interior, alternative perspective \u2014 inner system heat and light affecting a different part of the ship",
+      "content_description": "Ship interior in the inner solar system zone \u2014 an alternative view showing how the inner system's harsh sunlight and heat affect the ship's environment. Mars/Sun region warmth coming through viewports, casting orange-red light. Different interior focus than the other inner variants: could emphasize engineering systems dealing with heat, a different workstation, or how the chad has adapted to the warmer zone. Temperature and solar radiation themes prominent.",
+      "text_overlay": null,
+      "mood": "Inner system heat, systems adaptation, mid-journey operations",
+      "color_palette": [
+        "#1a2332",
+        "#2c3e50",
+        "#95a5a6",
+        "#ecf0f1"
+      ],
+      "notes": "Fourth status variant for inner zone",
+      "out_the_window": "Sun/Mars region; inner system, warmer space.",
+      "interior_focus": "Alternative inner-zone interior \u2014 different angle or room, with inner system warmth (orange-red from Sun/Mars) affecting the environment. Heat management or solar effects visible."
+    },
+    {
+      "filename": "day_belt_04.jpg",
+      "category": "zone_day",
+      "context": "day",
+      "zone": "belt",
+      "variant": 4,
+      "style": "Belt zone, industrial peak \u2014 mining operations at full scale, busy and chaotic",
+      "content_description": "A dense asteroid cluster with full industrial mining operations at peak activity \u2014 cranes, ore processors, conveyor systems, habitat pods, floodlights on rocks, multiple spacecraft in a busy work zone. The space equivalent of a highway construction site. The player's spacecraft passing through, dwarfed by the industrial scale. Safety markers and warning buoys between larger asteroids. The belt at its most populated and active.",
+      "text_overlay": null,
+      "mood": "Industrial chaos, the belt as a working frontier, crowded and active",
+      "color_palette": [
+        "#1a2332",
+        "#2c3e50",
+        "#95a5a6",
+        "#ecf0f1"
+      ],
+      "notes": "Belt zone variant showing the belt's industrial character at maximum activity, contrasting with the navigation-and-transit focus of 01-03.",
+      "out_the_window": "Asteroids, Jupiter in the distance; belt and gas giant."
+    },
+    {
+      "filename": "status_belt_04.jpg",
+      "category": "zone_status",
+      "context": "status",
+      "zone": "belt",
+      "variant": 4,
+      "style": "Ship interior, alternative perspective \u2014 belt zone industrial grey and asteroid proximity in a different interior context",
+      "content_description": "Ship interior in the asteroid belt zone \u2014 an alternative view showing belt-zone conditions from a different part of the ship or a different cockpit focus. Grey asteroid light through viewports, industrial belt-region ambiance. Different emphasis than the other belt variants: could focus on navigation/avoidance systems, cargo and supply tracking at the midpoint, or how the chad has settled into the rhythm of belt transit. Proximity to rocks and midpoint-of-journey logistics.",
+      "text_overlay": null,
+      "mood": "Belt navigation, midpoint operations, industrial focus",
+      "color_palette": [
+        "#1a2332",
+        "#2c3e50",
+        "#95a5a6",
+        "#ecf0f1"
+      ],
+      "notes": "Fourth status variant for belt zone",
+      "out_the_window": "Asteroids, Jupiter in the distance; belt and gas giant.",
+      "interior_focus": "Alternative belt-zone interior \u2014 different angle or room, with belt grey filtering through viewports. Midpoint journey logistics or asteroid proximity theme."
+    },
+    {
+      "filename": "day_outer_04.jpg",
+      "category": "zone_day",
+      "context": "day",
+      "zone": "outer",
+      "variant": 4,
+      "style": "Outer zone, moon gallery \u2014 multiple worlds visible, a crowded sky",
+      "content_description": "Multiple outer system moons simultaneously visible \u2014 a crowded sky of worlds around Jupiter or Saturn. Several moons at various sizes and distances: some volcanic, some icy, some heavily cratered. A gas giant's atmospheric banding at the frame edge providing warm light. The spacecraft small in the scene, surrounded by moons. The sheer number of worlds in one view conveys the outer system's richness.",
+      "text_overlay": null,
+      "mood": "The solar system's richness revealed, a sky full of worlds, wonder at variety",
+      "color_palette": [
+        "#1a2332",
+        "#2c3e50",
+        "#95a5a6",
+        "#ecf0f1"
+      ],
+      "notes": "Outer zone variant providing a unique crowded-sky composition distinct from the single-planet or void focus of 01-03.",
+      "out_the_window": "Saturn and rings, outer solar system; \"past the giants.\""
+    },
+    {
+      "filename": "status_outer_04.jpg",
+      "category": "zone_status",
+      "context": "status",
+      "zone": "outer",
+      "variant": 4,
+      "style": "Ship interior, alternative perspective \u2014 outer system void and deep-space isolation visible in a different interior context",
+      "content_description": "Ship interior in the outer solar system zone \u2014 an alternative view showing how the deep outer system affects a different part of the ship. Dark void through viewports with Saturn or Jupiter's warm glow as the only external light source. Different focus than the other outer variants: could emphasize communications (signals fading), long-haul endurance, or how the chad has made the interior a home against the void outside. The contrast between warm interior and cold exterior is strongest here.",
+      "text_overlay": null,
+      "mood": "Deep space isolation, warm interior against cold void, long-haul endurance",
+      "color_palette": [
+        "#1a2332",
+        "#2c3e50",
+        "#95a5a6",
+        "#ecf0f1"
+      ],
+      "notes": "Fourth status variant for outer zone",
+      "out_the_window": "Saturn and rings, outer solar system; \"past the giants.\"",
+      "interior_focus": "Alternative outer-zone interior \u2014 different angle or room, with deep space darkness and distant gas giant glow through viewports. Isolation, endurance, or communication themes."
+    },
+    {
+      "filename": "day_uranus_04.jpg",
+      "category": "zone_day",
+      "context": "day",
+      "zone": "uranus",
+      "variant": 4,
+      "style": "Uranus zone, top-down ring geometry \u2014 dramatic angular perspective, geometric elegance",
+      "content_description": "Uranus viewed from above the ring plane \u2014 the planet centered as a smooth disc, rings spreading outward as concentric circles. The geometric precision is striking: a natural bullseye pattern. Moons visible at various ring distances as small dots. The spacecraft approaching on a curving trajectory. The view provides maximum geometric drama and a completely different perspective from the side-approach angles in other Uranus variants.",
+      "text_overlay": null,
+      "mood": "Geometric beauty, a different perspective on the destination, elegant and striking",
+      "color_palette": [
+        "#1a2332",
+        "#2c3e50",
+        "#95a5a6",
+        "#ecf0f1"
+      ],
+      "notes": "Uranus zone variant providing maximum geometric drama and contrast to the side-view approach shots in 01-03.",
+      "out_the_window": "Uranus growing in the view; blue-green disk, final approach."
+    },
+    {
+      "filename": "status_uranus_04.jpg",
+      "category": "zone_status",
+      "context": "status",
+      "zone": "uranus",
+      "variant": 4,
+      "style": "Ship interior, alternative perspective \u2014 Uranus teal light flooding a different part of the ship in the final approach",
+      "content_description": "Ship interior in the Uranus zone \u2014 an alternative view showing final-approach energy in a different part of the ship or from a different cockpit angle. Uranus's distinctive teal-blue light flooding through viewports. Different focus than the other Uranus variants: could emphasize colony preparation systems, landing checklists, or the accumulation of the entire journey's artifacts visible in one frame. Maximum anticipation energy \u2014 the destination is right there.",
+      "text_overlay": null,
+      "mood": "Final approach excitement, preparation, the journey's accumulated story visible",
+      "color_palette": [
+        "#1a2332",
+        "#2c3e50",
+        "#95a5a6",
+        "#ecf0f1"
+      ],
+      "notes": "Fourth status variant for uranus zone",
+      "out_the_window": "Uranus growing in the view; blue-green disk, final approach.",
+      "interior_focus": "Alternative Uranus-zone interior \u2014 different angle or room, with teal light from Uranus flooding in. Landing preparation, colony deployment, or journey-culmination theme."
+    }
+  ]
+}

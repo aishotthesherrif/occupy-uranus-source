@@ -1,0 +1,25 @@
+{
+  "waypoints": {
+    "Earth Orbit": "Waypoint-Earth_Launch.jpg",
+    "Mars Orbit": "Waypoint-Mars-Flyby.jpg",
+    "Asteroid Belt": ["Waypoint-Asteroid_Belt.png", "Waypoint-Asteroid_Belt2.png"],
+    "Saturn Orbit": "Waypoint-Saturn_Rings.jpg",
+    "Jupiter Slingshot": "Waypoint-Jupiter_Slingshot.jpg",
+    "Moon": "Waypoint-Moon.jpg",
+    "Ceres Station": "Waypoint-Ceres_Station.jpg",
+    "Europa Outpost": "Waypoint-Europa_Outpost.png.jpg",
+    "Titan Colony": "Waypoint-Titan_Colony.png.jpg"
+  },
+  "milestones": {
+    "25": "milestone-25.jpg",
+    "50": "milestone-50.jpg",
+    "75": "milestone-75.jpg"
+  },
+  "space_views": ["Space-View-02.png", "Space-View-03.png", "Space-View-04.png"],
+  "events": ["Event-01.jpg", "Event-02.jpg"],
+  "status": ["Status-01.png", "Status-02.png"],
+  "title": "Title-01.jpg",
+  "continue": "Continue-01.jpg",
+  "bulk": "BulkImage.png",
+  "fallback": "Continue-01.jpg"
+}

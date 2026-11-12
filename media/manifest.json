@@ -1,0 +1,317 @@
+[
+  {
+    "filename": "Title-01.png",
+    "file_path": "/Users/cclayton/dev/ColonyTrail/image_pipeline/out3/Title-01.png",
+    "prompt_used": "Theme: Retro sci-fi travel poster pixel art with industrial 16-bit game aesthetics. Quality: Chunky pixelated digital painting with halftone texture, canvas grain, and gritty overlay. Mood: Epic, adventurous, humorous undertone. Dramatic view of Uranus from space with a spacecraft approaching. Planet should be prominent, showing its distinctive blue-green color and faint rings. Stars and nebulae in background. Style: Bold, eye-catching, game title screen. Use colors: #1a2332, #4a90e2, #50e3c2, #ffffff. Include text overlay: \"OCCUPY URANUS\" with Large, bold, retro sci-fi font, glowing effect. Note: This is the main menu screen - make it memorable and inviting",
+    "model_key": "chatgpt-image-latest",
+    "duration_ms": 52083
+  },
+  {
+    "filename": "gameover.jpg",
+    "file_path": "/Users/cclayton/dev/ColonyTrail/image_pipeline/out3/gameover.jpg",
+    "prompt_used": "Theme: Retro sci-fi travel poster pixel art with industrial 16-bit game aesthetics. Quality: Chunky pixelated digital painting with halftone texture, canvas grain, and gritty overlay. Mood: Loss, dramatic end, but dignified. Disabled spacecraft drifting in deep space, emergency lights flickering, debris floating nearby. Distant planets visible but unreachable. Empty space conveys isolation. Style: Somber but not depressing, dramatic. Use colors: #1a1a2e, #e43f5a, #ff6b6b, #4a4a6a. Note: Should feel like 'end of mission' not 'horror' - respectful game over",
+    "model_key": "chatgpt-image-latest",
+    "duration_ms": 45669
+  },
+  {
+    "filename": "victory.jpg",
+    "file_path": "/Users/cclayton/dev/ColonyTrail/image_pipeline/out3/victory.jpg",
+    "prompt_used": "Theme: Retro sci-fi travel poster pixel art with industrial 16-bit game aesthetics. Quality: Chunky pixelated digital painting with halftone texture, canvas grain, and gritty overlay. Mood: Achievement, celebration, pride. Spacecraft successfully landed on Uranus surface with colony structures deploying. Uranus's blue-green atmosphere visible above, Earth tiny in the distance. Victory flags or markers planted. Style: Triumphant, celebratory, bright. Use colors: #50e3c2, #4a90e2, #ffd700, #ffffff. Note: Player should feel accomplished - this is the win screen",
+    "model_key": "chatgpt-image-latest",
+    "duration_ms": 52037
+  },
+  {
+    "filename": "Continue-01.png",
+    "file_path": "/Users/cclayton/dev/ColonyTrail/image_pipeline/out3/Continue-01.png",
+    "prompt_used": "Theme: Retro sci-fi travel poster pixel art with industrial 16-bit game aesthetics. Quality: Chunky pixelated digital painting with halftone texture, canvas grain, and gritty overlay. Mood: Neutral, functional, safe harbor. Generic space station or waypoint view - modular habitat modules connected by corridors, docked spacecraft, supply crates visible. Functional, industrial aesthetic. Style: Generic space station interior or exterior. Use colors: #34495e, #95a5a6, #3498db, #ecf0f1. Note: Fallback image for shop when no specific waypoint image available",
+    "model_key": "chatgpt-image-latest",
+    "duration_ms": 50826
+  },
+  {
+    "filename": "Event-01.png",
+    "file_path": "/Users/cclayton/dev/ColonyTrail/image_pipeline/out3/Event-01.png",
+    "prompt_used": "Theme: Retro sci-fi travel poster pixel art with industrial 16-bit game aesthetics. Quality: Chunky pixelated digital painting with halftone texture, canvas grain, and gritty overlay. Mood: Tense, exciting, unexpected. Spacecraft encountering an asteroid field - multiple rocky asteroids of various sizes surrounding the ship, navigation lights on, slight motion blur on asteroids to suggest speed and danger. Style: Dramatic, attention-grabbing, tense. Use colors: #2c3e50, #e74c3c, #95a5a6, #f39c12. Note: Generic enough to work for multiple event types - conveys 'something is happening'",
+    "model_key": "chatgpt-image-latest",
+    "duration_ms": 47823
+  },
+  {
+    "filename": "Event-02.png",
+    "file_path": "/Users/cclayton/dev/ColonyTrail/image_pipeline/out3/Event-02.png",
+    "prompt_used": "Theme: Retro sci-fi travel poster pixel art with industrial 16-bit game aesthetics. Quality: Chunky pixelated digital painting with halftone texture, canvas grain, and gritty overlay. Mood: Mystery, wonder, slight unease. Strange cosmic phenomenon - nebula with unusual patterns, distant unknown signal source glowing, spacecraft instruments lit up. Could be alien artifact, spatial anomaly, or mysterious transmission. Style: Mysterious, intriguing, slightly ominous. Use colors: #1a2332, #9b59b6, #3498db, #1abc9c. Note: Contrasts with Event-01 - more mysterious than dangerous",
+    "model_key": "chatgpt-image-latest",
+    "duration_ms": 49167
+  },
+  {
+    "filename": "milestone-25.png",
+    "file_path": "/Users/cclayton/dev/ColonyTrail/image_pipeline/out3/milestone-25.png",
+    "prompt_used": "Theme: Retro sci-fi travel poster pixel art with industrial 16-bit game aesthetics. Quality: Chunky pixelated digital painting with halftone texture, canvas grain, and gritty overlay. Milestone: 25% journey complete. Mood: Achievement, progress, encouragement. Spacecraft passing Mars orbit (red planet visible in distance), 1/4 journey marker hologram or display showing '25% COMPLETE'. Stars and inner solar system visible. Style: Celebratory, achievement marker. Use colors: #e74c3c, #f39c12, #3498db, #ffffff. Include text overlay: \"25%\" with Large percentage display, holographic or digital readout style. Note: First major milestone - should feel like meaningful progress",
+    "model_key": "chatgpt-image-latest",
+    "duration_ms": 51945
+  },
+  {
+    "filename": "milestone-50.png",
+    "file_path": "/Users/cclayton/dev/ColonyTrail/image_pipeline/out3/milestone-50.png",
+    "prompt_used": "Theme: Retro sci-fi travel poster pixel art with industrial 16-bit game aesthetics. Quality: Chunky pixelated digital painting with halftone texture, canvas grain, and gritty overlay. Milestone: 50% journey complete. Mood: Halfway there! Momentum, determination. Spacecraft at asteroid belt / Jupiter region, halfway marker prominent. Jupiter visible in distance if asteroid belt shown. Digital display or hologram showing '50% COMPLETE'. Style: Celebratory, halfway point marker. Use colors: #f39c12, #e67e22, #3498db, #ffffff. Include text overlay: \"50%\" with Large percentage display, holographic or digital readout style. Note: Midpoint celebration - player is halfway to Uranus",
+    "model_key": "chatgpt-image-latest",
+    "duration_ms": 47564
+  },
+  {
+    "filename": "milestone-75.png",
+    "file_path": "/Users/cclayton/dev/ColonyTrail/image_pipeline/out3/milestone-75.png",
+    "prompt_used": "Theme: Retro sci-fi travel poster pixel art with industrial 16-bit game aesthetics. Quality: Chunky pixelated digital painting with halftone texture, canvas grain, and gritty overlay. Milestone: 75% journey complete. Mood: Almost there! Anticipation, final push. Spacecraft approaching Saturn region (Saturn and rings visible in distance), 3/4 journey marker showing '75% COMPLETE'. Almost there - Uranus should be suggested in extreme distance. Style: Celebratory, final stretch marker. Use colors: #f1c40f, #9b59b6, #3498db, #ffffff. Include text overlay: \"75%\" with Large percentage display, holographic or digital readout style. Note: Final milestone before arrival - should build anticipation",
+    "model_key": "chatgpt-image-latest",
+    "duration_ms": 52107
+  },
+  {
+    "filename": "Waypoint-Earth_Launch.png",
+    "file_path": "/Users/cclayton/dev/ColonyTrail/image_pipeline/out3/Waypoint-Earth_Launch.png",
+    "prompt_used": "Theme: Retro sci-fi travel poster pixel art with industrial 16-bit game aesthetics. Quality: Chunky pixelated digital painting with halftone texture, canvas grain, and gritty overlay. Waypoint: Earth Orbit. Mood: Beginning of journey, hope, excitement, leaving home. Earth from low orbit, spacecraft in foreground, launch facilities visible on Earth's surface, International Space Station or orbital platform nearby. Blue planet, white clouds, clearly recognizable as home. Style: Familiar, starting point, hopeful. Use colors: #3498db, #27ae60, #ffffff, #2c3e50. Note: Starting point - should feel like 'leaving home' for adventure",
+    "model_key": "chatgpt-image-latest",
+    "duration_ms": 51020
+  },
+  {
+    "filename": "Waypoint-Moon.png.jpg",
+    "file_path": "/Users/cclayton/dev/ColonyTrail/image_pipeline/out3/Waypoint-Moon.png.jpg",
+    "prompt_used": "Theme: Retro sci-fi travel poster pixel art with industrial 16-bit game aesthetics. Quality: Chunky pixelated digital painting with halftone texture, canvas grain, and gritty overlay. Waypoint: Moon. Mood: First waypoint, progress made, still close to home. Moon base or lunar station on Moon's surface, Earth visible in the background (smaller), grey lunar surface with craters, spacecraft docked at station. Mix of familiar and alien. Style: Familiar but otherworldly, first stop. Use colors: #95a5a6, #7f8c8d, #3498db, #34495e. Note: First waypoint after Earth - nostalgic but adventurous",
+    "model_key": "chatgpt-image-latest",
+    "duration_ms": 51023
+  },
+  {
+    "filename": "Waypoint-Mars-Flyby.png",
+    "file_path": "/Users/cclayton/dev/ColonyTrail/image_pipeline/out3/Waypoint-Mars-Flyby.png",
+    "prompt_used": "Theme: Retro sci-fi travel poster pixel art with industrial 16-bit game aesthetics. Quality: Chunky pixelated digital painting with halftone texture, canvas grain, and gritty overlay. Waypoint: Mars Base. Mood: Pioneering, frontier town feel, mid-journey progress. Mars from orbit or surface base view, red rocky surface, Olympus Mons or Valles Marineris visible, space station or surface habitat, spacecraft refueling. Dusty red atmosphere. Style: Red planet, colonial outpost aesthetic. Use colors: #e74c3c, #d35400, #c0392b, #34495e. Note: Classic Mars imagery - red planet, colonial feel",
+    "model_key": "chatgpt-image-latest",
+    "duration_ms": 48209
+  },
+  {
+    "filename": "Waypoint-Ceres_Station.png.jpg",
+    "file_path": "/Users/cclayton/dev/ColonyTrail/image_pipeline/out3/Waypoint-Ceres_Station.png.jpg",
+    "prompt_used": "Theme: Retro sci-fi travel poster pixel art with industrial 16-bit game aesthetics. Quality: Chunky pixelated digital painting with halftone texture, canvas grain, and gritty overlay. Waypoint: Ceres Asteroid Station. Mood: Industrial, hardworking, frontier mining town. Ceres dwarf planet (spherical asteroid) with industrial mining station attached, ore processing facilities, asteroid mining equipment, multiple spacecraft docked. Rocky, cratered surface with industrial structures. Style: Industrial, mining operation, rugged. Use colors: #7f8c8d, #95a5a6, #f39c12, #34495e. Note: Asteroid belt waypoint - should feel industrial and functional",
+    "model_key": "chatgpt-image-latest",
+    "duration_ms": 51013
+  },
+  {
+    "filename": "Waypoint-Jupiter_Slingshot.png",
+    "file_path": "/Users/cclayton/dev/ColonyTrail/image_pipeline/out3/Waypoint-Jupiter_Slingshot.png",
+    "prompt_used": "Theme: Retro sci-fi travel poster pixel art with industrial 16-bit game aesthetics. Quality: Chunky pixelated digital painting with halftone texture, canvas grain, and gritty overlay. Waypoint: Jupiter Gas Mine. Mood: Awe, scale, deep space operations. Jupiter filling much of frame with Great Red Spot visible, atmospheric harvesting station floating in upper atmosphere, massive gas giant feel, moons visible (Io, Europa, Ganymede). Station should feel tiny against Jupiter's scale. Style: Massive scale, gas giant, atmospheric harvesting. Use colors: #e67e22, #f39c12, #d35400, #34495e. Note: Emphasize Jupiter's massive scale - station should look tiny",
+    "model_key": "chatgpt-image-latest",
+    "duration_ms": 46180
+  },
+  {
+    "filename": "Waypoint-Saturn_Rings.png",
+    "file_path": "/Users/cclayton/dev/ColonyTrail/image_pipeline/out3/Waypoint-Saturn_Rings.png",
+    "prompt_used": "Theme: Retro sci-fi travel poster pixel art with industrial 16-bit game aesthetics. Quality: Chunky pixelated digital painting with halftone texture, canvas grain, and gritty overlay. Waypoint: Saturn Outpost. Mood: Majestic beauty, late-journey checkpoint, anticipation. Saturn with its iconic rings prominently displayed, station orbiting near rings or Titan moon, golden-brown planet, detailed ring structure with gaps visible. Perhaps Cassini Division visible in rings. Style: Majestic, rings prominent, beautiful. Use colors: #f1c40f, #f39c12, #e67e22, #34495e. Note: Final major waypoint - Saturn's rings should be stunning",
+    "model_key": "chatgpt-image-latest",
+    "duration_ms": 50143
+  },
+  {
+    "filename": "day_earth_01.jpg",
+    "file_path": "/Users/cclayton/dev/ColonyTrail/image_pipeline/out3/day_earth_01.jpg",
+    "prompt_used": "Theme: Retro sci-fi travel poster pixel art with industrial 16-bit game aesthetics. Quality: Chunky pixelated digital painting with halftone texture, canvas grain, and gritty overlay. Travel day scene, earth zone. Mood: Beginning journey, leaving home, anticipation. View from spacecraft window showing Earth filling significant portion of frame, blue atmosphere glow, continents visible, maybe ISS or satellites in view. Still close to home. Style: Near-Earth space, familiar but exciting. Use colors: #3498db, #27ae60, #ffffff, #1a2332. Note: Day 1-14 of journey, still very close to Earth",
+    "model_key": "chatgpt-image-latest",
+    "duration_ms": 48014
+  },
+  {
+    "filename": "day_earth_02.jpg",
+    "file_path": "/Users/cclayton/dev/ColonyTrail/image_pipeline/out3/day_earth_02.jpg",
+    "prompt_used": "Theme: Retro sci-fi travel poster pixel art with industrial 16-bit game aesthetics. Quality: Chunky pixelated digital painting with halftone texture, canvas grain, and gritty overlay. Travel day scene, earth zone. Mood: Early journey, exploring near-Earth space. Earth and Moon both visible from spacecraft, showing their orbital relationship. Earth larger but Moon prominent. Stars in background. Spacecraft solar panels or exterior visible in frame corner. Style: Near-Earth space, Moon visible. Use colors: #3498db, #95a5a6, #ffffff, #1a2332. Note: Alternate Earth zone view with Moon context",
+    "model_key": "chatgpt-image-latest",
+    "duration_ms": 49475
+  },
+  {
+    "filename": "day_earth_03.jpg",
+    "file_path": "/Users/cclayton/dev/ColonyTrail/image_pipeline/out3/day_earth_03.jpg",
+    "prompt_used": "Theme: Retro sci-fi travel poster pixel art with industrial 16-bit game aesthetics. Quality: Chunky pixelated digital painting with halftone texture, canvas grain, and gritty overlay. Travel day scene, earth zone. Mood: Leaving home, beginning the real journey. View looking back at Earth from increasing distance, Earth now smaller but still dominant in frame, spacecraft trail or engine glow visible, stars becoming more prominent. Transition from home. Style: Departure view, looking back. Use colors: #1a2332, #3498db, #ffffff, #34495e. Note: Further out in Earth zone, transition feel",
+    "model_key": "chatgpt-image-latest",
+    "duration_ms": 45619
+  },
+  {
+    "filename": "day_inner_01.jpg",
+    "file_path": "/Users/cclayton/dev/ColonyTrail/image_pipeline/out3/day_inner_01.jpg",
+    "prompt_used": "Theme: Retro sci-fi travel poster pixel art with industrial 16-bit game aesthetics. Quality: Chunky pixelated digital painting with halftone texture, canvas grain, and gritty overlay. Travel day scene, inner zone. Mood: Progress made, heading into inner planets region. Red-tinted space with Mars visible as a small reddish disc in distance, sun brighter and more prominent, fewer stars visible due to sun's brightness. Inner solar system feel. Style: Inner solar system, Mars approach region. Use colors: #e74c3c, #f39c12, #d35400, #1a2332. Note: Day 15-49, Mars region approach",
+    "model_key": "chatgpt-image-latest",
+    "duration_ms": 45750
+  },
+  {
+    "filename": "day_inner_02.jpg",
+    "file_path": "/Users/cclayton/dev/ColonyTrail/image_pipeline/out3/day_inner_02.jpg",
+    "prompt_used": "Theme: Retro sci-fi travel poster pixel art with industrial 16-bit game aesthetics. Quality: Chunky pixelated digital painting with halftone texture, canvas grain, and gritty overlay. Travel day scene, inner zone. Mood: Long journey ahead, emptiness of space. View of inner solar system with Sun prominent (but safe to view), Earth now just a bright blue dot, Mars a red dot ahead. Vastness of space between planets emphasized. Asteroid belt beginning to appear. Style: Inner solar system, between Earth and Mars. Use colors: #f39c12, #e67e22, #2c3e50, #1a2332. Note: Deep inner solar system, transition toward belt",
+    "model_key": "chatgpt-image-latest",
+    "duration_ms": 45120
+  },
+  {
+    "filename": "day_inner_03.jpg",
+    "file_path": "/Users/cclayton/dev/ColonyTrail/image_pipeline/out3/day_inner_03.jpg",
+    "prompt_used": "Theme: Retro sci-fi travel poster pixel art with industrial 16-bit game aesthetics. Quality: Chunky pixelated digital painting with halftone texture, canvas grain, and gritty overlay. Travel day scene, inner zone. Mood: Approaching first major planet milestone. Mars larger now, approaching Mars orbit distance. Phobos or Deimos moons potentially visible. Reddish cast to the view. Mars's polar ice caps visible as white spots. Style: Inner solar system, Mars region. Use colors: #e74c3c, #c0392b, #ecf0f1, #1a2332. Note: Near Mars orbit, transition zone",
+    "model_key": "chatgpt-image-latest",
+    "duration_ms": 47430
+  },
+  {
+    "filename": "day_belt_01.jpg",
+    "file_path": "/Users/cclayton/dev/ColonyTrail/image_pipeline/out3/day_belt_01.jpg",
+    "prompt_used": "Theme: Retro sci-fi travel poster pixel art with industrial 16-bit game aesthetics. Quality: Chunky pixelated digital painting with halftone texture, canvas grain, and gritty overlay. Travel day scene, belt zone. Mood: Midpoint journey, navigating obstacles, adventure. Multiple asteroids visible at various distances, largest ones showing cratered surfaces in detail. Spacecraft navigating through belt (not dense Hollywood style, but noticeable presence). Grey-brown rocks against black space. Style: Asteroid belt region, rocky obstacles. Use colors: #7f8c8d, #95a5a6, #34495e, #1a2332. Note: Day 50-77, asteroid belt region",
+    "model_key": "chatgpt-image-latest",
+    "duration_ms": 46354
+  },
+  {
+    "filename": "day_belt_02.jpg",
+    "file_path": "/Users/cclayton/dev/ColonyTrail/image_pipeline/out3/day_belt_02.jpg",
+    "prompt_used": "Theme: Retro sci-fi travel poster pixel art with industrial 16-bit game aesthetics. Quality: Chunky pixelated digital painting with halftone texture, canvas grain, and gritty overlay. Travel day scene, belt zone. Mood: Midpoint, gas giant ahead, progress visible. Asteroid belt with Jupiter visible as a large disc in the background, showing it's the target beyond the belt. Large asteroid in foreground showing detail, smaller ones scattered. Jupiter's bands faintly visible. Style: Asteroid belt, Jupiter in distance. Use colors: #95a5a6, #e67e22, #f39c12, #1a2332. Note: Transition from belt to Jupiter region",
+    "model_key": "chatgpt-image-latest",
+    "duration_ms": 48518
+  },
+  {
+    "filename": "day_belt_03.jpg",
+    "file_path": "/Users/cclayton/dev/ColonyTrail/image_pipeline/out3/day_belt_03.jpg",
+    "prompt_used": "Theme: Retro sci-fi travel poster pixel art with industrial 16-bit game aesthetics. Quality: Chunky pixelated digital painting with halftone texture, canvas grain, and gritty overlay. Travel day scene, belt zone. Mood: Midpoint of journey, industrial frontier feel. View of denser asteroid cluster with Ceres (dwarf planet) visible as spherical body among irregular asteroids. Shows scale difference between Ceres and typical asteroids. Mining operations or markers visible on some asteroids. Style: Dense asteroid region, Ceres visible. Use colors: #7f8c8d, #95a5a6, #bdc3c7, #1a2332. Note: Ceres region of asteroid belt",
+    "model_key": "chatgpt-image-latest",
+    "duration_ms": 49163
+  },
+  {
+    "filename": "day_outer_01.jpg",
+    "file_path": "/Users/cclayton/dev/ColonyTrail/image_pipeline/out3/day_outer_01.jpg",
+    "prompt_used": "Theme: Retro sci-fi travel poster pixel art with industrial 16-bit game aesthetics. Quality: Chunky pixelated digital painting with halftone texture, canvas grain, and gritty overlay. Travel day scene, outer zone. Mood: Awe at scale, deep in journey, gas giant majesty. Jupiter dominating the view, Great Red Spot clearly visible, cloud bands in detail, multiple moons visible as dots (Io, Europa, Ganymede, Callisto). Spacecraft small against Jupiter's massive scale. Style: Outer solar system, Jupiter region. Use colors: #e67e22, #f39c12, #d35400, #1a2332. Note: Day 78-112, Jupiter region",
+    "model_key": "chatgpt-image-latest",
+    "duration_ms": 49399
+  },
+  {
+    "filename": "day_outer_02.jpg",
+    "file_path": "/Users/cclayton/dev/ColonyTrail/image_pipeline/out3/day_outer_02.jpg",
+    "prompt_used": "Theme: Retro sci-fi travel poster pixel art with industrial 16-bit game aesthetics. Quality: Chunky pixelated digital painting with halftone texture, canvas grain, and gritty overlay. Travel day scene, outer zone. Mood: Deep space isolation, far from home, determined. Deep space between gas giants. Jupiter now smaller behind spacecraft, Saturn visible ahead but still small. Vastness of outer solar system emphasized. Stars more prominent, sun now just a bright star. Style: Between Jupiter and Saturn. Use colors: #1a2332, #2c3e50, #34495e, #95a5a6. Note: Deep outer solar system, empty space",
+    "model_key": "chatgpt-image-latest",
+    "duration_ms": 47384
+  },
+  {
+    "filename": "day_outer_03.jpg",
+    "file_path": "/Users/cclayton/dev/ColonyTrail/image_pipeline/out3/day_outer_03.jpg",
+    "prompt_used": "Theme: Retro sci-fi travel poster pixel art with industrial 16-bit game aesthetics. Quality: Chunky pixelated digital painting with halftone texture, canvas grain, and gritty overlay. Travel day scene, outer zone. Mood: Late journey, approaching final waypoint, anticipation. Saturn visible with rings clearly distinguishable even from distance. Golden-brown planet with ring system showing gaps and structure. Titan moon visible as orange dot. Beautiful but cold view. Style: Saturn approach region. Use colors: #f1c40f, #f39c12, #e67e22, #1a2332. Note: Approaching Saturn, final major landmark before Uranus",
+    "model_key": "chatgpt-image-latest",
+    "duration_ms": 53665
+  },
+  {
+    "filename": "day_uranus_01.jpg",
+    "file_path": "/Users/cclayton/dev/ColonyTrail/image_pipeline/out3/day_uranus_01.jpg",
+    "prompt_used": "Theme: Retro sci-fi travel poster pixel art with industrial 16-bit game aesthetics. Quality: Chunky pixelated digital painting with halftone texture, canvas grain, and gritty overlay. Travel day scene, uranus zone. Mood: Final stretch, destination in sight, anticipation. Uranus visible as blue-green disc, distinctive tilted axis apparent, faint rings visible if you look closely. Planet growing larger in view. Deep space around it, Saturn now behind spacecraft. Style: Final approach, Uranus visible. Use colors: #50e3c2, #4a90e2, #1abc9c, #1a2332. Note: Day 113-140, Uranus approach",
+    "model_key": "chatgpt-image-latest",
+    "duration_ms": 49972
+  },
+  {
+    "filename": "day_uranus_02.jpg",
+    "file_path": "/Users/cclayton/dev/ColonyTrail/image_pipeline/out3/day_uranus_02.jpg",
+    "prompt_used": "Theme: Retro sci-fi travel poster pixel art with industrial 16-bit game aesthetics. Quality: Chunky pixelated digital painting with halftone texture, canvas grain, and gritty overlay. Travel day scene, uranus zone. Mood: Almost there, final approach, excitement building. Uranus filling significant portion of view, blue-green color prominent, atmospheric bands visible, some moons visible (Titania, Oberon as dots). Planet details becoming clear, approaching orbit. Style: Close approach to Uranus. Use colors: #4a90e2, #50e3c2, #3498db, #1a2332. Note: Very close to destination",
+    "model_key": "chatgpt-image-latest",
+    "duration_ms": 47974
+  },
+  {
+    "filename": "day_uranus_03.jpg",
+    "file_path": "/Users/cclayton/dev/ColonyTrail/image_pipeline/out3/day_uranus_03.jpg",
+    "prompt_used": "Theme: Retro sci-fi travel poster pixel art with industrial 16-bit game aesthetics. Quality: Chunky pixelated digital painting with halftone texture, canvas grain, and gritty overlay. Travel day scene, uranus zone. Mood: Final moments before arrival, mission nearly complete. Uranus extremely large in frame, spacecraft approaching orbital insertion. Blue-green planet filling most of view, atmospheric features visible, faint rings visible edge-on. Landing approach trajectory visible on instruments. Style: Uranus orbital insertion. Use colors: #50e3c2, #1abc9c, #4a90e2, #2c3e50. Note: Final days before victory, orbit insertion phase",
+    "model_key": "chatgpt-image-latest",
+    "duration_ms": 50274
+  },
+  {
+    "filename": "status_earth_01.jpg",
+    "file_path": "/Users/cclayton/dev/ColonyTrail/image_pipeline/out3/status_earth_01.jpg",
+    "prompt_used": "Theme: Retro sci-fi travel poster pixel art with industrial 16-bit game aesthetics. Quality: Chunky pixelated digital painting with halftone texture, canvas grain, and gritty overlay. Status screen, earth zone. Mood: Mission beginning, organized, prepared. View suitable for status screen: Earth prominent with orbital path indicators, holographic displays or UI elements showing mission stats, spacecraft visible with systems highlighted. Professional mission control aesthetic. Style: Status dashboard, Earth region. Use colors: #3498db, #27ae60, #ecf0f1, #2c3e50. Note: Status screen version - more UI/dashboard feel than scenic",
+    "model_key": "chatgpt-image-latest",
+    "duration_ms": 47330
+  },
+  {
+    "filename": "status_earth_02.jpg",
+    "file_path": "/Users/cclayton/dev/ColonyTrail/image_pipeline/out3/status_earth_02.jpg",
+    "prompt_used": "Theme: Retro sci-fi travel poster pixel art with industrial 16-bit game aesthetics. Quality: Chunky pixelated digital painting with halftone texture, canvas grain, and gritty overlay. Status screen, earth zone. Mood: Mission operations, systematic, professional. Earth from orbital perspective with trajectory lines, waypoint markers, fuel indicators, chad stations visible in spacecraft interior. Mix of exterior view and interior systems. Dashboard-style composition. Style: Status dashboard, near-Earth operations. Use colors: #3498db, #1abc9c, #ecf0f1, #34495e. Note: Alternate Earth status view with more UI elements",
+    "model_key": "chatgpt-image-latest",
+    "duration_ms": 55711
+  },
+  {
+    "filename": "status_earth_03.jpg",
+    "file_path": "/Users/cclayton/dev/ColonyTrail/image_pipeline/out3/status_earth_03.jpg",
+    "prompt_used": "Theme: Retro sci-fi travel poster pixel art with industrial 16-bit game aesthetics. Quality: Chunky pixelated digital painting with halftone texture, canvas grain, and gritty overlay. Status screen, earth zone. Mood: Departure, leaving safety, beginning adventure. Status view looking at Earth receding, navigation displays showing course to Mars, system readouts, chad preparing for long journey. Mix of nostalgia and determination. Style: Status dashboard, departure phase. Use colors: #2c3e50, #3498db, #95a5a6, #ecf0f1. Note: Departure phase status screen",
+    "model_key": "chatgpt-image-latest",
+    "duration_ms": 48925
+  },
+  {
+    "filename": "status_inner_01.jpg",
+    "file_path": "/Users/cclayton/dev/ColonyTrail/image_pipeline/out3/status_inner_01.jpg",
+    "prompt_used": "Theme: Retro sci-fi travel poster pixel art with industrial 16-bit game aesthetics. Quality: Chunky pixelated digital painting with halftone texture, canvas grain, and gritty overlay. Status screen, inner zone. Mood: Mid-journey monitoring, systems nominal. Mars visible in status screen with trajectory overlays, system health displays, resource consumption charts, chad stations monitoring approach. Red-tinted dashboard view. Style: Status dashboard, Mars region. Use colors: #e74c3c, #f39c12, #ecf0f1, #2c3e50. Note: Inner solar system status monitoring",
+    "model_key": "chatgpt-image-latest",
+    "duration_ms": 57227
+  },
+  {
+    "filename": "status_inner_02.jpg",
+    "file_path": "/Users/cclayton/dev/ColonyTrail/image_pipeline/out3/status_inner_02.jpg",
+    "prompt_used": "Theme: Retro sci-fi travel poster pixel art with industrial 16-bit game aesthetics. Quality: Chunky pixelated digital painting with halftone texture, canvas grain, and gritty overlay. Status screen, inner zone. Mood: Long haul, resource management focus. Status screen showing vast distance between Earth (behind) and Mars (ahead), fuel consumption tracking, chad activity schedules, life support systems functioning. Emphasis on journey duration. Style: Status dashboard, between planets. Use colors: #34495e, #e67e22, #95a5a6, #ecf0f1. Note: Transit phase status screen",
+    "model_key": "chatgpt-image-latest",
+    "duration_ms": 49512
+  },
+  {
+    "filename": "status_inner_03.jpg",
+    "file_path": "/Users/cclayton/dev/ColonyTrail/image_pipeline/out3/status_inner_03.jpg",
+    "prompt_used": "Theme: Retro sci-fi travel poster pixel art with industrial 16-bit game aesthetics. Quality: Chunky pixelated digital painting with halftone texture, canvas grain, and gritty overlay. Status screen, inner zone. Mood: Approaching waypoint, preparation mode. Status screen with Mars larger, orbital mechanics displays, chad preparing for Mars waypoint encounter, resource levels being checked before station arrival. Style: Status dashboard, Mars approach. Use colors: #e74c3c, #c0392b, #ecf0f1, #2c3e50. Note: Pre-waypoint status check screen",
+    "model_key": "chatgpt-image-latest",
+    "duration_ms": 50601
+  },
+  {
+    "filename": "status_belt_01.jpg",
+    "file_path": "/Users/cclayton/dev/ColonyTrail/image_pipeline/out3/status_belt_01.jpg",
+    "prompt_used": "Theme: Retro sci-fi travel poster pixel art with industrial 16-bit game aesthetics. Quality: Chunky pixelated digital painting with halftone texture, canvas grain, and gritty overlay. Status screen, belt zone. Mood: Active navigation, hazard awareness, focused. Status screen showing asteroid tracking radar, collision avoidance systems active, hull integrity monitors, chad at navigation stations. Rocky asteroids visible on sensors and through windows. Style: Status dashboard, asteroid belt navigation. Use colors: #7f8c8d, #95a5a6, #e74c3c, #ecf0f1. Note: Asteroid belt navigation status",
+    "model_key": "chatgpt-image-latest",
+    "duration_ms": 48882
+  },
+  {
+    "filename": "status_belt_02.jpg",
+    "file_path": "/Users/cclayton/dev/ColonyTrail/image_pipeline/out3/status_belt_02.jpg",
+    "prompt_used": "Theme: Retro sci-fi travel poster pixel art with industrial 16-bit game aesthetics. Quality: Chunky pixelated digital painting with halftone texture, canvas grain, and gritty overlay. Status screen, belt zone. Mood: Midpoint journey, resource assessment. Status screen showing Ceres on approach sensors, mining operations in background, resource levels (midpoint check), chad morale indicators, Jupiter visible on long-range sensors. Style: Status dashboard, Ceres region. Use colors: #95a5a6, #f39c12, #34495e, #ecf0f1. Note: Midpoint status assessment",
+    "model_key": "chatgpt-image-latest",
+    "duration_ms": 50576
+  },
+  {
+    "filename": "status_belt_03.jpg",
+    "file_path": "/Users/cclayton/dev/ColonyTrail/image_pipeline/out3/status_belt_03.jpg",
+    "prompt_used": "Theme: Retro sci-fi travel poster pixel art with industrial 16-bit game aesthetics. Quality: Chunky pixelated digital painting with halftone texture, canvas grain, and gritty overlay. Status screen, belt zone. Mood: Clearing hazard zone, approaching gas giant. Status screen showing asteroid density decreasing, Jupiter looming on sensors, chad reviewing supplies after belt transit, systems check after navigation hazard zone. Style: Status dashboard, exiting asteroid belt. Use colors: #95a5a6, #e67e22, #2c3e50, #ecf0f1. Note: Post-belt status check",
+    "model_key": "chatgpt-image-latest",
+    "duration_ms": 52300
+  },
+  {
+    "filename": "status_outer_01.jpg",
+    "file_path": "/Users/cclayton/dev/ColonyTrail/image_pipeline/out3/status_outer_01.jpg",
+    "prompt_used": "Theme: Retro sci-fi travel poster pixel art with industrial 16-bit game aesthetics. Quality: Chunky pixelated digital painting with halftone texture, canvas grain, and gritty overlay. Status screen, outer zone. Mood: Complex maneuver, deep space operations. Status screen with Jupiter dominating external view, gravity assist calculations on displays, chad monitoring slingshot maneuver, radiation shielding active indicators. Gas giant operations. Style: Status dashboard, Jupiter region. Use colors: #e67e22, #f39c12, #34495e, #ecf0f1. Note: Jupiter region status - gravity assist phase",
+    "model_key": "chatgpt-image-latest",
+    "duration_ms": 55759
+  },
+  {
+    "filename": "status_outer_02.jpg",
+    "file_path": "/Users/cclayton/dev/ColonyTrail/image_pipeline/out3/status_outer_02.jpg",
+    "prompt_used": "Theme: Retro sci-fi travel poster pixel art with industrial 16-bit game aesthetics. Quality: Chunky pixelated digital painting with halftone texture, canvas grain, and gritty overlay. Status screen, outer zone. Mood: Isolation, routine, endurance. Status screen showing extreme isolation - both Jupiter behind and Saturn ahead visible but distant, chad in routine maintenance mode, life support systems emphasized, resource conservation displays. Style: Status dashboard, deep outer system. Use colors: #2c3e50, #34495e, #95a5a6, #ecf0f1. Note: Deep space isolation status",
+    "model_key": "chatgpt-image-latest",
+    "duration_ms": 53407
+  },
+  {
+    "filename": "status_outer_03.jpg",
+    "file_path": "/Users/cclayton/dev/ColonyTrail/image_pipeline/out3/status_outer_03.jpg",
+    "prompt_used": "Theme: Retro sci-fi travel poster pixel art with industrial 16-bit game aesthetics. Quality: Chunky pixelated digital painting with halftone texture, canvas grain, and gritty overlay. Status screen, outer zone. Mood: Final waypoint approach, anticipation. Status screen with Saturn and rings visible on sensors, final waypoint approach planning, chad preparing for last supply stop, mission timeline showing final leg ahead to Uranus. Style: Status dashboard, Saturn approach. Use colors: #f1c40f, #f39c12, #2c3e50, #ecf0f1. Note: Pre-Saturn status check",
+    "model_key": "chatgpt-image-latest",
+    "duration_ms": 49588
+  },
+  {
+    "filename": "status_uranus_01.jpg",
+    "file_path": "/Users/cclayton/dev/ColonyTrail/image_pipeline/out3/status_uranus_01.jpg",
+    "prompt_used": "Theme: Retro sci-fi travel poster pixel art with industrial 16-bit game aesthetics. Quality: Chunky pixelated digital painting with halftone texture, canvas grain, and gritty overlay. Status screen, uranus zone. Mood: Final approach, mission nearly complete, focused. Status screen with Uranus prominent, orbital insertion calculations on displays, chad preparing for arrival, landing site selection data, mission completion percentage high. Style: Status dashboard, final approach. Use colors: #50e3c2, #4a90e2, #2c3e50, #ecf0f1. Note: Final approach status",
+    "model_key": "chatgpt-image-latest",
+    "duration_ms": 52190
+  },
+  {
+    "filename": "status_uranus_02.jpg",
+    "file_path": "/Users/cclayton/dev/ColonyTrail/image_pipeline/out3/status_uranus_02.jpg",
+    "prompt_used": "Theme: Retro sci-fi travel poster pixel art with industrial 16-bit game aesthetics. Quality: Chunky pixelated digital painting with halftone texture, canvas grain, and gritty overlay. Status screen, uranus zone. Mood: Final preparations, excitement, careful. Status screen in Uranus orbit, blue-green planet filling external view, chad conducting final systems checks, landing preparations visible, colony deployment equipment ready. Style: Status dashboard, orbital operations. Use colors: #4a90e2, #1abc9c, #34495e, #ecf0f1. Note: Orbital operations status",
+    "model_key": "chatgpt-image-latest",
+    "duration_ms": 52728
+  },
+  {
+    "filename": "status_uranus_03.jpg",
+    "file_path": "/Users/cclayton/dev/ColonyTrail/image_pipeline/out3/status_uranus_03.jpg",
+    "prompt_used": "Theme: Retro sci-fi travel poster pixel art with industrial 16-bit game aesthetics. Quality: Chunky pixelated digital painting with halftone texture, canvas grain, and gritty overlay. Status screen, uranus zone. Mood: Final moments, mission completion imminent. Status screen during landing approach, Uranus surface or upper atmosphere visible, descent trajectory on displays, chad at landing stations, all systems green for final descent. Style: Status dashboard, landing approach. Use colors: #50e3c2, #3498db, #2c3e50, #ecf0f1. Note: Pre-landing status screen",
+    "model_key": "chatgpt-image-latest",
+    "duration_ms": 50853
+  }
+]

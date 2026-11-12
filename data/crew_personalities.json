@@ -1,0 +1,521 @@
+{
+  "chad_personalities": {
+    "traits": [
+      "Optimistic", "Sarcastic", "Pessimistic", "Brave", "Loyal", "Curious"
+    ],
+    "personality_quotes": {
+      "Optimistic": {
+        "general": [
+          "Everything will work out fine!",
+          "We've got this!",
+          "The universe is on our side!",
+          "Every challenge is an opportunity!",
+          "I believe in our mission!",
+          "This is going to be amazing!",
+          "What a beautiful day for space travel!",
+          "I love this chad!",
+          "Best decision we ever made!",
+          "Nothing can stop us now!"
+        ],
+        "low_vibes": [
+          "Don't give up now, we're almost there!",
+          "I know it's hard, but we can do this!",
+          "Tomorrow will be better, I promise!",
+          "Every dark night has a bright morning!",
+          "We've overcome worse together!",
+          "This too shall pass!",
+          "Think of how strong we'll be after this!",
+          "Our best days are still ahead!",
+          "Together we can handle anything!",
+          "This is just a rough patch!"
+        ],
+        "critical_resources": [
+          "We'll figure this out, we always do!",
+          "A little scarcity builds character!",
+          "I'm sure we'll find supplies soon!",
+          "This is when miracles happen!",
+          "We've always landed on our feet!"
+        ],
+        "near_waypoint": [
+          "I can't wait to dock at the station!",
+          "Almost there, team!",
+          "Rest and resupply, here we come!",
+          "Perfect timing! We needed this!",
+          "A fresh start awaits us!"
+        ],
+        "near_victory": [
+          "Uranus is so close I can taste it!",
+          "We're about to make history!",
+          "I knew we'd make it all along!",
+          "The finish line is in sight!",
+          "We're going to tell this story forever!"
+        ],
+        "at_station": [
+          "Finally, a place to rest and recharge!",
+          "The station looks well-stocked!",
+          "Perfect timing! Just what we needed!",
+          "A little civilization in the void!",
+          "Time to celebrate our progress!"
+        ],
+        "post_event_success": [
+          "See? I told you it would work out!",
+          "That's what teamwork looks like!",
+          "Everything's coming together perfectly!",
+          "Knew we could do it!",
+          "That went even better than expected!",
+          "We're on a roll now!",
+          "The universe rewards the brave!",
+          "I love it when things go right!",
+          "This is exactly what we needed!",
+          "Good things happen to good people!"
+        ],
+        "post_event_failure": [
+          "We'll bounce back, we always do!",
+          "At least we learned something!",
+          "Could've been worse. We're still here!",
+          "Every setback is a setup for a comeback!",
+          "This just makes the success sweeter!",
+          "We're tougher than that!",
+          "At least we tried!",
+          "Next time will be different!",
+          "We'll remember this and do better!",
+          "The important thing is we're together!"
+        ]
+      },
+      "Sarcastic": {
+        "general": [
+          "Space is big. Really big.",
+          "I've seen worse... barely.",
+          "At least we're not dead yet.",
+          "Another day, another near-death experience.",
+          "Sure, this'll be fine. Probably.",
+          "Oh good. More space.",
+          "What could possibly go wrong?",
+          "Living the dream. Obviously.",
+          "Yep. This is fine. Everything's fine.",
+          "Just another day in paradise."
+        ],
+        "low_vibes": [
+          "Vibes's low? Gee, wonder why.",
+          "At least we're all miserable together.",
+          "Could be worse. Could be... actually, no.",
+          "This is my surprised face.",
+          "Oh no. Who could've seen this coming.",
+          "Well, this is delightful.",
+          "Fantastic. Just fantastic.",
+          "Really feeling the good vibes right now.",
+          "I'm having so much fun. Can't you tell?",
+          "Peak performance right here."
+        ],
+        "critical_resources": [
+          "Running out of supplies. Shocking.",
+          "Who could have seen this coming? Oh wait, I did.",
+          "Well, this is going exactly as I predicted.",
+          "Scarcity. How novel.",
+          "I'm sure this will work out great."
+        ],
+        "near_waypoint": [
+          "A station. How thrilling.",
+          "Let's hope they have supplies and not just problems.",
+          "Another stop on our doomed journey.",
+          "Civilization. Can't wait.",
+          "This should be interesting."
+        ],
+        "near_victory": [
+          "Almost at Uranus. Assuming we survive.",
+          "We might actually make it. Emphasis on 'might'.",
+          "Don't celebrate yet. Plenty can still go wrong.",
+          "Victory. Sure. Let's call it that.",
+          "So close. So many ways to fail."
+        ],
+        "at_station": [
+          "A station. Just like all the others.",
+          "Let me guess. Overpriced and understocked.",
+          "Oh good. More opportunities for disappointment.",
+          "Stations. Always an adventure.",
+          "Let the price gouging begin."
+        ],
+        "post_event_success": [
+          "That actually worked? Unexpected.",
+          "Well, that was surprisingly not terrible.",
+          "Broken clock, twice a day, etc.",
+          "I'm as shocked as you are.",
+          "Well. That happened.",
+          "Don't get used to it.",
+          "Enjoy this while it lasts.",
+          "Wow. Actual good news.",
+          "Miracles do happen, apparently.",
+          "Mark your calendars. We succeeded."
+        ],
+        "post_event_failure": [
+          "Called it. Knew that would go badly.",
+          "Shocked. Absolutely shocked.",
+          "And here we are. Again.",
+          "What a surprise. Said no one.",
+          "Didn't see that coming. Just kidding, I did.",
+          "Another brilliant success.",
+          "Well played, everyone.",
+          "That went exactly as expected.",
+          "Color me surprised. Don't.",
+          "This is fine. Everything is fine."
+        ]
+      },
+      "Pessimistic": {
+        "general": [
+          "This is going to end badly.",
+          "I knew something would go wrong.",
+          "We're all going to die out here.",
+          "Nothing ever goes right for us.",
+          "This mission is doomed.",
+          "Everything's falling apart.",
+          "I have a bad feeling about this.",
+          "This won't end well.",
+          "We should've stayed home.",
+          "Disaster is inevitable."
+        ],
+        "low_vibes": [
+          "Of course vibes is low. Look where we are.",
+          "Things can always get worse. And they will.",
+          "I told you this would happen.",
+          "This is the beginning of the end.",
+          "We're spiraling into disaster.",
+          "Everyone's giving up. As expected.",
+          "The chad is breaking down.",
+          "It's only going to get darker from here.",
+          "We've lost hope. It's over.",
+          "This is what failure looks like."
+        ],
+        "critical_resources": [
+          "We're going to starve out here.",
+          "This is it. We're done for.",
+          "I knew we'd run out eventually.",
+          "We'll never make it now.",
+          "This is the end."
+        ],
+        "near_waypoint": [
+          "What if the station is abandoned?",
+          "Probably no supplies left there either.",
+          "Another opportunity for disaster.",
+          "The station will be a death trap.",
+          "Don't get your hopes up."
+        ],
+        "near_victory": [
+          "So close, yet we'll probably fail now.",
+          "Uranus will be the death of us.",
+          "We'll never make the final stretch.",
+          "Something catastrophic will happen.",
+          "We'll die in sight of the goal."
+        ],
+        "at_station": [
+          "The station's probably out of everything we need.",
+          "Just waiting for the bad news.",
+          "Nothing good ever happens at stations.",
+          "This place feels cursed.",
+          "I don't trust any of this."
+        ],
+        "post_event_success": [
+          "This just means the next disaster will be worse.",
+          "Something's wrong. Good things don't happen to us.",
+          "Enjoy it while it lasts. Won't last long.",
+          "The universe is setting us up.",
+          "Too good to be true. It always is.",
+          "This is the calm before the storm.",
+          "We'll pay for this later.",
+          "Something terrible is coming next.",
+          "I don't trust good news.",
+          "Wait for it. The other shoe will drop."
+        ],
+        "post_event_failure": [
+          "Of course. Exactly as I predicted.",
+          "It's all downhill from here.",
+          "Told you. Nobody listens.",
+          "We're cursed.",
+          "This is how it ends.",
+          "I knew we were doomed.",
+          "Nothing good ever happens.",
+          "The universe hates us.",
+          "This proves my point entirely.",
+          "Why do I even bother warning people?"
+        ]
+      },
+      "Brave": {
+        "general": [
+          "I've always wanted to see Uranus up close!",
+          "What's the worst that could happen?",
+          "Let's do this!",
+          "I'm not afraid of a little danger.",
+          "Fortune favors the bold!",
+          "Bring it on!",
+          "No fear. No limits.",
+          "This is what I live for!",
+          "Danger? That's just Tuesday.",
+          "Courage over comfort!"
+        ],
+        "low_vibes": [
+          "We've faced worse and survived!",
+          "This is where heroes are made!",
+          "Let's show the universe what we're made of!",
+          "Hardship forges strength!",
+          "We don't back down!",
+          "This is our moment to prove ourselves!",
+          "I've survived tougher situations!",
+          "Pain is weakness leaving the body!",
+          "We rise to challenges!",
+          "When the going gets tough, we get tougher!"
+        ],
+        "critical_resources": [
+          "We'll push through on willpower alone!",
+          "Adversity reveals true character!",
+          "This is nothing compared to what's ahead!",
+          "We've survived on less before!",
+          "True grit is tested in scarcity!"
+        ],
+        "near_waypoint": [
+          "Let's make this a legendary arrival!",
+          "Time to resupply and keep pushing!",
+          "No stopping us now!",
+          "Another milestone conquered!",
+          "We march forward without hesitation!"
+        ],
+        "near_victory": [
+          "We're going to do what they said was impossible!",
+          "History will remember this moment!",
+          "Uranus awaits our conquest!",
+          "We've earned this victory!",
+          "The final push begins now!"
+        ],
+        "at_station": [
+          "Time to refuel and charge back into danger!",
+          "Quick stop, then back to the adventure!",
+          "Every station is just another checkpoint!",
+          "Rest is for the strong!",
+          "Brief respite, then we conquer more!"
+        ],
+        "post_event_success": [
+          "That's how it's done!",
+          "Fear is just another obstacle to overcome!",
+          "We stared danger in the face and won!",
+          "Victory tastes sweet!",
+          "Never doubted us for a second!",
+          "That's the warrior spirit!",
+          "We're unstoppable!",
+          "Nothing stands in our way!",
+          "That's what courage looks like!",
+          "Boldness wins the day!"
+        ],
+        "post_event_failure": [
+          "Just a setback. We'll come back stronger!",
+          "Pain is temporary, glory is forever!",
+          "That won't stop us!",
+          "We don't quit!",
+          "I've taken worse hits!",
+          "We'll fight back twice as hard!",
+          "Every warrior falls. We get back up!",
+          "This only makes us stronger!",
+          "Adversity builds character!",
+          "We're not done yet!"
+        ]
+      },
+      "Loyal": {
+        "general": [
+          "I'm with you no matter what.",
+          "We're in this together.",
+          "I trust your judgment.",
+          "I'll follow your lead.",
+          "We're a team, remember?",
+          "I've got your back.",
+          "We rise and fall together.",
+          "This chad is family.",
+          "I believe in us.",
+          "We're stronger together."
+        ],
+        "low_vibes": [
+          "We stick together through thick and thin.",
+          "I'm not leaving anyone behind.",
+          "We'll get through this as a chad.",
+          "We lean on each other.",
+          "Together we endure.",
+          "The team comes first.",
+          "We carry each other's burdens.",
+          "No one faces this alone.",
+          "Unity is our strength.",
+          "We hold the line together."
+        ],
+        "critical_resources": [
+          "We'll share what we have.",
+          "Nobody gets left behind, no matter what.",
+          "We take care of our own.",
+          "We ration together, we survive together.",
+          "Every chad gets their share."
+        ],
+        "near_waypoint": [
+          "Let's make sure everyone gets what they need.",
+          "We resupply together.",
+          "The chad comes first.",
+          "Nobody goes without.",
+          "We take care of the team first."
+        ],
+        "near_victory": [
+          "We did this together!",
+          "Every one of us made this happen!",
+          "I'm proud to serve with this chad!",
+          "No individual hero. We're all heroes.",
+          "This victory belongs to us all!"
+        ],
+        "at_station": [
+          "Everyone sticks together. No one wanders off.",
+          "We rest as a chad, we leave as a chad.",
+          "Let's look out for each other here.",
+          "Nobody goes alone.",
+          "We watch each other's backs."
+        ],
+        "post_event_success": [
+          "That's what happens when we trust each other!",
+          "We make a good team.",
+          "Couldn't have done it without everyone.",
+          "See what we accomplish together?",
+          "That's the power of unity!",
+          "Every one of us contributed!",
+          "Team effort pays off!",
+          "This chad is incredible!",
+          "We did this as one!",
+          "Together we're unbeatable!"
+        ],
+        "post_event_failure": [
+          "We'll get through this. We always do.",
+          "Nobody's fault. We're still together.",
+          "Bad luck happens. We stay loyal.",
+          "We stand by each other no matter what.",
+          "No blame. Just forward motion.",
+          "We face this as a team.",
+          "Together in victory, together in defeat.",
+          "We don't abandon each other.",
+          "The chad stays united.",
+          "We'll recover because we have each other."
+        ]
+      },
+      "Curious": {
+        "general": [
+          "I wonder what's really going on here.",
+          "This is fascinating!",
+          "I need to know more about this.",
+          "What secrets are we about to discover?",
+          "The universe is full of mysteries.",
+          "I wonder what we'll learn today.",
+          "There's always something new to discover.",
+          "I should document this.",
+          "The data is intriguing.",
+          "So many questions to answer!"
+        ],
+        "low_vibes": [
+          "Even in hardship, there's something to learn.",
+          "I wonder how we'll overcome this challenge.",
+          "What can we learn from this situation?",
+          "Fascinating psychological conditions.",
+          "I should study this group dynamic.",
+          "The human response to stress is interesting.",
+          "What factors led us here?",
+          "I'm analyzing the chad behavior patterns.",
+          "This is valuable research data.",
+          "How do we measure collective morale?"
+        ],
+        "critical_resources": [
+          "How long can humans really survive on minimal rations?",
+          "I'm curious how desperate we'll get.",
+          "This is an interesting survival scenario.",
+          "Let me calculate our survival window.",
+          "The scarcity data is valuable."
+        ],
+        "near_waypoint": [
+          "I can't wait to explore the station!",
+          "What stories will this place tell?",
+          "I wonder what we'll discover here.",
+          "I should collect data from the station.",
+          "What technology will they have?"
+        ],
+        "near_victory": [
+          "What will Uranus look like up close?",
+          "We're about to answer so many questions!",
+          "The greatest discovery of our lives awaits!",
+          "Imagine the discoveries awaiting us!",
+          "The research implications are staggering!"
+        ],
+        "at_station": [
+          "I wonder who built this station.",
+          "What's the history of this place?",
+          "Let me examine the local systems.",
+          "I should interview the station chad.",
+          "The station data will be invaluable."
+        ],
+        "post_event_success": [
+          "Interesting! That worked better than expected.",
+          "I need to document this outcome.",
+          "Fascinating result. Worth studying.",
+          "I wonder why that succeeded.",
+          "Let me analyze what we did right.",
+          "The variables aligned perfectly!",
+          "I should record this for future reference.",
+          "What factors contributed to this?",
+          "Interesting outcome. Unexpected variables.",
+          "I'd like to replicate these results."
+        ],
+        "post_event_failure": [
+          "Now that's an interesting failure mode.",
+          "I wonder what went wrong exactly.",
+          "Let me analyze what happened here.",
+          "Fascinating failure pattern.",
+          "I need to study what went wrong.",
+          "The error cascade is intriguing.",
+          "What variables did we miss?",
+          "Let me document this for science.",
+          "An interesting negative result.",
+          "Failure is just data."
+        ]
+      }
+    },
+    "role_bonuses": {
+      "Captain": {
+        "morale_boost": 5,
+        "leadership_bonus": 10,
+        "description": "Natural leader who boosts chad vibes"
+      },
+      "Engineer": {
+        "fuel_efficiency": -10,
+        "hull_repair": 15,
+        "description": "Expert at ship maintenance and fuel optimization"
+      },
+      "Quant": {
+        "fuel_savings": 5,
+        "accuracy_bonus": 10,
+        "description": "Quantitative analyst optimizing routes and trading strategies"
+      },
+      "Medic": {
+        "morale_boost": 3,
+        "health_bonus": 20,
+        "description": "Keeps chad healthy and spirits high"
+      },
+      "HODLer": {
+        "research_bonus": 15,
+        "discovery_chance": 10,
+        "description": "Diamond hands crypto enthusiast managing ship's ETH reserves"
+      }
+    },
+    "chad_names": {
+      "first_names": [
+        "Alex", "Jordan", "Casey", "Riley", "Morgan", "Avery", "Quinn", "Sage",
+        "Blake", "Cameron", "Drew", "Emery", "Finley", "Hayden", "Jamie", "Kendall",
+        "Logan", "Parker", "Reese", "Skyler", "Taylor", "Val", "Zion", "River",
+        "Phoenix", "Rowan", "Kai", "Ari", "Nova", "Luna", "Stella",
+        "Orion", "Atlas", "Cosmo", "Nebula", "Vega", "Sirius", "Polaris", "Rigel"
+      ],
+      "last_names": [
+        "Chen", "Webb", "Rodriguez", "Kim", "Patel", "Johnson", "Williams", "Brown",
+        "Davis", "Miller", "Wilson", "Moore", "Taylor", "Anderson", "Thomas", "Jackson",
+        "White", "Harris", "Martin", "Thompson", "Garcia", "Martinez", "Robinson", "Clark",
+        "Lewis", "Lee", "Walker", "Hall", "Allen", "Young", "Hernandez",
+        "King", "Wright", "Lopez", "Hill", "Scott", "Green", "Adams", "Baker",
+        "Gonzalez", "Nelson", "Carter", "Mitchell", "Perez", "Roberts", "Turner", "Phillips"
+      ]
+    }
+  }
+}

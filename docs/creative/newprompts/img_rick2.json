@@ -1,0 +1,30 @@
+{
+  "metadata": {
+    "project_name": "rick",
+    "keywords": "Rick and Morty interdimensional mad science aesthetic — garage-built genius tech, portal-green energy signatures, nihilistic cosmic absurdism, and blue-collar space trucking through a multiverse that doesn't care",
+    "style": "Rick and Morty cartoon illustration — wobbly clean outlines, flat color with shading, interdimensional mad science applied to industrial space hauling. The visual language of a genius alcoholic's garage workshop scaled up to interplanetary colonization. Every piece of technology looks simultaneously like junk and like the most advanced thing in any dimension.",
+    "quality": "Adult Swim animation still, 2K widescreen frame",
+    "base_palette": [
+      { "hex": "#0B1020", "description": "Deep space navy — dominant void background" },
+      { "hex": "#39FF14", "description": "Portal green — Rick-tech energy signatures" },
+      { "hex": "#8AF5FF", "description": "Scanner cyan — holograms, diagnostics, UI" },
+      { "hex": "#B8FF66", "description": "Acid-lime highlights — unstable science glow" },
+      { "hex": "#7C4DFF", "description": "Dimensional purple — anomaly and void accents" },
+      { "hex": "#FF6D00", "description": "Hazard orange — warnings, exhaust, emergency states" },
+      { "hex": "#C7CEDB", "description": "Ship metal grey — patched industrial surfaces" },
+      { "hex": "#F5E642", "description": "Toxic yellow — signage, labels, caution markers" }
+    ]
+  },
+  "images": [
+    {
+      "filename": "NewGame-01.png",
+      "prompt": "Rick and Morty cartoon style, bold outlines with slight wobble, flat colors with cel-shading. The Hauler spacecraft centered in frame, three-quarter view showing port side. Industrial grey hull (#C7CEDB) with visible weld lines and panel seams. Cargo pods attached asymmetrically on sides. Portal-green spine conduit (#39FF14) running down center of hull, glowing at idle. Aftermarket thrusters with glowing exhaust ports in acid-lime (#B8FF66). Suspicious antenna array on top. Hull patches in multiple colors: orange, blue, grey. Dimension stamps stenciled on cargo bay like travel stickers, various alien scripts. Flask magnetically mounted to hull exterior, amber liquid visible. Small figures visible through cockpit window: two silhouettes, gesturing (arguing). Background: Deep space navy (#0B1020). Uranus visible upper-right as small teal-cyan sphere (#00E5A0), approximately 1/10 frame diameter. Scattered white stars. Holographic Rick-tech displays floating near ship in portal-green (#39FF14) wireframe: upper-left reads 'DIMENSION STABILITY: PROBABLY FINE', lower-right reads 'FLASK LEVEL: ADEQUATE', scanner cyan highlights (#8AF5FF) around ship outline. Faint portal-green energy traces spiraling off spine conduit, rendered as swirling particle trails with transparency. Dimension-purple (#7C4DFF) wisps in background upper-left, subtle. Ship lit from below-left creating shadows on starboard side. Wobbly hand-drawn line quality on outlines. Slightly desaturated background, vivid foreground elements.",
+      "text_overlay": null
+    },
+    {
+      "filename": "Launch-01.png",
+      "prompt": "Rick and Morty cartoon style, vertical composition. Rocket ascending through lower-third of frame, approximately 14% frame width. Standard industrial booster: grey hull (#C7CEDB) with visible welds, corporate logos, panel lines. Rick-tech portal-green boosters (#39FF14) strapped to sides — glowing green cylindrical devices, clearly aftermarket, connected with visible cables and duct tape. The Hauler visible at top of stack, portal-green spine conduit glowing. Main engines at base firing orange-amber exhaust (#FF6D00 to #F5E642), massive plumes. Portal-green energy (#39FF14) emitting from side boosters, spiraling and mixing with orange fire. Combined exhaust signature: half rocket plasma (orange), half portal energy (green), swirling together with dimensional distortion effects. Reality wobbles slightly where green meets orange. Launch pad at bottom: industrial grey concrete (#60707f). Blast deflectors channeling mixed flames sideways. Support towers pulling away. Sign visible: 'FEDERATION APPROVED LAUNCH FACILITY (MODIFICATIONS NOT APPROVED)' in toxic yellow (#F5E642) text. Observation bunker lower-right, tiny figures in windows (Federation agents). Meeseeks box on pad edge, small blue detail. Holographic displays floating mid-frame in portal-green wireframe: 'DIMENSIONAL STABILITY: PROBABLY FINE', 'PORTAL BOOSTER EFFICIENCY: 347%'. Grey smoke (#788898) and green dimensional distortion trails behind rocket. Flask visible on Hauler hull, magnetically attached. Sky gradient: blue atmosphere (#2A4A8A) at horizon showing Earth curvature with Federation infrastructure and distant Citadel geometric shape, orange-green glow zone (#FF6D00 mixed with #39FF14) mid-frame from engines, darker blue (#1A2A5A) above, navy-black space (#0B1020) at top with white stars. Wobbly hand-drawn outlines throughout. Cel-shading on dimensional effects.",
+      "text_overlay": null
+    }
+  ]
+}

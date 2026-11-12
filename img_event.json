@@ -1,0 +1,257 @@
+{
+  "metadata": {
+  "project_name": "occupy_uranus_events",
+  "keywords": "Absurdist space comedy, 16-bit pixel art, Retro game UI, Satirical sci-fi, Low-res chunky sprites, Bright limited palette, Cosmic slapstick, Crypto satire, Uranus jokes",
+  "style": "Main aesthetic — 16-bit pixel art absurdism that matches the irreverent tone of Occupy Uranus. Think SNES-era space RPG meets shitposty sci-fi zine: chunky sprites, hard outlines, exaggerated expressions, and visual gags baked into every scene. Colors lean into bright, limited palettes (teals, magentas, toxic greens, neon blues) with simple shading and obvious dithering rather than smooth gradients. Space, ships, UI, and characters should feel like a lovingly janky retro game cartridge about a serious mission that refuses to take itself seriously."
+  },
+  "images": [
+    {
+      "filename": "Event-distress_signal.jpg",
+      "prompt": "A stranded mining vessel adrift in deep space, distress beacon flashing red. The ship is damaged, hull scarred, drifting at an angle with debris around it. Weak light from interior windows suggests survivors. The viewing perspective is from another ship approaching cautiously. Stars in background, subtle nebula glow. Cinematic space realism, dramatic lighting with the beacon creating intermittent red flashes across the hull. Sense of both danger and desperation. The mining ship has an industrial, functional design — bulk ore containers, gantries, working vessel aesthetic."
+    },
+    {
+      "filename": "Event-mysterious_derelict.jpg",
+      "prompt": "A massive ancient derelict ship floating in the void, hull covered in strange geometric patterns and unknown technology. The ship design is clearly alien or from an unknown human era — angular, mysterious, unsettling. No lights, completely dark, casting a shadow against distant stars. Scale is imposing — dwarfing the viewer's ship. Surface shows extreme age: pitting, discoloration, possible biological growth. Faint electromagnetic corona suggests residual power. Deep space setting with distant nebula providing eerie backlight. Cinematic composition emphasizing the unknown and ancient mystery."
+    },
+    {
+      "filename": "Event-chad_conflict.jpg",
+      "prompt": "Interior ship scene (visible through window/viewport): Two chads in heated confrontation in the ship's common area. Body language shows tension — one gesturing aggressively, the other defensive. Other chads visible in background looking concerned. Warm interior lighting contrasts with the cold void of space visible through windows. Realistic spacecraft interior with worn surfaces, equipment, personal items. Focus on the human drama against the backdrop of isolation. Cinematic framing capturing interpersonal tension in confined space."
+    },
+    {
+      "filename": "Event-resource_shortage.jpg",
+      "prompt": "Close view of ship's supply storage bay, shelves nearly empty, a few remaining ration packs and containers scattered. Warning lights casting harsh red illumination across the sparse supplies. Through a doorway, a chad examines the meager remaining resources with concern. Life support readouts visible showing critical levels. Realistic spacecraft interior with industrial storage systems, visible wear and desperation. Lighting emphasizes scarcity — harsh shadows, warning indicators. Sense of dwindling resources and tough choices ahead."
+    },
+    {
+      "filename": "Event-space_storm.jpg",
+      "prompt": "Massive electromagnetic storm in space — swirling plasma arcs, lightning-like discharges of blue and purple energy spanning vast distances. The viewing ship's hull visible in foreground, buffeted by energy waves, metal surfaces catching reflected storm light. Violent cosmic phenomenon with dramatic scale. Stars obscured by ionized gas and energy discharges. Sense of raw cosmic power and danger. Cinematic composition with dynamic energy flow and churning plasma clouds. Realistic physics-based storm imagery inspired by solar phenomena but amplified to interstellar scale."
+    },
+    {
+      "filename": "Event-asteroid_field.jpg",
+      "prompt": "Dense asteroid field stretching into the distance, tumbling rocks of various sizes from boulder to mountain-scale. Rocky surfaces showing craters and mineral deposits. The viewing perspective navigates between asteroids with dramatic depth and scale. Distant asteroids fade into hazy silhouettes. Dramatic lighting from a distant sun creating stark shadows and highlighting asteroid textures. Some asteroids have ice deposits catching light. Cinematic composition emphasizing the hazardous beauty and navigational challenge. Realistic asteroid surfaces based on actual asteroid photography."
+    },
+    {
+      "filename": "Event-space_dysentery.jpg",
+      "prompt": "Ship's medical bay or quarantine area, sterile white and blue lighting. Medical equipment visible, a chad in medical distress being attended to by another chad in protective gear. Contaminated water recycling tanks visible through transparent panels showing murky liquid. Warning indicators flashing on medical monitors. Clinical, uncomfortable atmosphere. Interior perspective showing the medical crisis and contamination concern. Realistic spacecraft medical facilities with functional equipment and biological hazard protocols visible."
+    },
+    {
+      "filename": "Event-derelict_ship.jpg",
+      "prompt": "A derelict cargo vessel drifting in space, dark and abandoned. Hull intact but no lights, no signs of life. Cargo bay doors partially open revealing darkened interior. The ship has a commercial/industrial design — bulk freighter aesthetic, shipping containers, functional gantries. Surface shows long-term space exposure: micrometeorite pitting, radiation discoloration. Drifting slowly with slight rotation. Deep space background with distant stars. Eerie atmosphere of abandonment and mystery. Cinematic lighting with only reflected starlight illuminating the dark hull."
+    },
+    {
+      "filename": "Event-radiation_storm.jpg",
+      "prompt": "Massive solar flare erupting from a distant sun, brilliant arc of plasma and radiation expanding outward. Viewing ship in foreground with radiation shielding panels deploying (visible metallic shields extending from hull). Chad visible through cockpit windows reacting with alarm. The radiation wave visible as distortion in space, particles and energy creating a luminous wavefront approaching. Dramatic sense of impending impact. Warm yellows and oranges from solar flare contrasting with cool ship metals. Cinematic composition of cosmic threat and protective response."
+    },
+    {
+      "filename": "Event-space_pirates.jpg",
+      "prompt": "Menacing pirate vessel alongside, weapons systems visibly locked on target. The pirate ship has an aggressive, predatory design — mismatched hull plating, exposed weapons arrays, makeshift modifications. Scarred and battle-damaged appearance. Dark paint with minimal running lights. The viewing ship is clearly in the crosshairs. Tense standoff atmosphere. Deep space setting with no help in sight. Cinematic composition emphasizing threat and vulnerability. Realistic spacecraft combat imagery with visible weapon systems and targeting indicators."
+    },
+    {
+      "filename": "Event-mysterious_signal.jpg",
+      "prompt": "Strange alien transmission visualization on ship's display screens — complex geometric patterns, unknown language glyphs, pulsing waveforms that don't match any known format. Ship's communications array in foreground, large dish antenna pointed toward deep space. Through cockpit windows, nothing visible but stars and void — the signal's source unknown. Mysterious blue-green light from displays illuminating concerned chad faces. Technical displays showing signal analysis — incomprehensible data. Atmosphere of first contact mystery and uncertainty. Realistic spacecraft communications equipment with unusual, otherworldly data."
+    },
+    {
+      "filename": "Event-meteor_shower.jpg",
+      "prompt": "Intense meteor shower — hundreds of small meteors streaking toward ship, glowing from atmospheric friction simulation and kinetic impacts. The viewing ship's hull visible with point defense systems firing (small laser turrets or kinetic interceptors creating defensive pattern). Bright streaks of incoming meteors, some exploding from impacts. Dynamic action scene with sense of immediate danger and defensive response. Cinematic composition showing the overwhelming quantity of incoming threats. Realistic physics of space debris and defensive countermeasures."
+    },
+    {
+      "filename": "Event-supply_leak.jpg",
+      "prompt": "Ship exterior showing breached storage compartment, precious resources venting into space — crystallizing water vapor, frozen food particles, fuel droplets creating a shimmering cloud of lost supplies. The breach visible as damaged hull plates with supplies streaming out. Emergency lights flashing around the breach. Chad member in EVA suit working frantically to seal the leak with repair equipment. Deep space background. Dramatic lighting emphasizing the loss and urgency. Cinematic composition of crisis management and resource loss. Realistic zero-gravity fluid dynamics."
+    },
+    {
+      "filename": "Event-trading_post.jpg",
+      "prompt": "Automated trading station in deep space — modular platform design with docking ports, antenna arrays, and cargo handling systems. Solar panels deployed. Running lights indicate active status. The station has a utilitarian, unmanned design — clearly robotic operation. Approaching ship visible in foreground. The station orbits nothing, floating in interstellar space as a waypoint. Clean, functional technology. Sense of commerce and opportunity in the void. Cinematic composition showing technological achievement and space infrastructure. Realistic orbital platform design."
+    },
+    {
+      "filename": "Event-uranus_probe_warning.jpg",
+      "prompt": "Mission Control communication screen showing official directive from Earth — serious-faced mission controllers in background, overlaid text about 'Uranus probe requirement.' The humor is in the professional seriousness contrasted with the phrasing. Ship's communications console in foreground with official seal/logo visible. Chad visible in background trying not to laugh at the awkward phrasing. Professional space mission aesthetic with uncomfortable humor. Interior ship perspective with Earth mission control feed. Realistic mission control imagery with corporate/governmental professional setting."
+    },
+    {
+      "filename": "Event-memecoin_transmission.jpg",
+      "prompt": "Ship's display screen showing obviously suspicious crypto transmission — bright, garish graphics promoting '$URANUSCOIN' with rocket emojis, moon symbols, ridiculous price charts showing impossible gains. The aesthetic is intentionally tacky crypto marketing. Chad member in foreground looking skeptical but tempted, finger hovering over 'INVEST NOW' button. Ship interior with display screens showing the absurd promotional material. Mix of serious spacecraft interior with ridiculous crypto marketing. Satirical tone. Realistic ship interior contrasted with over-the-top digital marketing graphics."
+    },
+    {
+      "filename": "Event-uranus_gas_fees.jpg",
+      "prompt": "Uranus visible in background — blue-green ice giant planet filling frame. Ship's sensors detecting methane gas cloud/leak near the planet. Display screens showing both gas composition analysis AND absurd 'transaction fee' notifications in crypto-style interface. The joke is visual — scientific gas detection overlay mixed with blockchain 'gas fee' warnings. Chad looking confused at the pun. Realistic Uranus planetary imagery (blue-green, banded atmosphere) combined with satirical interface elements. Deep space perspective approaching the planet."
+    },
+    {
+      "filename": "Event-nft_derelict.jpg",
+      "prompt": "Derelict cargo ship with cargo bay doors open, interior filled with worthless NFT displays — screens showing procedurally generated ape astronaut images (generic, lifeless). The cargo bay is packed with these displays, all worthless. Satirical take on NFT bubble. Ship exterior shows it's been abandoned — no power, drifting. The contrast between the expensive cargo bay full of digital art and the abandoned vessel emphasizes the joke. Realistic derelict ship imagery with absurdist digital art cargo. Deep space setting with the worthless cargo visible through open bay."
+    },
+    {
+      "filename": "Event-uranus_rings.jpg",
+      "prompt": "Uranus's faint ring system visible around the planet — subtle, thin rings (accurate to real Uranus). Close-up view showing the 13 faint rings with scientific overlay identifying them. Ship's galley/common area in foreground with chad making onion rings joke (thought bubble or subtitle). Deadpan humor — one chad laughing, others groaning. Realistic Uranus with accurate ring system (very faint, not like Saturn). Interior ship perspective with view of planet through large window. Mix of accurate astronomy with dad joke humor."
+    },
+    {
+      "filename": "Event-hodl_crisis.jpg",
+      "prompt": "Interior ship scene — chad clutching tablet/phone showing devastating portfolio loss ($TITANICTOKEN down 99.8%), price chart showing catastrophic decline like a cliff. Their expression is stubborn denial mixed with panic. Diamond hand emoji visible on screen. Other chads in background looking concerned. Personal quarters or common area. The contrast between the financial disaster and stubborn 'diamond hands' mentality. Realistic spacecraft interior with personal electronics showing crypto trading app. Satirical take on crypto culture and sunk cost fallacy."
+    },
+    {
+      "filename": "Event-uranus_entry_angle.jpg",
+      "prompt": "Ship's navigation display showing Uranus approach trajectory calculations — technical diagrams of orbital entry vectors, angles of approach into planet's atmosphere. Navigator chad working on calculations, other chads visible trying to maintain professionalism despite the suggestive phrasing everywhere. Text overlays with terms like 'entry angle,' 'optimal penetration trajectory,' 'smooth insertion.' Realistic spacecraft navigation interface with technical accuracy about orbital mechanics, but the humor is in the unavoidable double entendres. Interior ship perspective with navigation station focus."
+    },
+    {
+      "filename": "Event-whale_manipulation.jpg",
+      "prompt": "Split scene — top half shows actual space whale (massive, bioluminescent, cetacean-shaped creature in space, glowing gently, majestic and surreal). Bottom half shows market manipulation graph — '$URANUS token' price crashing, whale emoji dumping massive quantity. The joke is the dual meaning resolved visually. Chad looking at screen confused whether it's metaphorical market whale or actual space whale. Surreal but beautiful space whale imagery contrasted with financial charts. Deep space background with the magnificent creature and ship's interior displays showing market chaos."
+    },
+    {
+      "filename": "Event-uranus_retrograde.jpg",
+      "prompt": "Ship's astrological officer (wearing mystical/new-age aesthetic out of place in sci-fi setting) consulting star charts and astrological displays with zodiac symbols overlaid on actual stellar navigation charts. Other chads looking skeptical/exasperated. Display showing Uranus's actual retrograde motion (which is real astronomy) but framed with astrological nonsense. The contrast between serious space mission and pseudoscience. Interior ship perspective with navigation and astrological displays side by side. Satirical tone — decorative mysticism in pragmatic spacecraft."
+    },
+    {
+      "filename": "Event-shitcoin_payload.jpg",
+      "prompt": "Cargo bay inspection scene — opened shipping containers revealing physical cryptocurrency merchandise: t-shirts with shitcoin logos, physical coins/tokens with ridiculous branding, posters, stickers, 'commemorative' plates. The cargo is worthless junk someone is trying to sell at Uranus. Chad member discovering this useless cargo looking annoyed. Well-lit cargo bay with organized containers, but contents are absurd. Realistic industrial cargo bay with satirical worthless merchandise. Interior ship perspective emphasizing the wasted cargo space and chad frustration."
+    },
+    {
+      "filename": "Event-uranus_smell.jpg",
+      "prompt": "Ship's chemical analysis laboratory — spectrometer display showing hydrogen sulfide (H2S) molecular structure and concentration data from Uranus's atmosphere. The displays are very scientific and professional. Chad members in background holding noses or looking disgusted despite being in sealed spacecraft. Visual joke about accurate atmospheric analysis confirming Uranus smells like rotten eggs. Realistic laboratory equipment with clinical data presentation, contrasted with chad's childish reactions. Interior lab perspective with scientific instruments and uncomfortable chads."
+    },
+    {
+      "filename": "Event-liquidity_pool_drained.jpg",
+      "prompt": "Ship's life support display showing critical liquid oxygen shortage — tanks empty, red warning indicators everywhere. But the display also shows incomprehensible DeFi/blockchain interface with 'liquidity bridged to Uranus chain' messages. The joke is someone literally 'bridged' the ship's liquid oxygen to a cryptocurrency system. Chad panicking as they realize their breathable air is now on a blockchain. Serious spacecraft emergency interface corrupted with absurd crypto trading terminology. Interior perspective with life support emergency and crypto interface overlay."
+    },
+    {
+      "filename": "Event-uranus_colonist_naming.jpg",
+      "prompt": "Display screen showing official Uranus Authority NFT marketplace — 'Name a Colonist' NFTs being sold. Slick marketing graphics with procedurally generated colonist portraits and naming certificates. Price tags showing absurd amounts. Chad member considering buying one. Professional-looking government/corporate branding mixed with NFT marketplace aesthetics. The absurdity of monetizing colonist naming rights. Interior ship perspective with marketplace displayed on screen. Mix of legitimate space colonization graphics with predatory NFT sales tactics."
+    },
+    {
+      "filename": "Event-wrong_planet.jpg",
+      "prompt": "Navigation station with crypto bro navigator (backward cap, hoodie, sunglasses) trying to plot course to 'the moon' — display showing moon trajectory. Captain or engineer pointing emphatically at Uranus on the display correcting him. The navigator looking confused, phone with crypto memes visible. Multiple screens showing Uranus mission parameters vs moon navigation. Interior ship scene capturing culture clash between serious space mission and crypto meme culture. Realistic navigation interface with exasperated chad and oblivious crypto bro."
+    },
+    {
+      "filename": "Event-uranus_pressure.jpg",
+      "prompt": "External ship view approaching Uranus — ship's hull visibly straining from atmospheric pressure. Metal hull plates showing stress, slight buckling visible. Warning indicators lighting up along hull. The planet looming massive in background with thick blue-green atmosphere. Sense of intense physical forces acting on the spacecraft structure. Creaking metal, structural stress visible. Cinematic composition emphasizing the hostile environment and engineering limits. Realistic spacecraft under extreme stress with Uranus's massive atmospheric pressure gradient visible. Deep space approaching planet perspective."
+    },
+    {
+      "filename": "Event-yield_farming_disaster.jpg",
+      "prompt": "Split scene disaster — ship's hydroponic garden/greenhouse visible but empty (plants missing). Adjacent screen shows those same plants' images 'staked' in DeFi yield farming protocol interface with ridiculous APY percentages. Engineer looking horrified realizing they've digitally 'staked' the physical crops. Other chads staring at empty growing trays. The absurd literal interpretation of 'yield farming.' Realistic spacecraft agricultural systems (hydroponic equipment, grow lights, but empty) contrasted with cryptocurrency interface. Interior ship perspective showing both physical agriculture area and digital crypto interface."
+    },
+    {
+      "filename": "Event-uranus_tilt.jpg",
+      "prompt": "Dramatic view of Uranus rotating sideways — the planet's extreme 98-degree axial tilt clearly visible, poles facing viewer instead of up/down. The planet spinning like a wheel rather than a top. Navigation displays showing the unusual rotational axis with confusion/concern indicators. Ship approaching with adjusted trajectory to account for sideways rotation. Accurate astronomical representation of Uranus's unique tilt. Scientific displays showing rotational axis diagram. Deep space perspective emphasizing the planet's bizarre orientation. Cinematic composition of astronomical oddity."
+    },
+    {
+      "filename": "Event-memecoin_cargo_hold.jpg",
+      "prompt": "Cargo hold packed with physical memecoin merchandise — boxes labeled '$DOGELON,' '$FLOKI,' '$URANUSCOIN,' etc. Piles of t-shirts, hats, physical novelty coins, posters, fidget spinners with crypto logos. Chad member doing inventory looking exasperated at the worthless cargo weight. Weight calculation display showing '4 tons' of memecoin merch. Well-lit cargo bay revealing the absurd waste of payload capacity. Realistic industrial cargo space filled with colorful, tacky crypto merchandise. Interior perspective emphasizing wasted space and chad frustration."
+    },
+    {
+      "filename": "Event-dao_governance.jpg",
+      "prompt": "Ship's bridge/control room taken over by DAO governance interface — every control panel now showing 'Submit Proposal,' 'Vote on Motion,' 'Token Required' messages. Captain looking frustrated, unable to make command decisions without governance votes. Chad members voting on tablets for basic operations. The bureaucratic nightmare of decentralized control. Serious spacecraft controls overlay with absurd voting interfaces. Interior bridge perspective showing technology hijacked by governance tokens. Satirical take on over-applied blockchain governance."
+    },
+    {
+      "filename": "Event-uranus_moons_confusion.jpg",
+      "prompt": "Navigation display showing Uranus surrounded by 27 labeled moons — Miranda, Ariel, Umbriel, Titania, Oberon prominent, but 22 other smaller moons cluttering the display with impossible-to-remember names (Puck, Cordelia, Ophelia, Bianca, Cressida, etc.). Navigator looking overwhelmed trying to track all of them. Display overcrowded with moon position indicators. Accurate astronomical data but overwhelming complexity. Realistic navigation interface cluttered with too many celestial bodies. Interior ship perspective with frustrated chad and impossibly complex display."
+    },
+    {
+      "filename": "Event-paper_hands_mutiny.jpg",
+      "prompt": "Ship's common area — chad divided into two groups in heated debate. One group (paper hands) holding tablets showing 'SELL' orders and return-to-Earth trajectory. Other group (diamond hands) holding charts showing 'HODL' strategy and continue-to-Uranus plan. Visual divide in the chad. Crypto trading terminology overlay with actual space mission decision. Interior ship conflict scene with divided chad and competing displays. Satirical take on crypto investor psychology applied to space exploration. Realistic spacecraft interior with chad confrontation."
+    },
+    {
+      "filename": "Event-uranus_color_debate.jpg",
+      "prompt": "Ship's science lab with multiple displays showing Uranus in different color calibrations — one screen blue, another cyan, another blue-green, another teal. Scientists arguing with color swatches and spectroscopic data. All work has stopped for this pedantic debate. The planet visible through window in 'true' color. Chad members pointing at different screens emphatically. Realistic scientific displays with actual Uranus imagery in various processing methods. Interior lab perspective emphasizing the absurd but scientifically accurate color calibration debate. Academic pettiness in space."
+    },
+    {
+      "filename": "Event-smart_contract_bug.jpg",
+      "prompt": "Life support control panel corrupted by smart contract code — terminal showing Solidity code with critical reentrancy bug highlighted. Oxygen levels plummeting on displays as the contract is being exploited infinitely. Engineer frantically trying to debug smart contract code instead of fixing life support directly. Red warning lights, oxygen percentage dropping rapidly. The absurdity of blockchain-based life support. Critical spacecraft emergency mixed with software engineering crisis. Interior perspective with life support panels and code terminal. Serious emergency atmosphere with ridiculous cause."
+    },
+    {
+      "filename": "Event-uranus_methane_oceans.jpg",
+      "prompt": "Stunning view of Uranus with visible liquid methane oceans on surface (scientifically unlikely but visually dramatic). The planet's blue-green atmosphere parted to show dark liquid methane seas. Ship's scientific instruments showing liquid methane readings with 'ANOMALOUS' warnings. Scientists looking shocked at impossible discovery. Beautiful but wrong. The ocean surfaces catching light, creating an eerie alien seascape. Realistic spacecraft sensor displays showing impossible data. Deep space perspective revealing unexpected planetary feature. Cinematic composition of impossible but beautiful discovery."
+    },
+    {
+      "filename": "Event-reality_breaking.jpg",
+      "prompt": "Surreal, reality-breaking scene — space itself glitching near Uranus. Stars duplicating, impossible geometry visible, causality errors (objects in multiple places simultaneously). Ship's reality sensors (if such a thing existed) showing error codes. The fabric of spacetime visibly corrupted. Chad looking through windows at impossible physics. Uranus in background with reality distortions around it. Artistic representation of broken physics — glitch art aesthetic applied to realistic space imagery. Deep space perspective with reality literally breaking down. Dramatic, unsettling, surreal but beautiful composition."
+    },
+    {
+      "filename": "Event-ice_asteroid_mining.jpg",
+      "prompt": "Water-ice rich asteroid, brilliant white and blue ice visible on surface catching light. Ship alongside with mining equipment deployed — extraction arms, collection tanks, refining equipment visible. Ice particles being harvested and processed, vapor visible from collection process. The asteroid's surface shows clean ice deposits mixed with darker rock. Mining operation in progress. Sense of opportunity and resource acquisition. Realistic space mining equipment and ice asteroid composition. Deep space perspective with asteroid and ship in industrial extraction process. Cinematic lighting highlighting ice deposits."
+    },
+    {
+      "filename": "Event-abandoned_probe.jpg",
+      "prompt": "Old space probe drifting silently — recognizable design from earlier space program (Voyager-style). Solar panels partially deployed but degraded. The probe tumbling slowly in space. Ship approaching cautiously with recovery equipment. The probe's scientific instruments still intact, small power cell possibly still functional. Nostalgic, historical technology floating in the void. Deep space background with the ancient probe catching starlight. Realistic probe design based on actual space program aesthetics. Cinematic composition emphasizing age, loneliness, and potential salvage value."
+    },
+    {
+      "filename": "Event-debris_field_salvage.jpg",
+      "prompt": "Debris field from destroyed ship — wreckage floating in organized chaos. Identifiable ship components: hull sections, equipment modules, cargo containers. Some containers intact and potentially salvageable. Ship navigating carefully through debris field with salvage grapples deployed. The wreckage tells a story of violence or catastrophic failure. Mix of opportunity and tragedy. Dramatic lighting creating shadows among debris. Realistic spacecraft wreckage and salvage operations. Deep space perspective with scattered debris field and recovery ship. Cinematic composition of destruction and salvage."
+    },
+    {
+      "filename": "Event-comet_tail_harvest.jpg",
+      "prompt": "Magnificent comet with brilliant tail streaming behind it. The coma glowing, tail stretching into distance — rich with hydrogen and water vapor. Ship flying through comet tail with collection scoops deployed, harvesting material from the tail. Beautiful cosmic phenomenon combined with practical resource collection. The comet's nucleus visible ahead, tail material flowing past ship. Dramatic backlighting from distant sun. Realistic comet structure and tail composition. Deep space perspective with ship harvesting from comet tail. Cinematic composition of natural beauty and practical opportunity."
+    },
+    {
+      "filename": "Event-bounty_rescue.jpg",
+      "prompt": "Corporate vessel in distress — sleek, expensive-looking ship with corporate livery. Emergency lights flashing, ship listing but intact. Distress beacon bright and professional. The vessel clearly well-funded, suggesting good reward. Approaching ship visible in foreground moving to rescue. Professional corporate space aesthetics — polished hull, visible branding. Deep space setting with hint of urgency and opportunity. Realistic corporate spacecraft design (more refined than working vessels). Cinematic composition of commercial rescue scenario and potential profit."
+    },
+    {
+      "filename": "Event-solar_collector_drift.jpg",
+      "prompt": "Military-grade solar collector panels drifting in space — large, sophisticated photovoltaic arrays, military markings visible. Panels partially deployed, showing battle damage but still functional. The collectors have a rugged, military engineering aesthetic. Ship approaching with repair equipment. The panels catching sunlight from distant sun, creating dramatic lighting. Potential for conversion to fuel generation. Realistic military space technology design. Deep space perspective with damaged but valuable military equipment. Cinematic composition emphasizing salvage opportunity and advanced technology."
+    },
+    {
+      "filename": "Event-gas_giant_skim.jpg",
+      "prompt": "Dramatic atmospheric skimming operation — ship diving into upper atmosphere of massive hydrogen-rich gas giant (Jupiter-like). The ship's atmospheric scoops deployed, collecting gases. The planet's swirling cloud layers surrounding ship, atmospheric friction creating glow around hull. Dangerous but lucrative fuel collection. Massive scale of planet vs small ship. Dramatic lighting from atmosphere and distant sun. Realistic gas giant atmosphere (banded, turbulent). Sense of both danger and massive resource opportunity. Cinematic composition of daring fuel collection operation."
+    },
+    {
+      "filename": "Event-hydroponic_pod.jpg",
+      "prompt": "Commercial hydroponic growing pod floating in space — transparent greenhouse module, plants visible growing inside under grow lights. The pod has clean, commercial design with corporate branding. Interior visible showing healthy vegetables and plants. Solar panels and life support visible on exterior. Ship approaching with recovery grapples. Fresh green plants visible through transparent sections — rare sight in deep space. Realistic closed-loop agricultural system design. Deep space perspective with valuable biological cargo. Cinematic composition emphasizing the precious nature of fresh food in space."
+    },
+    {
+      "filename": "Event-protein_synthesizer.jpg",
+      "prompt": "Cargo container marked with bio-hazard and food production symbols, floating in space. Ship grappling and opening container to reveal protein synthesis equipment — bioreactors, processing units, raw material tanks. Industrial food production technology. The equipment clean and functional. Interior of container visible showing the valuable machinery. Realistic food production industrial equipment adapted for space. Deep space perspective with salvaged container and valuable equipment. Cinematic composition of resource discovery and food security opportunity."
+    },
+    {
+      "filename": "Event-aurora_nebula.jpg",
+      "prompt": "Breathtaking nebula with aurora-like colors — flowing ribbons of green, purple, and blue ionized gas. The nebula resembling natural auroras but on cosmic scale. Ship silhouetted against beautiful cosmic phenomenon. Stars visible through nebula's translucent gas. Sense of awe and beauty. No threat, just spectacular natural wonder. Realistic nebula structure and emission spectrum colors. Deep space perspective emphasizing scale and beauty. Cinematic composition celebrating the majesty of space. Uplifting, beautiful, serene atmosphere."
+    },
+    {
+      "filename": "Event-earth_broadcast.jpg",
+      "prompt": "Ship's communications array receiving signal — antenna pointed toward distant Earth (tiny dot in starfield). Interior view of chad listening to music from Earth, display showing signal origin and broadcast information. Earth music providing morale boost, connection to home. Chad members in common area, some emotional, some dancing. The radio signal visualization on displays. Nostalgic, emotional connection to home despite vast distance. Realistic communications equipment with audio waveform displays. Interior perspective with chad enjoying Earth broadcast. Touching moment of connection across cosmic distances."
+    },
+    {
+      "filename": "Event-data_cache.jpg",
+      "prompt": "Data storage module floating in space — industrial data vault, heavily encrypted, corporate or government markings visible. The module pristine, suggesting valuable contents. Ship approaching with data recovery equipment. The module's indicator lights showing active, secured data inside. Potential for significant value to corporations or governments. Realistic data storage technology for space operations (hardened, radiation-proof). Deep space perspective with valuable data cargo. Cinematic composition emphasizing mystery and potential value of information."
+    },
+    {
+      "filename": "Event-rare_mineral_asteroid.jpg",
+      "prompt": "Asteroid rich in rare minerals — surface showing metallic ores, visible veins of platinum and other precious metals catching light brilliantly. The asteroid's composition obviously valuable, different from ordinary rock. Ship's mining analysis overlay showing composition with high-value indicators. Ship alongside with mineral sampling equipment. The asteroid glittering with mineral deposits. Sense of striking it rich. Realistic mineral asteroid composition with exaggerated visual richness. Deep space perspective with valuable asteroid discovery. Cinematic composition emphasizing wealth and opportunity."
+    },
+    {
+      "filename": "Event-hydrogen_collector.jpg",
+      "prompt": "Commercial hydrogen collection array floating in space — large industrial structure with collection tanks, processing equipment, and storage containers. Corporate markings indicate commercial operation. The array abandoned but intact. Storage tanks showing fuel gauge indicators with contents still present. Ship approaching with connection equipment for fuel transfer. Realistic industrial fuel collection infrastructure for space operations. Deep space perspective with valuable fuel resource. Cinematic composition of industrial salvage and fuel opportunity. Functional, utilitarian design emphasizing practical value."
+    },
+    {
+      "filename": "Event-compressed_fuel_pods.jpg",
+      "prompt": "Formation of military fuel pods floating in neat array — standardized cylindrical containers with military stenciling and warning labels. The pods pristine, clearly jettisoned intentionally rather than from disaster. Each pod containing compressed fuel. Ship approaching with cargo handling equipment. The pods' uniform arrangement suggesting disciplined military operation. Realistic military fuel storage containers design. Deep space perspective with valuable military-grade fuel supply. Cinematic composition emphasizing order, value, and opportunity. Clean military aesthetics."
+    },
+    {
+      "filename": "Event-antimatter_containment.jpg",
+      "prompt": "Antimatter containment pod floating in space — heavily shielded spherical container with glowing electromagnetic containment field indicators. WARNING symbols prominent on surface. The pod showing active containment (lights, field indicators). Sense of extreme danger and extreme value. Ship approaching very cautiously with specialized handling equipment. Electromagnetic field visualization around pod. The most dangerous and valuable salvage possible. Realistic antimatter containment technology (magnetic bottles, shielding). Deep space perspective with extremely hazardous cargo. Cinematic composition emphasizing both danger and immense potential."
+    },
+    {
+      "filename": "Event-deuterium_tanker.jpg",
+      "prompt": "Industrial deuterium tanker ship abandoned in space — large vessel designed for transporting fusion fuel. Cylindrical fuel tanks dominant feature, heavy shielding visible. Radiation warning symbols. The tanker dark, no chad, but fuel tanks showing contents via indicators. Ship approaching with radiation-shielded fuel transfer equipment. Sense of both opportunity (premium fusion fuel) and danger (radiation exposure). Realistic industrial space tanker design, heavy and utilitarian. Deep space perspective with valuable but hazardous fuel source. Cinematic composition of industrial salvage and radiation hazard."
+    },
+    {
+      "filename": "Event-aquaponics_pod.jpg",
+      "prompt": "Aquaponics pod floating in space — transparent bio-dome showing fish tanks and vegetable growing systems working together. The pod still operational, visible life inside. Fish swimming in tanks, plants growing in hydroponic beds. Clean water cycling through system visible. Ship approaching to recover valuable living food source. Realistic closed-loop aquaponics system adapted for space. Deep space perspective with thriving biological cargo. Cinematic composition emphasizing life and fresh food in the void. Beautiful intersection of biology and space technology."
+    },
+    {
+      "filename": "Event-algae_farm_drift.jpg",
+      "prompt": "Bioreactor module floating in space — large cylindrical tanks filled with green algae cultures growing under specialized lighting. The bioreactor functional, algae visible through transparent sections. Industrial biological food production system. Not attractive but nutritious. Ship approaching with recovery equipment. Realistic industrial algae cultivation system for space operations. Deep space perspective with biological food source. Cinematic composition of practical but unglamorous food security solution. Functional, utilitarian biological technology."
+    },
+    {
+      "filename": "Event-mushroom_cultivation.jpg",
+      "prompt": "Biological research pod growing edible mushrooms — interior visible through windows showing mushroom cultivation racks, various species growing. The pod has research aesthetics (scientific labels, monitoring equipment). Mushrooms growing in zero-gravity adapted containers. Some appetizing (oyster mushrooms), some strange. Ship approaching to salvage valuable biological food source. Realistic space-adapted mushroom cultivation system. Deep space perspective with unusual but nutritious cargo. Cinematic composition of biological research and food production in space."
+    },
+    {
+      "filename": "Event-entertainment_archive.jpg",
+      "prompt": "Data storage module marked as entertainment archive — logos from streaming services, game companies, music labels visible. The module pristine, corporate entertainment industry markings. Ship approaching with data recovery equipment. Interior chad already celebrating in anticipation — movies, music, games visible on displays. Digital entertainment as morale boost. Realistic data storage infrastructure with entertainment industry branding. Deep space perspective with valuable morale-boosting cargo. Cinematic composition emphasizing psychological value of entertainment in isolation."
+    },
+    {
+      "filename": "Event-luxury_yacht_wreck.jpg",
+      "prompt": "Wreckage of luxury space yacht — elegant, expensive design even in destruction. The yacht's remains showing fine materials, luxury fittings, personal effects floating in debris. Gourmet food containers, expensive equipment, jewelry, personal belongings. Sense of tragedy (wealthy passengers lost) and opportunity (valuable salvage). Ship navigating through upscale wreckage with recovery equipment. Realistic luxury spacecraft design (refined aesthetics, expensive materials). Deep space perspective with tragic but valuable wreckage. Cinematic composition contrasting luxury and loss."
+    },
+    {
+      "filename": "Event-chad_rescue_pod.jpg",
+      "prompt": "Escape pod drifting in space, emergency beacon flashing. Pod windows showing survivors inside (silhouettes, hands against glass). The pod's air supply indicators showing critical levels. Ship approaching rapidly with rescue equipment deployed. Urgent rescue scenario, lives at stake. The pod's design showing it's from destroyed ship (matching debris visible in background). Realistic escape pod design (cramped, emergency-oriented). Deep space perspective with life-or-death rescue. Cinematic composition emphasizing urgency, humanity, and moral choice. Survivors visible and desperate."
+    }
+  ]
+}

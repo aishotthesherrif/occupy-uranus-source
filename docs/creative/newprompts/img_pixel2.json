@@ -1,0 +1,34 @@
+{
+  "metadata": {
+    "project_name": "pixel",
+    "keywords": "16-bit pixel art, retro game aesthetic, SNES/Genesis era",
+    "style": "16-bit pixel art game aesthetic — clean pixel work with limited color palette (128 colors max), dithering for gradients and atmospheric effects, no anti-aliasing. Every sprite and tile clearly readable at pixel level. Visual style references classic space games like StarFlight, Elite, Star Control, and Starfox. Crisp, functional, charming retro game presentation. The spacecraft is rendered as a small boxy vessel with visible pixel detail: grey hull with accent stripes, rectangular components, thruster glow effects using careful pixel animation techniques. Backgrounds use organized star scatter patterns, dithered gradients for atmospheric transitions, and simple geometric shapes for celestial bodies. Color palette discipline: 16-32 colors per scene, classic 16-bit game colors, dithering patterns for smooth transitions. Every pixel is intentional — proper pixel art, not filtered or processed modern imagery.",
+    "quality": "16-bit pixel art, 320x240 upscaled to 1024x1024",
+    "base_palette": [
+      { "hex": "#000000", "description": "Deep space black" },
+      { "hex": "#FFFFFF", "description": "Stars, exhaust core, UI text" },
+      { "hex": "#808080", "description": "Ship hull grey" },
+      { "hex": "#AAAAAA", "description": "Highlights on metal" },
+      { "hex": "#606060", "description": "Shadows on metal" },
+      { "hex": "#0088FF", "description": "Blue accents, Earth ocean, atmosphere" },
+      { "hex": "#00CC44", "description": "Green accents, Earth land" },
+      { "hex": "#FFDD00", "description": "Yellow flames, warnings, stars" },
+      { "hex": "#FF8800", "description": "Orange heat, thrusters" },
+      { "hex": "#FF0000", "description": "Red danger, fire heat" },
+      { "hex": "#00CC88", "description": "Teal for Uranus" },
+      { "hex": "#88CCFF", "description": "Light blue for effects" }
+    ]
+  },
+  "images": [
+    {
+      "filename": "NewGame-01.png",
+      "prompt": "16-bit pixel art, 320x240 upscaled to 1024x1024. Small spacecraft sprite centered in frame, side view. Boxy grey hull (#808080), 20-24 pixels wide. Blue accent stripe (#0088FF) along top edge, 2 pixels tall. Orange thruster glow (#FF8800) at rear, 3-4 pixels. Rectangular cargo pod on underside, 8x6 pixels. Cockpit window: single blue pixel (#0088FF) or 2x2 blue pixel cluster. No anti-aliasing, clean pixel edges. Background: Deep space black (#000000). Uranus in upper-right: teal sphere (#00CC88), 16-18 pixels diameter, simple circle with single-pixel ring. Earth lower-left: tiny blue dot (#0088FF), 4-6 pixels diameter. Stars: single white pixels (#FFFFFF) scattered in organized pattern, approximately 30-40 stars total. Some stars yellow (#FFDD00) or light blue (#88CCFF) for variety. UI elements in pixel art: upper-left text 'DISTANCE: 2.8B KM' in white 8-pixel font. Lower-right text 'DESTINATION: URANUS' in white. Simple arrow pixels pointing from ship to Uranus, yellow (#FFDD00), 1-2 pixels thick. Dithering used for subtle glow around Uranus: alternating teal and black pixels in checkerboard pattern at edge. Ship lit from below-left: lighter grey pixels (#AAAAAA) on bottom hull edge, darker grey (#606060) on top for shadow. Classic 16-bit game palette: 16-32 colors total. Crisp pixel work referencing StarFlight, Elite, Star Control. Every sprite reads clearly at pixel level.",
+      "text_overlay": null
+    },
+    {
+      "filename": "Launch-01.png",
+      "prompt": "16-bit pixel art, vertical composition, 320x240 upscaled to 1024x1024. Rocket sprite ascending through lower-third of frame. Tall vertical structure: 12-16 pixels wide, 45-55 pixels tall. White (#FFFFFF) and grey (#808080) pixels with visible stage separation lines (single darker pixel line). Small spacecraft visible at top, 8x8 pixel cluster. Engines at base firing: bright white core (#FFFFFF), 4-6 pixels, surrounded by yellow (#FFDD00) pixels in flame shape, then orange (#FF8800) pixels. Classic 16-bit fire animation pattern. Exhaust plume expanding downward and sideways: dithered gradient using yellow-orange-red (#FFDD00 to #FF8800 to #FF0000), checkerboard dither pattern. Launch pad at bottom: grey platform (#808080) spanning frame width, 10-12 pixels tall. Yellow safety markings (#FFDD00), single-pixel lines. Support towers on sides: vertical grey structures, 6-8 pixels wide, 20-25 pixels tall, with yellow warning lights (single yellow pixels). Blast deflector center: darker grey (#606060) channeling flames sideways. White smoke (#FFFFFF) and light grey (#CCCCCC) dithered pixels billowing across pad, checkerboard pattern. Small details: fuel tanks (grey rectangles with yellow bands, 8x12 pixels), antenna (1-pixel vertical line, 15 pixels tall), observation bunker (grey structure, 12x8 pixels, single blue window pixel #0088FF). Sky gradient vertical: blue (#0088FF) at horizon with white cloud pixels scattered dithered, darkening to darker blue (#0044AA) mid-frame using dither transition, black (#000000) at top. White star pixels (#FFFFFF) in black section, organized scatter pattern, 20-30 stars. Rocket ascent trail: dithered white-yellow pixels from engines downward, thinning, 30-40 pixels long. No anti-aliasing. Every pixel intentional. Classic 16-bit palette: 16-24 colors total. Reference Starfox, F-Zero, Star Control launch aesthetics.",
+      "text_overlay": null
+    }
+  ]
+}

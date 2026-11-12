@@ -1,0 +1,80 @@
+{
+  "metadata": {
+    "project_name": "cyberpunk_anime",
+    "keywords": "Cyberpunk anime, Cowboy Bebop meets Akira, neon-drenched space noir",
+    "style": "Late-90s/early-2000s cyberpunk anime aesthetic — the visual intersection of Cowboy Bebop, Akira, Ghost in the Shell, and Macross Plus. Cel-shaded rendering with visible ink outlines of varying weight: heavy black contours on foreground elements, thinner lines receding into depth. Color theory driven by neon-against-dark contrast — deep indigo and charcoal backgrounds punctuated by hot neon signage, engine glow, and holographic UI elements. Lighting is cinematic and motivated: rim lights pick out edges in cyan or magenta, volumetric haze from exhaust and atmosphere catches colored light, lens flares are stylized anime starbursts rather than photographic.",
+    "quality": "Prestige anime film key frame, 2K cinematic cel-shaded illustration",
+    "base_palette": [
+      { "hex": "#0B0E1A", "description": "Deep void indigo" },
+      { "hex": "#FF2D78", "description": "Hot magenta neon" },
+      { "hex": "#00F0FF", "description": "Electric cyan" },
+      { "hex": "#FF8C00", "description": "Amber caution" },
+      { "hex": "#7B2FBE", "description": "Deep purple" },
+      { "hex": "#00E5A0", "description": "Uranus teal-green" },
+      { "hex": "#1A1F3A", "description": "Gunmetal blue" },
+      { "hex": "#FFE156", "description": "Gold-yellow" }
+    ]
+  },
+  "images": [
+    {
+      "filename": "Waypoint-Earth_Launch.png",
+      "text_overlay": "Launch Day",
+      "prompt": "Anime cel-shaded illustration. Earth centered in frame, approximately 60% frame diameter. Photorealistic planet rendering with anime color treatment: vivid blue oceans (#4A8AEA), bright green-brown continents, white cloud swirls with soft cel-shaded edges. Thin atmosphere ring visible at limb in light blue glow. Orbital infrastructure visible: satellites as small geometric shapes with blinking lights, space stations with neon signage in cyan and amber, cargo ships as tiny silhouettes. Daylight side showing city light clusters beginning to glow at terminator. Earth's curvature prominent. Background: deep void indigo (#0B0E1A) with scattered white stars. Sun off-frame creating rim light on Earth's edge, brilliant white-blue glow. Heavy black ink outlines on orbital structures. Soft airbrush rendering on clouds and atmospheric glow."
+    },
+    {
+      "filename": "Waypoint-Moon.png",
+      "text_overlay": "Moon",
+      "prompt": "Anime cel-shaded illustration. Moon centered in frame, approximately 55% frame diameter. Grey cratered surface with visible maria (darker grey regions). Craters rendered with sharp black ink outlines, varying sizes. Small lunar station visible on surface: modular habitats with neon signage in amber and cyan, antenna arrays, landing pads with amber guide lights. Earth visible in background upper-right as blue sphere, approximately 15% frame diameter. Stars as white pinpoints in black void (#000000). Lunar surface lit by harsh sunlight from upper-left creating strong shadows in craters. Station lights glowing warm amber. Cel-shaded with precise mechanical line art on station structures."
+    },
+    {
+      "filename": "Waypoint-Mars-Flyby.png",
+      "text_overlay": "Mars Base",
+      "prompt": "Anime cel-shaded illustration. Mars centered in frame, approximately 65% frame diameter. Red-orange planet (#CC5030 to #DD6040) with visible surface features: Olympus Mons as prominent mountain, Valles Marineris canyon system as dark lines, polar ice caps in white. Thin atmosphere visible as faint orange haze at limb. Dust storm visible as swirling orange-brown cloud system on one hemisphere. Phobos visible as small irregular grey shape in foreground lower-left. Background: deep void indigo with white stars. Mars lit from right side creating terminator line. Soft airbrush on atmospheric effects, cel-shaded on surface details."
+    },
+    {
+      "filename": "Waypoint-Ceres_Station.png",
+      "text_overlay": "Ceres Station",
+      "prompt": "Anime cel-shaded illustration. Ceres dwarf planet centered in frame, approximately 45% frame diameter. Grey cratered spherical body with mining scars: deep artificial trenches, extraction sites visible as geometric patterns. Large orbital station in foreground: industrial modular design in gunmetal blue (#1A1F3A) and grey, rotating habitat ring, docking arms with ships attached, neon signage in amber (#FF8C00) and cyan (#00F0FF), cargo containers clustered around central hub. Station approximately 25% frame height. Scattered asteroids in background as small grey irregular shapes. Deep void black with white stars. Station lights casting amber and cyan glow on nearby asteroid surfaces. Heavy black ink outlines on mechanical structures."
+    },
+    {
+      "filename": "Waypoint-Jupiter_Slingshot.png",
+      "text_overlay": "Jupiter Gas Mine",
+      "prompt": "Anime cel-shaded illustration. Jupiter dominating frame, approximately 75% frame diameter. Massive gas giant with banded atmosphere: cream, orange, rust-red, amber bands rendered with soft cel-shaded swirls. Great Red Spot prominently visible as swirling storm in deep red-orange. Atmospheric turbulence visible at band boundaries. Thin ring barely visible at equator. Europa visible in foreground as white-blue icy sphere, approximately 8% frame diameter. Background: minimal void black with few white stars, Jupiter dominates composition. Jupiter lit from left creating three-dimensional form with shading on right limb. Soft airbrush on atmospheric bands, precise line art on Europa's surface cracks."
+    },
+    {
+      "filename": "Waypoint-Saturn_Rings.png",
+      "text_overlay": "Saturns Rings",
+      "prompt": "Anime cel-shaded illustration. Saturn centered slightly lower in frame, approximately 50% frame diameter. Golden-amber planet with subtle atmospheric banding. Ring system prominent: spanning full frame width, rendered with precise line art showing ring divisions (Cassini Division clearly visible as dark gap), golden-amber color (#E6B832 to #F0CC40), slight transparency showing stars through thinner sections. Titan visible upper-right as orange sphere, approximately 10% frame diameter. Background: deep purple void (#7B2FBE) transitioning to indigo black, scattered white stars. Saturn and rings lit from upper-left creating shadow on rings behind planet. Cel-shaded with soft airbrush on atmospheric bands, precise geometric rendering on ring structure."
+    },
+    {
+      "filename": "Waypoint-Deep_Space_69.png",
+      "text_overlay": "Station Deep 69",
+      "prompt": "Anime cel-shaded illustration. Large cylindrical space station centered in frame, approximately 40% frame height. Industrial design: rotating habitat drum in gunmetal grey (#1A1F3A), solar panel arrays extending from central axis, multiple docking ports with ships attached, communication dishes, massive '69' painted on hull in faded white. Neon signage in magenta (#FF2D78) and cyan (#00F0FF): 'DEEP SPACE 69 - LAST SUPPLY 500M KM'. Observation windows glowing warm amber from interior. Small cargo vessels docked at ports. Background: pure deep void black with white stars, distant purple nebula glow barely visible at edges. No nearby planets or moons. Station lit by work lights in amber, creating pools of light on hull. Heavy black ink outlines on mechanical structures, precise line art on details."
+    },
+    {
+      "filename": "Waypoint-Uranus_Arrival.png",
+      "text_overlay": "Uranus is Glorious",
+      "prompt": "Anime cel-shaded illustration. Uranus centered in frame, approximately 70% frame diameter. Distinctive teal-cyan planet (#00E5A0 to #1E8A8A) with subtle atmospheric banding, smooth gradient rendering. Faint ring system visible edge-on as thin line. Tilted rotation axis evident. Methane atmosphere creating ethereal glow. Small moons visible as tiny dots orbiting. Background: deep purple-indigo void (#7B2FBE to #0B0E1A) with scattered white stars. Uranus backlit by distant sun creating luminous rim at edge in bright teal-white. Soft airbrush rendering on atmospheric gradients, cel-shaded with smooth color transitions. Anime starburst lens flare at brightest rim point."
+    },
+    {
+      "filename": "day_earth_01.png",
+      "prompt": "Anime cel-shaded illustration. The Dendrite spacecraft in foreground lower-right, approximately 20% frame height, three-quarter view. Delta-wing silhouette, magenta and cyan running lights glowing, portal-green spine conduit visible. Blue-white engine trail extending behind. Earth in background upper-left, approximately 40% frame diameter, vivid blue with white clouds and green-brown continents. Orbital infrastructure visible as tiny geometric shapes with lights. Deep void indigo background with white stars. Sunlight from right creating rim light on ship's hull edge in cyan. Heavy black ink outlines on ship, soft airbrush on Earth."
+    },
+    {
+      "filename": "day_inner_01.png",
+      "prompt": "Anime cel-shaded illustration. The Dendrite spacecraft in mid-frame left side, approximately 25% frame height, side profile. Delta-wing configuration, magenta running lights trace hull edges, blue-white engine exhaust streaming. Mars visible in background right side as red-orange sphere, approximately 30% frame diameter. Inner asteroid belt rocks scattered in mid-ground as small grey irregular shapes with black outlines. Background: deep indigo void with warm orange-amber zone glow from inner system solar radiation. White stars scattered. Sunlight harsh from off-frame creating strong highlights on ship's port side. Cel-shaded with precise mechanical line art."
+    },
+    {
+      "filename": "day_belt_01.png",
+      "prompt": "Anime cel-shaded illustration. The Dendrite spacecraft centered, approximately 30% frame height, banking angle showing top and port side. Magenta thrusters firing on starboard creating course correction glow. Multiple asteroids in frame: large one in foreground right (grey cratered surface, 35% frame height), medium ones scattered mid-ground, small debris particles. Ceres visible in far background as small grey sphere. Background: grey-amber void from belt dust reflecting distant sunlight, white stars sparse. Amber industrial lighting zones from distant mining operations creating warm glow patches. Heavy black outlines on asteroids and ship. Dynamic composition."
+    },
+    {
+      "filename": "day_outer_01.png",
+      "prompt": "Anime cel-shaded illustration. The Dendrite spacecraft in foreground lower-center, approximately 18% frame height, nose-forward view showing delta wings spread. Cyan and magenta running lights bright, portal-green spine conduit glowing. Jupiter visible in background upper-right, massive (50% frame diameter), banded atmosphere in amber and rust tones, Great Red Spot visible. Background: deep purple-indigo void (#7B2FBE to #0B0E1A) with scattered white stars. Volumetric haze from Jupiter's reflected light creating amber glow in surrounding space. Ship's exhaust blue-white streaming behind. Cel-shaded with soft atmospheric effects on Jupiter, precise line art on ship."
+    },
+    {
+      "filename": "day_uranus_01.png",
+      "prompt": "Anime cel-shaded illustration. The Dendrite spacecraft in mid-frame right side, approximately 22% frame height, three-quarter rear view showing engine exhaust bright blue-white. Magenta and cyan running lights reflecting off nearby ice particles. Uranus visible left side, large (55% frame diameter), teal-cyan gradient (#00E5A0), ethereal atmospheric glow. Small ice particles scattered in foreground catching light, rendered as white sparkles with cyan highlights. Background: deep purple void with white stars. Teal ambient light from Uranus illuminating ship's hull surfaces in cool tone. Soft airbrush on planet, cel-shaded ship with heavy black outlines."
+    }
+  ]
+}

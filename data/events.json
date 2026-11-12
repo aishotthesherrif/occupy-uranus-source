@@ -1,0 +1,3064 @@
+{
+    "events": [
+        {
+            "id": "distress_signal",
+            "title": "\ud83d\udea8 DISTRESS SIGNAL \ud83d\udea8",
+            "description": "Your comms crackle with a weak distress signal. A mining vessel is stranded, offering supplies in exchange for rescue. But it'll cost fuel. And time. {paranoid_chad_name} mutters about space pirates.",
+            "repeatable": true,
+            "chad_reactions": [
+                "{engineer_name}: \"I've triple-checked everything. Still worried.\"",
+                "{captain_name}: \"I've always wanted to see Uranus up close!\"",
+                "{chad_name}: \"This feels like a trap.\""
+            ],
+            "choices": [
+                {
+                    "id": "investigate",
+                    "text": "Investigate and attempt rescue",
+                    "cost": "Fuel: -10",
+                    "risk": "Medium",
+                    "outcomes": [
+                        {
+                            "probability": 0.6,
+                            "effects": {
+                                "fuel": -15,
+                                "food": 20,
+                                "vibes": 10
+                            },
+                            "message": "\u2705 SUCCESS: The chad was genuine. Grateful miners transfer supplies and share intel about safe routes. Heroism pays off.",
+                            "chad_reaction": "{engineer_name}: \"I told you it wasn't pirates. This time.\""
+                        },
+                        {
+                            "probability": 0.4,
+                            "effects": {
+                                "fuel": -15,
+                                "hull": -15,
+                                "vibes": -5
+                            },
+                            "message": "\u274c TRAP: It was a pirate ambush! You barely escape with damaged hull and shaken chad.",
+                            "chad_reaction": "{paranoid_chad_name}: \"I TOLD you this was a trap!\""
+                        }
+                    ]
+                },
+                {
+                    "id": "reply_keep_moving",
+                    "text": "Send reply but keep moving",
+                    "cost": "Fuel: -2",
+                    "risk": "Low",
+                    "outcomes": [
+                        {
+                            "probability": 1,
+                            "effects": {
+                                "fuel": -5,
+                                "vibes": 2
+                            },
+                            "message": "\ud83d\udce1 You send a brief reply with your coordinates and continue on course. A small act of kindness.",
+                            "chad_reaction": "{captain_name}: \"We did what we could without risking the mission.\""
+                        }
+                    ]
+                },
+                {
+                    "id": "ignore",
+                    "text": "Ignore the signal",
+                    "cost": "None",
+                    "risk": "None",
+                    "outcomes": [
+                        {
+                            "probability": 1,
+                            "effects": {
+                                "vibes": -3
+                            },
+                            "message": "\ud83d\udd07 You ignore the distress signal and continue on course. The chad seems uneasy about leaving others behind.",
+                            "chad_reaction": "{chad_name}: \"I hope we made the right choice...\""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "mysterious_derelict",
+            "title": "\ud83d\udef8 MYSTERIOUS DERELICT \ud83d\udef8",
+            "description": "A massive derelict ship drifts in your path. Its hull shows signs of extreme age and unknown technology. {chad_name} suggests investigating, while {paranoid_chad_name} warns of potential dangers.",
+            "repeatable": true,
+            "chad_reactions": [
+                "{chad_name}: \"This could be the discovery of a lifetime!\"",
+                "{paranoid_chad_name}: \"I don't like the look of this. Something's not right.\"",
+                "{engineer_name}: \"The technology is unlike anything I've seen.\""
+            ],
+            "choices": [
+                {
+                    "id": "board_ship",
+                    "text": "Board the derelict ship",
+                    "cost": "Fuel: -5",
+                    "risk": "High",
+                    "outcomes": [
+                        {
+                            "probability": 0.3,
+                            "effects": {
+                                "eth": 5.0,
+                                "vibes": 15,
+                                "food": 30
+                            },
+                            "message": "\ud83c\udf89 INCREDIBLE DISCOVERY: You find advanced technology and supplies. The chad is ecstatic about the find!",
+                            "chad_reaction": "{chad_name}: \"This changes everything! We're going to be famous!\""
+                        },
+                        {
+                            "probability": 0.4,
+                            "effects": {
+                                "hull": -25,
+                                "vibes": -10
+                            },
+                            "message": "\u26a0\ufe0f STRUCTURAL COLLAPSE: The ancient ship's hull gives way. You escape with damaged ship and shaken chad.",
+                            "chad_reaction": "{engineer_name}: \"I should have seen that coming. The structural integrity was compromised.\""
+                        },
+                        {
+                            "probability": 0.3,
+                            "effects": {
+                                "vibes": -20,
+                                "food": -15
+                            },
+                            "message": "\ud83d\ude31 HORROR DISCOVERY: You find evidence of a terrible fate that befell the previous chad. The discovery haunts your chad.",
+                            "chad_reaction": "{chad_name}: \"I... I can't unsee what we found in there.\""
+                        }
+                    ]
+                },
+                {
+                    "id": "scan_from_distance",
+                    "text": "Scan from a safe distance",
+                    "cost": "Fuel: -1",
+                    "risk": "Low",
+                    "outcomes": [
+                        {
+                            "probability": 0.7,
+                            "effects": {
+                                "eth": 1.0,
+                                "vibes": 5
+                            },
+                            "message": "\ud83d\udce1 Your scans reveal valuable data about the derelict. A safe but modest discovery.",
+                            "chad_reaction": "{chad_name}: \"At least we got something useful without the risk.\""
+                        },
+                        {
+                            "probability": 0.3,
+                            "effects": {
+                                "vibes": -2
+                            },
+                            "message": "\ud83d\udce1 Your scans reveal nothing useful. The chad is disappointed by the missed opportunity.",
+                            "chad_reaction": "{chad_name}: \"We'll never know what secrets that ship held.\""
+                        }
+                    ]
+                },
+                {
+                    "id": "avoid_derelict",
+                    "text": "Avoid the derelict entirely",
+                    "cost": "Fuel: -3",
+                    "risk": "None",
+                    "outcomes": [
+                        {
+                            "probability": 1,
+                            "effects": {
+                                "fuel": -5,
+                                "vibes": -1
+                            },
+                            "message": "\ud83d\udee3\ufe0f You plot a course around the derelict. Safe, but the chad wonders what they missed.",
+                            "chad_reaction": "{captain_name}: \"Sometimes the safest choice is the right choice.\""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "chad_conflict",
+            "title": "\u2694\ufe0f CREW CONFLICT \u2694\ufe0f",
+            "description": "Tensions have been building between {chad_name} and {paranoid_chad_name}. Their disagreement about the mission approach has escalated into a heated argument that's affecting everyone's vibes.",
+            "repeatable": true,
+            "chad_reactions": [
+                "{chad_name}: \"We need to take more risks to succeed!\"",
+                "{paranoid_chad_name}: \"We need to be more careful!\"",
+                "{captain_name}: \"This is getting out of hand.\""
+            ],
+            "choices": [
+                {
+                    "id": "support_risk_taker",
+                    "text": "Support the risk-taker",
+                    "cost": "None",
+                    "risk": "Medium",
+                    "outcomes": [
+                        {
+                            "probability": 0.6,
+                            "effects": {
+                                "vibes": 8,
+                                "fuel": -10
+                            },
+                            "message": "\u2705 RESOLUTION: Your support for calculated risks boosts chad confidence. They're ready to face challenges head-on.",
+                            "chad_reaction": "{chad_name}: \"Thank you for believing in us. We won't let you down!\""
+                        },
+                        {
+                            "probability": 0.4,
+                            "effects": {
+                                "vibes": -5,
+                                "hull": -10
+                            },
+                            "message": "\u26a0\ufe0f RECKLESSNESS: The chad becomes overconfident and makes a costly mistake. Your ship takes damage.",
+                            "chad_reaction": "{paranoid_chad_name}: \"I told you this would happen!\""
+                        }
+                    ]
+                },
+                {
+                    "id": "support_cautious",
+                    "text": "Support the cautious approach",
+                    "cost": "None",
+                    "risk": "Low",
+                    "outcomes": [
+                        {
+                            "probability": 0.8,
+                            "effects": {
+                                "vibes": 5,
+                                "fuel": 10
+                            },
+                            "message": "\u2705 STABILITY: Your emphasis on safety and planning restores chad harmony. They work together more efficiently.",
+                            "chad_reaction": "{paranoid_chad_name}: \"Finally, someone who understands the importance of being careful.\""
+                        },
+                        {
+                            "probability": 0.2,
+                            "effects": {
+                                "vibes": -3
+                            },
+                            "message": "\ud83d\ude14 CONSERVATISM: The chad becomes overly cautious and misses opportunities. Morale suffers from inaction.",
+                            "chad_reaction": "{chad_name}: \"We're being too careful. We'll never reach Uranus at this rate.\""
+                        }
+                    ]
+                },
+                {
+                    "id": "mediate_conflict",
+                    "text": "Mediate the conflict",
+                    "cost": "None",
+                    "risk": "None",
+                    "outcomes": [
+                        {
+                            "probability": 0.9,
+                            "effects": {
+                                "vibes": 10
+                            },
+                            "message": "\ud83e\udd1d DIPLOMACY: Your mediation skills bring the chad together. They learn to appreciate each other's perspectives.",
+                            "chad_reaction": "{captain_name}: \"You handled that perfectly. We're stronger as a team.\""
+                        },
+                        {
+                            "probability": 0.1,
+                            "effects": {
+                                "vibes": -2
+                            },
+                            "message": "\ud83d\ude24 STUBBORNNESS: Despite your best efforts, both chads remain stubborn. The tension continues.",
+                            "chad_reaction": "{chad_name}: \"Some people just can't be reasoned with.\""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "resource_shortage",
+            "title": "\u26a0\ufe0f RESOURCE SHORTAGE \u26a0\ufe0f",
+            "description": "Your supplies are running dangerously low. {engineer_name} reports that the life support systems are struggling, and {chad_name} is starting to show signs of malnutrition. You need to make tough decisions about resource allocation.",
+            "repeatable": true,
+            "chad_reactions": [
+                "{engineer_name}: \"The life support systems are at 60% efficiency. We need to act fast.\"",
+                "{chad_name}: \"I'm starting to feel weak. We need more food.\"",
+                "{captain_name}: \"We need to prioritize what's most critical.\""
+            ],
+            "choices": [
+                {
+                    "id": "prioritize_fuel",
+                    "text": "Prioritize fuel conservation",
+                    "cost": "Food: -10, Vibes: -5",
+                    "risk": "Medium",
+                    "outcomes": [
+                        {
+                            "probability": 0.7,
+                            "effects": {
+                                "fuel": 50,
+                                "food": -15,
+                                "vibes": -5
+                            },
+                            "message": "\u26fd FUEL SAVED: Your fuel conservation measures work, but the chad suffers from reduced rations.",
+                            "chad_reaction": "{engineer_name}: \"The fuel systems are stable, but the chad is getting weaker.\""
+                        },
+                        {
+                            "probability": 0.3,
+                            "effects": {
+                                "fuel": 15,
+                                "food": -15,
+                                "vibes": -10,
+                                "hull": -5
+                            },
+                            "message": "\u26a0\ufe0f SYSTEM FAILURE: The reduced power causes minor system failures. You save fuel but damage the ship.",
+                            "chad_reaction": "{engineer_name}: \"I warned you about reducing power to critical systems.\""
+                        }
+                    ]
+                },
+                {
+                    "id": "prioritize_food",
+                    "text": "Prioritize chad nutrition",
+                    "cost": "Fuel: -15, Hull: -5",
+                    "risk": "Medium",
+                    "outcomes": [
+                        {
+                            "probability": 0.6,
+                            "effects": {
+                                "food": 20,
+                                "vibes": 8,
+                                "fuel": -15,
+                                "hull": -5
+                            },
+                            "message": "\ud83c\udf56 CREW RESTORED: The chad regains strength and vibes, but you burn extra fuel and strain the ship.",
+                            "chad_reaction": "{chad_name}: \"Thank you for putting our health first. We feel much better now.\""
+                        },
+                        {
+                            "probability": 0.4,
+                            "effects": {
+                                "food": 15,
+                                "vibes": 5,
+                                "fuel": -20,
+                                "hull": -10
+                            },
+                            "message": "\u26a0\ufe0f OVERCONSUMPTION: The chad overeats in their desperation, wasting resources and damaging systems.",
+                            "chad_reaction": "{engineer_name}: \"We need to be more disciplined with our resources.\""
+                        }
+                    ]
+                },
+                {
+                    "id": "balanced_approach",
+                    "text": "Try to balance all resources",
+                    "cost": "None",
+                    "risk": "High",
+                    "outcomes": [
+                        {
+                            "probability": 0.4,
+                            "effects": {
+                                "fuel": 10,
+                                "food": 15,
+                                "vibes": 3
+                            },
+                            "message": "\u2696\ufe0f BALANCED SUCCESS: Your careful management improves all systems slightly. The chad appreciates your leadership.",
+                            "chad_reaction": "{captain_name}: \"You're doing an excellent job managing our resources.\""
+                        },
+                        {
+                            "probability": 0.6,
+                            "effects": {
+                                "fuel": -10,
+                                "food": -15,
+                                "vibes": -3,
+                                "hull": -5
+                            },
+                            "message": "\u274c INEFFECTIVE: Your attempt to balance everything results in suboptimal outcomes across all systems.",
+                            "chad_reaction": "{chad_name}: \"We need to make tough choices, not try to have it all.\""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "space_storm",
+            "title": "\ud83c\udf2a\ufe0f SPACE STORM \ud83c\udf2a\ufe0f",
+            "description": "A massive electromagnetic storm approaches your ship. The readings are off the charts, and {engineer_name} is frantically trying to protect the ship's systems. {paranoid_chad_name} is convinced this is the end.",
+            "repeatable": true,
+            "chad_reactions": [
+                "{engineer_name}: \"The storm is massive! We need to take immediate action!\"",
+                "{paranoid_chad_name}: \"This is it. We're all going to die out here.\"",
+                "{captain_name}: \"Stay calm, everyone. We'll get through this.\""
+            ],
+            "choices": [
+                {
+                    "id": "ride_out_storm",
+                    "text": "Ride out the storm",
+                    "cost": "Fuel: -20, Hull: -15",
+                    "risk": "High",
+                    "outcomes": [
+                        {
+                            "probability": 0.3,
+                            "effects": {
+                                "fuel": -20,
+                                "hull": -15,
+                                "vibes": 10
+                            },
+                            "message": "\ud83c\udf2a\ufe0f STORM SURVIVED: You weather the storm with significant damage but the chad is proud of their resilience.",
+                            "chad_reaction": "{captain_name}: \"We made it through! I'm proud of how we handled that.\""
+                        },
+                        {
+                            "probability": 0.7,
+                            "effects": {
+                                "fuel": -30,
+                                "hull": -25,
+                                "vibes": -10
+                            },
+                            "message": "\ud83d\udca5 SEVERE DAMAGE: The storm causes extensive damage to your ship. The chad is shaken and demoralized.",
+                            "chad_reaction": "{engineer_name}: \"The damage is extensive. We're lucky to be alive.\""
+                        }
+                    ]
+                },
+                {
+                    "id": "evade_storm",
+                    "text": "Try to evade the storm",
+                    "cost": "Fuel: -30",
+                    "risk": "Medium",
+                    "outcomes": [
+                        {
+                            "probability": 0.6,
+                            "effects": {
+                                "fuel": -30,
+                                "vibes": 5
+                            },
+                            "message": "\ud83d\udef8 EVASION SUCCESS: You successfully navigate around the storm, but it costs significant fuel.",
+                            "chad_reaction": "{chad_name}: \"Smart thinking! We avoided the worst of it.\""
+                        },
+                        {
+                            "probability": 0.4,
+                            "effects": {
+                                "fuel": -30,
+                                "hull": -10,
+                                "vibes": -5
+                            },
+                            "message": "\u26a0\ufe0f PARTIAL EXPOSURE: You can't fully evade the storm and still take some damage.",
+                            "chad_reaction": "{engineer_name}: \"We couldn't avoid it completely, but we minimized the damage.\""
+                        }
+                    ]
+                },
+                {
+                    "id": "seek_shelter",
+                    "text": "Seek shelter behind nearby asteroid",
+                    "cost": "Fuel: -10, Hull: -5",
+                    "risk": "Medium",
+                    "outcomes": [
+                        {
+                            "probability": 0.5,
+                            "effects": {
+                                "fuel": -15,
+                                "hull": -5,
+                                "vibes": 3
+                            },
+                            "message": "\ud83d\udee1\ufe0f SHELTER FOUND: The asteroid provides partial protection, but you still take some damage.",
+                            "chad_reaction": "{chad_name}: \"It's not perfect, but it's better than nothing.\""
+                        },
+                        {
+                            "probability": 0.5,
+                            "effects": {
+                                "fuel": -15,
+                                "hull": -20,
+                                "vibes": -8
+                            },
+                            "message": "\ud83d\udca5 ASTEROID COLLISION: The asteroid field is more dangerous than the storm. You take significant damage.",
+                            "chad_reaction": "{paranoid_chad_name}: \"I knew this was a bad idea!\""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "asteroid_field",
+            "title": "\ud83e\udea8 Asteroid Field Detected!",
+            "description": "A dense asteroid field blocks your path ahead.",
+            "repeatable": true,
+            "choices": [
+                {
+                    "id": "navigate",
+                    "text": "Navigate through (risky)",
+                    "outcomes": [
+                        {
+                            "probability": 0.5,
+                            "effects": {
+                                "hull": -20
+                            },
+                            "message": "\ud83d\udca5 You took damage navigating the asteroids! Hull integrity decreased by 20%."
+                        },
+                        {
+                            "probability": 0.5,
+                            "effects": [],
+                            "message": "\u2728 You skillfully navigated through the asteroid field unscathed!"
+                        }
+                    ]
+                },
+                {
+                    "id": "avoid",
+                    "text": "Take the long way (costs fuel)",
+                    "outcomes": [
+                        {
+                            "probability": 1,
+                            "effects": {
+                                "fuel": -50
+                            },
+                            "message": "\ud83d\udee3\ufe0f You safely avoided the asteroids but burned 50 extra fuel units."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "space_dysentery",
+            "title": "\ud83e\udd22 Medical Alert: Space Dysentery!",
+            "description": "A chad has contracted space dysentery from contaminated water recycling.",
+            "repeatable": true,
+            "choices": [
+                {
+                    "id": "wait",
+                    "text": "Wait it out",
+                    "outcomes": [
+                        {
+                            "probability": 0.7,
+                            "effects": {
+                                "vibes": -10
+                            },
+                            "message": "\ud83d\ude0c The chad recovered after a few uncomfortable days. Morale slightly decreased."
+                        },
+                        {
+                            "probability": 0.3,
+                            "effects": {
+                                "chad": -1,
+                                "vibes": -20
+                            },
+                            "message": "\ud83d\udc80 The chad succumbed to space dysentery. The chad is devastated."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "derelict_ship",
+            "title": "\ud83d\udef8 Derelict Cargo Ship Detected!",
+            "description": "Your scanners pick up a derelict cargo vessel drifting nearby. It appears abandoned.",
+            "repeatable": true,
+            "hunt_eligible": true,
+            "choices": [
+                {
+                    "id": "investigate",
+                    "text": "Board and investigate",
+                    "outcomes": [
+                        {
+                            "probability": 0.6,
+                            "effects": {
+                                "fuel": 100,
+                                "food": 200,
+                                "eth": 2.0
+                            },
+                            "message": "\ud83c\udf81 Jackpot! You found 80 fuel cells and 40 food rations in the cargo hold! Salvaged tech worth 2 ETH."
+                        },
+                        {
+                            "probability": 0.3,
+                            "effects": {
+                                "hull": -15
+                            },
+                            "message": "\ud83d\udca5 It was a trap! Automated defense systems damaged your ship by 15%."
+                        },
+                        {
+                            "probability": 0.1,
+                            "effects": [],
+                            "message": "\ud83d\udd73\ufe0f The ship was completely empty. You wasted time for nothing."
+                        }
+                    ]
+                },
+                {
+                    "id": "ignore",
+                    "text": "Ignore it and continue",
+                    "outcomes": [
+                        {
+                            "probability": 1,
+                            "effects": [],
+                            "message": "\ud83d\ude80 You continue on your journey without investigating."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "radiation_storm",
+            "title": "\u2622\ufe0f Radiation Storm Approaching!",
+            "description": "A massive solar flare is sending a wave of radiation your way!",
+            "repeatable": true,
+            "choices": [
+                {
+                    "id": "shields",
+                    "text": "Power shields (costs fuel)",
+                    "outcomes": [
+                        {
+                            "probability": 1,
+                            "effects": {
+                                "fuel": -30
+                            },
+                            "message": "\ud83d\udee1\ufe0f Your shields protected the chad from radiation. 30 fuel consumed."
+                        }
+                    ]
+                },
+                {
+                    "id": "tough_it_out",
+                    "text": "Tough it out",
+                    "outcomes": [
+                        {
+                            "probability": 0.6,
+                            "effects": {
+                                "vibes": -20
+                            },
+                            "message": "\ud83d\ude30 The chad survived the radiation but vibes is low from the exposure."
+                        },
+                        {
+                            "probability": 0.3,
+                            "effects": {
+                                "chad": -1,
+                                "vibes": -15
+                            },
+                            "message": "\ud83d\udc80 One chad succumbed to acute radiation sickness."
+                        },
+                        {
+                            "probability": 0.1,
+                            "effects": {
+                                "vibes": -10
+                            },
+                            "message": "\ud83d\ude05 The radiation wasn't as bad as feared. Minor vibes impact."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "space_pirates",
+            "title": "\ud83c\udff4\u200d\u2620\ufe0f Space Pirates Demand Tribute!",
+            "description": "A pirate vessel has locked weapons on your ship and demands you surrender cargo!",
+            "repeatable": true,
+            "hunt_eligible": true,
+            "choices": [
+                {
+                    "id": "pay",
+                    "text": "Give them food supplies",
+                    "outcomes": [
+                        {
+                            "probability": 1,
+                            "effects": {
+                                "food": -500
+                            },
+                            "message": "\ud83c\udf56 The pirates take 100 food rations and leave you in peace."
+                        }
+                    ]
+                },
+                {
+                    "id": "fight",
+                    "text": "Fire weapons and fight!",
+                    "outcomes": [
+                        {
+                            "probability": 0.5,
+                            "effects": {
+                                "vibes": 10,
+                                "fuel": 50,
+                                "eth": 3.0
+                            },
+                            "message": "\u2694\ufe0f You drove them off! Your Chad crew cheers and you looted 3 ETH and 20 fuel from their damaged ship!"
+                        },
+                        {
+                            "probability": 0.4,
+                            "effects": {
+                                "hull": -30,
+                                "fuel": -20
+                            },
+                            "message": "\ud83d\udca5 The pirates damaged your ship badly (30% hull) before fleeing. You lost 20 fuel in the battle."
+                        },
+                        {
+                            "probability": 0.1,
+                            "effects": {
+                                "chad": -1,
+                                "hull": -40
+                            },
+                            "message": "\ud83d\udc80 The pirates were stronger than expected. They killed a chad and dealt 40% hull damage before leaving."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "mysterious_signal",
+            "title": "\ud83d\udce1 Mysterious Signal Detected!",
+            "description": "You're receiving a strange transmission from deep space. It seems... alien?",
+            "repeatable": false,
+            "choices": [
+                {
+                    "id": "investigate",
+                    "text": "Investigate the signal",
+                    "outcomes": [
+                        {
+                            "probability": 0.4,
+                            "effects": {
+                                "fuel": 150,
+                                "vibes": 20
+                            },
+                            "message": "\ud83d\udc7d You discovered an ancient alien fuel cache! +150 fuel. The chad is excited!"
+                        },
+                        {
+                            "probability": 0.3,
+                            "effects": {
+                                "vibes": -30
+                            },
+                            "message": "\ud83d\ude31 The signal led to a terrifying alien artifact. The chad is deeply unsettled."
+                        },
+                        {
+                            "probability": 0.3,
+                            "effects": [],
+                            "message": "\ud83d\udcfb The signal was just cosmic interference. Nothing found."
+                        }
+                    ]
+                },
+                {
+                    "id": "ignore",
+                    "text": "Ignore it and continue",
+                    "outcomes": [
+                        {
+                            "probability": 1,
+                            "effects": [],
+                            "message": "\ud83d\ude80 You decide to stick to the mission and continue toward Uranus."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "meteor_shower",
+            "title": "\u2604\ufe0f Meteor Shower Incoming!",
+            "description": "Hundreds of small meteors are on a collision course with your ship!",
+            "repeatable": true,
+            "choices": [
+                {
+                    "id": "evade",
+                    "text": "Evasive maneuvers (costs fuel)",
+                    "outcomes": [
+                        {
+                            "probability": 0.8,
+                            "effects": {
+                                "fuel": -40
+                            },
+                            "message": "\ud83c\udfaf Your pilot successfully evaded the meteor shower! 40 fuel consumed."
+                        },
+                        {
+                            "probability": 0.2,
+                            "effects": {
+                                "hull": -10,
+                                "fuel": -40
+                            },
+                            "message": "\ud83d\udcab Despite evasive action, a few meteors struck the hull. -10% hull, -40 fuel."
+                        }
+                    ]
+                },
+                {
+                    "id": "shields_only",
+                    "text": "Trust the shields",
+                    "outcomes": [
+                        {
+                            "probability": 0.5,
+                            "effects": {
+                                "hull": -25
+                            },
+                            "message": "\ud83d\udca5 The shields weren't enough. Multiple impacts reduced hull by 25%."
+                        },
+                        {
+                            "probability": 0.5,
+                            "effects": {
+                                "hull": -5
+                            },
+                            "message": "\ud83d\udee1\ufe0f The shields held! Only minor hull damage (5%)."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "supply_leak",
+            "title": "\ud83d\udca7 Supply Leak Detected!",
+            "description": "A storage compartment breach is causing resources to vent into space!",
+            "repeatable": true,
+            "choices": [
+                {
+                    "id": "emergency_repair",
+                    "text": "Emergency repair (risky)",
+                    "outcomes": [
+                        {
+                            "probability": 0.6,
+                            "effects": {
+                                "food": -30
+                            },
+                            "message": "\ud83d\udd27 You managed to seal the leak but lost 30 food units in the process."
+                        },
+                        {
+                            "probability": 0.4,
+                            "effects": {
+                                "food": -60,
+                                "hull": -10
+                            },
+                            "message": "\ud83d\udca5 The repair failed, making it worse! Lost 60 food and 10% hull integrity."
+                        }
+                    ]
+                },
+                {
+                    "id": "seal_compartment",
+                    "text": "Seal off compartment (lose supplies)",
+                    "outcomes": [
+                        {
+                            "probability": 1,
+                            "effects": {
+                                "food": -60,
+                                "fuel": -30
+                            },
+                            "message": "\ud83d\udeaa You sealed the compartment to prevent further loss. Lost 50 food and 30 fuel."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "trading_post",
+            "title": "\ud83d\udef0\ufe0f Trading Post Beacon!",
+            "description": "A small automated trading station is offering to exchange goods.",
+            "repeatable": true,
+            "choices": [
+                {
+                    "id": "trade_fuel",
+                    "text": "Trade food for fuel (50 food \u2192 80 fuel)",
+                    "outcomes": [
+                        {
+                            "probability": 1,
+                            "effects": {
+                                "food": -60,
+                                "fuel": 100
+                            },
+                            "message": "\ud83d\udd04 Trade completed! -50 food, +80 fuel."
+                        }
+                    ]
+                },
+                {
+                    "id": "trade_food",
+                    "text": "Trade fuel for food (40 fuel \u2192 60 food)",
+                    "outcomes": [
+                        {
+                            "probability": 1,
+                            "effects": {
+                                "fuel": -40,
+                                "food": 60
+                            },
+                            "message": "\ud83d\udd04 Trade completed! -40 fuel, +60 food."
+                        }
+                    ]
+                },
+                {
+                    "id": "no_trade",
+                    "text": "Continue without trading",
+                    "outcomes": [
+                        {
+                            "probability": 1,
+                            "effects": [],
+                            "message": "\ud83d\ude80 You continue your journey without trading."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "uranus_probe_warning",
+            "title": "\ud83d\udef0\ufe0f WARNING: Uranus Probe Required",
+            "description": "Mission Control insists you must probe Uranus before landing. The chad is uncomfortable with the phrasing.",
+            "repeatable": false,
+            "choices": [
+                {
+                    "id": "probe_it",
+                    "text": "Deploy the probe into Uranus",
+                    "outcomes": [
+                        {
+                            "probability": 0.7,
+                            "effects": {
+                                "vibes": -5
+                            },
+                            "message": "\ud83d\udce1 The probe successfully entered Uranus. The chad won't stop giggling. -5 vibes from immaturity."
+                        },
+                        {
+                            "probability": 0.3,
+                            "effects": {
+                                "vibes": -15,
+                                "fuel": -20
+                            },
+                            "message": "\ud83d\udca5 The probe was destroyed by methane deposits in Uranus. The chad made it weird. -15 vibes, -20 fuel."
+                        }
+                    ]
+                },
+                {
+                    "id": "skip_probe",
+                    "text": "Skip the probe (unprofessional)",
+                    "outcomes": [
+                        {
+                            "probability": 1,
+                            "effects": {
+                                "vibes": 10
+                            },
+                            "message": "\ud83d\ude0e The chad appreciates your maturity. Mission Control is disappointed in you. +10 vibes."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "memecoin_transmission",
+            "title": "\ud83d\udcc8 Incoming Transmission: HOT COIN TIP",
+            "description": "An encrypted message promises 1000x gains on $URANUSCOIN. This seems legitimate and wise.",
+            "repeatable": false,
+            "choices": [
+                {
+                    "id": "ape_in",
+                    "text": "Convert all fuel reserves to $URANUSCOIN",
+                    "outcomes": [
+                        {
+                            "probability": 0.05,
+                            "effects": {
+                                "fuel": 500,
+                                "vibes": 30,
+                                "eth": 10.0
+                            },
+                            "message": "\ud83d\ude80 HOLY SHIT IT ACTUALLY MOONED! +500 fuel worth and 10 ETH! Your Chad crew are now insufferable about their market genius."
+                        },
+                        {
+                            "probability": 0.95,
+                            "effects": {
+                                "fuel": -100,
+                                "vibes": -25,
+                                "eth": -1.5
+                            },
+                            "message": "\ud83d\udcc9 The dev rugged. The liquidity is gone. Your fuel is gone. You lost 1.5 ETH. You are financially devastated."
+                        }
+                    ]
+                },
+                {
+                    "id": "ngmi",
+                    "text": "Ignore it (paper hands)",
+                    "outcomes": [
+                        {
+                            "probability": 1,
+                            "effects": [],
+                            "message": "\ud83d\ude10 You continue your journey. Later, you hear $URANUSCOIN did a 50x. You'll never stop thinking about this."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "uranus_gas_fees",
+            "title": "\ud83d\udca8 Uranus Gas Leak Detected",
+            "description": "A methane gas leak near Uranus is affecting ship operations. The gas fees are astronomical.",
+            "repeatable": true,
+            "choices": [
+                {
+                    "id": "pay_gas",
+                    "text": "Pay the gas fees (use fuel)",
+                    "outcomes": [
+                        {
+                            "probability": 1,
+                            "effects": {
+                                "fuel": -50
+                            },
+                            "message": "\u26fd You paid 60 fuel in gas fees to navigate Uranus safely. This is somehow a metaphor."
+                        }
+                    ]
+                },
+                {
+                    "id": "wait_for_low_gas",
+                    "text": "Wait for gas to disperse",
+                    "outcomes": [
+                        {
+                            "probability": 0.6,
+                            "effects": {
+                                "food": -30
+                            },
+                            "message": "\u23f3 The gas eventually dispersed. You wasted time and consumed 20 food waiting."
+                        },
+                        {
+                            "probability": 0.4,
+                            "effects": {
+                                "food": -30,
+                                "vibes": -15
+                            },
+                            "message": "\ud83d\udca8 The gas got worse. Your Chad crew is trapped in Uranus's gas cloud. -30 food, -15 vibes."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "nft_derelict",
+            "title": "\ud83d\uddbc\ufe0f NFT Cargo Ship Discovered",
+            "description": "You found a derelict ship carrying 10,000 procedurally generated Bored Ape Astronauts. They have no value.",
+            "repeatable": false,
+            "choices": [
+                {
+                    "id": "screenshot",
+                    "text": "Screenshot all NFTs (right-click save)",
+                    "outcomes": [
+                        {
+                            "probability": 1,
+                            "effects": {
+                                "vibes": 15
+                            },
+                            "message": "\ud83d\udcf8 You now own every JPEG for free. The chad feels like they stole something. They didn't. +15 vibes."
+                        }
+                    ]
+                },
+                {
+                    "id": "respect_blockchain",
+                    "text": "Respect the blockchain and leave them",
+                    "outcomes": [
+                        {
+                            "probability": 1,
+                            "effects": {
+                                "vibes": -10
+                            },
+                            "message": "\ud83d\ude14 You respected property rights that don't exist in space. The chad thinks you're a mark. -10 vibes."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "uranus_rings",
+            "title": "\ud83d\udc8d Uranus Rings Detected",
+            "description": "Your sensors detect 13 faint rings around Uranus. Someone makes an onion rings joke. It doesn't land.",
+            "repeatable": false,
+            "choices": [
+                {
+                    "id": "mine_rings",
+                    "text": "Mine the rings for resources",
+                    "outcomes": [
+                        {
+                            "probability": 0.5,
+                            "effects": {
+                                "fuel": 100,
+                                "food": 150
+                            },
+                            "message": "\u26cf\ufe0f You successfully extracted resources from Uranus's rings! +70 fuel, +30 food."
+                        },
+                        {
+                            "probability": 0.5,
+                            "effects": {
+                                "hull": -20
+                            },
+                            "message": "\ud83d\udca5 Mining Uranus's rings was harder than expected. Your equipment got caught in the ring. -20% hull."
+                        }
+                    ]
+                },
+                {
+                    "id": "photograph",
+                    "text": "Just take pictures for science",
+                    "outcomes": [
+                        {
+                            "probability": 1,
+                            "effects": {
+                                "vibes": 5
+                            },
+                            "message": "\ud83d\udcf7 You captured stunning images of Uranus's rings. The chad pretends they care about science. +5 vibes."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "hodl_crisis",
+            "title": "\ud83d\udc8e Chad Member Refuses to Sell $TITANICTOKEN",
+            "description": "A chad invested life savings in $TITANICTOKEN. It's down 99.8%. They have diamond hands.",
+            "repeatable": true,
+            "choices": [
+                {
+                    "id": "stage_intervention",
+                    "text": "Stage an intervention",
+                    "outcomes": [
+                        {
+                            "probability": 0.3,
+                            "effects": {
+                                "vibes": 20
+                            },
+                            "message": "\ud83d\ude4f They finally sold at a 99.9% loss. This is somehow a win. The healing can begin. +20 vibes."
+                        },
+                        {
+                            "probability": 0.7,
+                            "effects": {
+                                "vibes": -15
+                            },
+                            "message": "\ud83d\udc8e They called you a paper-handed bitch and doubled down. This is fine. Everything is fine. -15 vibes."
+                        }
+                    ]
+                },
+                {
+                    "id": "let_them_hold",
+                    "text": "Let them hold (their choice)",
+                    "outcomes": [
+                        {
+                            "probability": 1,
+                            "effects": {
+                                "vibes": -20
+                            },
+                            "message": "\ud83d\udcc9 They're still checking the charts every 5 minutes. It's down another 40%. Math is cruel. -20 vibes."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "uranus_entry_angle",
+            "title": "\ud83c\udfaf Calculating Entry Angle Into Uranus",
+            "description": "The navigator is calculating the optimal angle to enter Uranus. The double entendres are excruciating.",
+            "repeatable": false,
+            "choices": [
+                {
+                    "id": "shallow_entry",
+                    "text": "Shallow entry (safe)",
+                    "outcomes": [
+                        {
+                            "probability": 1,
+                            "effects": {
+                                "fuel": -40
+                            },
+                            "message": "\ud83d\udef8 You gently entered Uranus at a shallow angle. Everyone is being so mature about this. -40 fuel."
+                        }
+                    ]
+                },
+                {
+                    "id": "deep_entry",
+                    "text": "Deep entry (risky, saves fuel)",
+                    "outcomes": [
+                        {
+                            "probability": 0.6,
+                            "effects": {
+                                "fuel": -15
+                            },
+                            "message": "\ud83c\udfaf Perfect deep entry into Uranus! Fuel conserved. The chad maintains eye contact to assert dominance."
+                        },
+                        {
+                            "probability": 0.4,
+                            "effects": {
+                                "hull": -30,
+                                "fuel": -15
+                            },
+                            "message": "\ud83d\udca5 You went too deep into Uranus! The pressure was intense. -30% hull. The jokes write themselves."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "whale_manipulation",
+            "title": "\ud83d\udc0b Space Whale Detected (Market Manipulation)",
+            "description": "A massive entity is dumping $URANUS tokens, crashing the market. It might also be an actual space whale.",
+            "repeatable": true,
+            "choices": [
+                {
+                    "id": "buy_dip",
+                    "text": "BUY THE DIP (use remaining fuel)",
+                    "outcomes": [
+                        {
+                            "probability": 0.2,
+                            "effects": {
+                                "fuel": 200,
+                                "vibes": 25
+                            },
+                            "message": "\ud83d\udcc8 THE WHALE PUMPED IT! You caught the bounce! +200 fuel value! WAGMI! +25 vibes from euphoria!"
+                        },
+                        {
+                            "probability": 0.8,
+                            "effects": {
+                                "fuel": -75,
+                                "vibes": -20
+                            },
+                            "message": "\ud83d\udcc9 It kept dipping. Then it dipped more. Then it dipped through the floor into hell. -80 fuel, -20 vibes."
+                        }
+                    ]
+                },
+                {
+                    "id": "harpoon_whale",
+                    "text": "Harpoon the actual space whale",
+                    "outcomes": [
+                        {
+                            "probability": 0.5,
+                            "effects": {
+                                "food": 200
+                            },
+                            "message": "\ud83c\udfa3 You harpooned the space whale! +200 food! This is probably illegal in 47 star systems."
+                        },
+                        {
+                            "probability": 0.5,
+                            "effects": {
+                                "hull": -25,
+                                "chad": -1
+                            },
+                            "message": "\ud83d\udc0b The whale destroyed your harpoon and killed a chad. It then dumped more tokens. -25% hull, -1 chad."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "uranus_retrograde",
+            "title": "\ud83d\udd04 Uranus is in Retrograde",
+            "description": "The astrology officer reports that Uranus is in retrograde. This affects nothing but she insists it matters.",
+            "repeatable": true,
+            "choices": [
+                {
+                    "id": "believe_astrology",
+                    "text": "Wait for better alignment (costs time)",
+                    "outcomes": [
+                        {
+                            "probability": 1,
+                            "effects": {
+                                "food": -30,
+                                "vibes": 5
+                            },
+                            "message": "\ud83d\udd2e You waited. Nothing happened differently. The astrology officer is vindicated somehow. -30 food, +5 vibes."
+                        }
+                    ]
+                },
+                {
+                    "id": "ignore_retrograde",
+                    "text": "Ignore pseudoscience and continue",
+                    "outcomes": [
+                        {
+                            "probability": 0.8,
+                            "effects": [],
+                            "message": "\ud83d\ude80 You continued without incident because astrology isn't real. The officer is sulking."
+                        },
+                        {
+                            "probability": 0.2,
+                            "effects": {
+                                "fuel": -40,
+                                "vibes": -15
+                            },
+                            "message": "\ud83d\udcab You hit unexpected turbulence. The astrology officer says 'I TOLD YOU SO' for 6 hours straight. -40 fuel, -15 vibes."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "shitcoin_payload",
+            "title": "\ud83d\udca9 Cargo Bay Inspection: Shitcoins Detected",
+            "description": "You discover the cargo bay is 40% shitcoins some chad is trying to shill at Uranus.",
+            "repeatable": false,
+            "choices": [
+                {
+                    "id": "jettison_shitcoins",
+                    "text": "Jettison into space",
+                    "outcomes": [
+                        {
+                            "probability": 1,
+                            "effects": {
+                                "vibes": -10
+                            },
+                            "message": "\ud83d\udeae You jettison $SCAMCOIN, $RUGPULL, and $TRUSTMEBRO into the void. One chad is crying. -10 vibes."
+                        }
+                    ]
+                },
+                {
+                    "id": "let_them_shill",
+                    "text": "Allow the shilling to continue",
+                    "outcomes": [
+                        {
+                            "probability": 0.1,
+                            "effects": {
+                                "food": 100
+                            },
+                            "message": "\ud83e\udd2f IMPOSSIBLY, SOMEONE AT URANUS BOUGHT THE BAGS! You traded shitcoins for +100 food! This never happens!"
+                        },
+                        {
+                            "probability": 0.9,
+                            "effects": {
+                                "vibes": -20
+                            },
+                            "message": "\ud83d\udcc9 No one at Uranus wants the shitcoins. The cargo space was wasted. The chad is split into factions. -20 vibes."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "uranus_smell",
+            "title": "\ud83d\udc43 Sensors Detect Uranus Odor Profile",
+            "description": "Chemical analysis reveals Uranus smells exactly like what you think. Hydrogen sulfide confirmed.",
+            "repeatable": false,
+            "choices": [
+                {
+                    "id": "seal_ship",
+                    "text": "Seal all external vents immediately",
+                    "outcomes": [
+                        {
+                            "probability": 1,
+                            "effects": {
+                                "vibes": 5
+                            },
+                            "message": "\ud83d\udeab Ship sealed. The chad will never experience Uranus's natural aroma. This is a mercy. +5 vibes."
+                        }
+                    ]
+                },
+                {
+                    "id": "embrace_stink",
+                    "text": "Open vents (embrace your destination)",
+                    "outcomes": [
+                        {
+                            "probability": 1,
+                            "effects": {
+                                "vibes": -30,
+                                "chad": -1
+                            },
+                            "message": "\ud83d\udc80 The smell of Uranus is indescribable. One chad passed out and won't wake up. -1 chad, -30 vibes."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "liquidity_pool_drained",
+            "title": "\ud83c\udfca ALERT: Liquid Oxygen Liquidity Pool Drained",
+            "description": "Someone bridged all your liquid oxygen to a DEX on the Uranus blockchain. The liquidity is gone.",
+            "repeatable": false,
+            "choices": [
+                {
+                    "id": "emergency_protocols",
+                    "text": "Emergency life support protocols",
+                    "outcomes": [
+                        {
+                            "probability": 0.7,
+                            "effects": {
+                                "fuel": -50,
+                                "vibes": -15
+                            },
+                            "message": "\ud83d\ude30 You rationed air and synthesized O2 from fuel. Everyone is lightheaded but alive. -50 fuel, -15 vibes."
+                        },
+                        {
+                            "probability": 0.3,
+                            "effects": {
+                                "chad": -2,
+                                "vibes": -30
+                            },
+                            "message": "\ud83d\udc80 The protocols failed. Two chads suffocated while checking if the liquidity returned. It didn't. -2 chad, -30 vibes."
+                        }
+                    ]
+                },
+                {
+                    "id": "buy_back_liquidity",
+                    "text": "Buy back O2 at 300% markup",
+                    "outcomes": [
+                        {
+                            "probability": 1,
+                            "effects": {
+                                "food": -100,
+                                "fuel": -100
+                            },
+                            "message": "\ud83d\udcb8 You bought back your own oxygen from the hacker at extortion prices. -100 food, -100 fuel. This is fine."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "uranus_colonist_naming",
+            "title": "\ud83d\udcdd Colonist Naming Rights NFT Drop",
+            "description": "The Uranus Authority is selling NFTs for colonist naming rights. Be among the first on Uranus!",
+            "repeatable": false,
+            "choices": [
+                {
+                    "id": "buy_nft",
+                    "text": "Buy naming rights NFT (costs fuel)",
+                    "outcomes": [
+                        {
+                            "probability": 0.3,
+                            "effects": {
+                                "fuel": -75,
+                                "vibes": 20
+                            },
+                            "message": "\ud83c\udfab You're now officially 'First Wave Uranus Colonist #6,847'! The serial number really makes it special. +20 vibes."
+                        },
+                        {
+                            "probability": 0.7,
+                            "effects": {
+                                "fuel": -75,
+                                "vibes": -10
+                            },
+                            "message": "\ud83d\ude10 You bought the NFT but the Uranus Authority site is down. Your receipt says 'RIGHT CLICK SAVE DEEZ NUTS'. -80 fuel, -10 vibes."
+                        }
+                    ]
+                },
+                {
+                    "id": "skip_nft",
+                    "text": "Decline (you don't need validation)",
+                    "outcomes": [
+                        {
+                            "probability": 1,
+                            "effects": [],
+                            "message": "\ud83d\ude0e You're colonizing Uranus for the adventure, not for a JPEG. The chad respects this."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "wrong_planet",
+            "title": "\ud83c\udf19 TO THE MOON! Wait...",
+            "description": "The crypto bro you hired as navigator keeps trying to plot course to 'the moon.' You're going to URANUS.",
+            "repeatable": false,
+            "choices": [
+                {
+                    "id": "correct_course",
+                    "text": "Correct course to Uranus",
+                    "outcomes": [
+                        {
+                            "probability": 1,
+                            "effects": {
+                                "fuel": -30
+                            },
+                            "message": "\ud83c\udfaf Course corrected to Uranus. The navigator seems disappointed. 'But ser... wen moon?' -30 fuel wasted."
+                        }
+                    ]
+                },
+                {
+                    "id": "go_to_moon",
+                    "text": "Actually, let's check out the moon",
+                    "outcomes": [
+                        {
+                            "probability": 1,
+                            "effects": {
+                                "fuel": -200,
+                                "vibes": 15
+                            },
+                            "message": "\ud83c\udf19 You visited Earth's moon. It's covered in abandoned Dogecoin mining rigs. This was pointless. -200 fuel, +15 vibes."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "uranus_pressure",
+            "title": "\ud83d\udd29 Structural Warning: Uranus Pressure Extreme",
+            "description": "Your ship is experiencing intense pressure approaching Uranus. The hull is groaning audibly.",
+            "repeatable": true,
+            "choices": [
+                {
+                    "id": "reinforce_hull",
+                    "text": "Emergency hull reinforcement",
+                    "outcomes": [
+                        {
+                            "probability": 0.7,
+                            "effects": {
+                                "fuel": -50
+                            },
+                            "message": "\ud83d\udd27 Hull reinforced. You withstood the pressure of Uranus. Your ship is no longer hull-compromised. -50 fuel."
+                        },
+                        {
+                            "probability": 0.3,
+                            "effects": {
+                                "hull": -35,
+                                "fuel": -50
+                            },
+                            "message": "\ud83d\udca5 Reinforcement failed. Uranus's pressure was too intense. -35% hull, -50 fuel. Structural integrity questionable."
+                        }
+                    ]
+                },
+                {
+                    "id": "pull_out",
+                    "text": "Retreat from Uranus temporarily",
+                    "outcomes": [
+                        {
+                            "probability": 1,
+                            "effects": {
+                                "fuel": -40,
+                                "vibes": -10
+                            },
+                            "message": "\ud83d\udd19 You pulled out of Uranus before things got worse. The chad questions your commitment. -40 fuel, -10 vibes."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "yield_farming_disaster",
+            "title": "\ud83c\udf3e Crop Yield Farming vs DeFi Yield Farming",
+            "description": "The engineer confused actual crop yield farming with DeFi yield farming. All crops are now staked on Uranus blockchain.",
+            "repeatable": false,
+            "choices": [
+                {
+                    "id": "unstake_crops",
+                    "text": "Unstake immediately (pay gas)",
+                    "outcomes": [
+                        {
+                            "probability": 0.6,
+                            "effects": {
+                                "fuel": -40,
+                                "food": -30
+                            },
+                            "message": "\ud83c\udf31 You unstaked the crops but they withered in smart contract. -30 food, -40 fuel in gas fees. Revolutionary technology."
+                        },
+                        {
+                            "probability": 0.4,
+                            "effects": {
+                                "fuel": -40,
+                                "food": 60
+                            },
+                            "message": "\ud83c\udfb0 Somehow the crops earned yield?? You have +50 food from staking rewards. DeFi makes zero sense. -40 fuel gas."
+                        }
+                    ]
+                },
+                {
+                    "id": "leave_staked",
+                    "text": "Leave staked (see what happens)",
+                    "outcomes": [
+                        {
+                            "probability": 0.2,
+                            "effects": {
+                                "food": 150
+                            },
+                            "message": "\ud83d\ude9c THE APY MOONED! Your crops are earning 42069% yield! +150 food! This is somehow legal! This is fine!"
+                        },
+                        {
+                            "probability": 0.8,
+                            "effects": {
+                                "food": -100
+                            },
+                            "message": "\ud83d\udc80 The farm was a rug pull. Your crops are gone. You will starve on Uranus. This is what you get for trusting DeFi. -100 food."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "uranus_tilt",
+            "title": "\u26a0\ufe0f Uranus Rotates Sideways (98\u00b0 Axial Tilt)",
+            "description": "Uranus rotates on its side like a complete weirdo. This is affecting your approach vector and also your worldview.",
+            "repeatable": false,
+            "choices": [
+                {
+                    "id": "match_rotation",
+                    "text": "Match Uranus's weird rotation",
+                    "outcomes": [
+                        {
+                            "probability": 0.6,
+                            "effects": {
+                                "fuel": -50
+                            },
+                            "message": "\ud83c\udf00 You matched Uranus's sideways rotation. Everyone is nauseous. The universe is chaos. -60 fuel."
+                        },
+                        {
+                            "probability": 0.4,
+                            "effects": {
+                                "fuel": -50,
+                                "vibes": -20
+                            },
+                            "message": "\ud83e\udd22 You matched rotation but now the chad can't remember which way is up. Existential crisis aboard. -60 fuel, -20 vibes."
+                        }
+                    ]
+                },
+                {
+                    "id": "ignore_tilt",
+                    "text": "Maintain normal orientation (risky)",
+                    "outcomes": [
+                        {
+                            "probability": 0.5,
+                            "effects": [],
+                            "message": "\ud83d\ude0e You maintained dignity and normal orientation. Uranus can rotate however it wants. You're fine."
+                        },
+                        {
+                            "probability": 0.5,
+                            "effects": {
+                                "hull": -25
+                            },
+                            "message": "\ud83d\udcab Your orientation was wrong. You entered Uranus at a bad angle. This sounds worse than it is. -25% hull."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "memecoin_cargo_hold",
+            "title": "\ud83d\udce6 Cargo Hold Inspection: Physical Memecoins",
+            "description": "Someone loaded the cargo hold with physical memecoin merchandise. 4 tons of Uranus-themed crypto merch.",
+            "repeatable": false,
+            "choices": [
+                {
+                    "id": "dump_merch",
+                    "text": "Jettison all of it",
+                    "outcomes": [
+                        {
+                            "probability": 1,
+                            "effects": [],
+                            "message": "\ud83d\uddd1\ufe0f You dumped 4 tons of 'URANUS HODL' t-shirts into space. Somewhere, a marketing consultant is crying."
+                        }
+                    ]
+                },
+                {
+                    "id": "wear_merch",
+                    "text": "Make chad wear the merch (assert dominance)",
+                    "outcomes": [
+                        {
+                            "probability": 1,
+                            "effects": {
+                                "vibes": -25
+                            },
+                            "message": "\ud83d\udc55 Everyone now wears 'I SURVIVED URANUS' shirts. The irony is we haven't arrived yet. Morale is destroyed. -25 vibes."
+                        }
+                    ]
+                },
+                {
+                    "id": "sell_at_uranus",
+                    "text": "Try to sell it at Uranus",
+                    "outcomes": [
+                        {
+                            "probability": 0.05,
+                            "effects": {
+                                "food": 300,
+                                "fuel": 200
+                            },
+                            "message": "\ud83e\udd11 HOLY SHIT THERE'S A MARKET FOR THIS! You sold everything at 1000% markup! +300 food, +200 fuel!"
+                        },
+                        {
+                            "probability": 0.95,
+                            "effects": {
+                                "vibes": -15
+                            },
+                            "message": "\ud83d\ude10 No one at Uranus wants 'DIAMOND HANDS ON URANUS' hoodies. You're stuck with 4 tons of regret. -15 vibes."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "dao_governance",
+            "title": "\ud83d\uddf3\ufe0f DAO VOTE: Ship Operations Now Decentralized",
+            "description": "The chad formed a DAO. All decisions now require governance token votes. You no longer have unilateral control.",
+            "repeatable": false,
+            "choices": [
+                {
+                    "id": "accept_dao",
+                    "text": "Accept DAO governance (embrace decentralization)",
+                    "outcomes": [
+                        {
+                            "probability": 0.3,
+                            "effects": {
+                                "vibes": 20
+                            },
+                            "message": "\ud83e\udd1d DAO governance is working! Chad vibes is high! Decisions take 6 hours but everyone feels heard! +20 vibes!"
+                        },
+                        {
+                            "probability": 0.7,
+                            "effects": {
+                                "vibes": -30,
+                                "fuel": -50
+                            },
+                            "message": "\ud83d\udc80 The DAO voted to blow all fuel on NFTs. This is democracy. You have no power here. -50 fuel, -30 vibes from chaos."
+                        }
+                    ]
+                },
+                {
+                    "id": "reject_dao",
+                    "text": "Reject DAO (maintain command authority)",
+                    "outcomes": [
+                        {
+                            "probability": 1,
+                            "effects": {
+                                "vibes": -20
+                            },
+                            "message": "\ud83d\udc51 You dissolved the DAO and reasserted control. The chad calls you a tyrant. They're not wrong. -20 vibes."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "uranus_moons_confusion",
+            "title": "\ud83c\udf11 Uranus Has 27 Moons (This Seems Excessive)",
+            "description": "Navigation is confused by Uranus's 27 moons. Miranda, Ariel, Umbriel, Titania, Oberon, and 22 others nobody remembers.",
+            "repeatable": true,
+            "choices": [
+                {
+                    "id": "scan_all_moons",
+                    "text": "Scan all 27 moons thoroughly",
+                    "outcomes": [
+                        {
+                            "probability": 0.4,
+                            "effects": {
+                                "fuel": -75,
+                                "food": 100
+                            },
+                            "message": "\ud83d\udd2d You found abandoned mining operations on Miranda! +100 food from supplies! -70 fuel from thoroughness."
+                        },
+                        {
+                            "probability": 0.6,
+                            "effects": {
+                                "fuel": -75
+                            },
+                            "message": "\ud83d\ude34 You scanned all 27 moons. They're all boring rocks. This took forever. -70 fuel. What a waste."
+                        }
+                    ]
+                },
+                {
+                    "id": "ignore_moons",
+                    "text": "Ignore the moons (focus on Uranus)",
+                    "outcomes": [
+                        {
+                            "probability": 0.7,
+                            "effects": [],
+                            "message": "\ud83c\udfaf You stayed focused on Uranus. The moons can wait. You're here for the big prize."
+                        },
+                        {
+                            "probability": 0.3,
+                            "effects": {
+                                "hull": -15
+                            },
+                            "message": "\ud83d\udca5 You ignored a moon and crashed into it. In your defense, there are 27 of them. -15% hull."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "paper_hands_mutiny",
+            "title": "\ud83d\udcc4 Paper Hands Mutiny in Progress",
+            "description": "Half the chad wants to sell all resources and return to Earth. They have paper hands and weak spirits.",
+            "repeatable": false,
+            "choices": [
+                {
+                    "id": "diamond_hands_speech",
+                    "text": "Give inspiring diamond hands speech",
+                    "outcomes": [
+                        {
+                            "probability": 0.6,
+                            "effects": {
+                                "vibes": 30
+                            },
+                            "message": "\ud83d\udc8e Your speech about holding through adversity worked! The chad's hands crystallize into diamonds! +30 vibes! WAGMI!"
+                        },
+                        {
+                            "probability": 0.4,
+                            "effects": {
+                                "vibes": -25,
+                                "chad": -2
+                            },
+                            "message": "\ud83d\udcc4 Your speech failed. 2 chads took an escape pod back to Earth. They sold at a loss. Ngmi. -2 chad, -25 vibes."
+                        }
+                    ]
+                },
+                {
+                    "id": "agree_to_return",
+                    "text": "Agree to return to Earth (give up)",
+                    "outcomes": [
+                        {
+                            "probability": 1,
+                            "effects": {
+                                "vibes": -40,
+                                "fuel": -300
+                            },
+                            "message": "\ud83d\ude14 You turn back. You sold. Paper hands won. You'll never know what could have been. Game Over? -40 vibes, -300 fuel."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "uranus_color_debate",
+            "title": "\ud83c\udfa8 Scientific Debate: What Color Is Uranus?",
+            "description": "The chad is arguing whether Uranus is blue, cyan, or blue-green. This has halted all operations.",
+            "repeatable": false,
+            "choices": [
+                {
+                    "id": "settle_debate",
+                    "text": "Definitively settle the debate",
+                    "outcomes": [
+                        {
+                            "probability": 0.5,
+                            "effects": {
+                                "vibes": 10
+                            },
+                            "message": "\ud83d\udd35 You declare Uranus is 'cyan-ish blue-green.' Everyone reluctantly accepts this wisdom. +10 vibes from closure."
+                        },
+                        {
+                            "probability": 0.5,
+                            "effects": {
+                                "vibes": -15,
+                                "chad": -1
+                            },
+                            "message": "\ud83d\udca2 You picked the wrong color. The ship splits into factions. One scientist leaves in protest. -1 chad, -15 vibes."
+                        }
+                    ]
+                },
+                {
+                    "id": "ignore_debate",
+                    "text": "Let them figure it out",
+                    "outcomes": [
+                        {
+                            "probability": 1,
+                            "effects": {
+                                "food": -45
+                            },
+                            "message": "\ud83e\udd37 The debate continues for days. No work gets done. Resources are consumed debating. -40 food wasted."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "smart_contract_bug",
+            "title": "\ud83d\udc1b CRITICAL: Smart Contract Bug in Life Support",
+            "description": "Someone deployed life support systems to a smart contract. There's a reentrancy bug. Your oxygen is being drained infinitely.",
+            "repeatable": false,
+            "choices": [
+                {
+                    "id": "emergency_patch",
+                    "text": "Deploy emergency patch contract",
+                    "outcomes": [
+                        {
+                            "probability": 0.5,
+                            "effects": {
+                                "fuel": -100
+                            },
+                            "message": "\ud83d\udc68\u200d\ud83d\udcbb Patch deployed! The infinite loop stopped! You can breathe! Why was life support on blockchain?! -100 fuel for gas."
+                        },
+                        {
+                            "probability": 0.5,
+                            "effects": {
+                                "chad": -2,
+                                "fuel": -100,
+                                "vibes": -35
+                            },
+                            "message": "\ud83d\udc80 Patch failed. 2 chads died in the infinite loop. This is what happens with unaudited contracts. -2 chad, -100 fuel, -35 vibes."
+                        }
+                    ]
+                },
+                {
+                    "id": "manual_override",
+                    "text": "Manual override (disconnect blockchain)",
+                    "outcomes": [
+                        {
+                            "probability": 1,
+                            "effects": {
+                                "vibes": 15
+                            },
+                            "message": "\ud83d\udd0c You unplugged the blockchain. Life support is now just... regular support. Everyone can breathe. +15 vibes from sanity."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "uranus_methane_oceans",
+            "title": "\ud83c\udf0a Discovery: Methane Oceans on Uranus",
+            "description": "You discovered vast methane oceans on Uranus. This is scientifically unlikely but it's happening anyway.",
+            "repeatable": false,
+            "choices": [
+                {
+                    "id": "harvest_methane",
+                    "text": "Harvest methane for fuel",
+                    "outcomes": [
+                        {
+                            "probability": 0.7,
+                            "effects": {
+                                "fuel": 200
+                            },
+                            "message": "\u26fd You successfully harvested methane from Uranus! +200 fuel! Your ship now smells terrible but you're rich!"
+                        },
+                        {
+                            "probability": 0.3,
+                            "effects": {
+                                "hull": -30,
+                                "chad": -1
+                            },
+                            "message": "\ud83d\udca5 The methane ocean exploded when you tried to harvest it. One chad lost. Science is dangerous. -30% hull, -1 chad."
+                        }
+                    ]
+                },
+                {
+                    "id": "study_oceans",
+                    "text": "Study the oceans (for science)",
+                    "outcomes": [
+                        {
+                            "probability": 1,
+                            "effects": {
+                                "vibes": 20
+                            },
+                            "message": "\ud83d\udd2c You documented the methane oceans of Uranus. This discovery will change science. Also it's hilarious. +20 vibes."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "reality_breaking",
+            "title": "\u26a0\ufe0f SYSTEM ERROR: REALITY.EXE HAS STOPPED WORKING",
+            "description": "The closer you get to Uranus, the more reality breaks down. The laws of physics are becoming suggestions. Causality is optional.",
+            "repeatable": false,
+            "choices": [
+                {
+                    "id": "embrace_chaos",
+                    "text": "Embrace the chaos (let go of reality)",
+                    "outcomes": [
+                        {
+                            "probability": 0.4,
+                            "effects": {
+                                "fuel": 500,
+                                "food": 500,
+                                "vibes": 50,
+                                "chad": 3
+                            },
+                            "message": "\ud83c\udf00 You transcended physical limitations! Resources materialized from nothing! 3 dead chads came back! +500 fuel, +500 food, +50 vibes, +3 chad! NOTHING IS REAL!"
+                        },
+                        {
+                            "probability": 0.6,
+                            "effects": {
+                                "hull": -50,
+                                "vibes": -40
+                            },
+                            "message": "\ud83d\udc80 Reality rejected your embrace. Your ship is now partially in another dimension. The hull is quantum. -50% hull, -40 vibes from existential terror."
+                        }
+                    ]
+                },
+                {
+                    "id": "cling_to_sanity",
+                    "text": "Cling desperately to sanity",
+                    "outcomes": [
+                        {
+                            "probability": 1,
+                            "effects": {
+                                "vibes": -50
+                            },
+                            "message": "\ud83d\ude31 You maintained sanity by rejecting what you see. Colors taste like numbers. Time is a circle. Uranus is both real and imaginary. -50 vibes from consciousness."
+                        }
+                    ]
+                },
+                {
+                    "id": "reset_simulation",
+                    "text": "Accept this is a simulation and request admin rights",
+                    "outcomes": [
+                        {
+                            "probability": 0.1,
+                            "effects": {
+                                "fuel": 6969,
+                                "food": 6969,
+                                "hull": 100,
+                                "vibes": 100
+                            },
+                            "message": "\ud83c\udfae CHEAT CODES ACCEPTED. You are now admin. All resources set to max. The simulation bends to your will. This is fine."
+                        },
+                        {
+                            "probability": 0.9,
+                            "effects": [],
+                            "message": "\ud83e\udd16 Request denied. You are not admin. You are the content. Continue to Uranus. This is your purpose. Resistance is futile."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "ice_asteroid_mining",
+            "title": "\ud83e\uddca Ice Asteroid Detected!",
+            "description": "A water-rich ice asteroid drifts nearby. You could extract fuel and drinking water.",
+            "repeatable": true,
+            "hunt_eligible": true,
+            "choices": [
+                {
+                    "id": "mine",
+                    "text": "Mine the asteroid",
+                    "outcomes": [
+                        {
+                            "probability": 0.6,
+                            "effects": {
+                                "fuel": 100,
+                                "food": 150
+                            },
+                            "message": "\u26cf\ufe0f Success! You extracted 60 fuel cells and 30 food rations from the ice."
+                        },
+                        {
+                            "probability": 0.3,
+                            "effects": {
+                                "hull": -15
+                            },
+                            "message": "\ud83d\udca5 A chunk of ice broke loose and damaged your equipment. -15% hull."
+                        },
+                        {
+                            "probability": 0.1,
+                            "effects": [],
+                            "message": "\ud83d\udd73\ufe0f The asteroid was mostly dust. Nothing useful found."
+                        }
+                    ]
+                },
+                {
+                    "id": "skip",
+                    "text": "Skip it",
+                    "outcomes": [
+                        {
+                            "probability": 1,
+                            "effects": [],
+                            "message": "\ud83d\ude80 You continue on without mining."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "abandoned_probe",
+            "title": "\ud83d\udef0\ufe0f Abandoned Probe Detected!",
+            "description": "An old probe drifts silently. Its power cells might still hold usable fuel.",
+            "repeatable": true,
+            "hunt_eligible": true,
+            "choices": [
+                {
+                    "id": "board",
+                    "text": "Board and salvage",
+                    "outcomes": [
+                        {
+                            "probability": 0.55,
+                            "effects": {
+                                "fuel": 100,
+                                "eth": 1.0
+                            },
+                            "message": "\ud83c\udf81 Jackpot! The probe's fuel cells are intact. +80 fuel. Salvaged components worth 1 ETH."
+                        },
+                        {
+                            "probability": 0.3,
+                            "effects": {
+                                "hull": -15
+                            },
+                            "message": "\ud83d\udca5 A booby trap! The probe's defense systems activated. -15% hull."
+                        },
+                        {
+                            "probability": 0.15,
+                            "effects": [],
+                            "message": "\ud83d\udd73\ufe0f The probe was completely drained. Nothing useful."
+                        }
+                    ]
+                },
+                {
+                    "id": "ignore",
+                    "text": "Leave it alone",
+                    "outcomes": [
+                        {
+                            "probability": 1,
+                            "effects": [],
+                            "message": "\ud83d\ude80 You leave the probe alone and continue."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "debris_field_salvage",
+            "title": "\ud83e\udea8 Debris Field Ahead!",
+            "description": "Wreckage from an old ship drifts in your path. Salvage could yield supplies.",
+            "repeatable": true,
+            "hunt_eligible": true,
+            "choices": [
+                {
+                    "id": "salvage",
+                    "text": "Salvage the wreckage",
+                    "outcomes": [
+                        {
+                            "probability": 0.5,
+                            "effects": {
+                                "fuel": 50,
+                                "food": 150,
+                                "eth": 1.75
+                            },
+                            "message": "\ud83c\udf81 You salvaged 50 fuel cells and 25 food rations from the debris! Scrap metal worth 1.75 ETH."
+                        },
+                        {
+                            "probability": 0.35,
+                            "effects": {
+                                "hull": -20
+                            },
+                            "message": "\ud83d\udca5 Sharp debris punctured your hull during salvage. -20% hull."
+                        },
+                        {
+                            "probability": 0.15,
+                            "effects": [],
+                            "message": "\ud83d\udd73\ufe0f The wreckage was picked clean. Nothing useful."
+                        }
+                    ]
+                },
+                {
+                    "id": "pass",
+                    "text": "Pass through carefully",
+                    "outcomes": [
+                        {
+                            "probability": 1,
+                            "effects": [],
+                            "message": "\ud83d\ude80 You navigate carefully through the debris without stopping."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "comet_tail_harvest",
+            "title": "\u2604\ufe0f Comet Tail Detected!",
+            "description": "A comet's tail is rich in hydrogen. You could harvest it for fuel.",
+            "repeatable": true,
+            "hunt_eligible": true,
+            "choices": [
+                {
+                    "id": "harvest",
+                    "text": "Harvest the gases",
+                    "outcomes": [
+                        {
+                            "probability": 0.55,
+                            "effects": {
+                                "fuel": 100
+                            },
+                            "message": "\u26fd Success! You collected 70 fuel units from the comet tail."
+                        },
+                        {
+                            "probability": 0.25,
+                            "effects": {
+                                "vibes": -20
+                            },
+                            "message": "\u2622\ufe0f Radiation exposure from the comet tail. The chad is shaken. -20 vibes."
+                        },
+                        {
+                            "probability": 0.2,
+                            "effects": [],
+                            "message": "\ud83d\udd73\ufe0f The gases were too diffuse. Nothing useful collected."
+                        }
+                    ]
+                },
+                {
+                    "id": "avoid",
+                    "text": "Avoid the tail",
+                    "outcomes": [
+                        {
+                            "probability": 1,
+                            "effects": [],
+                            "message": "\ud83d\ude80 You plot a course around the comet and continue."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "bounty_rescue",
+            "title": "\ud83c\udd98 Distress Beacon Detected!",
+            "description": "A corporate vessel is stranded and offering a rescue bounty.",
+            "repeatable": true,
+            "hunt_eligible": true,
+            "choices": [
+                {
+                    "id": "rescue",
+                    "text": "Rescue them (costs 50 fuel)",
+                    "outcomes": [
+                        {
+                            "probability": 0.7,
+                            "effects": {
+                                "fuel": -50,
+                                "eth": 3.5,
+                                "vibes": 15
+                            },
+                            "message": "\ud83c\udf96\ufe0f Successful rescue! They paid 3.5 ETH. Your Chad crew feels heroic. +15 vibes."
+                        },
+                        {
+                            "probability": 0.3,
+                            "effects": {
+                                "fuel": -50,
+                                "eth": 1.0
+                            },
+                            "message": "\ud83d\ude10 You rescued them, but they were broke. They paid you 1 ETH as an IOU."
+                        }
+                    ]
+                },
+                {
+                    "id": "ignore",
+                    "text": "Ignore it (heartless)",
+                    "outcomes": [
+                        {
+                            "probability": 1,
+                            "effects": {
+                                "vibes": -10
+                            },
+                            "message": "\ud83d\udc94 You left them to die. The chad questions your humanity. -10 vibes."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "solar_collector_drift",
+            "title": "\u2600\ufe0f Damaged Solar Collectors Detected!",
+            "description": "Military-grade solar collectors drift nearby. They could be repaired for fuel conversion.",
+            "repeatable": true,
+            "hunt_eligible": true,
+            "choices": [
+                {
+                    "id": "repair",
+                    "text": "Repair and use them",
+                    "outcomes": [
+                        {
+                            "probability": 0.6,
+                            "effects": {
+                                "fuel": 200
+                            },
+                            "message": "\u2600\ufe0f Success! The solar arrays are operational. They converted stored energy into 200 fuel units."
+                        },
+                        {
+                            "probability": 0.3,
+                            "effects": {
+                                "fuel": 50
+                            },
+                            "message": "\ud83d\udd27 The collectors were badly damaged. You salvaged 50 fuel units from the power cells."
+                        },
+                        {
+                            "probability": 0.1,
+                            "effects": [],
+                            "message": "\ud83d\udc94 The collectors were fried beyond repair. Nothing usable."
+                        }
+                    ]
+                },
+                {
+                    "id": "skip",
+                    "text": "Leave them",
+                    "outcomes": [
+                        {
+                            "probability": 1,
+                            "effects": [],
+                            "message": "\ud83d\ude80 You leave the collectors behind and continue."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "gas_giant_skim",
+            "title": "\ud83e\ude90 Gas Giant Flyby Opportunity!",
+            "description": "You're passing a hydrogen-rich gas giant. Atmospheric skimming could yield massive fuel.",
+            "repeatable": true,
+            "hunt_eligible": true,
+            "choices": [
+                {
+                    "id": "skim",
+                    "text": "Attempt atmospheric skimming",
+                    "outcomes": [
+                        {
+                            "probability": 0.5,
+                            "effects": {
+                                "fuel": 300
+                            },
+                            "message": "\ud83e\ude90 Perfect skim! Your tanks are overflowing with hydrogen fuel. +300 fuel units!"
+                        },
+                        {
+                            "probability": 0.35,
+                            "effects": {
+                                "fuel": 150
+                            },
+                            "message": "\ud83c\udf2a\ufe0f Turbulence made skimming difficult. You collected 100 fuel units before pulling out."
+                        },
+                        {
+                            "probability": 0.15,
+                            "effects": {
+                                "fuel": -30
+                            },
+                            "message": "\ud83d\udca5 Atmospheric entry was rougher than expected. You lost 30 fuel fighting gravity and gained nothing."
+                        }
+                    ]
+                },
+                {
+                    "id": "pass",
+                    "text": "Too risky, pass by",
+                    "outcomes": [
+                        {
+                            "probability": 1,
+                            "effects": [],
+                            "message": "\ud83d\ude80 You admire the gas giant from a safe distance and continue."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "hydroponic_pod",
+            "title": "\ud83c\udf31 Escaped Hydroponic Pod Detected!",
+            "description": "A commercial hydroponic pod drifts freely. Fresh vegetables are growing inside.",
+            "repeatable": true,
+            "hunt_eligible": true,
+            "choices": [
+                {
+                    "id": "harvest",
+                    "text": "Board and harvest",
+                    "outcomes": [
+                        {
+                            "probability": 0.65,
+                            "effects": {
+                                "food": 200
+                            },
+                            "message": "\ud83e\udd6c Fresh vegetables! Tomatoes, lettuce, potatoes! Your Chad crew feasts. +250 food units."
+                        },
+                        {
+                            "probability": 0.25,
+                            "effects": {
+                                "food": 75
+                            },
+                            "message": "\ud83c\udf42 Most of the crops withered in space. You salvaged 75 food units of wilted produce."
+                        },
+                        {
+                            "probability": 0.1,
+                            "effects": [],
+                            "message": "\ud83e\udda0 The plants were contaminated with space mold. All produce destroyed for safety."
+                        }
+                    ]
+                },
+                {
+                    "id": "ignore",
+                    "text": "Leave it",
+                    "outcomes": [
+                        {
+                            "probability": 1,
+                            "effects": [],
+                            "message": "\ud83d\ude80 You leave the pod drifting and continue your journey."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "protein_synthesizer",
+            "title": "\ud83e\udd69 Protein Synthesizer Cache Found!",
+            "description": "An abandoned cargo container holds protein synthesis equipment and raw materials.",
+            "repeatable": true,
+            "hunt_eligible": true,
+            "choices": [
+                {
+                    "id": "synthesize",
+                    "text": "Fire up the synthesizer",
+                    "outcomes": [
+                        {
+                            "probability": 0.6,
+                            "effects": {
+                                "food": 200
+                            },
+                            "message": "\ud83e\udd69 The synthesizer churns out 200 units of protein bars. They taste like sadness, but they're nutritious."
+                        },
+                        {
+                            "probability": 0.3,
+                            "effects": {
+                                "food": 60
+                            },
+                            "message": "\u2699\ufe0f The synthesizer is damaged. It produces 50 units before breaking down completely."
+                        },
+                        {
+                            "probability": 0.1,
+                            "effects": [],
+                            "message": "\ud83d\udca5 The synthesizer exploded on startup. Nothing salvaged. Your Chad crew mourns the lost protein."
+                        }
+                    ]
+                },
+                {
+                    "id": "skip",
+                    "text": "Too much trouble",
+                    "outcomes": [
+                        {
+                            "probability": 1,
+                            "effects": [],
+                            "message": "\ud83d\ude80 You decide synthesized protein isn't worth the effort and continue."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "aurora_nebula",
+            "title": "\u2728 Spectacular Aurora Nebula!",
+            "description": "You've entered a nebula with breathtaking colors dancing across space. It's hauntingly beautiful.",
+            "repeatable": true,
+            "hunt_eligible": true,
+            "choices": [
+                {
+                    "id": "watch",
+                    "text": "Stop and watch the show",
+                    "outcomes": [
+                        {
+                            "probability": 0.8,
+                            "effects": {
+                                "vibes": 25
+                            },
+                            "message": "\u2728 The chad gathers at the windows in awe. This is why you came to space. +25 vibes."
+                        },
+                        {
+                            "probability": 0.2,
+                            "effects": {
+                                "vibes": 10
+                            },
+                            "message": "\u2728 Beautiful, but you've seen better nebulas. The chad appreciates the break. +10 vibes."
+                        }
+                    ]
+                },
+                {
+                    "id": "continue",
+                    "text": "No time for sightseeing",
+                    "outcomes": [
+                        {
+                            "probability": 1,
+                            "effects": [],
+                            "message": "\ud83d\ude80 You continue through the nebula without stopping. The chad sighs."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "earth_broadcast",
+            "title": "\ud83d\udcfb Signal from Earth Detected!",
+            "description": "You're picking up a music broadcast from Earth. It's playing hits from 2020.",
+            "repeatable": true,
+            "hunt_eligible": true,
+            "choices": [
+                {
+                    "id": "listen",
+                    "text": "Listen to the broadcast",
+                    "outcomes": [
+                        {
+                            "probability": 0.7,
+                            "effects": {
+                                "vibes": 20
+                            },
+                            "message": "\ud83c\udfb5 The chad dances to songs from home. Someone cries. It's beautiful. +20 vibes."
+                        },
+                        {
+                            "probability": 0.2,
+                            "effects": {
+                                "vibes": 30
+                            },
+                            "message": "\ud83c\udfb8 They're playing your favorite song! The whole chad has a dance party. +30 vibes!"
+                        },
+                        {
+                            "probability": 0.1,
+                            "effects": {
+                                "vibes": -10
+                            },
+                            "message": "\ud83d\ude22 The music makes everyone homesick. You turn it off but the damage is done. -10 vibes."
+                        }
+                    ]
+                },
+                {
+                    "id": "ignore",
+                    "text": "Don't look back",
+                    "outcomes": [
+                        {
+                            "probability": 1,
+                            "effects": [],
+                            "message": "\ud83d\ude80 You mute the broadcast and stay focused on Uranus. The mission continues."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "data_cache",
+            "title": "\ud83d\udcbe Encrypted Data Cache Found!",
+            "description": "A data storage module floats nearby. Corporate entities pay well for recovered data.",
+            "repeatable": true,
+            "hunt_eligible": true,
+            "choices": [
+                {
+                    "id": "decrypt",
+                    "text": "Retrieve and decrypt",
+                    "outcomes": [
+                        {
+                            "probability": 0.55,
+                            "effects": {
+                                "eth": 4.0
+                            },
+                            "message": "\ud83d\udcbe You cracked the encryption! The data contains corporate secrets worth 4 ETH on the black market."
+                        },
+                        {
+                            "probability": 0.3,
+                            "effects": {
+                                "eth": 1.5
+                            },
+                            "message": "\ud83d\udd13 Partial decryption. The fragmented data sells for 1.5 ETH to a research company."
+                        },
+                        {
+                            "probability": 0.15,
+                            "effects": [],
+                            "message": "\ud83d\udd12 The encryption is military-grade. You can't crack it. The data is worthless."
+                        }
+                    ]
+                },
+                {
+                    "id": "leave",
+                    "text": "Not worth the risk",
+                    "outcomes": [
+                        {
+                            "probability": 1,
+                            "effects": [],
+                            "message": "\ud83d\ude80 You leave the data cache alone. Who knows what surveillance it contains."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "rare_mineral_asteroid",
+            "title": "\ud83d\udc8e Rare Mineral Asteroid Detected!",
+            "description": "Scanners show an asteroid rich in platinum and rare earth elements.",
+            "repeatable": true,
+            "hunt_eligible": true,
+            "choices": [
+                {
+                    "id": "mine",
+                    "text": "Deploy mining drones",
+                    "outcomes": [
+                        {
+                            "probability": 0.5,
+                            "effects": {
+                                "eth": 5.0
+                            },
+                            "message": "\ud83d\udc8e Jackpot! Pure platinum veins. You extract minerals worth 5 ETH!"
+                        },
+                        {
+                            "probability": 0.35,
+                            "effects": {
+                                "eth": 2.0
+                            },
+                            "message": "\u26cf\ufe0f Decent haul. You mined rare elements worth 2 ETH before the veins ran dry."
+                        },
+                        {
+                            "probability": 0.15,
+                            "effects": [],
+                            "message": "\ud83e\udea8 Your scanners lied. The asteroid is worthless iron and rock. Nothing valuable."
+                        }
+                    ]
+                },
+                {
+                    "id": "skip",
+                    "text": "Keep moving",
+                    "outcomes": [
+                        {
+                            "probability": 1,
+                            "effects": [],
+                            "message": "\ud83d\ude80 Mining takes too long. You leave the asteroid behind and continue."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "hydrogen_collector",
+            "title": "\ud83d\udca7 HYDROGEN COLLECTOR ARRAY \ud83d\udca7",
+            "description": "A commercial hydrogen collection array drifts abandoned in space. The storage tanks might still contain usable fuel for your engines.",
+            "repeatable": true,
+            "hunt_eligible": true,
+            "choices": [
+                {
+                    "id": "harvest",
+                    "text": "Harvest hydrogen fuel",
+                    "risk": "Low",
+                    "outcomes": [
+                        {
+                            "probability": 0.6,
+                            "effects": {
+                                "fuel": 100
+                            },
+                            "message": "\ud83d\udca7 SUCCESS: Hydrogen tanks full! +100 fuel units!",
+                            "chad_reaction": "{engineer_name}: \"Clean hydrogen fuel. Perfect for our engines.\""
+                        },
+                        {
+                            "probability": 0.3,
+                            "effects": {
+                                "fuel": 50
+                            },
+                            "message": "\u2699\ufe0f PARTIAL: Collectors half-empty. Salvaged 50 fuel units.",
+                            "chad_reaction": "{engineer_name}: \"Still a good haul.\""
+                        },
+                        {
+                            "probability": 0.1,
+                            "effects": {
+                                "hull": -5
+                            },
+                            "message": "\ud83d\udca5 LEAK: Hydrogen ignited during transfer! -5% hull damage.",
+                            "chad_reaction": "{chad_name}: \"Hydrogen is so volatile!\""
+                        }
+                    ]
+                },
+                {
+                    "id": "skip",
+                    "text": "Skip the collector",
+                    "outcomes": [
+                        {
+                            "probability": 1,
+                            "effects": [],
+                            "message": "\ud83d\ude80 You continue without harvesting."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "compressed_fuel_pods",
+            "title": "\u26fd COMPRESSED FUEL PODS \u26fd",
+            "description": "Military-grade compressed fuel pods float in a neat formation. They must have been jettisoned from a cargo ship. Easy pickings.",
+            "repeatable": true,
+            "hunt_eligible": true,
+            "choices": [
+                {
+                    "id": "retrieve",
+                    "text": "Retrieve the fuel pods",
+                    "risk": "Low",
+                    "outcomes": [
+                        {
+                            "probability": 0.65,
+                            "effects": {
+                                "fuel": 50
+                            },
+                            "message": "\u26fd SUCCESS: Military-grade fuel pods! +50 fuel units!",
+                            "chad_reaction": "{engineer_name}: \"This fuel is premium quality.\""
+                        },
+                        {
+                            "probability": 0.25,
+                            "effects": {
+                                "fuel": 15
+                            },
+                            "message": "\u26a0\ufe0f LEAK: Most pods ruptured. Salvaged 15 fuel units.",
+                            "chad_reaction": "{engineer_name}: \"Better than nothing.\""
+                        },
+                        {
+                            "probability": 0.1,
+                            "effects": [],
+                            "message": "\ud83d\udca8 EMPTY: All pods were already drained.",
+                            "chad_reaction": "{chad_name}: \"Someone beat us to it.\""
+                        }
+                    ]
+                },
+                {
+                    "id": "skip",
+                    "text": "Leave them",
+                    "outcomes": [
+                        {
+                            "probability": 1,
+                            "effects": [],
+                            "message": "\ud83d\ude80 You continue without retrieving the pods."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "antimatter_containment",
+            "title": "\u26a1 ANTIMATTER CONTAINMENT POD \u26a1",
+            "description": "DANGER: An antimatter containment pod from a research vessel. If extracted successfully, it's worth hundreds of fuel units. If the containment fails... well, don't think about that.",
+            "repeatable": true,
+            "hunt_eligible": true,
+            "choices": [
+                {
+                    "id": "extract",
+                    "text": "Extract antimatter fuel (HIGH RISK)",
+                    "risk": "Extreme",
+                    "outcomes": [
+                        {
+                            "probability": 0.3,
+                            "effects": {
+                                "fuel": 300,
+                                "vibes": 20
+                            },
+                            "message": "\u26a1 JACKPOT: Antimatter successfully contained! +300 fuel units! +20 vibes from the thrill!",
+                            "chad_reaction": "{chad_name}: \"WE'RE RICH! And alive!\""
+                        },
+                        {
+                            "probability": 0.4,
+                            "effects": {
+                                "fuel": 150
+                            },
+                            "message": "\u2699\ufe0f PARTIAL: Containment unstable. Got 150 fuel before aborting.",
+                            "chad_reaction": "{engineer_name}: \"Let's not push our luck.\""
+                        },
+                        {
+                            "probability": 0.3,
+                            "effects": {
+                                "hull": -30,
+                                "vibes": -20
+                            },
+                            "message": "\ud83d\udca5 DISASTER: Containment breach! -30% hull, -20 vibes. You barely escaped!",
+                            "chad_reaction": "{chad_name}: \"NEVER AGAIN!\""
+                        }
+                    ]
+                },
+                {
+                    "id": "skip",
+                    "text": "Too dangerous",
+                    "outcomes": [
+                        {
+                            "probability": 1,
+                            "effects": [],
+                            "message": "\ud83d\ude80 You wisely avoid the antimatter and continue."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "deuterium_tanker",
+            "title": "\ud83e\uddea DEUTERIUM TANKER \ud83e\uddea",
+            "description": "An industrial deuterium tanker drifts abandoned. Deuterium is premium fusion fuel - if you can safely siphon it without radiation exposure.",
+            "repeatable": true,
+            "hunt_eligible": true,
+            "choices": [
+                {
+                    "id": "siphon",
+                    "text": "Siphon deuterium fuel",
+                    "risk": "Medium",
+                    "outcomes": [
+                        {
+                            "probability": 0.6,
+                            "effects": {
+                                "fuel": 150
+                            },
+                            "message": "\ud83e\uddea SUCCESS: Clean deuterium fuel! +150 fuel units!",
+                            "chad_reaction": "{engineer_name}: \"This is the good stuff. Our reactor will love this.\""
+                        },
+                        {
+                            "probability": 0.3,
+                            "effects": {
+                                "fuel": 100
+                            },
+                            "message": "\u2699\ufe0f CONTAMINATED: Fuel is impure. Got 100 usable fuel units.",
+                            "chad_reaction": "{engineer_name}: \"I can filter this. It'll work.\""
+                        },
+                        {
+                            "probability": 0.1,
+                            "effects": {
+                                "vibes": -10
+                            },
+                            "message": "\u2622\ufe0f RADIATION: The tanker leaked radiation. -10 vibes.",
+                            "chad_reaction": "{chad_name}: \"I don't feel so good...\""
+                        }
+                    ]
+                },
+                {
+                    "id": "skip",
+                    "text": "Don't risk it",
+                    "outcomes": [
+                        {
+                            "probability": 1,
+                            "effects": [],
+                            "message": "\ud83d\ude80 You bypass the tanker and continue."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "aquaponics_pod",
+            "title": "\ud83c\udf3f AQUAPONICS POD \ud83c\udf3f",
+            "description": "A commercial aquaponics pod floats ahead - fish and vegetable cultivation in zero-g. The systems appear to still be operational. Fresh food in space!",
+            "repeatable": true,
+            "hunt_eligible": true,
+            "choices": [
+                {
+                    "id": "harvest",
+                    "text": "Harvest fish and vegetables",
+                    "risk": "Low",
+                    "outcomes": [
+                        {
+                            "probability": 0.6,
+                            "effects": {
+                                "food": 150,
+                                "vibes": 10
+                            },
+                            "message": "\ud83c\udf3f JACKPOT: Fresh fish and greens! +150 food, +10 vibes from fresh meal!",
+                            "chad_reaction": "{chad_name}: \"FRESH FOOD! I forgot what this tastes like!\""
+                        },
+                        {
+                            "probability": 0.3,
+                            "effects": {
+                                "food": 60,
+                                "vibes": 5
+                            },
+                            "message": "\u2699\ufe0f PARTIAL: Systems failing. Salvaged 60 food units, +5 vibes.",
+                            "chad_reaction": "{chad_name}: \"Still beats freeze-dried rations.\""
+                        },
+                        {
+                            "probability": 0.1,
+                            "effects": {
+                                "vibes": -10
+                            },
+                            "message": "\ud83e\udda0 CONTAMINATED: All crops diseased. Had to jettison. -10 vibes.",
+                            "chad_reaction": "{chad_name}: \"The smell... oh god, the smell...\""
+                        }
+                    ]
+                },
+                {
+                    "id": "skip",
+                    "text": "Leave the pod",
+                    "outcomes": [
+                        {
+                            "probability": 1,
+                            "effects": [],
+                            "message": "\ud83d\ude80 You continue without investigating."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "algae_farm_drift",
+            "title": "\ud83e\udda0 ALGAE FARM BIOREACTOR \ud83e\udda0",
+            "description": "A bioreactor module grows protein-rich algae for food production. It's not appetizing, but algae is nutritious and space-efficient.",
+            "repeatable": true,
+            "hunt_eligible": true,
+            "choices": [
+                {
+                    "id": "process",
+                    "text": "Process algae into food",
+                    "risk": "Low",
+                    "outcomes": [
+                        {
+                            "probability": 0.65,
+                            "effects": {
+                                "food": 75
+                            },
+                            "message": "\ud83e\udda0 SUCCESS: Protein-rich algae processed! +75 food units!",
+                            "chad_reaction": "{engineer_name}: \"It's not great, but it's food.\""
+                        },
+                        {
+                            "probability": 0.25,
+                            "effects": {
+                                "food": 30,
+                                "vibes": -5
+                            },
+                            "message": "\ud83d\ude10 DISGUSTING: Algae tastes terrible. +30 food, -5 vibes.",
+                            "chad_reaction": "{chad_name}: \"This is punishment, not food.\""
+                        },
+                        {
+                            "probability": 0.1,
+                            "effects": [],
+                            "message": "\ud83d\udc80 TOXIC: Algae was poisonous. Nothing usable.",
+                            "chad_reaction": "{chad_name}: \"Thank god we tested it first.\""
+                        }
+                    ]
+                },
+                {
+                    "id": "skip",
+                    "text": "Algae is not food",
+                    "outcomes": [
+                        {
+                            "probability": 1,
+                            "effects": [],
+                            "message": "\ud83d\ude80 The chad refuses to eat algae. Continue on."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "mushroom_cultivation",
+            "title": "\ud83c\udf44 MUSHROOM CULTIVATION POD \ud83c\udf44",
+            "description": "A biological research pod cultivates edible mushrooms. They grow quickly in zero-g and some species are quite nutritious. Probably.",
+            "repeatable": true,
+            "hunt_eligible": true,
+            "choices": [
+                {
+                    "id": "harvest",
+                    "text": "Harvest the mushrooms",
+                    "risk": "Medium",
+                    "outcomes": [
+                        {
+                            "probability": 0.55,
+                            "effects": {
+                                "food": 100
+                            },
+                            "message": "\ud83c\udf44 SUCCESS: Edible mushrooms! +100 food units!",
+                            "chad_reaction": "{chad_name}: \"These are actually pretty good!\""
+                        },
+                        {
+                            "probability": 0.35,
+                            "effects": {
+                                "food": 60,
+                                "vibes": 5
+                            },
+                            "message": "\ud83c\udf44 GOURMET: Rare truffle mushrooms! +60 food, +5 vibes from delicacy!",
+                            "chad_reaction": "{chad_name}: \"This is gourmet quality!\""
+                        },
+                        {
+                            "probability": 0.1,
+                            "effects": {
+                                "vibes": -15
+                            },
+                            "message": "\ud83c\udf44 HALLUCINOGENIC: Wrong mushrooms! Chad tripped for hours. -15 vibes.",
+                            "chad_reaction": "{chad_name}: \"I saw infinity. It was... unsettling.\""
+                        }
+                    ]
+                },
+                {
+                    "id": "skip",
+                    "text": "Don't trust fungi",
+                    "outcomes": [
+                        {
+                            "probability": 1,
+                            "effects": [],
+                            "message": "\ud83d\ude80 You wisely avoid unknown mushrooms."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "entertainment_archive",
+            "title": "\ud83c\udfae ENTERTAINMENT ARCHIVE \ud83c\udfae",
+            "description": "A data cache from an entertainment corporation. Movies, music, games - all the creature comforts of Earth. Your Chad crew could use a vibes boost.",
+            "repeatable": true,
+            "hunt_eligible": true,
+            "choices": [
+                {
+                    "id": "download",
+                    "text": "Download entertainment files",
+                    "risk": "Low",
+                    "outcomes": [
+                        {
+                            "probability": 0.7,
+                            "effects": {
+                                "vibes": 20
+                            },
+                            "message": "\ud83c\udfae SUCCESS: Movies, games, music! Chad vibes soars! +20 vibes!",
+                            "chad_reaction": "{chad_name}: \"Movie night every night!\""
+                        },
+                        {
+                            "probability": 0.2,
+                            "effects": {
+                                "vibes": 30
+                            },
+                            "message": "\ud83c\udfb8 JACKPOT: Your favorite band's entire discography! +30 vibes!",
+                            "chad_reaction": "{chad_name}: \"THIS IS MY JAM!\""
+                        },
+                        {
+                            "probability": 0.1,
+                            "effects": {
+                                "vibes": -5
+                            },
+                            "message": "\ud83d\ude10 BORING: Just documentaries about tax law. -5 vibes.",
+                            "chad_reaction": "{chad_name}: \"Why does this even exist?\""
+                        }
+                    ]
+                },
+                {
+                    "id": "skip",
+                    "text": "Focus on the mission",
+                    "outcomes": [
+                        {
+                            "probability": 1,
+                            "effects": [],
+                            "message": "\ud83d\ude80 No time for entertainment. Continue on."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "luxury_yacht_wreck",
+            "title": "\ud83d\udee5\ufe0f LUXURY YACHT WRECKAGE \ud83d\udee5\ufe0f",
+            "description": "The wreckage of a luxury space yacht floats in debris. The wealthy passengers left behind gourmet food, expensive valuables, and a tragic story.",
+            "repeatable": true,
+            "hunt_eligible": true,
+            "choices": [
+                {
+                    "id": "loot",
+                    "text": "Loot the yacht",
+                    "risk": "Low",
+                    "outcomes": [
+                        {
+                            "probability": 0.5,
+                            "effects": {
+                                "food": 75,
+                                "eth": 2.0,
+                                "vibes": 15
+                            },
+                            "message": "\ud83d\udee5\ufe0f JACKPOT: Gourmet food and valuables! +75 food, +2 ETH, +15 vibes!",
+                            "chad_reaction": "{chad_name}: \"Caviar! Champagne! This is the life!\""
+                        },
+                        {
+                            "probability": 0.35,
+                            "effects": {
+                                "food": 30,
+                                "eth": 1.0,
+                                "vibes": 10
+                            },
+                            "message": "\u2699\ufe0f PARTIAL: Some supplies left. +30 food, +1 ETH, +10 vibes.",
+                            "chad_reaction": "{chad_name}: \"Still some nice stuff here.\""
+                        },
+                        {
+                            "probability": 0.15,
+                            "effects": {
+                                "vibes": -10
+                            },
+                            "message": "\ud83d\ude22 TRAGIC: Found bodies of wealthy family. -10 vibes.",
+                            "chad_reaction": "{chad_name}: \"Money couldn't save them.\""
+                        }
+                    ]
+                },
+                {
+                    "id": "skip",
+                    "text": "Respect the dead",
+                    "outcomes": [
+                        {
+                            "probability": 1,
+                            "effects": {
+                                "vibes": 5
+                            },
+                            "message": "\ud83d\ude07 You leave the wreckage undisturbed. +5 vibes for honoring the dead."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "chad_rescue_pod",
+            "title": "\ud83c\udd98 ESCAPE POD WITH SURVIVORS \ud83c\udd98",
+            "description": "An escape pod contains survivors from a destroyed ship. They're running out of air and supplies. Rescuing them will cost resources but save lives.",
+            "repeatable": true,
+            "hunt_eligible": true,
+            "choices": [
+                {
+                    "id": "rescue",
+                    "text": "Rescue survivors (costs supplies)",
+                    "cost": "Fuel: -30, Food: -60",
+                    "risk": "Medium",
+                    "outcomes": [
+                        {
+                            "probability": 0.6,
+                            "effects": {
+                                "fuel": -30,
+                                "food": -60,
+                                "vibes": 25
+                            },
+                            "message": "\ud83c\udd98 RESCUE: Survivors grateful! Used -30 fuel, -60 food. +25 vibes boost!",
+                            "chad_reaction": "{chad_name}: \"We saved lives today. That's what matters.\""
+                        },
+                        {
+                            "probability": 0.3,
+                            "effects": {
+                                "fuel": -30,
+                                "food": -60,
+                                "eth": 3.0,
+                                "vibes": 20
+                            },
+                            "message": "\ud83c\udf96\ufe0f REWARD: Survivors were VIPs! -30 fuel, -60 food, +3 ETH, +20 vibes!",
+                            "chad_reaction": "{chad_name}: \"They're incredibly grateful. And rich!\""
+                        },
+                        {
+                            "probability": 0.1,
+                            "effects": {
+                                "fuel": -30,
+                                "food": -60,
+                                "vibes": -20
+                            },
+                            "message": "\ud83d\ude30 BURDEN: Survivors are demanding. -30 fuel, -60 food, -20 vibes.",
+                            "chad_reaction": "{chad_name}: \"These people are insufferable!\""
+                        }
+                    ]
+                },
+                {
+                    "id": "skip",
+                    "text": "No room for passengers",
+                    "outcomes": [
+                        {
+                            "probability": 1,
+                            "effects": {
+                                "vibes": -15
+                            },
+                            "message": "\ud83d\udc94 You left them behind. The chad is horrified. -15 vibes.",
+                            "chad_reaction": "{chad_name}: \"I can't believe we just did that...\""
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

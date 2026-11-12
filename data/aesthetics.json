@@ -1,0 +1,40 @@
+{
+  "aesthetics": [
+    {
+      "id": "main",
+      "name": "Main",
+      "description": "Anime-inspired artwork",
+      "icon": "📚",
+      "path": "main"
+    },
+    {
+      "id": "classic",
+      "name": "Classic",
+      "description": "Classic space photography",
+      "icon": "🌌",
+      "path": "classic"
+    },
+    {
+      "id": "pixel",
+      "name": "Pixel Art",
+      "description": "Retro pixel art style",
+      "icon": "🎮",
+      "path": "pixel"
+    },
+    {
+      "id": "rick",
+      "name": "Rick & Morty",
+      "description": "Rick & Morty universe style",
+      "icon": "🛸",
+      "path": "rick"
+    },
+    {
+      "id": "simpsons",
+      "name": "Simpsons",
+      "description": "Springfield-style animated adventure",
+      "icon": "🍩",
+      "path": "simpsons"
+    }
+  ],
+  "default": "main"
+}

@@ -1,0 +1,13 @@
+{
+  "metadata": {
+    "project_name": "occupy_uranus_whosplaying",
+    "keywords": "Absurdist space comedy, 16-bit pixel art, Retro game UI, Satirical sci-fi, Low-res chunky sprites, Bright limited palette, Cosmic slapstick, Multiplayer, Frens, Who's playing",
+    "style": "Main aesthetic — 16-bit pixel art absurdism that matches the irreverent tone of Occupy Uranus. Think SNES-era space RPG meets shitposty sci-fi zine: chunky sprites, hard outlines, exaggerated expressions, and visual gags baked into every scene. Colors lean into bright, limited palettes (teals, magentas, toxic greens, neon blues) with simple shading and obvious dithering rather than smooth gradients. Space, ships, UI, and characters should feel like a lovingly janky retro game cartridge about a serious mission that refuses to take itself seriously."
+  },
+  "images": [
+    {
+      "filename": "WhosPlaying.png",
+      "prompt": "Who's Playing / Frens screen — 16-bit pixel art. A retro space game 'lobby' or 'chad roster' vibe: multiple small pixel-art spaceships or astronaut avatars arranged like a friends list or leaderboard against a deep space background. Maybe a chunky CRT or holographic display showing 'WHO'S PLAYING' in pixel font, with slots for player ships or names. Teals, magentas, neon blues; hard outlines, dithering. Absurdist but cozy — the idea that other people are out there in the void heading to Uranus too. No realism; pure SNES-era UI and character sprites, slight comedy in the presentation (one ship with a party hat, another with a 'HODL' flag, etc.)."
+    }
+  ]
+}

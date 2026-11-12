@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Occupy Uranus</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="game-header">
+            <div class="mission-title">
+                <span class="mission-label">MISSION</span>
+                <h1>OCCUPY URANUS</h1>
+            </div>
+            <div class="day-counter">
+                <span class="day-label">DAY</span>
+                <span class="day-number">42</span>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="game-content">
+            <!-- Journey Progress -->
+            <section class="journey-section">
+                <div class="distance-info">
+                    <span class="current-distance">1,240,000,000 km</span>
+                    <span class="separator">•</span>
+                    <span class="remaining-distance">1,560,000,000 km to go</span>
+                </div>
+
+                <div class="progress-bar-container">
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 44%">
+                            <div class="progress-glow"></div>
+                        </div>
+                        <div class="ship-icon">🚀</div>
+                    </div>
+                    <div class="waypoint-markers">
+                        <div class="waypoint passed">🌍</div>
+                        <div class="waypoint passed">🔴</div>
+                        <div class="waypoint passed">🪐</div>
+                        <div class="waypoint current">♃</div>
+                        <div class="waypoint future">🪐</div>
+                        <div class="waypoint future">♆</div>
+                        <div class="waypoint future">⛢</div>
+                    </div>
+                </div>
+
+                <div class="location-label">
+                    En Route to Saturn Station
+                </div>
+            </section>
+
+            <!-- Resources Grid -->
+            <section class="resources-section">
+                <div class="resource-card fuel">
+                    <div class="resource-header">
+                        <span class="resource-icon">⛽</span>
+                        <span class="resource-name">FUEL</span>
+                    </div>
+                    <div class="resource-bar">
+                        <div class="resource-fill" style="width: 68%"></div>
+                    </div>
+                    <div class="resource-value">815 / 1200</div>
+                </div>
+
+                <div class="resource-card food">
+                    <div class="resource-header">
+                        <span class="resource-icon">🍔</span>
+                        <span class="resource-name">FOOD</span>
+                    </div>
+                    <div class="resource-bar">
+                        <div class="resource-fill" style="width: 45%"></div>
+                    </div>
+                    <div class="resource-value">1,575 / 3500</div>
+                </div>
+
+                <div class="resource-card hull">
+                    <div class="resource-header">
+                        <span class="resource-icon">🛡️</span>
+                        <span class="resource-name">HULL</span>
+                    </div>
+                    <div class="resource-bar">
+                        <div class="resource-fill" style="width: 85%"></div>
+                    </div>
+                    <div class="resource-value">85%</div>
+                </div>
+
+                <div class="resource-card morale">
+                    <div class="resource-header">
+                        <span class="resource-icon">😊</span>
+                        <span class="resource-name">MORALE</span>
+                    </div>
+                    <div class="resource-bar">
+                        <div class="resource-fill" style="width: 72%"></div>
+                    </div>
+                    <div class="resource-value">72%</div>
+                </div>
+
+                <div class="resource-card credits">
+                    <div class="resource-header">
+                        <span class="resource-icon">💎</span>
+                        <span class="resource-name">ETH</span>
+                    </div>
+                    <div class="resource-value large">450.5</div>
+                </div>
+            </section>
+
+            <!-- Chad Status -->
+            <section class="chad-section">
+                <h2 class="section-title">CREW STATUS</h2>
+                <div class="chad-grid">
+                    <div class="chad-card alive">
+                        <div class="chad-avatar">👨‍🚀</div>
+                        <div class="chad-info">
+                            <div class="chad-name">Alex Chen</div>
+                            <div class="chad-role">Captain</div>
+                        </div>
+                        <div class="chad-status">✓</div>
+                    </div>
+                    <div class="chad-card alive">
+                        <div class="chad-avatar">👩‍🚀</div>
+                        <div class="chad-info">
+                            <div class="chad-name">Sarah Kim</div>
+                            <div class="chad-role">Engineer</div>
+                        </div>
+                        <div class="chad-status">✓</div>
+                    </div>
+                    <div class="chad-card alive">
+                        <div class="chad-avatar">🧑‍🚀</div>
+                        <div class="chad-info">
+                            <div class="chad-name">Jordan Lee</div>
+                            <div class="chad-role">Medic</div>
+                        </div>
+                        <div class="chad-status">✓</div>
+                    </div>
+                    <div class="chad-card deceased">
+                        <div class="chad-avatar">💀</div>
+                        <div class="chad-info">
+                            <div class="chad-name">Marcus Davis</div>
+                            <div class="chad-role">Scientist</div>
+                        </div>
+                        <div class="chad-status">†</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Flash Message -->
+            <div class="flash-message">
+                <span class="flash-icon">📡</span>
+                <span class="flash-text">You found 50 units of food while hunting! The chad is pleased.</span>
+            </div>
+
+            <!-- Action Buttons -->
+            <section class="actions-section">
+                <button class="action-btn primary pulse">
+                    <span class="btn-icon">🚀</span>
+                    <span class="btn-label">CONTINUE</span>
+                </button>
+                <div class="action-grid">
+                    <button class="action-btn secondary">
+                        <span class="btn-icon">🎣</span>
+                        <span class="btn-label">HUNT</span>
+                    </button>
+                    <button class="action-btn secondary">
+                        <span class="btn-icon">📊</span>
+                        <span class="btn-label">STATUS</span>
+                    </button>
+                    <button class="action-btn secondary">
+                        <span class="btn-icon">🗺️</span>
+                        <span class="btn-label">MAP</span>
+                    </button>
+                    <button class="action-btn secondary">
+                        <span class="btn-icon">🎨</span>
+                        <span class="btn-label">AESTHETIC</span>
+                    </button>
+                </div>
+            </section>
+        </main>
+
+        <!-- Background Effects -->
+        <div class="stars-bg"></div>
+        <div class="nebula-bg"></div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

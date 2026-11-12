@@ -1,0 +1,1827 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Occupy Uranus — 3D Cockpit</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Azeret+Mono:wght@300;400;500;600;700&family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+/* ========================================
+   OCCUPY URANUS — TRUE 3D COCKPIT
+   CSS 3D Transforms + Canvas Starfield
+   ======================================== */
+
+:root {
+    --space-deep: #030810;
+    --space-mid: #0a1025;
+
+    --glass-bg: rgba(10, 16, 34, 0.55);
+    --glass-border: rgba(120, 150, 210, 0.22);
+    --glass-rim: rgba(160, 180, 220, 0.15);
+
+    --amber: #ffb833;
+    --amber-soft: #ffd06a;
+    --amber-dim: #cc9520;
+    --amber-glow: rgba(255, 184, 51, 0.4);
+
+    --teal: #44ddcc;
+    --teal-dim: #33aa99;
+    --teal-glow: rgba(68, 221, 204, 0.3);
+
+    --green: #55ee77;
+    --green-glow: rgba(85, 238, 119, 0.45);
+    --red: #ff5566;
+    --red-glow: rgba(255, 85, 102, 0.45);
+    --orange: #ff9944;
+    --orange-glow: rgba(255, 153, 68, 0.4);
+    --purple: #cc77ff;
+    --purple-glow: rgba(204, 119, 255, 0.4);
+
+    --gauge-deep: #080b14;
+    --gauge-mark: rgba(255, 200, 80, 0.35);
+    --needle: #ff5555;
+    --needle-glow: rgba(255, 85, 85, 0.5);
+
+    --chrome-hi: #c0d0e0;
+    --chrome-mid: #7088a0;
+    --chrome-lo: #3a5060;
+
+    --text-bright: #e8ecf4;
+    --text-soft: #b0b8cc;
+    --text-label: #7888a4;
+    --text-dim: #4a5670;
+
+    --cockpit-perspective: 1100px;
+    --parallax-intensity: 1;
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--space-deep);
+    color: var(--text-bright);
+    -webkit-font-smoothing: antialiased;
+    overflow: hidden;
+    height: 100vh;
+    height: 100dvh;
+    line-height: 1.5;
+}
+
+/* ========================================
+   STARFIELD CANVAS
+   ======================================== */
+#starfield {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+}
+
+/* ========================================
+   COCKPIT VIEWPORT
+   The "window" you look through
+   ======================================== */
+.cockpit-viewport {
+    position: fixed;
+    inset: 0;
+    perspective: var(--cockpit-perspective);
+    perspective-origin: 50% 50%;
+    overflow: hidden;
+    z-index: 1;
+}
+
+/* Physical cockpit frame — metallic edges */
+.cockpit-frame {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    pointer-events: none;
+    border: 6px solid transparent;
+    border-image: linear-gradient(
+        135deg,
+        rgba(80, 100, 130, 0.4) 0%,
+        rgba(40, 55, 75, 0.6) 20%,
+        rgba(20, 30, 45, 0.8) 40%,
+        rgba(40, 55, 75, 0.6) 60%,
+        rgba(80, 100, 130, 0.4) 80%,
+        rgba(40, 55, 75, 0.6) 100%
+    ) 1;
+    box-shadow:
+        inset 0 0 80px rgba(0, 0, 0, 0.8),
+        inset 0 0 200px rgba(0, 0, 0, 0.4);
+}
+
+.cockpit-frame::before {
+    content: '';
+    position: absolute;
+    inset: -6px;
+    border-radius: 0;
+    background:
+        radial-gradient(ellipse at 50% 50%, transparent 55%, rgba(0, 0, 0, 0.7) 100%);
+    pointer-events: none;
+}
+
+/* Corner rivets */
+.frame-rivet {
+    position: fixed;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 30%, var(--chrome-hi), var(--chrome-mid) 45%, var(--chrome-lo) 75%);
+    box-shadow:
+        inset 0 1px 3px rgba(255,255,255,0.4),
+        0 2px 6px rgba(0,0,0,0.8);
+    z-index: 101;
+    pointer-events: none;
+}
+.frame-rivet:nth-child(1) { top: 10px; left: 10px; }
+.frame-rivet:nth-child(2) { top: 10px; right: 10px; }
+.frame-rivet:nth-child(3) { bottom: 10px; left: 10px; }
+.frame-rivet:nth-child(4) { bottom: 10px; right: 10px; }
+
+/* ========================================
+   COCKPIT 3D SCENE — responds to mouse
+   ======================================== */
+.cockpit-scene {
+    position: absolute;
+    inset: 0;
+    transform-style: preserve-3d;
+    transition: transform 0.15s ease-out;
+    will-change: transform;
+}
+
+/* ========================================
+   SCROLLABLE DASHBOARD
+   ======================================== */
+.dashboard-scroll {
+    position: absolute;
+    inset: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    transform-style: preserve-3d;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+.dashboard-scroll::-webkit-scrollbar { display: none; }
+
+.dashboard {
+    max-width: 520px;
+    margin: 0 auto;
+    padding: 16px 12px;
+    padding-top: calc(20px + env(safe-area-inset-top, 0px));
+    padding-bottom: calc(40px + env(safe-area-inset-bottom, 0px));
+    transform-style: preserve-3d;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* ========================================
+   3D PANEL — Every panel floats in space
+   ======================================== */
+.panel-3d {
+    transform-style: preserve-3d;
+    transform: translateZ(0px);
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+}
+
+.panel-3d:hover {
+    transform: translateZ(18px);
+}
+
+/* Panel base — the "body" of the 3D card */
+.panel-face {
+    background: var(--glass-bg);
+    border: 1.5px solid var(--glass-border);
+    border-radius: 24px;
+    position: relative;
+    box-shadow:
+        0 12px 40px rgba(0, 0, 0, 0.6),
+        0 4px 12px rgba(0, 0, 0, 0.4),
+        0 1px 0 var(--glass-rim);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    overflow: visible;
+    transform-style: preserve-3d;
+}
+
+/* 3D extrusion — side depth of the panel */
+.panel-depth {
+    position: absolute;
+    inset: 0;
+    border-radius: 24px;
+    transform: translateZ(-8px);
+    background: linear-gradient(180deg, rgba(20, 30, 50, 0.8), rgba(10, 15, 25, 0.9));
+    border: 1px solid rgba(60, 80, 120, 0.15);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+/* Glass dome reflection on panel */
+.panel-glass {
+    position: absolute;
+    top: -1px; left: 8%; right: 8%;
+    height: 55%;
+    border-radius: 24px 24px 50% 50%;
+    background: radial-gradient(
+        ellipse 100% 80% at 40% -10%,
+        rgba(255, 255, 255, 0.14) 0%,
+        rgba(255, 255, 255, 0.05) 30%,
+        rgba(255, 255, 255, 0.01) 55%,
+        transparent 70%
+    );
+    pointer-events: none;
+    z-index: 10;
+    transform: translateZ(1px);
+}
+
+/* ========================================
+   NAMEPLATE (top panel — tilts back)
+   ======================================== */
+.nameplate-panel {
+    transform: rotateX(-3deg) translateZ(10px);
+}
+.nameplate-panel:hover {
+    transform: rotateX(-3deg) translateZ(24px);
+}
+
+.nameplate-content {
+    padding: 20px 24px 18px;
+    transform-style: preserve-3d;
+}
+
+/* Chrome studs (3D) */
+.stud-3d {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 25%, var(--chrome-hi), var(--chrome-mid) 45%, var(--chrome-lo) 75%);
+    box-shadow:
+        inset 0 1px 2px rgba(255,255,255,0.35),
+        0 1px 3px rgba(0,0,0,0.6);
+    z-index: 15;
+    transform: translateZ(4px);
+}
+
+.nameplate-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 14px;
+}
+
+.nameplate-left { display: flex; flex-direction: column; }
+.nameplate-mission {
+    font-family: 'Azeret Mono', monospace;
+    font-size: 8px;
+    letter-spacing: 0.3em;
+    color: var(--text-dim);
+    text-transform: uppercase;
+}
+
+.nameplate-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    color: var(--amber);
+    text-shadow:
+        0 0 30px var(--amber-glow),
+        0 0 80px rgba(255, 184, 51, 0.15),
+        0 2px 4px rgba(0, 0, 0, 0.5);
+    line-height: 1.3;
+    transform: translateZ(6px);
+}
+
+/* Day counter — 3D drums */
+.day-counter-mech {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 3px;
+    transform-style: preserve-3d;
+}
+
+.day-counter-label {
+    font-family: 'Azeret Mono', monospace;
+    font-size: 7px;
+    letter-spacing: 0.3em;
+    color: var(--text-dim);
+    text-transform: uppercase;
+}
+
+.day-drums {
+    display: flex;
+    gap: 4px;
+    transform-style: preserve-3d;
+}
+
+.drum-3d {
+    transform-style: preserve-3d;
+    position: relative;
+}
+
+.drum-face {
+    width: 26px;
+    height: 32px;
+    background: radial-gradient(ellipse at 50% 60%, #111628, var(--gauge-deep));
+    border: 2px solid var(--chrome-mid);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Azeret Mono', monospace;
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--text-bright);
+    transform: translateZ(4px);
+    position: relative;
+    overflow: hidden;
+}
+
+.drum-face::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 10%; right: 10%;
+    height: 55%;
+    border-radius: 10px 10px 50% 50%;
+    background: linear-gradient(180deg, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0.04) 40%, transparent 100%);
+    pointer-events: none;
+}
+
+.drum-back {
+    position: absolute;
+    inset: 0;
+    width: 26px;
+    height: 32px;
+    border-radius: 10px;
+    background: var(--chrome-lo);
+    transform: translateZ(-2px);
+}
+
+/* Odometer strip */
+.odometer-strip {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(120, 150, 210, 0.1);
+    border-radius: 16px;
+    padding: 10px 14px;
+    box-shadow: inset 0 3px 10px rgba(0,0,0,0.4), inset 0 -1px 0 rgba(255,255,255,0.02);
+    transform: translateZ(2px);
+}
+
+.odometer-label {
+    font-family: 'Azeret Mono', monospace;
+    font-size: 7px;
+    letter-spacing: 0.2em;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    flex-shrink: 0;
+    line-height: 1.2;
+    min-width: 42px;
+}
+.odometer-drums { display: flex; gap: 2px; flex: 1; justify-content: flex-end; }
+.odo-drum .drum-face { width: 18px; height: 26px; font-size: 13px; border-radius: 8px; border-width: 1.5px; }
+.odo-drum .drum-back { width: 18px; height: 26px; border-radius: 8px; }
+.odo-comma {
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 3px;
+    font-family: 'Azeret Mono', monospace;
+    font-size: 10px;
+    color: var(--text-dim);
+    width: 5px;
+    justify-content: center;
+    flex-shrink: 0;
+}
+.odometer-unit {
+    font-family: 'Azeret Mono', monospace;
+    font-size: 8px;
+    color: var(--text-dim);
+    margin-left: 4px;
+    flex-shrink: 0;
+    align-self: flex-end;
+    padding-bottom: 2px;
+}
+
+.velocity-readout { display: flex; flex-direction: column; align-items: center; flex-shrink: 0; min-width: 38px; }
+.velocity-label { font-family: 'Azeret Mono', monospace; font-size: 6px; letter-spacing: 0.2em; color: var(--text-dim); text-transform: uppercase; }
+.velocity-value { font-family: 'Orbitron', sans-serif; font-size: 13px; font-weight: 700; color: var(--amber); text-shadow: 0 0 10px var(--amber-glow); line-height: 1.2; }
+.velocity-unit { font-family: 'Azeret Mono', monospace; font-size: 6px; color: var(--text-dim); }
+.odo-divider {
+    width: 1px;
+    align-self: stretch;
+    background: linear-gradient(180deg, transparent, var(--glass-border), transparent);
+    flex-shrink: 0;
+}
+
+/* ========================================
+   COMMS BUBBLE — Holographic floating
+   ======================================== */
+.comms-panel {
+    transform: rotateX(-1deg) rotateY(1.5deg) translateZ(30px);
+}
+.comms-panel:hover {
+    transform: rotateX(-1deg) rotateY(1.5deg) translateZ(42px);
+}
+
+.comms-face {
+    background: rgba(20, 16, 8, 0.4);
+    border: 1.5px solid rgba(255, 200, 120, 0.18);
+    border-radius: 24px;
+    padding: 18px 22px;
+    position: relative;
+    box-shadow:
+        0 8px 30px rgba(0, 0, 0, 0.4),
+        0 0 40px rgba(255, 184, 51, 0.04),
+        inset 0 -3px 8px rgba(0, 0, 0, 0.2),
+        inset 0 2px 0 rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    font-family: 'Azeret Mono', monospace;
+    overflow: visible;
+    transform-style: preserve-3d;
+}
+
+.comms-face::before {
+    content: '';
+    position: absolute;
+    top: -1px; left: 12%; right: 12%;
+    height: 50%;
+    background: radial-gradient(ellipse 100% 80% at 35% -10%, rgba(255,240,200,0.1) 0%, rgba(255,240,200,0.02) 40%, transparent 65%);
+    pointer-events: none;
+    border-radius: 24px 24px 0 0;
+    z-index: 1;
+    transform: translateZ(1px);
+}
+
+.comms-face::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 36px;
+    width: 20px;
+    height: 20px;
+    background: rgba(20, 16, 8, 0.4);
+    border: 1.5px solid rgba(255, 200, 120, 0.14);
+    border-top: none;
+    border-left: none;
+    transform: rotate(45deg) translateZ(0px);
+    border-radius: 0 0 6px 0;
+    box-shadow: 4px 4px 8px rgba(0,0,0,0.2);
+}
+
+.comms-tape-label { font-size: 7px; letter-spacing: 0.2em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 6px; position: relative; z-index: 2; }
+.comms-tape-text { font-size: 11px; line-height: 1.65; color: var(--amber-soft); position: relative; z-index: 2; }
+.comms-tape-attr { font-size: 9px; color: var(--text-label); margin-top: 6px; position: relative; z-index: 2; }
+
+/* ========================================
+   JOURNEY — center instrument panel
+   ======================================== */
+.journey-panel {
+    transform: rotateX(1deg) translateZ(5px);
+}
+.journey-panel:hover {
+    transform: rotateX(1deg) translateZ(22px);
+}
+
+.journey-content {
+    padding: 20px;
+    transform-style: preserve-3d;
+}
+
+.journey-readout {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 16px;
+    padding: 0 4px;
+    transform: translateZ(3px);
+}
+.journey-stat { display: flex; flex-direction: column; gap: 2px; }
+.journey-stat-label { font-family: 'Azeret Mono', monospace; font-size: 7px; letter-spacing: 0.2em; color: var(--text-dim); text-transform: uppercase; }
+.journey-stat-value { font-family: 'Orbitron', sans-serif; font-size: 12px; font-weight: 600; color: var(--amber); text-shadow: 0 0 12px var(--amber-glow); }
+.journey-stat-value.small { font-family: 'Azeret Mono', monospace; font-size: 10px; font-weight: 500; color: var(--text-soft); text-shadow: none; }
+
+/* 3D Waypoint Rail */
+.waypoint-track {
+    transform-style: preserve-3d;
+    padding: 16px 0;
+    position: relative;
+    transform: translateZ(6px);
+}
+
+.waypoint-rail {
+    position: absolute;
+    top: 50%;
+    left: 16px;
+    right: 16px;
+    height: 6px;
+    transform: translateY(-50%) translateZ(-3px) rotateX(20deg);
+    background: linear-gradient(180deg, var(--chrome-hi), var(--chrome-mid), var(--chrome-lo));
+    border-radius: 3px;
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.25),
+        0 3px 8px rgba(0,0,0,0.6),
+        0 0 20px rgba(100, 130, 170, 0.08);
+}
+
+.waypoint-nodes {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    z-index: 2;
+    transform-style: preserve-3d;
+}
+
+.wp-node {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    transform-style: preserve-3d;
+    transition: transform 0.3s ease;
+}
+.wp-node:hover {
+    transform: translateZ(10px) scale(1.1);
+}
+
+/* 3D glass marble */
+.wp-marble {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    position: relative;
+    transform-style: preserve-3d;
+}
+
+.wp-marble-body {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 45% 45%, #14182a, #080b14);
+    border: 2.5px solid var(--chrome-mid);
+    box-shadow:
+        inset 0 3px 6px rgba(0,0,0,0.6),
+        0 4px 12px rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    transform: translateZ(0px);
+}
+
+.wp-marble-glass {
+    position: absolute;
+    top: 1px;
+    left: 3px;
+    width: 12px;
+    height: 10px;
+    border-radius: 50%;
+    background: radial-gradient(ellipse, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.1) 50%, transparent 100%);
+    transform: translateZ(4px);
+    pointer-events: none;
+}
+
+.wp-marble-shadow {
+    position: absolute;
+    bottom: -6px;
+    left: 50%;
+    width: 24px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.4);
+    transform: translateX(-50%) translateZ(-6px) rotateX(70deg);
+    filter: blur(3px);
+}
+
+/* Marble states */
+.wp-node.passed .wp-marble-body {
+    background: radial-gradient(circle at 45% 40%, var(--green), #118844 60%, #0a442a 90%);
+    box-shadow: inset 0 2px 4px rgba(255,255,255,0.15), inset 0 -2px 6px rgba(0,0,0,0.3), 0 0 20px var(--green-glow), 0 4px 12px rgba(0,0,0,0.4);
+    border-color: rgba(85, 238, 119, 0.4);
+}
+
+.wp-node.current .wp-marble-body {
+    background: radial-gradient(circle at 42% 38%, var(--amber-soft), #cc8800 55%, #884400 85%);
+    box-shadow: inset 0 2px 4px rgba(255,255,255,0.2), inset 0 -2px 6px rgba(0,0,0,0.2), 0 0 28px var(--amber-glow), 0 0 56px rgba(255, 184, 51, 0.12), 0 4px 12px rgba(0,0,0,0.4);
+    border-color: rgba(255, 184, 51, 0.45);
+    animation: marble-pulse-3d 2.5s ease-in-out infinite;
+}
+
+.wp-node.destination .wp-marble-body {
+    background: radial-gradient(circle at 45% 40%, #664488, #332244 60%, #1a1128 85%);
+    box-shadow: inset 0 2px 4px rgba(255,255,255,0.08), inset 0 -2px 6px rgba(0,0,0,0.3), 0 0 14px rgba(204,119,255,0.2), 0 4px 12px rgba(0,0,0,0.4);
+    border-color: rgba(204, 119, 255, 0.25);
+    animation: dest-breathe-3d 4s ease-in-out infinite;
+}
+
+@keyframes marble-pulse-3d {
+    0%, 100% { transform: translateZ(0px) scale(1); }
+    50% { transform: translateZ(6px) scale(1.12); }
+}
+
+@keyframes dest-breathe-3d {
+    0%, 100% { box-shadow: inset 0 2px 4px rgba(255,255,255,0.08), inset 0 -2px 6px rgba(0,0,0,0.3), 0 0 14px rgba(204,119,255,0.2), 0 4px 12px rgba(0,0,0,0.4); }
+    50% { box-shadow: inset 0 2px 4px rgba(255,255,255,0.12), inset 0 -2px 6px rgba(0,0,0,0.2), 0 0 28px rgba(204,119,255,0.35), 0 4px 12px rgba(0,0,0,0.4); }
+}
+
+.wp-label { font-family: 'Azeret Mono', monospace; font-size: 6px; letter-spacing: 0.1em; color: var(--text-dim); text-transform: uppercase; max-width: 40px; text-align: center; line-height: 1.2; }
+.wp-node.current .wp-label { color: var(--amber-dim); }
+
+.location-strip {
+    text-align: center;
+    font-family: 'Azeret Mono', monospace;
+    font-size: 9px;
+    color: var(--text-label);
+    padding-top: 10px;
+    line-height: 1.6;
+    transform: translateZ(2px);
+}
+.location-strip .c-amber { color: var(--amber-dim); }
+
+/* ========================================
+   HOLOGRAPHIC SHIP LOG — floats in space
+   ======================================== */
+.holo-panel {
+    transform: rotateX(2deg) rotateY(-1deg) translateZ(40px);
+}
+.holo-panel:hover {
+    transform: rotateX(2deg) rotateY(-1deg) translateZ(55px);
+}
+
+.holo-face {
+    background: rgba(6, 10, 18, 0.5);
+    border: 1.5px solid rgba(255, 184, 51, 0.15);
+    border-radius: 22px;
+    padding: 18px 22px;
+    position: relative;
+    box-shadow:
+        0 8px 30px rgba(0, 0, 0, 0.4),
+        0 0 60px rgba(255, 184, 51, 0.03),
+        inset 0 4px 16px rgba(0,0,0,0.4),
+        inset 0 -2px 6px rgba(0,0,0,0.2);
+    overflow: hidden;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transform-style: preserve-3d;
+}
+
+/* Holographic scan line */
+.holo-face::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 3px,
+            rgba(255, 184, 51, 0.02) 3px,
+            rgba(255, 184, 51, 0.02) 4px
+        );
+    pointer-events: none;
+    z-index: 1;
+    animation: holo-scan 4s linear infinite;
+}
+
+.holo-face::after {
+    content: '';
+    position: absolute;
+    top: -1px; left: 10%; right: 10%;
+    height: 45%;
+    border-radius: 22px 22px 0 0;
+    background: radial-gradient(ellipse 100% 70% at 40% -15%, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.03) 35%, transparent 60%);
+    pointer-events: none;
+    z-index: 2;
+}
+
+@keyframes holo-scan {
+    0% { background-position: 0 0; }
+    100% { background-position: 0 200px; }
+}
+
+.holo-label { font-family: 'Azeret Mono', monospace; font-size: 7px; letter-spacing: 0.2em; color: rgba(255,184,51,0.4); text-transform: uppercase; margin-bottom: 6px; position: relative; z-index: 3; }
+.holo-text { font-family: 'Azeret Mono', monospace; font-size: 11px; color: var(--amber); text-shadow: 0 0 10px var(--amber-glow); line-height: 1.65; position: relative; z-index: 3; }
+
+/* ========================================
+   3D GAUGES — Real depth layering
+   ======================================== */
+.gauge-panel {
+    transform: translateZ(0px);
+}
+.gauge-panel:hover {
+    transform: translateZ(16px);
+}
+
+.gauge-content {
+    padding: 20px 16px;
+    transform-style: preserve-3d;
+}
+
+.gauge-section-label {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 8px;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 16px;
+    transform: translateZ(4px);
+}
+
+.gauge-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    transform-style: preserve-3d;
+}
+
+.gauge-3d {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    transform-style: preserve-3d;
+    transition: transform 0.3s ease;
+}
+.gauge-3d:hover {
+    transform: translateZ(12px);
+}
+
+/* 3D Gauge Assembly */
+.gauge-assembly {
+    width: 90px;
+    height: 90px;
+    position: relative;
+    transform-style: preserve-3d;
+}
+
+/* Back plate (deepest layer) */
+.gauge-backplate {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: var(--gauge-deep);
+    transform: translateZ(-8px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+}
+
+/* Chrome bezel */
+.gauge-bezel {
+    position: absolute;
+    inset: -3px;
+    border-radius: 50%;
+    background: conic-gradient(
+        from 45deg,
+        var(--chrome-hi) 0deg,
+        var(--chrome-mid) 60deg,
+        var(--chrome-lo) 120deg,
+        var(--chrome-mid) 180deg,
+        var(--chrome-hi) 240deg,
+        var(--chrome-mid) 300deg,
+        var(--chrome-hi) 360deg
+    );
+    transform: translateZ(-4px);
+    box-shadow:
+        inset 0 2px 4px rgba(255,255,255,0.2),
+        inset 0 -2px 4px rgba(0,0,0,0.3),
+        0 4px 12px rgba(0,0,0,0.5);
+}
+
+.gauge-bezel::after {
+    content: '';
+    position: absolute;
+    inset: 3px;
+    border-radius: 50%;
+    background: transparent;
+    border: 1px solid rgba(0,0,0,0.4);
+}
+
+/* Dial face (recessed) */
+.gauge-dial-3d {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: radial-gradient(circle at 50% 55%, #0e1222, var(--gauge-deep));
+    transform: translateZ(-6px);
+    overflow: hidden;
+}
+
+/* Tick marks */
+.gauge-ticks {
+    position: absolute;
+    inset: 4px;
+    border-radius: 50%;
+    background: conic-gradient(
+        from 210deg,
+        var(--gauge-mark) 0deg, var(--gauge-mark) 2deg, transparent 2deg, transparent 24deg,
+        var(--gauge-mark) 24deg, var(--gauge-mark) 26deg, transparent 26deg, transparent 48deg,
+        var(--gauge-mark) 48deg, var(--gauge-mark) 50deg, transparent 50deg, transparent 72deg,
+        var(--gauge-mark) 72deg, var(--gauge-mark) 74deg, transparent 74deg, transparent 96deg,
+        var(--gauge-mark) 96deg, var(--gauge-mark) 98deg, transparent 98deg, transparent 120deg,
+        var(--gauge-mark) 120deg, var(--gauge-mark) 122deg, transparent 122deg, transparent 240deg
+    );
+    mask: radial-gradient(transparent 56%, black 58%, black 86%, transparent 88%);
+    -webkit-mask: radial-gradient(transparent 56%, black 58%, black 86%, transparent 88%);
+    opacity: 0.55;
+    transform: translateZ(-5px);
+}
+
+/* Needle (between face and glass) */
+.gauge-needle-3d {
+    position: absolute;
+    width: 2px;
+    height: 35px;
+    bottom: 50%;
+    left: 50%;
+    transform-origin: bottom center;
+    transform: translateX(-50%) translateZ(-2px) rotate(var(--rotation, -120deg));
+    background: linear-gradient(to top, var(--needle), #ff8888);
+    border-radius: 1px 1px 0 0;
+    box-shadow: 0 0 10px var(--needle-glow), 0 0 20px rgba(255, 85, 85, 0.2);
+    transition: transform 1s cubic-bezier(0.34, 1.56, 0.64, 1);
+    z-index: 3;
+}
+
+/* Chrome center cap */
+.gauge-cap {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 14px;
+    height: 14px;
+    margin: -7px 0 0 -7px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 32% 28%, var(--chrome-hi), var(--chrome-mid) 45%, var(--chrome-lo) 75%);
+    border: 1px solid rgba(0,0,0,0.3);
+    box-shadow: inset 0 1px 3px rgba(255,255,255,0.35), 0 2px 4px rgba(0,0,0,0.5);
+    transform: translateZ(-1px);
+    z-index: 4;
+}
+
+/* Glass dome (frontmost layer) */
+.gauge-glass {
+    position: absolute;
+    inset: -2px;
+    border-radius: 50%;
+    background:
+        radial-gradient(ellipse 55% 40% at 32% 22%, rgba(255,255,255,0.24) 0%, rgba(255,255,255,0.08) 35%, rgba(255,255,255,0.02) 55%, transparent 70%),
+        radial-gradient(ellipse 80% 20% at 50% 95%, rgba(255,255,255,0.04) 0%, transparent 70%),
+        radial-gradient(ellipse 15% 12% at 68% 18%, rgba(255,255,255,0.14) 0%, transparent 100%);
+    transform: translateZ(2px);
+    pointer-events: none;
+    z-index: 5;
+}
+
+/* Readout */
+.gauge-readout-3d {
+    position: absolute;
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%) translateZ(0px);
+    font-family: 'Azeret Mono', monospace;
+    font-size: 9px;
+    font-weight: 600;
+    color: var(--amber);
+    text-shadow: 0 0 8px var(--amber-glow);
+    z-index: 3;
+    white-space: nowrap;
+}
+
+.gauge-label-3d {
+    font-family: 'Azeret Mono', monospace;
+    font-size: 7px;
+    letter-spacing: 0.15em;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    text-align: center;
+    transform: translateZ(3px);
+}
+
+/* Warning/critical states */
+.gauge-3d.warning .gauge-bezel {
+    box-shadow: inset 0 2px 4px rgba(255,255,255,0.15), 0 0 24px var(--orange-glow), 0 0 48px rgba(255,153,68,0.08), 0 4px 12px rgba(0,0,0,0.5);
+}
+.gauge-3d.warning .gauge-readout-3d { color: var(--orange); animation: val-blink 1.5s ease-in-out infinite; }
+
+.gauge-3d.critical .gauge-bezel {
+    box-shadow: inset 0 2px 4px rgba(255,255,255,0.1), 0 0 24px var(--red-glow), 0 0 48px rgba(255,85,102,0.08), 0 4px 12px rgba(0,0,0,0.5);
+}
+.gauge-3d.critical .gauge-readout-3d { color: var(--red); animation: val-blink 0.8s ease-in-out infinite; }
+@keyframes val-blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+/* ETH counter 3D */
+.eth-counter-3d {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transform-style: preserve-3d;
+}
+
+.eth-display-3d {
+    position: relative;
+    transform-style: preserve-3d;
+    min-width: 76px;
+}
+
+.eth-display-face {
+    background: radial-gradient(ellipse at 50% 60%, #0e1222, var(--gauge-deep));
+    border: 2.5px solid var(--chrome-mid);
+    border-radius: 16px;
+    padding: 12px 16px;
+    box-shadow: inset 0 4px 10px rgba(0,0,0,0.5), inset 0 -2px 4px rgba(0,0,0,0.2), 0 4px 12px rgba(0,0,0,0.5);
+    text-align: center;
+    transform: translateZ(4px);
+    position: relative;
+    overflow: hidden;
+}
+
+.eth-display-face::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 10%; right: 10%;
+    height: 55%;
+    border-radius: 16px 16px 50% 50%;
+    background: linear-gradient(180deg, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0.02) 40%, transparent 100%);
+    pointer-events: none;
+}
+
+.eth-display-back {
+    position: absolute;
+    inset: 0;
+    border-radius: 16px;
+    background: var(--chrome-lo);
+    transform: translateZ(-2px);
+}
+
+.eth-value { font-family: 'Orbitron', sans-serif; font-size: 15px; font-weight: 700; color: var(--amber); text-shadow: 0 0 12px var(--amber-glow); position: relative; z-index: 1; }
+
+/* ========================================
+   CREW — 3D glass indicator lights
+   ======================================== */
+.chad-panel {
+    transform: rotateX(1.5deg) rotateY(-0.5deg) translateZ(5px);
+}
+.chad-panel:hover {
+    transform: rotateX(1.5deg) rotateY(-0.5deg) translateZ(20px);
+}
+
+.chad-content {
+    padding: 18px 22px;
+    transform-style: preserve-3d;
+}
+
+.chad-section-label {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 8px;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    transform: translateZ(3px);
+}
+
+.chad-lights { display: flex; flex-wrap: wrap; gap: 12px; transform-style: preserve-3d; }
+.chad-indicator-3d {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 110px;
+    transform-style: preserve-3d;
+    transition: transform 0.25s ease;
+}
+.chad-indicator-3d:hover {
+    transform: translateZ(8px);
+}
+
+.chad-marble {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 2px solid var(--chrome-mid);
+    flex-shrink: 0;
+    position: relative;
+    box-shadow: inset 0 2px 3px rgba(0,0,0,0.4), 0 2px 6px rgba(0,0,0,0.4);
+    transform: translateZ(3px);
+    transform-style: preserve-3d;
+}
+
+.chad-marble::before {
+    content: '';
+    position: absolute;
+    top: 1px; left: 2px;
+    width: 6px; height: 5px;
+    border-radius: 50%;
+    background: radial-gradient(ellipse, rgba(255,255,255,0.5), transparent);
+    z-index: 1;
+    transform: translateZ(2px);
+}
+
+.chad-marble.alive {
+    background: radial-gradient(circle at 40% 35%, var(--green), #22884480);
+    box-shadow: inset 0 2px 3px rgba(255,255,255,0.15), 0 0 12px var(--green-glow), 0 2px 6px rgba(0,0,0,0.4);
+    border-color: rgba(85, 238, 119, 0.35);
+}
+.chad-marble.dead {
+    background: radial-gradient(circle at 40% 35%, var(--red), #88222280);
+    box-shadow: inset 0 2px 3px rgba(255,255,255,0.08), 0 0 10px var(--red-glow), 0 2px 6px rgba(0,0,0,0.4);
+    border-color: rgba(255, 85, 102, 0.25);
+    opacity: 0.5;
+}
+
+.chad-info { display: flex; flex-direction: column; min-width: 0; }
+.chad-name { font-family: 'Azeret Mono', monospace; font-size: 10px; color: var(--text-soft); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.chad-indicator-3d.dead .chad-name { text-decoration: line-through; text-decoration-color: rgba(255,85,102,0.35); color: var(--text-dim); }
+.chad-role { font-family: 'Azeret Mono', monospace; font-size: 7px; letter-spacing: 0.1em; color: var(--text-dim); text-transform: uppercase; }
+
+/* ========================================
+   AI SPEAKER — Holographic orb
+   ======================================== */
+.ai-panel {
+    transform: rotateY(1deg) translateZ(15px);
+}
+.ai-panel:hover {
+    transform: rotateY(1deg) translateZ(30px);
+}
+
+.ai-content {
+    padding: 18px 22px;
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    transform-style: preserve-3d;
+}
+
+.ai-orb {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    position: relative;
+    transform-style: preserve-3d;
+    transform: translateZ(8px);
+}
+
+.ai-orb-body {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 45% 40%, #1a2240, #080c18);
+    border: 3px solid var(--chrome-mid);
+    box-shadow: inset 0 4px 12px rgba(0,0,0,0.6), 0 4px 12px rgba(0,0,0,0.5);
+    position: relative;
+    overflow: hidden;
+}
+
+.ai-orb-core {
+    position: absolute;
+    inset: 8px;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--teal-glow) 0%, rgba(68,221,204,0.05) 50%, transparent 70%);
+    animation: ai-pulse 3s ease-in-out infinite;
+}
+
+.ai-orb-glass {
+    position: absolute;
+    top: 2px; left: 5px;
+    width: 16px; height: 12px;
+    border-radius: 50%;
+    background: radial-gradient(ellipse, rgba(255,255,255,0.35), rgba(255,255,255,0.05) 50%, transparent);
+    transform: translateZ(4px);
+}
+
+@keyframes ai-pulse { 0%, 100% { opacity: 0.4; transform: scale(0.85); } 50% { opacity: 1; transform: scale(1.15); } }
+
+.ai-bubble { flex: 1; min-width: 0; }
+.ai-label { font-family: 'Azeret Mono', monospace; font-size: 7px; letter-spacing: 0.2em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 4px; }
+.ai-text { font-family: 'Azeret Mono', monospace; font-size: 10px; color: var(--teal-dim); font-style: italic; line-height: 1.65; }
+
+/* ========================================
+   3D GEL CAPSULE BUTTONS
+   ======================================== */
+.controls-panel {
+    transform: rotateX(3deg) translateZ(8px);
+}
+.controls-panel:hover {
+    transform: rotateX(3deg) translateZ(20px);
+}
+
+.controls-content {
+    padding: 20px 20px;
+    transform-style: preserve-3d;
+}
+
+.controls-label {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 8px;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 16px;
+    transform: translateZ(4px);
+}
+
+/* 3D Main Button */
+.btn-3d-main {
+    display: block;
+    width: 100%;
+    margin-bottom: 16px;
+    transform-style: preserve-3d;
+    position: relative;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    border: none;
+    background: none;
+    padding: 0;
+    transform: translateZ(8px);
+    transition: transform 0.15s ease;
+}
+
+.btn-3d-main:hover {
+    transform: translateZ(14px);
+}
+.btn-3d-main:active {
+    transform: translateZ(2px);
+}
+
+.btn-main-face {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 18px 24px;
+    background:
+        radial-gradient(ellipse 80% 100% at 50% 120%, rgba(85,238,119,0.08) 0%, transparent 60%),
+        linear-gradient(180deg, rgba(40,100,60,0.5) 0%, rgba(20,60,30,0.65) 50%, rgba(15,45,25,0.75) 100%);
+    border: 2px solid rgba(85,238,119,0.3);
+    border-radius: 20px;
+    position: relative;
+    box-shadow:
+        0 8px 30px rgba(0,0,0,0.5),
+        0 0 28px rgba(85,238,119,0.1);
+    color: var(--green);
+    overflow: hidden;
+    transform: translateZ(6px);
+    font-family: 'Nunito', sans-serif;
+    cursor: pointer;
+}
+
+.btn-main-face::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 8%; right: 8%;
+    height: 50%;
+    border-radius: 20px 20px 50% 50%;
+    background: linear-gradient(180deg, rgba(255,255,255,0.14) 0%, rgba(255,255,255,0.03) 50%, transparent 100%);
+    pointer-events: none;
+}
+
+.btn-main-depth {
+    position: absolute;
+    inset: 0;
+    border-radius: 20px;
+    background: linear-gradient(180deg, rgba(15, 50, 25, 0.8), rgba(10, 30, 15, 0.9));
+    border: 1px solid rgba(85, 238, 119, 0.1);
+    transform: translateZ(-2px);
+}
+
+.btn-3d-main:active .btn-main-face {
+    transform: translateZ(1px);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.4), 0 0 12px rgba(85,238,119,0.06);
+}
+
+.btn-3d-main .btn-icon { font-size: 17px; }
+.btn-3d-main .btn-text { font-family: 'Orbitron', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; text-shadow: 0 0 12px var(--green-glow); }
+.btn-3d-main .btn-hint { font-family: 'Azeret Mono', monospace; font-size: 8px; color: rgba(85,238,119,0.3); }
+
+/* 3D Secondary buttons grid */
+.button-grid-3d {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    transform-style: preserve-3d;
+}
+
+.btn-3d {
+    display: block;
+    transform-style: preserve-3d;
+    position: relative;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    border: none;
+    background: none;
+    padding: 0;
+    transform: translateZ(4px);
+    transition: transform 0.15s ease;
+}
+.btn-3d:hover {
+    transform: translateZ(10px);
+}
+.btn-3d:active {
+    transform: translateZ(0px);
+}
+
+.btn-face {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 16px 10px;
+    background: radial-gradient(ellipse 80% 100% at 50% 120%, rgba(120,150,210,0.04) 0%, transparent 60%), rgba(14,20,36,0.6);
+    border: 1.5px solid var(--glass-border);
+    border-radius: 18px;
+    box-shadow:
+        0 6px 20px rgba(0,0,0,0.45),
+        0 0 16px rgba(120, 150, 210, 0.03);
+    color: var(--text-soft);
+    position: relative;
+    overflow: hidden;
+    transform: translateZ(4px);
+    font-family: 'Nunito', sans-serif;
+    cursor: pointer;
+}
+
+.btn-face::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 10%; right: 10%;
+    height: 45%;
+    border-radius: 18px 18px 50% 50%;
+    background: linear-gradient(180deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.01) 50%, transparent 100%);
+    pointer-events: none;
+}
+
+.btn-depth {
+    position: absolute;
+    inset: 0;
+    border-radius: 18px;
+    background: linear-gradient(180deg, rgba(14, 20, 36, 0.7), rgba(8, 12, 24, 0.8));
+    border: 1px solid rgba(80, 100, 140, 0.08);
+    transform: translateZ(-2px);
+}
+
+.btn-3d:active .btn-face {
+    transform: translateZ(1px);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+
+.btn-3d .btn-icon { font-size: 20px; }
+.btn-3d .btn-text { font-family: 'Azeret Mono', monospace; font-size: 8px; letter-spacing: 0.15em; text-transform: uppercase; }
+.btn-3d .btn-hint { font-family: 'Azeret Mono', monospace; font-size: 7px; color: var(--text-dim); }
+
+/* ========================================
+   AMBIENT LIGHTING
+   ======================================== */
+.ambient-light {
+    position: fixed;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+    filter: blur(100px);
+    opacity: 0.3;
+    animation: ambient-drift 20s ease-in-out infinite alternate;
+}
+
+.ambient-light.amber {
+    background: radial-gradient(circle, rgba(255, 184, 51, 0.15), transparent 70%);
+    top: 20%;
+    left: 30%;
+}
+
+.ambient-light.teal {
+    background: radial-gradient(circle, rgba(68, 221, 204, 0.08), transparent 70%);
+    bottom: 20%;
+    right: 20%;
+    animation-delay: -10s;
+}
+
+.ambient-light.purple {
+    background: radial-gradient(circle, rgba(140, 80, 200, 0.06), transparent 70%);
+    top: 60%;
+    left: 10%;
+    animation-delay: -5s;
+}
+
+@keyframes ambient-drift {
+    0% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(30px, -20px) scale(1.1); }
+    66% { transform: translate(-20px, 15px) scale(0.9); }
+    100% { transform: translate(10px, -10px) scale(1.05); }
+}
+
+/* ========================================
+   STAGGERED ENTRANCE — 3D bubble float
+   ======================================== */
+.dashboard > * {
+    animation: float-in-3d 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.dashboard > *:nth-child(1) { animation-delay: 0.1s; }
+.dashboard > *:nth-child(2) { animation-delay: 0.2s; }
+.dashboard > *:nth-child(3) { animation-delay: 0.3s; }
+.dashboard > *:nth-child(4) { animation-delay: 0.4s; }
+.dashboard > *:nth-child(5) { animation-delay: 0.5s; }
+.dashboard > *:nth-child(6) { animation-delay: 0.6s; }
+.dashboard > *:nth-child(7) { animation-delay: 0.7s; }
+.dashboard > *:nth-child(8) { animation-delay: 0.8s; }
+
+@keyframes float-in-3d {
+    from {
+        opacity: 0;
+        transform: translateY(40px) translateZ(-60px) rotateX(8deg) scale(0.85);
+        filter: blur(4px);
+    }
+    to {
+        opacity: 1;
+        filter: blur(0px);
+    }
+}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+@media (max-width: 380px) {
+    .gauge-assembly { width: 76px; height: 76px; }
+    .gauge-needle-3d { height: 28px; }
+    .gauge-readout-3d { font-size: 8px; bottom: 13px; }
+    .nameplate-title { font-size: 16px; }
+    .wp-marble, .wp-marble-body { width: 24px; height: 24px; font-size: 10px; }
+    .chad-indicator-3d { min-width: 90px; }
+    .odo-drum .drum-face { width: 15px; height: 21px; font-size: 11px; }
+    .odo-drum .drum-back { width: 15px; height: 21px; }
+    :root { --cockpit-perspective: 900px; }
+}
+
+@media (min-width: 600px) {
+    .dashboard { padding: 20px 16px; }
+    .gauge-assembly { width: 100px; height: 100px; }
+    .gauge-needle-3d { height: 40px; }
+    .wp-marble, .wp-marble-body { width: 34px; height: 34px; font-size: 14px; }
+    :root { --cockpit-perspective: 1300px; }
+}
+</style>
+</head>
+<body>
+
+<canvas id="starfield"></canvas>
+
+<div class="ambient-light amber"></div>
+<div class="ambient-light teal"></div>
+<div class="ambient-light purple"></div>
+
+<div class="cockpit-viewport">
+    <div class="cockpit-frame">
+        <div class="frame-rivet"></div>
+        <div class="frame-rivet"></div>
+        <div class="frame-rivet"></div>
+        <div class="frame-rivet"></div>
+    </div>
+
+    <div class="cockpit-scene" id="cockpitScene">
+        <div class="dashboard-scroll">
+            <div class="dashboard">
+
+                <!-- NAMEPLATE -->
+                <div class="panel-3d nameplate-panel">
+                    <div class="panel-depth"></div>
+                    <div class="panel-face">
+                        <div class="panel-glass"></div>
+                        <div class="stud-3d" style="top:12px;left:16px"></div>
+                        <div class="stud-3d" style="top:12px;right:16px"></div>
+                        <div class="stud-3d" style="bottom:12px;left:16px"></div>
+                        <div class="stud-3d" style="bottom:12px;right:16px"></div>
+                        <div class="nameplate-content">
+                            <div class="nameplate-top">
+                                <div class="nameplate-left">
+                                    <span class="nameplate-mission">Mission</span>
+                                    <span class="nameplate-title">OCCUPY URANUS</span>
+                                </div>
+                                <div class="day-counter-mech">
+                                    <span class="day-counter-label">Day</span>
+                                    <div class="day-drums">
+                                        <div class="drum-3d"><div class="drum-back"></div><div class="drum-face">0</div></div>
+                                        <div class="drum-3d"><div class="drum-back"></div><div class="drum-face">4</div></div>
+                                        <div class="drum-3d"><div class="drum-back"></div><div class="drum-face">2</div></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="odometer-strip">
+                                <div class="velocity-readout">
+                                    <span class="velocity-label">Vel</span>
+                                    <span class="velocity-value">20M</span>
+                                    <span class="velocity-unit">km/d</span>
+                                </div>
+                                <div class="odo-divider"></div>
+                                <span class="odometer-label">Dist<br>Trav</span>
+                                <div class="odometer-drums">
+                                    <div class="drum-3d odo-drum"><div class="drum-back"></div><div class="drum-face">1</div></div><div class="odo-comma">,</div>
+                                    <div class="drum-3d odo-drum"><div class="drum-back"></div><div class="drum-face">2</div></div>
+                                    <div class="drum-3d odo-drum"><div class="drum-back"></div><div class="drum-face">4</div></div>
+                                    <div class="drum-3d odo-drum"><div class="drum-back"></div><div class="drum-face">0</div></div><div class="odo-comma">,</div>
+                                    <div class="drum-3d odo-drum"><div class="drum-back"></div><div class="drum-face">0</div></div>
+                                    <div class="drum-3d odo-drum"><div class="drum-back"></div><div class="drum-face">0</div></div>
+                                    <div class="drum-3d odo-drum"><div class="drum-back"></div><div class="drum-face">0</div></div><div class="odo-comma">,</div>
+                                    <div class="drum-3d odo-drum"><div class="drum-back"></div><div class="drum-face">0</div></div>
+                                    <div class="drum-3d odo-drum"><div class="drum-back"></div><div class="drum-face">0</div></div>
+                                    <div class="drum-3d odo-drum"><div class="drum-back"></div><div class="drum-face">0</div></div>
+                                </div>
+                                <span class="odometer-unit">km</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SHIP LOG — Holographic (Flash Message) -->
+                <div class="panel-3d holo-panel">
+                    <div class="holo-face">
+                        <div class="holo-label">◈ Ship Log — Sol 42.7</div>
+                        <div class="holo-text">You found 50 units of food while hunting. The chad is pleased. Jenkins would have been proud.</div>
+                    </div>
+                </div>
+
+                <!-- JOURNEY -->
+                <div class="panel-3d journey-panel">
+                    <div class="panel-depth"></div>
+                    <div class="panel-face">
+                        <div class="panel-glass"></div>
+                        <div class="stud-3d" style="top:12px;left:16px"></div>
+                        <div class="stud-3d" style="top:12px;right:16px"></div>
+                        <div class="journey-content">
+                            <div class="journey-readout">
+                                <div class="journey-stat"><span class="journey-stat-label">Distance</span><span class="journey-stat-value">1.24B km</span></div>
+                                <div class="journey-stat"><span class="journey-stat-label">Next Stop</span><span class="journey-stat-value small">Saturn Station</span></div>
+                                <div class="journey-stat"><span class="journey-stat-label">ETA Next</span><span class="journey-stat-value small">~8 days</span></div>
+                            </div>
+                            <div class="waypoint-track">
+                                <div class="waypoint-rail"></div>
+                                <div class="waypoint-nodes">
+                                    <div class="wp-node passed">
+                                        <div class="wp-marble"><div class="wp-marble-body">🌍</div><div class="wp-marble-glass"></div><div class="wp-marble-shadow"></div></div>
+                                        <span class="wp-label">Earth</span>
+                                    </div>
+                                    <div class="wp-node passed">
+                                        <div class="wp-marble"><div class="wp-marble-body">🔴</div><div class="wp-marble-glass"></div><div class="wp-marble-shadow"></div></div>
+                                        <span class="wp-label">Mars</span>
+                                    </div>
+                                    <div class="wp-node passed">
+                                        <div class="wp-marble"><div class="wp-marble-body">🪐</div><div class="wp-marble-glass"></div><div class="wp-marble-shadow"></div></div>
+                                        <span class="wp-label">Ceres</span>
+                                    </div>
+                                    <div class="wp-node current">
+                                        <div class="wp-marble"><div class="wp-marble-body">♃</div><div class="wp-marble-glass"></div><div class="wp-marble-shadow"></div></div>
+                                        <span class="wp-label">Jupiter</span>
+                                    </div>
+                                    <div class="wp-node">
+                                        <div class="wp-marble"><div class="wp-marble-body">🪐</div><div class="wp-marble-glass"></div><div class="wp-marble-shadow"></div></div>
+                                        <span class="wp-label">Saturn</span>
+                                    </div>
+                                    <div class="wp-node">
+                                        <div class="wp-marble"><div class="wp-marble-body">♆</div><div class="wp-marble-glass"></div><div class="wp-marble-shadow"></div></div>
+                                        <span class="wp-label">Deep Sp</span>
+                                    </div>
+                                    <div class="wp-node destination">
+                                        <div class="wp-marble"><div class="wp-marble-body">⛢</div><div class="wp-marble-glass"></div><div class="wp-marble-shadow"></div></div>
+                                        <span class="wp-label">Uranus</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="location-strip"><span class="c-amber">1,560,000,000 km</span> remaining · <span class="c-amber">~78 days</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- GAUGES -->
+                <div class="panel-3d gauge-panel">
+                    <div class="panel-depth"></div>
+                    <div class="panel-face">
+                        <div class="panel-glass"></div>
+                        <div class="stud-3d" style="top:12px;left:16px"></div>
+                        <div class="stud-3d" style="top:12px;right:16px"></div>
+                        <div class="stud-3d" style="bottom:12px;left:16px"></div>
+                        <div class="stud-3d" style="bottom:12px;right:16px"></div>
+                        <div class="gauge-content">
+                            <div class="gauge-section-label">Ship Status</div>
+                            <div class="gauge-grid">
+                                <div class="gauge-3d">
+                                    <div class="gauge-assembly">
+                                        <div class="gauge-backplate"></div>
+                                        <div class="gauge-bezel"></div>
+                                        <div class="gauge-dial-3d"></div>
+                                        <div class="gauge-ticks"></div>
+                                        <div class="gauge-needle-3d" style="--rotation: 43deg"></div>
+                                        <div class="gauge-cap"></div>
+                                        <div class="gauge-readout-3d">815</div>
+                                        <div class="gauge-glass"></div>
+                                    </div>
+                                    <div class="gauge-label-3d">⛽ Fuel</div>
+                                </div>
+                                <div class="gauge-3d warning">
+                                    <div class="gauge-assembly">
+                                        <div class="gauge-backplate"></div>
+                                        <div class="gauge-bezel"></div>
+                                        <div class="gauge-dial-3d"></div>
+                                        <div class="gauge-ticks"></div>
+                                        <div class="gauge-needle-3d" style="--rotation: -12deg"></div>
+                                        <div class="gauge-cap"></div>
+                                        <div class="gauge-readout-3d">1575</div>
+                                        <div class="gauge-glass"></div>
+                                    </div>
+                                    <div class="gauge-label-3d">🍔 Food</div>
+                                </div>
+                                <div class="gauge-3d">
+                                    <div class="gauge-assembly">
+                                        <div class="gauge-backplate"></div>
+                                        <div class="gauge-bezel"></div>
+                                        <div class="gauge-dial-3d"></div>
+                                        <div class="gauge-ticks"></div>
+                                        <div class="gauge-needle-3d" style="--rotation: 84deg"></div>
+                                        <div class="gauge-cap"></div>
+                                        <div class="gauge-readout-3d">85%</div>
+                                        <div class="gauge-glass"></div>
+                                    </div>
+                                    <div class="gauge-label-3d">🛡️ Hull</div>
+                                </div>
+                                <div class="gauge-3d">
+                                    <div class="gauge-assembly">
+                                        <div class="gauge-backplate"></div>
+                                        <div class="gauge-bezel"></div>
+                                        <div class="gauge-dial-3d"></div>
+                                        <div class="gauge-ticks"></div>
+                                        <div class="gauge-needle-3d" style="--rotation: 53deg"></div>
+                                        <div class="gauge-cap"></div>
+                                        <div class="gauge-readout-3d">72%</div>
+                                        <div class="gauge-glass"></div>
+                                    </div>
+                                    <div class="gauge-label-3d">😊 Vibes</div>
+                                </div>
+                                <div class="gauge-3d">
+                                    <div class="gauge-assembly">
+                                        <div class="gauge-backplate"></div>
+                                        <div class="gauge-bezel"></div>
+                                        <div class="gauge-dial-3d"></div>
+                                        <div class="gauge-ticks"></div>
+                                        <div class="gauge-needle-3d" style="--rotation: 72deg"></div>
+                                        <div class="gauge-cap"></div>
+                                        <div class="gauge-readout-3d">4/5</div>
+                                        <div class="gauge-glass"></div>
+                                    </div>
+                                    <div class="gauge-label-3d">👤 Chad</div>
+                                </div>
+                                <div class="eth-counter-3d">
+                                    <div class="eth-display-3d">
+                                        <div class="eth-display-back"></div>
+                                        <div class="eth-display-face"><div class="eth-value">450.5</div></div>
+                                    </div>
+                                    <div class="gauge-label-3d">💎 ETH</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CREW -->
+                <div class="panel-3d chad-panel">
+                    <div class="panel-depth"></div>
+                    <div class="panel-face">
+                        <div class="panel-glass"></div>
+                        <div class="stud-3d" style="top:12px;right:16px"></div>
+                        <div class="stud-3d" style="bottom:12px;right:16px"></div>
+                        <div class="chad-content">
+                            <div class="chad-section-label">Chad Manifest</div>
+                            <div class="chad-lights">
+                                <div class="chad-indicator-3d"><div class="chad-marble alive"></div><div class="chad-info"><span class="chad-name">Alex Chen</span><span class="chad-role">Captain · Pilot</span></div></div>
+                                <div class="chad-indicator-3d"><div class="chad-marble alive"></div><div class="chad-info"><span class="chad-name">Kowalski</span><span class="chad-role">Sgt · Engineer</span></div></div>
+                                <div class="chad-indicator-3d"><div class="chad-marble alive"></div><div class="chad-info"><span class="chad-name">Dr. Patel</span><span class="chad-role">Lt · Medic</span></div></div>
+                                <div class="chad-indicator-3d"><div class="chad-marble alive"></div><div class="chad-info"><span class="chad-name">Chef Roux</span><span class="chad-role">Cpl · Cook</span></div></div>
+                                <div class="chad-indicator-3d dead"><div class="chad-marble dead"></div><div class="chad-info"><span class="chad-name">Jenkins</span><span class="chad-role">Pvt · Science</span></div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI SPEAKER -->
+                <div class="panel-3d ai-panel">
+                    <div class="panel-depth"></div>
+                    <div class="panel-face">
+                        <div class="panel-glass"></div>
+                        <div class="ai-content">
+                            <div class="ai-orb">
+                                <div class="ai-orb-body"><div class="ai-orb-core"></div></div>
+                                <div class="ai-orb-glass"></div>
+                            </div>
+                            <div class="ai-bubble">
+                                <div class="ai-label">Ship AI — Advisory</div>
+                                <div class="ai-text">Food's running low. Maybe try hunting. Or rationing. Or not asking Jenkins — he's dead.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CONTROLS -->
+                <div class="panel-3d controls-panel">
+                    <div class="panel-depth"></div>
+                    <div class="panel-face">
+                        <div class="panel-glass"></div>
+                        <div class="stud-3d" style="top:12px;left:16px"></div>
+                        <div class="stud-3d" style="top:12px;right:16px"></div>
+                        <div class="stud-3d" style="bottom:12px;left:16px"></div>
+                        <div class="stud-3d" style="bottom:12px;right:16px"></div>
+                        <div class="controls-content">
+                            <div class="controls-label">Controls</div>
+                            <button class="btn-3d-main">
+                                <div class="btn-main-depth"></div>
+                                <div class="btn-main-face">
+                                    <span class="btn-icon">🚀</span>
+                                    <span class="btn-text">Continue</span>
+                                    <span class="btn-hint">advance 1 day</span>
+                                </div>
+                            </button>
+                            <div class="button-grid-3d">
+                                <button class="btn-3d"><div class="btn-depth"></div><div class="btn-face"><span class="btn-icon">🎣</span><span class="btn-text">Hunt</span><span class="btn-hint">−1 day</span></div></button>
+                                <button class="btn-3d"><div class="btn-depth"></div><div class="btn-face"><span class="btn-icon">📊</span><span class="btn-text">Status</span></div></button>
+                                <button class="btn-3d"><div class="btn-depth"></div><div class="btn-face"><span class="btn-icon">🗺️</span><span class="btn-text">Map</span></div></button>
+                                <button class="btn-3d"><div class="btn-depth"></div><div class="btn-face"><span class="btn-icon">🎨</span><span class="btn-text">Aesthetic</span></div></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    'use strict';
+
+    // ========================================
+    // WARP STARFIELD — Canvas 3D star projection
+    // ========================================
+    const canvas = document.getElementById('starfield');
+    const ctx = canvas.getContext('2d');
+    const stars = [];
+    const STAR_COUNT = 400;
+    const WARP_SPEED = 0.4;
+    let w, h;
+
+    function initStarfield() {
+        w = canvas.width = window.innerWidth;
+        h = canvas.height = window.innerHeight;
+    }
+
+    function createStar() {
+        return {
+            x: (Math.random() - 0.5) * w * 3,
+            y: (Math.random() - 0.5) * h * 3,
+            z: Math.random() * 2000,
+            prevX: 0,
+            prevY: 0
+        };
+    }
+
+    function initStars() {
+        stars.length = 0;
+        for (let i = 0; i < STAR_COUNT; i++) {
+            stars.push(createStar());
+        }
+    }
+
+    function drawStarfield() {
+        ctx.fillStyle = 'rgba(3, 8, 16, 0.25)';
+        ctx.fillRect(0, 0, w, h);
+
+        const cx = w / 2;
+        const cy = h / 2;
+
+        for (let i = 0; i < stars.length; i++) {
+            const s = stars[i];
+
+            s.prevX = (s.x / s.z) * 400 + cx;
+            s.prevY = (s.y / s.z) * 400 + cy;
+
+            s.z -= WARP_SPEED;
+
+            if (s.z <= 0.5) {
+                Object.assign(s, createStar());
+                s.z = 2000;
+                continue;
+            }
+
+            const sx = (s.x / s.z) * 400 + cx;
+            const sy = (s.y / s.z) * 400 + cy;
+
+            if (sx < -50 || sx > w + 50 || sy < -50 || sy > h + 50) {
+                Object.assign(s, createStar());
+                s.z = 2000;
+                continue;
+            }
+
+            const depth = 1 - s.z / 2000;
+            const size = depth * 2.5 + 0.3;
+            const alpha = depth * 0.8 + 0.1;
+
+            const dx = sx - s.prevX;
+            const dy = sy - s.prevY;
+            const trail = Math.sqrt(dx * dx + dy * dy);
+
+            if (trail > 1.5) {
+                ctx.beginPath();
+                ctx.moveTo(s.prevX, s.prevY);
+                ctx.lineTo(sx, sy);
+                ctx.strokeStyle = `rgba(200, 210, 240, ${alpha * 0.4})`;
+                ctx.lineWidth = size * 0.5;
+                ctx.stroke();
+            }
+
+            ctx.beginPath();
+            ctx.arc(sx, sy, size, 0, Math.PI * 2);
+            const brightness = Math.floor(180 + depth * 75);
+            ctx.fillStyle = `rgba(${brightness}, ${brightness + 10}, ${brightness + 30}, ${alpha})`;
+            ctx.fill();
+        }
+
+        requestAnimationFrame(drawStarfield);
+    }
+
+    initStarfield();
+    initStars();
+    drawStarfield();
+
+    window.addEventListener('resize', () => {
+        initStarfield();
+    });
+
+    // ========================================
+    // MOUSE PARALLAX — cockpit follows gaze
+    // ========================================
+    const cockpit = document.getElementById('cockpitScene');
+    let targetRotX = 0;
+    let targetRotY = 0;
+    let currentRotX = 0;
+    let currentRotY = 0;
+
+    const MAX_ROT = 3;
+
+    document.addEventListener('mousemove', (e) => {
+        const nx = (e.clientX / window.innerWidth - 0.5) * 2;
+        const ny = (e.clientY / window.innerHeight - 0.5) * 2;
+
+        targetRotY = nx * MAX_ROT;
+        targetRotX = -ny * MAX_ROT;
+    });
+
+    if (window.DeviceOrientationEvent) {
+        window.addEventListener('deviceorientation', (e) => {
+            if (e.gamma !== null && e.beta !== null) {
+                targetRotY = Math.max(-MAX_ROT, Math.min(MAX_ROT, e.gamma * 0.15));
+                targetRotX = Math.max(-MAX_ROT, Math.min(MAX_ROT, (e.beta - 45) * 0.1));
+            }
+        });
+    }
+
+    function animateParallax() {
+        currentRotX += (targetRotX - currentRotX) * 0.06;
+        currentRotY += (targetRotY - currentRotY) * 0.06;
+
+        cockpit.style.transform =
+            `rotateX(${currentRotX}deg) rotateY(${currentRotY}deg)`;
+
+        requestAnimationFrame(animateParallax);
+    }
+
+    animateParallax();
+
+    // ========================================
+    // GAUGE NEEDLE ANIMATION on load
+    // ========================================
+    const needles = document.querySelectorAll('.gauge-needle-3d');
+    needles.forEach((needle) => {
+        const target = needle.style.getPropertyValue('--rotation');
+        needle.style.setProperty('--rotation', '-120deg');
+        setTimeout(() => {
+            needle.style.setProperty('--rotation', target);
+        }, 800 + Math.random() * 600);
+    });
+
+})();
+</script>
+
+</body>
+</html>

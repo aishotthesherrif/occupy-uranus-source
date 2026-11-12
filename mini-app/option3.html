@@ -1,0 +1,1386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Occupy Uranus — Instrument Panel</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Saira+Stencil+One&family=Azeret+Mono:wght@300;400;500;600;700&family=Chakra+Petch:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+<style>
+/* ========================================
+   OCCUPY URANUS — ANALOG INSTRUMENT PANEL
+   Soviet Space Capsule Aesthetic
+   ======================================== */
+
+:root {
+    /* Metal surfaces */
+    --metal-dark: #1a1c1e;
+    --metal-mid: #2a2d31;
+    --metal-light: #3a3e44;
+    --metal-highlight: #4a5058;
+    --panel-bg: #1e2024;
+
+    /* Warm amber (backlit gauges) */
+    --amber: #ffb833;
+    --amber-dim: #cc8800;
+    --amber-glow: rgba(255, 184, 51, 0.4);
+    --amber-faint: rgba(255, 184, 51, 0.08);
+
+    /* Indicator lights */
+    --green-light: #44dd66;
+    --green-glow: rgba(68, 221, 102, 0.5);
+    --red-light: #ff4455;
+    --red-glow: rgba(255, 68, 85, 0.5);
+    --blue-light: #44aaff;
+    --blue-glow: rgba(68, 170, 255, 0.4);
+    --orange-light: #ff8833;
+    --orange-glow: rgba(255, 136, 51, 0.4);
+    --purple-light: #bb66ff;
+    --purple-glow: rgba(187, 102, 255, 0.4);
+    --cyan-light: #44dddd;
+
+    /* Gauge face */
+    --gauge-bg: #141617;
+    --gauge-face: #1c1e22;
+    --gauge-ring: #2a2d31;
+    --gauge-mark: rgba(255, 184, 51, 0.5);
+    --gauge-text: rgba(255, 184, 51, 0.7);
+    --needle: #ff4444;
+    --needle-glow: rgba(255, 68, 68, 0.4);
+
+    /* Text */
+    --text-bright: #e8e0d4;
+    --text-label: #9a9080;
+    --text-dim: #605848;
+    --text-engraved: #888070;
+
+    /* Schads */
+    --schad-bg: #3a3e44;
+    --schad-slot: #1a1c1e;
+}
+
+/* RESET */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: 'Chakra Petch', sans-serif;
+    background: var(--metal-dark);
+    color: var(--text-bright);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    min-height: 100vh;
+    min-height: 100dvh;
+    line-height: 1.5;
+}
+
+/* ========================================
+   METAL TEXTURE & NOISE
+   ======================================== */
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: 
+        repeating-linear-gradient(
+            90deg,
+            transparent,
+            transparent 2px,
+            rgba(255,255,255,0.003) 2px,
+            rgba(255,255,255,0.003) 4px
+        ),
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 80px,
+            rgba(0,0,0,0.08) 80px,
+            rgba(0,0,0,0.08) 81px
+        );
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Subtle vignette */
+body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.5) 100%);
+    pointer-events: none;
+    z-index: 9998;
+}
+
+/* ========================================
+   PANEL LAYOUT
+   ======================================== */
+.panel {
+    max-width: 520px;
+    margin: 0 auto;
+    padding: 10px;
+    padding-top: calc(10px + env(safe-area-inset-top, 0px));
+    padding-bottom: calc(20px + env(safe-area-inset-bottom, 0px));
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* ========================================
+   SHARED: PANEL SECTION (riveted plate)
+   ======================================== */
+.plate {
+    background: linear-gradient(180deg, #252830 0%, #1e2024 40%, #1a1c20 100%);
+    border: 1px solid #333740;
+    border-radius: 6px;
+    position: relative;
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.04),
+        0 2px 8px rgba(0,0,0,0.5),
+        0 0 0 1px rgba(0,0,0,0.3);
+    overflow: hidden;
+}
+
+/* Top bevel highlight */
+.plate::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 10%, rgba(255,255,255,0.06) 50%, transparent 90%);
+}
+
+/* ========================================
+   SCREWS
+   ======================================== */
+.schad {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, #555, #2a2d31 60%, #222);
+    box-shadow:
+        inset 0 -1px 1px rgba(255,255,255,0.06),
+        0 1px 2px rgba(0,0,0,0.5);
+    z-index: 5;
+}
+
+.schad::after {
+    content: '';
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 7px; height: 1px;
+    background: var(--schad-slot);
+    transform: translate(-50%, -50%) rotate(35deg);
+    border-radius: 0.5px;
+}
+
+/* ========================================
+   NAMEPLATE HEADER
+   ======================================== */
+.nameplate {
+    padding: 14px 20px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.nameplate .schad:nth-child(1) { top: 6px; left: 8px; }
+.nameplate .schad:nth-child(2) { top: 6px; right: 8px; }
+.nameplate .schad:nth-child(3) { bottom: 6px; left: 8px; }
+.nameplate .schad:nth-child(4) { bottom: 6px; right: 8px; }
+
+.nameplate-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nameplate-left {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.nameplate-mission {
+    font-family: 'Azeret Mono', monospace;
+    font-size: 8px;
+    letter-spacing: 0.3em;
+    color: var(--text-dim);
+    text-transform: uppercase;
+}
+
+.nameplate-title {
+    font-family: 'Saira Stencil One', sans-serif;
+    font-size: 20px;
+    letter-spacing: 0.06em;
+    color: var(--amber);
+    text-shadow: 0 0 20px var(--amber-glow), 0 1px 0 rgba(0,0,0,0.8);
+    line-height: 1.2;
+}
+
+/* Mechanical day counter */
+.day-counter-mech {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 2px;
+}
+
+.day-counter-label {
+    font-family: 'Azeret Mono', monospace;
+    font-size: 7px;
+    letter-spacing: 0.3em;
+    color: var(--text-dim);
+    text-transform: uppercase;
+}
+
+.day-drums {
+    display: flex;
+    gap: 2px;
+}
+
+/* Shared drum style for day + odometer */
+.drum {
+    height: 28px;
+    background: #0c0d0f;
+    border: 1px solid #333;
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Azeret Mono', monospace;
+    font-weight: 700;
+    color: var(--text-bright);
+    box-shadow:
+        inset 0 2px 4px rgba(0,0,0,0.6),
+        inset 0 -1px 0 rgba(255,255,255,0.04);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Roller slit top & bottom */
+.drum::before {
+    content: '';
+    position: absolute;
+    left: 0; right: 0;
+    top: 0;
+    height: 1px;
+    background: rgba(0,0,0,0.5);
+}
+
+.drum::after {
+    content: '';
+    position: absolute;
+    left: 0; right: 0;
+    bottom: 0;
+    height: 1px;
+    background: rgba(0,0,0,0.5);
+}
+
+.drum.day-drum {
+    width: 22px;
+    font-size: 16px;
+}
+
+/* ========================================
+   DISTANCE ODOMETER
+   ======================================== */
+.odometer-strip {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(0,0,0,0.25);
+    border: 1px solid rgba(255,255,255,0.03);
+    border-radius: 4px;
+    padding: 8px 12px;
+    box-shadow: inset 0 1px 4px rgba(0,0,0,0.35);
+}
+
+.odometer-label {
+    font-family: 'Azeret Mono', monospace;
+    font-size: 7px;
+    letter-spacing: 0.2em;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    flex-shrink: 0;
+    line-height: 1.2;
+    min-width: 42px;
+}
+
+.odometer-drums {
+    display: flex;
+    gap: 1px;
+    flex: 1;
+    justify-content: flex-end;
+}
+
+.drum.odo-drum {
+    width: 18px;
+    height: 24px;
+    font-size: 13px;
+    border-color: #2a2a2a;
+}
+
+/* Comma spacer between drum groups */
+.odo-comma {
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 2px;
+    font-family: 'Azeret Mono', monospace;
+    font-size: 10px;
+    color: var(--text-muted);
+    width: 5px;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.odometer-unit {
+    font-family: 'Azeret Mono', monospace;
+    font-size: 8px;
+    color: var(--text-dim);
+    letter-spacing: 0.05em;
+    margin-left: 4px;
+    flex-shrink: 0;
+    align-self: flex-end;
+    padding-bottom: 1px;
+}
+
+/* Velocity readout (left side of odometer strip) */
+.velocity-readout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    flex-shrink: 0;
+    min-width: 38px;
+}
+
+.velocity-label {
+    font-family: 'Azeret Mono', monospace;
+    font-size: 6px;
+    letter-spacing: 0.2em;
+    color: var(--text-muted);
+    text-transform: uppercase;
+}
+
+.velocity-value {
+    font-family: 'Azeret Mono', monospace;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--amber);
+    text-shadow: 0 0 6px var(--amber-glow);
+    line-height: 1.1;
+}
+
+.velocity-unit {
+    font-family: 'Azeret Mono', monospace;
+    font-size: 6px;
+    color: var(--text-dim);
+    letter-spacing: 0.08em;
+}
+
+.odo-divider {
+    width: 1px;
+    align-self: stretch;
+    background: linear-gradient(180deg, transparent, rgba(255,184,51,0.15), transparent);
+    flex-shrink: 0;
+}
+
+/* ========================================
+   COMMS TAPE (Chad Quote)
+   ======================================== */
+.comms-tape {
+    background: #f5f0e0;
+    color: #2a2418;
+    padding: 10px 16px;
+    border-radius: 2px;
+    position: relative;
+    box-shadow:
+        0 2px 6px rgba(0,0,0,0.4),
+        inset 0 0 0 1px rgba(0,0,0,0.05);
+    font-family: 'Azeret Mono', monospace;
+    overflow: hidden;
+    transform: rotate(-0.3deg);
+}
+
+/* Perforated edge */
+.comms-tape::before {
+    content: '○ ○ ○ ○ ○ ○ ○ ○ ○ ○ ○ ○ ○ ○ ○ ○ ○ ○ ○ ○ ○ ○ ○ ○ ○ ○ ○ ○ ○ ○';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    font-size: 5px;
+    letter-spacing: 1px;
+    color: rgba(0,0,0,0.1);
+    line-height: 1;
+    padding: 1px 4px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.comms-tape-label {
+    font-size: 7px;
+    letter-spacing: 0.2em;
+    color: rgba(42, 36, 24, 0.4);
+    text-transform: uppercase;
+    margin-bottom: 4px;
+}
+
+.comms-tape-text {
+    font-size: 11px;
+    line-height: 1.5;
+    color: #2a2418;
+    font-weight: 400;
+}
+
+.comms-tape-attr {
+    font-size: 9px;
+    color: rgba(42, 36, 24, 0.5);
+    margin-top: 4px;
+}
+
+/* ========================================
+   JOURNEY STRIP
+   ======================================== */
+.journey-plate {
+    padding: 14px 16px;
+}
+
+.journey-plate .schad:nth-child(1) { top: 6px; left: 8px; }
+.journey-plate .schad:nth-child(2) { top: 6px; right: 8px; }
+
+.journey-readout {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 10px;
+    padding: 0 4px;
+}
+
+.journey-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+}
+
+.journey-stat-label {
+    font-family: 'Azeret Mono', monospace;
+    font-size: 7px;
+    letter-spacing: 0.2em;
+    color: var(--text-dim);
+    text-transform: uppercase;
+}
+
+.journey-stat-value {
+    font-family: 'Azeret Mono', monospace;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--amber);
+    text-shadow: 0 0 8px var(--amber-glow);
+}
+
+.journey-stat-value.small {
+    font-size: 10px;
+    color: var(--text-label);
+    text-shadow: none;
+}
+
+/* Indicator light strip for waypoints */
+.waypoint-strip {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 0;
+    position: relative;
+}
+
+/* Wire between indicators */
+.waypoint-strip::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 16px;
+    right: 16px;
+    height: 2px;
+    background: #2a2d31;
+    transform: translateY(-50%);
+    border-radius: 1px;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,0.4);
+}
+
+.wp-indicator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    position: relative;
+    z-index: 2;
+}
+
+.wp-light {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--gauge-bg);
+    border: 2px solid #3a3e44;
+    box-shadow:
+        inset 0 2px 3px rgba(0,0,0,0.5),
+        0 1px 2px rgba(0,0,0,0.3);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+}
+
+/* Light ON states */
+.wp-indicator.passed .wp-light {
+    background: radial-gradient(circle at 40% 40%, var(--green-light), #228844);
+    box-shadow:
+        inset 0 1px 2px rgba(255,255,255,0.2),
+        0 0 8px var(--green-glow),
+        0 1px 2px rgba(0,0,0,0.3);
+    border-color: #446;
+}
+
+.wp-indicator.current .wp-light {
+    background: radial-gradient(circle at 40% 40%, var(--amber), #cc7700);
+    box-shadow:
+        inset 0 1px 2px rgba(255,255,255,0.3),
+        0 0 14px var(--amber-glow),
+        0 0 28px rgba(255,184,51,0.15);
+    border-color: #554422;
+    animation: light-pulse 2s ease-in-out infinite;
+}
+
+.wp-indicator.destination .wp-light {
+    background: radial-gradient(circle at 40% 40%, #553355, #221122);
+    box-shadow:
+        inset 0 2px 3px rgba(0,0,0,0.5),
+        0 0 4px rgba(187,102,255,0.1);
+    border-color: #3a3040;
+    animation: dest-pulse 4s ease-in-out infinite;
+}
+
+@keyframes light-pulse {
+    0%, 100% { box-shadow: inset 0 1px 2px rgba(255,255,255,0.3), 0 0 14px var(--amber-glow); }
+    50% { box-shadow: inset 0 1px 2px rgba(255,255,255,0.3), 0 0 22px var(--amber-glow), 0 0 36px rgba(255,184,51,0.15); }
+}
+
+@keyframes dest-pulse {
+    0%, 100% { box-shadow: inset 0 2px 3px rgba(0,0,0,0.5), 0 0 4px rgba(187,102,255,0.1); }
+    50% { box-shadow: inset 0 2px 3px rgba(0,0,0,0.3), 0 0 10px rgba(187,102,255,0.25); }
+}
+
+.wp-label {
+    font-family: 'Azeret Mono', monospace;
+    font-size: 6px;
+    letter-spacing: 0.1em;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    max-width: 40px;
+    text-align: center;
+    line-height: 1.2;
+}
+
+.wp-indicator.current .wp-label { color: var(--amber-dim); }
+
+.location-strip {
+    text-align: center;
+    font-family: 'Azeret Mono', monospace;
+    font-size: 9px;
+    color: var(--text-label);
+    letter-spacing: 0.04em;
+    padding-top: 6px;
+    line-height: 1.6;
+}
+
+.location-strip .c-amber {
+    color: var(--amber-dim);
+}
+
+/* ========================================
+   AMBER LCD DISPLAY (Flash Message)
+   ======================================== */
+.lcd-display {
+    background: #0a0800;
+    border: 2px solid #333028;
+    border-radius: 4px;
+    padding: 10px 14px;
+    position: relative;
+    box-shadow:
+        inset 0 2px 8px rgba(0,0,0,0.6),
+        0 1px 0 rgba(255,255,255,0.03);
+    overflow: hidden;
+}
+
+/* LCD glow */
+.lcd-display::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center, rgba(255,184,51,0.04) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+/* LCD pixel texture */
+.lcd-display::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(0deg, rgba(0,0,0,0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,0,0,0.1) 1px, transparent 1px);
+    background-size: 2px 2px;
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+.lcd-label {
+    font-family: 'Azeret Mono', monospace;
+    font-size: 7px;
+    letter-spacing: 0.2em;
+    color: rgba(255, 184, 51, 0.3);
+    text-transform: uppercase;
+    margin-bottom: 4px;
+    position: relative;
+    z-index: 1;
+}
+
+.lcd-text {
+    font-family: 'Azeret Mono', monospace;
+    font-size: 11px;
+    color: var(--amber);
+    text-shadow: 0 0 6px var(--amber-glow);
+    line-height: 1.55;
+    position: relative;
+    z-index: 1;
+}
+
+/* ========================================
+   GAUGE GRID
+   ======================================== */
+.gauge-plate {
+    padding: 14px 12px;
+}
+
+.gauge-plate .schad:nth-child(1) { top: 6px; left: 8px; }
+.gauge-plate .schad:nth-child(2) { top: 6px; right: 8px; }
+.gauge-plate .schad:nth-child(3) { bottom: 6px; left: 8px; }
+.gauge-plate .schad:nth-child(4) { bottom: 6px; right: 8px; }
+
+.gauge-section-label {
+    font-family: 'Azeret Mono', monospace;
+    font-size: 7px;
+    letter-spacing: 0.3em;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.gauge-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+}
+
+/* Individual gauge */
+.gauge {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.gauge-dial {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: var(--gauge-bg);
+    border: 3px solid var(--gauge-ring);
+    box-shadow:
+        inset 0 3px 8px rgba(0,0,0,0.6),
+        inset 0 -1px 0 rgba(255,255,255,0.03),
+        0 2px 4px rgba(0,0,0,0.4);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Gauge face markings (conic) */
+.gauge-dial::before {
+    content: '';
+    position: absolute;
+    inset: 4px;
+    border-radius: 50%;
+    background: conic-gradient(
+        from 210deg,
+        var(--gauge-mark) 0deg,
+        var(--gauge-mark) 2deg,
+        transparent 2deg,
+        transparent 24deg,
+        var(--gauge-mark) 24deg,
+        var(--gauge-mark) 26deg,
+        transparent 26deg,
+        transparent 48deg,
+        var(--gauge-mark) 48deg,
+        var(--gauge-mark) 50deg,
+        transparent 50deg,
+        transparent 72deg,
+        var(--gauge-mark) 72deg,
+        var(--gauge-mark) 74deg,
+        transparent 74deg,
+        transparent 96deg,
+        var(--gauge-mark) 96deg,
+        var(--gauge-mark) 98deg,
+        transparent 98deg,
+        transparent 120deg,
+        var(--gauge-mark) 120deg,
+        var(--gauge-mark) 122deg,
+        transparent 122deg,
+        transparent 240deg
+    );
+    mask: radial-gradient(transparent 60%, black 62%, black 90%, transparent 92%);
+    -webkit-mask: radial-gradient(transparent 60%, black 62%, black 90%, transparent 92%);
+    opacity: 0.7;
+}
+
+/* Needle */
+.gauge-needle {
+    position: absolute;
+    width: 2px;
+    height: 30px;
+    bottom: 50%;
+    left: 50%;
+    transform-origin: bottom center;
+    transform: translateX(-50%) rotate(var(--rotation, -120deg));
+    background: linear-gradient(to top, var(--needle), #ff6666);
+    border-radius: 1px 1px 0 0;
+    box-shadow: 0 0 6px var(--needle-glow);
+    transition: transform 1s cubic-bezier(0.34, 1.56, 0.64, 1);
+    z-index: 3;
+}
+
+/* Center cap */
+.gauge-needle::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, #666, #333);
+    border: 1px solid #222;
+}
+
+/* Gauge value readout */
+.gauge-readout {
+    position: absolute;
+    bottom: 14px;
+    font-family: 'Azeret Mono', monospace;
+    font-size: 9px;
+    font-weight: 600;
+    color: var(--amber);
+    text-shadow: 0 0 4px var(--amber-glow);
+    z-index: 2;
+}
+
+.gauge-label {
+    font-family: 'Azeret Mono', monospace;
+    font-size: 7px;
+    letter-spacing: 0.15em;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    text-align: center;
+}
+
+/* Warning state */
+.gauge.warning .gauge-dial {
+    box-shadow:
+        inset 0 3px 8px rgba(0,0,0,0.6),
+        0 0 12px var(--orange-glow);
+    border-color: rgba(255, 136, 51, 0.3);
+}
+
+.gauge.warning .gauge-readout {
+    color: var(--orange-light);
+    animation: gauge-warn 1.5s ease-in-out infinite;
+}
+
+.gauge.critical .gauge-dial {
+    box-shadow:
+        inset 0 3px 8px rgba(0,0,0,0.6),
+        0 0 12px var(--red-glow);
+    border-color: rgba(255, 68, 85, 0.3);
+}
+
+.gauge.critical .gauge-readout {
+    color: var(--red-light);
+    animation: gauge-warn 0.8s ease-in-out infinite;
+}
+
+@keyframes gauge-warn {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+}
+
+/* ETH display (no dial — just a counter) */
+.eth-counter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+}
+
+.eth-display {
+    background: #0a0800;
+    border: 2px solid #333028;
+    border-radius: 3px;
+    padding: 6px 10px;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.5);
+    text-align: center;
+    min-width: 72px;
+}
+
+.eth-value {
+    font-family: 'Azeret Mono', monospace;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--amber);
+    text-shadow: 0 0 8px var(--amber-glow);
+}
+
+/* ========================================
+   CREW STATUS LIGHTS
+   ======================================== */
+.chad-plate {
+    padding: 12px 16px;
+}
+
+.chad-plate .schad:nth-child(1) { top: 5px; right: 8px; }
+.chad-plate .schad:nth-child(2) { bottom: 5px; right: 8px; }
+
+.chad-section-label {
+    font-family: 'Azeret Mono', monospace;
+    font-size: 7px;
+    letter-spacing: 0.3em;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+.chad-lights {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.chad-indicator {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 110px;
+}
+
+.chad-light {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 1.5px solid #444;
+    flex-shrink: 0;
+}
+
+.chad-light.alive {
+    background: radial-gradient(circle at 40% 40%, var(--green-light), #228844);
+    box-shadow: 0 0 6px var(--green-glow);
+    border-color: #336633;
+}
+
+.chad-light.dead {
+    background: radial-gradient(circle at 40% 40%, var(--red-light), #882222);
+    box-shadow: 0 0 6px var(--red-glow);
+    border-color: #553333;
+    opacity: 0.6;
+}
+
+.chad-light-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    min-width: 0;
+}
+
+.chad-light-name {
+    font-family: 'Azeret Mono', monospace;
+    font-size: 10px;
+    color: var(--text-label);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.chad-indicator.dead .chad-light-name {
+    text-decoration: line-through;
+    text-decoration-color: rgba(255,68,85,0.3);
+    color: var(--text-dim);
+}
+
+.chad-light-role {
+    font-family: 'Azeret Mono', monospace;
+    font-size: 7px;
+    letter-spacing: 0.1em;
+    color: var(--text-dim);
+    text-transform: uppercase;
+}
+
+/* ========================================
+   AI SPEAKER
+   ======================================== */
+.ai-speaker {
+    padding: 10px 16px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.speaker-grille {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background:
+        radial-gradient(circle, transparent 30%, rgba(0,0,0,0.2) 32%, transparent 34%),
+        radial-gradient(circle at 30% 30%, #333, #1a1a1a);
+    border: 2px solid #3a3e44;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.5);
+    flex-shrink: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Grille holes */
+.speaker-grille::before {
+    content: '';
+    position: absolute;
+    inset: 4px;
+    background-image:
+        radial-gradient(circle, #111 1.5px, transparent 1.5px);
+    background-size: 5px 5px;
+    border-radius: 50%;
+}
+
+.ai-bubble {
+    flex: 1;
+    min-width: 0;
+}
+
+.ai-label {
+    font-family: 'Azeret Mono', monospace;
+    font-size: 7px;
+    letter-spacing: 0.2em;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    margin-bottom: 2px;
+}
+
+.ai-text {
+    font-family: 'Azeret Mono', monospace;
+    font-size: 10px;
+    color: var(--text-label);
+    font-style: italic;
+    line-height: 1.55;
+}
+
+/* ========================================
+   PUSHBUTTONS (Actions)
+   ======================================== */
+.controls-plate {
+    padding: 14px 14px;
+}
+
+.controls-plate .schad:nth-child(1) { top: 6px; left: 8px; }
+.controls-plate .schad:nth-child(2) { top: 6px; right: 8px; }
+.controls-plate .schad:nth-child(3) { bottom: 6px; left: 8px; }
+.controls-plate .schad:nth-child(4) { bottom: 6px; right: 8px; }
+
+.controls-label {
+    font-family: 'Azeret Mono', monospace;
+    font-size: 7px;
+    letter-spacing: 0.3em;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+/* Big red/green launch button */
+.pushbutton-main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 14px 20px;
+    margin-bottom: 10px;
+    background: linear-gradient(180deg, #2a4030 0%, #1a3020 50%, #183018 100%);
+    border: 2px solid #446644;
+    border-radius: 6px;
+    cursor: pointer;
+    position: relative;
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.06),
+        0 3px 0 #0a1a0a,
+        0 4px 8px rgba(0,0,0,0.5);
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    transition: all 0.1s ease;
+    font-family: 'Chakra Petch', sans-serif;
+    color: var(--green-light);
+}
+
+.pushbutton-main:active {
+    box-shadow:
+        inset 0 2px 4px rgba(0,0,0,0.4),
+        0 1px 0 #0a1a0a;
+    transform: translateY(2px);
+}
+
+.pushbutton-main:hover {
+    background: linear-gradient(180deg, #2e4834 0%, #1e3824 50%, #1c381c 100%);
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.08),
+        0 3px 0 #0a1a0a,
+        0 4px 8px rgba(0,0,0,0.5),
+        0 0 16px rgba(68,221,102,0.1);
+}
+
+.pushbutton-main .btn-icon { font-size: 16px; }
+
+.pushbutton-main .btn-text {
+    font-family: 'Saira Stencil One', sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    text-shadow: 0 0 8px var(--green-glow);
+}
+
+.pushbutton-main .btn-hint {
+    font-family: 'Azeret Mono', monospace;
+    font-size: 8px;
+    color: rgba(68,221,102,0.4);
+    letter-spacing: 0.05em;
+}
+
+/* Secondary button grid */
+.button-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+}
+
+.pushbutton {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    padding: 12px 8px;
+    background: linear-gradient(180deg, #2a2d31 0%, #222528 50%, #1e2024 100%);
+    border: 1.5px solid #3a3e44;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.04),
+        0 2px 0 #111,
+        0 3px 6px rgba(0,0,0,0.4);
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    transition: all 0.1s ease;
+    font-family: 'Chakra Petch', sans-serif;
+    color: var(--text-label);
+}
+
+.pushbutton:active {
+    box-shadow:
+        inset 0 2px 3px rgba(0,0,0,0.4),
+        0 0px 0 #111;
+    transform: translateY(2px);
+}
+
+.pushbutton:hover {
+    border-color: #555;
+    color: var(--text-bright);
+}
+
+.pushbutton .btn-icon { font-size: 16px; }
+
+.pushbutton .btn-text {
+    font-family: 'Azeret Mono', monospace;
+    font-size: 8px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+
+.pushbutton .btn-hint {
+    font-family: 'Azeret Mono', monospace;
+    font-size: 7px;
+    color: var(--text-dim);
+}
+
+/* ========================================
+   STAGGERED LOAD
+   ======================================== */
+.panel > * {
+    animation: plate-in 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.panel > *:nth-child(1) { animation-delay: 0.05s; }
+.panel > *:nth-child(2) { animation-delay: 0.1s; }
+.panel > *:nth-child(3) { animation-delay: 0.15s; }
+.panel > *:nth-child(4) { animation-delay: 0.22s; }
+.panel > *:nth-child(5) { animation-delay: 0.28s; }
+.panel > *:nth-child(6) { animation-delay: 0.34s; }
+.panel > *:nth-child(7) { animation-delay: 0.4s; }
+.panel > *:nth-child(8) { animation-delay: 0.46s; }
+
+@keyframes plate-in {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+@media (max-width: 380px) {
+    .gauge-dial { width: 68px; height: 68px; }
+    .gauge-needle { height: 24px; }
+    .gauge-readout { font-size: 8px; bottom: 11px; }
+    .chad-indicator { min-width: 90px; }
+    .drum.odo-drum { width: 15px; height: 20px; font-size: 11px; }
+    .odo-comma { font-size: 8px; width: 4px; }
+    .odometer-label { font-size: 6px; min-width: 34px; }
+}
+
+@media (min-width: 600px) {
+    .panel { padding: 16px; }
+    .gauge-dial { width: 90px; height: 90px; }
+    .gauge-needle { height: 34px; }
+}
+</style>
+</head>
+<body>
+<div class="panel">
+
+    <!-- Nameplate Header -->
+    <div class="plate nameplate">
+        <div class="schad"></div><div class="schad"></div><div class="schad"></div><div class="schad"></div>
+        <div class="nameplate-top">
+            <div class="nameplate-left">
+                <span class="nameplate-mission">Mission</span>
+                <span class="nameplate-title">OCCUPY URANUS</span>
+            </div>
+            <div class="day-counter-mech">
+                <span class="day-counter-label">Day</span>
+                <div class="day-drums">
+                    <div class="drum day-drum">0</div>
+                    <div class="drum day-drum">4</div>
+                    <div class="drum day-drum">2</div>
+                </div>
+            </div>
+        </div>
+        <div class="odometer-strip">
+            <div class="velocity-readout">
+                <span class="velocity-label">Vel</span>
+                <span class="velocity-value">20M</span>
+                <span class="velocity-unit">km/d</span>
+            </div>
+            <div class="odo-divider"></div>
+            <span class="odometer-label">Dist<br>Trav</span>
+            <div class="odometer-drums">
+                <div class="drum odo-drum">1</div>
+                <div class="odo-comma">,</div>
+                <div class="drum odo-drum">2</div>
+                <div class="drum odo-drum">4</div>
+                <div class="drum odo-drum">0</div>
+                <div class="odo-comma">,</div>
+                <div class="drum odo-drum">0</div>
+                <div class="drum odo-drum">0</div>
+                <div class="drum odo-drum">0</div>
+                <div class="odo-comma">,</div>
+                <div class="drum odo-drum">0</div>
+                <div class="drum odo-drum">0</div>
+                <div class="drum odo-drum">0</div>
+            </div>
+            <span class="odometer-unit">km</span>
+        </div>
+    </div>
+
+    <!-- Comms Tape (Chad Quote) -->
+    <div class="comms-tape">
+        <div class="comms-tape-label">◈ Chad Comms — Open Channel</div>
+        <div class="comms-tape-text">"HODL strong, chad. Saturn's got a refuel depot and I heard they accept Dogecoin."</div>
+        <div class="comms-tape-attr">— Alex Chen / Captain</div>
+    </div>
+
+    <!-- Journey Strip -->
+    <div class="plate journey-plate">
+        <div class="schad"></div><div class="schad"></div>
+
+        <div class="journey-readout">
+            <div class="journey-stat">
+                <span class="journey-stat-label">Distance</span>
+                <span class="journey-stat-value">1.24B km</span>
+            </div>
+            <div class="journey-stat">
+                <span class="journey-stat-label">Next Stop</span>
+                <span class="journey-stat-value small">Saturn Station</span>
+            </div>
+            <div class="journey-stat">
+                <span class="journey-stat-label">ETA Next</span>
+                <span class="journey-stat-value small">~8 days</span>
+            </div>
+        </div>
+
+        <div class="waypoint-strip">
+            <div class="wp-indicator passed">
+                <div class="wp-light">🌍</div>
+                <span class="wp-label">Earth</span>
+            </div>
+            <div class="wp-indicator passed">
+                <div class="wp-light">🔴</div>
+                <span class="wp-label">Mars</span>
+            </div>
+            <div class="wp-indicator passed">
+                <div class="wp-light">🪐</div>
+                <span class="wp-label">Ceres</span>
+            </div>
+            <div class="wp-indicator current">
+                <div class="wp-light">♃</div>
+                <span class="wp-label">Jupiter</span>
+            </div>
+            <div class="wp-indicator">
+                <div class="wp-light">🪐</div>
+                <span class="wp-label">Saturn</span>
+            </div>
+            <div class="wp-indicator">
+                <div class="wp-light">♆</div>
+                <span class="wp-label">Deep Sp</span>
+            </div>
+            <div class="wp-indicator destination">
+                <div class="wp-light">⛢</div>
+                <span class="wp-label">Uranus</span>
+            </div>
+        </div>
+
+        <div class="location-strip"><span class="c-amber">1,560,000,000 km</span> remaining · <span class="c-amber">~78 days</span></div>
+    </div>
+
+    <!-- LCD Flash Message -->
+    <div class="lcd-display">
+        <div class="lcd-label">◈ Ship Log — Sol 42.7</div>
+        <div class="lcd-text">You found 50 units of food while hunting. The chad is pleased. Jenkins would have been proud.</div>
+    </div>
+
+    <!-- Gauge Grid -->
+    <div class="plate gauge-plate">
+        <div class="schad"></div><div class="schad"></div><div class="schad"></div><div class="schad"></div>
+        <div class="gauge-section-label">Ship Status</div>
+        <div class="gauge-grid">
+
+            <!-- Fuel: 68% → needle rotation from -120deg (0%) to 120deg (100%) = -120 + (68 * 2.4) = 43.2deg -->
+            <div class="gauge">
+                <div class="gauge-dial">
+                    <div class="gauge-needle" style="--rotation: 43deg"></div>
+                    <div class="gauge-readout">815</div>
+                </div>
+                <div class="gauge-label">⛽ Fuel</div>
+            </div>
+
+            <!-- Food: 45% → -120 + (45 * 2.4) = -12deg -->
+            <div class="gauge warning">
+                <div class="gauge-dial">
+                    <div class="gauge-needle" style="--rotation: -12deg"></div>
+                    <div class="gauge-readout">1575</div>
+                </div>
+                <div class="gauge-label">🍔 Food</div>
+            </div>
+
+            <!-- Hull: 85% → -120 + (85 * 2.4) = 84deg -->
+            <div class="gauge">
+                <div class="gauge-dial">
+                    <div class="gauge-needle" style="--rotation: 84deg"></div>
+                    <div class="gauge-readout">85%</div>
+                </div>
+                <div class="gauge-label">🛡️ Hull</div>
+            </div>
+
+            <!-- Morale: 72% → -120 + (72 * 2.4) = 52.8deg -->
+            <div class="gauge">
+                <div class="gauge-dial">
+                    <div class="gauge-needle" style="--rotation: 53deg"></div>
+                    <div class="gauge-readout">72%</div>
+                </div>
+                <div class="gauge-label">😊 Vibes</div>
+            </div>
+
+            <!-- Chad: 4/5 = 80% → -120 + (80 * 2.4) = 72deg -->
+            <div class="gauge">
+                <div class="gauge-dial">
+                    <div class="gauge-needle" style="--rotation: 72deg"></div>
+                    <div class="gauge-readout">4/5</div>
+                </div>
+                <div class="gauge-label">👤 Chad</div>
+            </div>
+
+            <!-- ETH (counter, not a dial) -->
+            <div class="eth-counter">
+                <div class="eth-display">
+                    <div class="eth-value">450.5</div>
+                </div>
+                <div class="gauge-label">💎 ETH</div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Controls -->
+    <div class="plate controls-plate">
+        <div class="schad"></div><div class="schad"></div><div class="schad"></div><div class="schad"></div>
+        <div class="controls-label">Controls</div>
+
+        <button class="pushbutton-main">
+            <span class="btn-icon">🚀</span>
+            <span class="btn-text">Continue</span>
+            <span class="btn-hint">advance 1 day</span>
+        </button>
+
+        <div class="button-grid">
+            <button class="pushbutton">
+                <span class="btn-icon">🎣</span>
+                <span class="btn-text">Hunt</span>
+                <span class="btn-hint">−1 day</span>
+            </button>
+            <button class="pushbutton">
+                <span class="btn-icon">📊</span>
+                <span class="btn-text">Status</span>
+            </button>
+            <button class="pushbutton">
+                <span class="btn-icon">🗺️</span>
+                <span class="btn-text">Map</span>
+            </button>
+            <button class="pushbutton">
+                <span class="btn-icon">🎨</span>
+                <span class="btn-text">Aesthetic</span>
+            </button>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

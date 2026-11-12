@@ -1,0 +1,55 @@
+# Configuration
+config.php
+deploy.config
+
+# SSH Keys (private key only, public key is tracked)
+.ssh/deploy_key
+.ssh/known_hosts
+
+# Data files (static game data)
+data/game_state.json
+data/game_state.backup.json
+data/leaderboards.json
+data/image_cache.json
+*.old.json
+
+# Media backups
+media/.backup/
+
+# Runtime data (logs, sessions, message IDs)
+logs/
+
+# Lock files
+*.lock
+
+# System files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Development
+notes/
+test_*.php
+test_*.sh
+testme.sh
+
+# Test framework (except framework files)
+test_framework/test_*
+test_framework/testme.sh
+test_framework/WAYPOINT_FLOW_TRACE.md
+
+# Playtesting
+playtest/playtest_results_*.json
+playtest/death_reasons_analysis.json
+playtest/PLAYTEST_*.md
+playtest/PLAYTEST_*.txt
+.DS_Store
+
+# Docker / compose secrets
+.env

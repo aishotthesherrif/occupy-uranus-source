@@ -1,0 +1,47 @@
+# Keep the image to what the server needs (mirrors deploy.sh's excludes).
+
+# Secrets and VCS
+.git
+.gitignore
+.ssh
+.env
+.env.*
+deploy.config*
+
+# Runtime state lives in the /var/lib/uranus volume, never in the image
+logs
+data/game_state*.json
+data/leaderboards.json
+data/backups
+data/image_cache.json
+media/file_ids.json
+media/.backup
+*.lock
+*.tmp.*
+
+# Unused source originals (the bot only reads the top level of each aesthetic folder)
+media/*/png
+
+# Docs, tooling, tests, notes
+docs
+.archive
+notes
+test_framework
+tools
+playtest
+.claude
+.cursor
+.vscode
+.idea
+*.md
+deploy.sh
+setup.sh
+test_*.php
+test_*.sh
+local_game_tester.php
+telemetry_analyzer.php
+event_outcome_matrix.csv
+Dockerfile
+compose.yaml
+.dockerignore
+.DS_Store

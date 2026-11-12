@@ -1,0 +1,25 @@
+# Protect config file
+<Files "config.php">
+    Order Allow,Deny
+    Deny from all
+</Files>
+
+# Protect data files
+<FilesMatch "\.(json|log)$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+# Allow webhook access
+<Files "uranus_game_bot.php">
+    Order Allow,Deny
+    Allow from all
+</Files>
+
+# Prevent directory listing
+Options -Indexes
+
+# PHP settings
+php_value upload_max_filesize 2M
+php_value post_max_size 2M
+php_value memory_limit 128M

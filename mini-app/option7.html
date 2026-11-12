@@ -1,0 +1,1274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Occupy Uranus — Linear Gauges (Option 7)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Azeret+Mono:wght@300;400;500;600;700&family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --space-deep: #030810;
+            --space-mid: #0a1025;
+
+            --glass-bg: rgba(10, 16, 34, 0.55);
+            --glass-border: rgba(120, 150, 210, 0.22);
+            --glass-rim: rgba(160, 180, 220, 0.15);
+
+            --amber: #ffb833;
+            --amber-soft: #ffd06a;
+            --amber-dim: #cc9520;
+            --amber-glow: rgba(255, 184, 51, 0.4);
+
+            --teal: #44ddcc;
+            --teal-dim: #33aa99;
+            --teal-glow: rgba(68, 221, 204, 0.3);
+
+            --green: #55ee77;
+            --green-glow: rgba(85, 238, 119, 0.45);
+            --red: #ff5566;
+            --red-glow: rgba(255, 85, 102, 0.45);
+            --orange: #ff9944;
+            --orange-glow: rgba(255, 153, 68, 0.4);
+
+            --chrome-hi: #c0d0e0;
+            --chrome-mid: #7088a0;
+            --chrome-lo: #3a5060;
+
+            --text-bright: #e8ecf4;
+            --text-soft: #b0b8cc;
+            --text-label: #7888a4;
+            --text-dim: #4a5670;
+
+            --cockpit-perspective: 1100px;
+        }
+
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: radial-gradient(circle at top, #060d20 0%, var(--space-deep) 55%, #010308 100%);
+            color: var(--text-bright);
+            -webkit-font-smoothing: antialiased;
+            overflow: hidden;
+            height: 100vh;
+            height: 100dvh;
+            line-height: 1.5;
+        }
+
+        /* Starfield */
+        #starfield {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+        }
+
+        /* Cockpit viewport */
+        .cockpit-viewport {
+            position: fixed;
+            inset: 0;
+            perspective: var(--cockpit-perspective);
+            perspective-origin: 50% 50%;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .cockpit-frame {
+            position: fixed;
+            inset: 0;
+            z-index: 100;
+            pointer-events: none;
+            border: 6px solid transparent;
+            border-image: linear-gradient(
+                135deg,
+                rgba(80, 100, 130, 0.4) 0%,
+                rgba(40, 55, 75, 0.6) 20%,
+                rgba(20, 30, 45, 0.8) 40%,
+                rgba(40, 55, 75, 0.6) 60%,
+                rgba(80, 100, 130, 0.4) 80%,
+                rgba(40, 55, 75, 0.6) 100%
+            ) 1;
+            box-shadow:
+                inset 0 0 80px rgba(0, 0, 0, 0.8),
+                inset 0 0 200px rgba(0, 0, 0, 0.4);
+        }
+
+        .cockpit-frame::before {
+            content: '';
+            position: absolute;
+            inset: -6px;
+            background: radial-gradient(ellipse at 50% 50%, transparent 55%, rgba(0, 0, 0, 0.7) 100%);
+            pointer-events: none;
+        }
+
+        .frame-rivet {
+            position: fixed;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 35% 30%, var(--chrome-hi), var(--chrome-mid) 45%, var(--chrome-lo) 75%);
+            box-shadow:
+                inset 0 1px 3px rgba(255,255,255,0.4),
+                0 2px 6px rgba(0,0,0,0.8);
+            z-index: 101;
+            pointer-events: none;
+        }
+        .frame-rivet:nth-child(1) { top: 10px; left: 10px; }
+        .frame-rivet:nth-child(2) { top: 10px; right: 10px; }
+        .frame-rivet:nth-child(3) { bottom: 10px; left: 10px; }
+        .frame-rivet:nth-child(4) { bottom: 10px; right: 10px; }
+
+        .cockpit-scene {
+            position: absolute;
+            inset: 0;
+            transform-style: preserve-3d;
+            transition: transform 0.15s ease-out;
+            will-change: transform;
+        }
+
+        .dashboard-scroll {
+            position: absolute;
+            inset: 0;
+            overflow-y: auto;
+            overflow-x: hidden;
+            transform-style: preserve-3d;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+        .dashboard-scroll::-webkit-scrollbar { display: none; }
+
+        .dashboard {
+            max-width: 520px;
+            margin: 0 auto;
+            padding: 16px 12px;
+            padding-top: calc(20px + env(safe-area-inset-top, 0px));
+            padding-bottom: calc(40px + env(safe-area-inset-bottom, 0px));
+            transform-style: preserve-3d;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .panel-3d {
+            transform-style: preserve-3d;
+            transform: translateZ(0px);
+            transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+        }
+        .panel-3d:hover {
+            transform: translateZ(18px);
+        }
+
+        .panel-face {
+            background: var(--glass-bg);
+            border: 1.5px solid var(--glass-border);
+            border-radius: 24px;
+            position: relative;
+            box-shadow:
+                0 12px 40px rgba(0, 0, 0, 0.6),
+                0 4px 12px rgba(0, 0, 0, 0.4),
+                0 1px 0 var(--glass-rim);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            overflow: hidden;
+            transform-style: preserve-3d;
+        }
+
+        .panel-depth {
+            position: absolute;
+            inset: 0;
+            border-radius: 24px;
+            transform: translateZ(-8px);
+            background: linear-gradient(180deg, rgba(20, 30, 50, 0.8), rgba(10, 15, 25, 0.9));
+            border: 1px solid rgba(60, 80, 120, 0.15);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .panel-glass {
+            position: absolute;
+            top: -1px; left: 8%; right: 8%;
+            height: 55%;
+            border-radius: 24px 24px 50% 50%;
+            background: radial-gradient(
+                ellipse 100% 80% at 40% -10%,
+                rgba(255, 255, 255, 0.14) 0%,
+                rgba(255, 255, 255, 0.05) 30%,
+                rgba(255, 255, 255, 0.01) 55%,
+                transparent 70%
+            );
+            pointer-events: none;
+            z-index: 10;
+            transform: translateZ(1px);
+        }
+
+        .stud-3d {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 25%, var(--chrome-hi), var(--chrome-mid) 45%, var(--chrome-lo) 75%);
+            box-shadow:
+                inset 0 1px 2px rgba(255,255,255,0.35),
+                0 1px 3px rgba(0,0,0,0.6);
+            z-index: 15;
+            transform: translateZ(4px);
+        }
+
+        /* Nameplate */
+        .nameplate-panel {
+            transform: rotateX(-3deg) translateZ(10px);
+        }
+        .nameplate-panel:hover {
+            transform: rotateX(-3deg) translateZ(24px);
+        }
+        .nameplate-content {
+            padding: 20px 24px 18px;
+            transform-style: preserve-3d;
+        }
+        .nameplate-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 14px;
+        }
+        .nameplate-left { display: flex; flex-direction: column; }
+        .nameplate-mission {
+            font-family: 'Azeret Mono', monospace;
+            font-size: 8px;
+            letter-spacing: 0.3em;
+            color: var(--text-dim);
+            text-transform: uppercase;
+        }
+        .nameplate-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 20px;
+            font-weight: 800;
+            letter-spacing: 0.04em;
+            color: var(--amber);
+            text-shadow:
+                0 0 30px var(--amber-glow),
+                0 0 80px rgba(255, 184, 51, 0.15),
+                0 2px 4px rgba(0, 0, 0, 0.5);
+            line-height: 1.3;
+            transform: translateZ(6px);
+        }
+
+        .day-counter-mech {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 3px;
+            transform-style: preserve-3d;
+        }
+        .day-counter-label {
+            font-family: 'Azeret Mono', monospace;
+            font-size: 7px;
+            letter-spacing: 0.3em;
+            color: var(--text-dim);
+            text-transform: uppercase;
+        }
+        .day-drums {
+            display: flex;
+            gap: 4px;
+            transform-style: preserve-3d;
+        }
+        .drum-3d {
+            transform-style: preserve-3d;
+            position: relative;
+        }
+        .drum-face {
+            width: 26px;
+            height: 32px;
+            background: radial-gradient(ellipse at 50% 60%, #111628, #05070e);
+            border: 2px solid var(--chrome-mid);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Azeret Mono', monospace;
+            font-weight: 700;
+            font-size: 16px;
+            color: var(--text-bright);
+            transform: translateZ(4px);
+            position: relative;
+            overflow: hidden;
+        }
+        .drum-face::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 10%; right: 10%;
+            height: 55%;
+            border-radius: 10px 10px 50% 50%;
+            background: linear-gradient(180deg, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0.04) 40%, transparent 100%);
+            pointer-events: none;
+        }
+        .drum-back {
+            position: absolute;
+            inset: 0;
+            width: 26px;
+            height: 32px;
+            border-radius: 10px;
+            background: var(--chrome-lo);
+            transform: translateZ(-2px);
+        }
+
+        /* Flash / ship log */
+        .holo-panel {
+            transform: rotateX(2deg) rotateY(-1deg) translateZ(30px);
+        }
+        .holo-panel:hover {
+            transform: rotateX(2deg) rotateY(-1deg) translateZ(45px);
+        }
+        .holo-face {
+            background: rgba(6, 10, 18, 0.6);
+            border: 1.5px solid rgba(255, 184, 51, 0.15);
+            border-radius: 22px;
+            padding: 18px 22px;
+            position: relative;
+            box-shadow:
+                0 8px 30px rgba(0, 0, 0, 0.4),
+                0 0 60px rgba(255, 184, 51, 0.03),
+                inset 0 4px 16px rgba(0,0,0,0.4),
+                inset 0 -2px 6px rgba(0,0,0,0.2);
+            overflow: hidden;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            transform-style: preserve-3d;
+        }
+        .holo-face::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                repeating-linear-gradient(
+                    0deg,
+                    transparent,
+                    transparent 3px,
+                    rgba(255, 184, 51, 0.02) 3px,
+                    rgba(255, 184, 51, 0.02) 4px
+                );
+            pointer-events: none;
+            z-index: 1;
+            animation: holo-scan 4s linear infinite;
+        }
+        .holo-face::after {
+            content: '';
+            position: absolute;
+            top: -1px; left: 10%; right: 10%;
+            height: 45%;
+            border-radius: 22px 22px 0 0;
+            background: radial-gradient(ellipse 100% 70% at 40% -15%, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.03) 35%, transparent 60%);
+            pointer-events: none;
+            z-index: 2;
+        }
+        .holo-label {
+            font-family: 'Azeret Mono', monospace;
+            font-size: 7px;
+            letter-spacing: 0.2em;
+            color: rgba(255,184,51,0.5);
+            text-transform: uppercase;
+            margin-bottom: 6px;
+            position: relative;
+            z-index: 3;
+        }
+        .holo-text {
+            font-family: 'Azeret Mono', monospace;
+            font-size: 11px;
+            color: var(--amber);
+            text-shadow: 0 0 10px var(--amber-glow);
+            line-height: 1.7;
+            position: relative;
+            z-index: 3;
+        }
+        @keyframes holo-scan {
+            0% { background-position: 0 0; }
+            100% { background-position: 0 200px; }
+        }
+
+        /* Viewscreen — current view image (Journey context: day/waypoint/zone) */
+        .viewscreen-panel {
+            transform: rotateX(-1deg) translateZ(20px);
+        }
+        .viewscreen-panel:hover {
+            transform: rotateX(-1deg) translateZ(32px);
+        }
+        .viewscreen-face {
+            padding: 14px 16px 16px;
+            transform-style: preserve-3d;
+        }
+        .viewscreen-label {
+            font-family: 'Azeret Mono', monospace;
+            font-size: 7px;
+            letter-spacing: 0.2em;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            transform: translateZ(3px);
+        }
+        .viewscreen-frame {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            background: #05080e;
+            border: 2px solid var(--chrome-mid);
+            box-shadow:
+                inset 0 0 30px rgba(0,0,0,0.8),
+                inset 0 2px 0 rgba(255,255,255,0.06),
+                0 6px 24px rgba(0,0,0,0.6),
+                0 0 20px rgba(255, 184, 51, 0.06);
+            transform: translateZ(4px);
+            aspect-ratio: 16 / 10;
+        }
+        .viewscreen-screen {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .viewscreen-image {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: relative;
+            z-index: 1;
+        }
+        .viewscreen-image:not([src]),
+        .viewscreen-image[src=""] {
+            display: none;
+        }
+        .viewscreen-placeholder {
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 80% 60% at 50% 40%, rgba(40, 60, 120, 0.25) 0%, transparent 50%),
+                radial-gradient(ellipse 100% 100% at 50% 50%, #0a1025 0%, #030608 70%);
+            z-index: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .viewscreen-placeholder::after {
+            content: '◈ NO SIGNAL';
+            font-family: 'Azeret Mono', monospace;
+            font-size: 9px;
+            letter-spacing: 0.3em;
+            color: var(--text-dim);
+            opacity: 0.6;
+        }
+        .viewscreen-image[src]:not([src=""]) ~ .viewscreen-placeholder {
+            display: none;
+        }
+        .viewscreen-caption {
+            font-family: 'Azeret Mono', monospace;
+            font-size: 8px;
+            color: var(--text-label);
+            margin-top: 8px;
+            text-align: center;
+            letter-spacing: 0.1em;
+            transform: translateZ(2px);
+        }
+
+        /* Linear gauges */
+        .gauge-panel {
+            transform: translateZ(0px);
+        }
+        .gauge-panel:hover {
+            transform: translateZ(16px);
+        }
+        .gauge-content {
+            padding: 20px 18px 18px;
+            transform-style: preserve-3d;
+        }
+        .gauge-section-label {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 8px;
+            font-weight: 600;
+            letter-spacing: 0.25em;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            text-align: center;
+            margin-bottom: 14px;
+            transform: translateZ(4px);
+        }
+
+        .gauge-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .gauge-linear {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 8px 10px;
+            border-radius: 16px;
+            background: radial-gradient(ellipse at 10% 0%, rgba(255,255,255,0.05), transparent 55%), rgba(8, 12, 24, 0.8);
+            box-shadow:
+                inset 0 1px 0 rgba(255,255,255,0.04),
+                0 4px 14px rgba(0,0,0,0.6);
+            transform-style: preserve-3d;
+            overflow: hidden;
+        }
+
+        .gauge-label {
+            font-family: 'Azeret Mono', monospace;
+            font-size: 8px;
+            letter-spacing: 0.15em;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            min-width: 70px;
+        }
+
+        .gauge-track-wrap {
+            position: relative;
+            flex: 1;
+            height: 26px;
+            transform-style: preserve-3d;
+        }
+
+        .gauge-track {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 6px;
+            transform: translateY(-50%);
+            border-radius: 999px;
+            background:
+                linear-gradient(90deg,
+                    rgba(255, 85, 102, 0.5) 0%,
+                    rgba(255, 184, 51, 0.6) 40%,
+                    rgba(85, 238, 119, 0.6) 100%);
+            box-shadow:
+                inset 0 0 4px rgba(0,0,0,0.8),
+                0 0 18px rgba(255,184,51,0.25);
+            opacity: 0.7;
+        }
+
+        .gauge-track-bg {
+            position: absolute;
+            top: 50%;
+            left: -2px;
+            right: -2px;
+            height: 16px;
+            transform: translateY(-50%) translateZ(-2px);
+            border-radius: 999px;
+            background: radial-gradient(ellipse at 50% 50%, rgba(10,20,35,0.95), rgba(2,4,10,0.98));
+            border: 1px solid rgba(40,60,90,0.6);
+            box-shadow: 0 6px 10px rgba(0,0,0,0.9);
+        }
+
+        .gauge-needle {
+            --needle-pos: 0%;
+            position: absolute;
+            top: 50%;
+            width: 2px;
+            height: 22px;
+            transform: translate(-50%, -50%) translateZ(4px);
+            background: linear-gradient(to bottom, #ffffff, var(--amber));
+            box-shadow:
+                0 0 8px var(--amber-glow),
+                0 0 20px rgba(255,184,51,0.25);
+            border-radius: 999px;
+            left: var(--needle-pos);
+            transition: left 1s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .gauge-needle::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: -4px;
+            width: 10px;
+            height: 10px;
+            transform: translateX(-50%);
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 25%, var(--chrome-hi), var(--chrome-mid) 45%, var(--chrome-lo) 75%);
+            border: 1px solid rgba(0,0,0,0.4);
+            box-shadow:
+                inset 0 1px 3px rgba(255,255,255,0.4),
+                0 1px 3px rgba(0,0,0,0.8);
+        }
+
+        .gauge-markers {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            opacity: 0.35;
+            background-image:
+                linear-gradient(90deg,
+                    rgba(255,255,255,0.2) 1px,
+                    transparent 1px);
+            background-size: 10% 100%;
+        }
+
+        .gauge-value {
+            font-family: 'Azeret Mono', monospace;
+            font-size: 10px;
+            color: var(--text-soft);
+            min-width: 46px;
+            text-align: right;
+        }
+
+        .gauge-linear.warning .gauge-track {
+            box-shadow:
+                inset 0 0 4px rgba(0,0,0,0.8),
+                0 0 20px var(--orange-glow);
+        }
+        .gauge-linear.critical .gauge-track {
+            box-shadow:
+                inset 0 0 4px rgba(0,0,0,0.8),
+                0 0 22px var(--red-glow);
+        }
+        .gauge-linear.critical .gauge-value {
+            color: var(--red);
+        }
+
+        /* Controls */
+        .controls-panel {
+            transform: rotateX(3deg) translateZ(8px);
+        }
+        .controls-panel:hover {
+            transform: rotateX(3deg) translateZ(20px);
+        }
+        .controls-content {
+            padding: 20px 20px;
+            transform-style: preserve-3d;
+        }
+        .controls-label {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 8px;
+            font-weight: 600;
+            letter-spacing: 0.25em;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            text-align: center;
+            margin-bottom: 16px;
+            transform: translateZ(4px);
+        }
+
+        .btn-3d-main {
+            display: block;
+            width: 100%;
+            margin-bottom: 16px;
+            transform-style: preserve-3d;
+            position: relative;
+            cursor: pointer;
+            -webkit-tap-highlight-color: transparent;
+            border: none;
+            background: none;
+            padding: 0;
+            transform: translateZ(8px);
+            transition: transform 0.15s ease;
+        }
+        .btn-3d-main:hover {
+            transform: translateZ(14px);
+        }
+        .btn-3d-main:active {
+            transform: translateZ(2px);
+        }
+        .btn-main-face {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            padding: 18px 24px;
+            background:
+                radial-gradient(ellipse 80% 100% at 50% 120%, rgba(85,238,119,0.08) 0%, transparent 60%),
+                linear-gradient(180deg, rgba(40,100,60,0.5) 0%, rgba(20,60,30,0.65) 50%, rgba(15,45,25,0.75) 100%);
+            border: 2px solid rgba(85,238,119,0.3);
+            border-radius: 20px;
+            position: relative;
+            box-shadow:
+                0 8px 30px rgba(0,0,0,0.5),
+                0 0 28px rgba(85,238,119,0.1);
+            color: var(--green);
+            overflow: hidden;
+            transform: translateZ(6px);
+            font-family: 'Nunito', sans-serif;
+            cursor: pointer;
+        }
+        .btn-main-face::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 8%; right: 8%;
+            height: 50%;
+            border-radius: 20px 20px 50% 50%;
+            background: linear-gradient(180deg, rgba(255,255,255,0.14) 0%, rgba(255,255,255,0.03) 50%, transparent 100%);
+            pointer-events: none;
+        }
+        .btn-main-depth {
+            position: absolute;
+            inset: 0;
+            border-radius: 20px;
+            background: linear-gradient(180deg, rgba(15, 50, 25, 0.8), rgba(10, 30, 15, 0.9));
+            border: 1px solid rgba(85, 238, 119, 0.1);
+            transform: translateZ(-2px);
+        }
+        .btn-3d-main:active .btn-main-face {
+            transform: translateZ(1px);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.4), 0 0 12px rgba(85,238,119,0.06);
+        }
+        .btn-main-face .btn-icon { font-size: 17px; }
+        .btn-main-face .btn-text {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            text-shadow: 0 0 12px var(--green-glow);
+        }
+        .btn-main-face .btn-hint {
+            font-family: 'Azeret Mono', monospace;
+            font-size: 8px;
+            color: rgba(85,238,119,0.3);
+        }
+
+        .button-grid-3d {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            transform-style: preserve-3d;
+        }
+
+        .btn-3d {
+            display: block;
+            transform-style: preserve-3d;
+            position: relative;
+            cursor: pointer;
+            -webkit-tap-highlight-color: transparent;
+            border: none;
+            background: none;
+            padding: 0;
+            transform: translateZ(4px);
+            transition: transform 0.15s ease;
+        }
+        .btn-3d:hover {
+            transform: translateZ(10px);
+        }
+        .btn-3d:active {
+            transform: translateZ(0px);
+        }
+        .btn-face {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            padding: 16px 10px;
+            background: radial-gradient(ellipse 80% 100% at 50% 120%, rgba(120,150,210,0.04) 0%, transparent 60%), rgba(14,20,36,0.6);
+            border: 1.5px solid var(--glass-border);
+            border-radius: 18px;
+            box-shadow:
+                0 6px 20px rgba(0,0,0,0.45),
+                0 0 16px rgba(120, 150, 210, 0.03);
+            color: var(--text-soft);
+            position: relative;
+            overflow: hidden;
+            transform: translateZ(4px);
+            font-family: 'Nunito', sans-serif;
+            cursor: pointer;
+        }
+        .btn-face::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 10%; right: 10%;
+            height: 45%;
+            border-radius: 18px 18px 50% 50%;
+            background: linear-gradient(180deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.01) 50%, transparent 100%);
+            pointer-events: none;
+        }
+        .btn-depth {
+            position: absolute;
+            inset: 0;
+            border-radius: 18px;
+            background: linear-gradient(180deg, rgba(14, 20, 36, 0.7), rgba(8, 12, 24, 0.8));
+            border: 1px solid rgba(80, 100, 140, 0.08);
+            transform: translateZ(-2px);
+        }
+        .btn-3d:active .btn-face {
+            transform: translateZ(1px);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+        }
+        .btn-3d .btn-icon { font-size: 20px; }
+        .btn-3d .btn-text {
+            font-family: 'Azeret Mono', monospace;
+            font-size: 8px;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+        .btn-3d .btn-hint {
+            font-family: 'Azeret Mono', monospace;
+            font-size: 7px;
+            color: var(--text-dim);
+        }
+
+        /* Ambient lights */
+        .ambient-light {
+            position: fixed;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 0;
+            filter: blur(100px);
+            opacity: 0.3;
+            animation: ambient-drift 20s ease-in-out infinite alternate;
+        }
+        .ambient-light.amber {
+            background: radial-gradient(circle, rgba(255, 184, 51, 0.15), transparent 70%);
+            top: 20%;
+            left: 30%;
+        }
+        .ambient-light.teal {
+            background: radial-gradient(circle, rgba(68, 221, 204, 0.08), transparent 70%);
+            bottom: 20%;
+            right: 20%;
+            animation-delay: -10s;
+        }
+        .ambient-light.purple {
+            background: radial-gradient(circle, rgba(140, 80, 200, 0.06), transparent 70%);
+            top: 60%;
+            left: 10%;
+            animation-delay: -5s;
+        }
+        @keyframes ambient-drift {
+            0% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(30px, -20px) scale(1.1); }
+            66% { transform: translate(-20px, 15px) scale(0.9); }
+            100% { transform: translate(10px, -10px) scale(1.05); }
+        }
+
+        /* Staggered entrance */
+        .dashboard > * {
+            animation: float-in-3d 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+        }
+        .dashboard > *:nth-child(1) { animation-delay: 0.1s; }
+        .dashboard > *:nth-child(2) { animation-delay: 0.2s; }
+        .dashboard > *:nth-child(3) { animation-delay: 0.3s; }
+        .dashboard > *:nth-child(4) { animation-delay: 0.4s; }
+        .dashboard > *:nth-child(5) { animation-delay: 0.5s; }
+        .dashboard > *:nth-child(6) { animation-delay: 0.6s; }
+        @keyframes float-in-3d {
+            from {
+                opacity: 0;
+                transform: translateY(40px) translateZ(-60px) rotateX(8deg) scale(0.85);
+                filter: blur(4px);
+            }
+            to {
+                opacity: 1;
+                filter: blur(0px);
+            }
+        }
+
+        @media (max-width: 380px) {
+            .nameplate-title { font-size: 16px; }
+            .drum-face { width: 22px; height: 28px; font-size: 14px; }
+        }
+        @media (min-width: 600px) {
+            .dashboard { padding: 20px 16px; }
+            :root { --cockpit-perspective: 1300px; }
+        }
+    </style>
+</head>
+<body>
+
+<canvas id="starfield"></canvas>
+
+<div class="ambient-light amber"></div>
+<div class="ambient-light teal"></div>
+<div class="ambient-light purple"></div>
+
+<div class="cockpit-viewport">
+    <div class="cockpit-frame">
+        <div class="frame-rivet"></div>
+        <div class="frame-rivet"></div>
+        <div class="frame-rivet"></div>
+        <div class="frame-rivet"></div>
+    </div>
+
+    <div class="cockpit-scene" id="cockpitScene7">
+        <div class="dashboard-scroll">
+            <div class="dashboard">
+
+                <!-- NAMEPLATE -->
+                <div class="panel-3d nameplate-panel">
+                    <div class="panel-depth"></div>
+                    <div class="panel-face">
+                        <div class="panel-glass"></div>
+                        <div class="stud-3d" style="top:12px;left:16px"></div>
+                        <div class="stud-3d" style="top:12px;right:16px"></div>
+                        <div class="stud-3d" style="bottom:12px;left:16px"></div>
+                        <div class="stud-3d" style="bottom:12px;right:16px"></div>
+                        <div class="nameplate-content">
+                            <div class="nameplate-top">
+                                <div class="nameplate-left">
+                                    <span class="nameplate-mission">Mission</span>
+                                    <span class="nameplate-title">OCCUPY URANUS</span>
+                                </div>
+                                <div class="day-counter-mech">
+                                    <span class="day-counter-label">Day</span>
+                                    <div class="day-drums">
+                                        <div class="drum-3d"><div class="drum-back"></div><div class="drum-face">0</div></div>
+                                        <div class="drum-3d"><div class="drum-back"></div><div class="drum-face">4</div></div>
+                                        <div class="drum-3d"><div class="drum-back"></div><div class="drum-face">2</div></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="font-family:'Azeret Mono', monospace;font-size:9px;color:var(--text-label);letter-spacing:0.18em;text-transform:uppercase;">
+                                Linear Needle Gauge Prototype · Option 7
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FLASH / SHIP LOG (acts as flash message) -->
+                <div class="panel-3d holo-panel">
+                    <div class="holo-face">
+                        <div class="holo-label">◈ Ship Log — Sol 42.7</div>
+                        <div class="holo-text">
+                            You found 50 units of food while hunting. The chad is pleased. Jenkins would have been proud.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- VIEWSCREEN — current view image (day/waypoint/zone per IMAGE_SYSTEM) -->
+                <div class="panel-3d viewscreen-panel" id="viewscreenPanel">
+                    <div class="panel-depth"></div>
+                    <div class="panel-face">
+                        <div class="panel-glass"></div>
+                        <div class="stud-3d" style="top:12px;left:16px"></div>
+                        <div class="stud-3d" style="top:12px;right:16px"></div>
+                        <div class="stud-3d" style="bottom:12px;left:16px"></div>
+                        <div class="stud-3d" style="bottom:12px;right:16px"></div>
+                        <div class="viewscreen-face">
+                            <div class="viewscreen-label">◈ Forward view</div>
+                            <div class="viewscreen-frame">
+                                <div class="viewscreen-screen">
+                                    <img class="viewscreen-image" id="viewscreenImage" src="" alt="Current view" data-view-src="" />
+                                    <div class="viewscreen-placeholder" aria-hidden="true"></div>
+                                </div>
+                            </div>
+                            <div class="viewscreen-caption" id="viewscreenCaption">Jupiter approach · Sol 42</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- LINEAR NEEDLE GAUGES -->
+                <div class="panel-3d gauge-panel">
+                    <div class="panel-depth"></div>
+                    <div class="panel-face">
+                        <div class="panel-glass"></div>
+                        <div class="stud-3d" style="top:12px;left:16px"></div>
+                        <div class="stud-3d" style="top:12px;right:16px"></div>
+                        <div class="stud-3d" style="bottom:12px;left:16px"></div>
+                        <div class="stud-3d" style="bottom:12px;right:16px"></div>
+                        <div class="gauge-content">
+                            <div class="gauge-section-label">Ship Status — Linear Needles</div>
+                            <div class="gauge-grid">
+                                <div class="gauge-linear" data-value="815" data-max="1200">
+                                    <div class="gauge-label">⛽ Fuel</div>
+                                    <div class="gauge-track-wrap">
+                                        <div class="gauge-track-bg"></div>
+                                        <div class="gauge-track"></div>
+                                        <div class="gauge-markers"></div>
+                                        <div class="gauge-needle"></div>
+                                    </div>
+                                    <div class="gauge-value">815 / 1200</div>
+                                </div>
+
+                                <div class="gauge-linear warning" data-value="1575" data-max="3500">
+                                    <div class="gauge-label">🍔 Food</div>
+                                    <div class="gauge-track-wrap">
+                                        <div class="gauge-track-bg"></div>
+                                        <div class="gauge-track"></div>
+                                        <div class="gauge-markers"></div>
+                                        <div class="gauge-needle"></div>
+                                    </div>
+                                    <div class="gauge-value">1575 / 3500</div>
+                                </div>
+
+                                <div class="gauge-linear" data-value="85" data-max="100">
+                                    <div class="gauge-label">🛡️ Hull</div>
+                                    <div class="gauge-track-wrap">
+                                        <div class="gauge-track-bg"></div>
+                                        <div class="gauge-track"></div>
+                                        <div class="gauge-markers"></div>
+                                        <div class="gauge-needle"></div>
+                                    </div>
+                                    <div class="gauge-value">85%</div>
+                                </div>
+
+                                <div class="gauge-linear" data-value="72" data-max="100">
+                                    <div class="gauge-label">😊 Vibes</div>
+                                    <div class="gauge-track-wrap">
+                                        <div class="gauge-track-bg"></div>
+                                        <div class="gauge-track"></div>
+                                        <div class="gauge-markers"></div>
+                                        <div class="gauge-needle"></div>
+                                    </div>
+                                    <div class="gauge-value">72%</div>
+                                </div>
+
+                                <div class="gauge-linear" data-value="4" data-max="5">
+                                    <div class="gauge-label">👤 Chad</div>
+                                    <div class="gauge-track-wrap">
+                                        <div class="gauge-track-bg"></div>
+                                        <div class="gauge-track"></div>
+                                        <div class="gauge-markers"></div>
+                                        <div class="gauge-needle"></div>
+                                    </div>
+                                    <div class="gauge-value">4 / 5</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CONTROLS -->
+                <div class="panel-3d controls-panel">
+                    <div class="panel-depth"></div>
+                    <div class="panel-face">
+                        <div class="panel-glass"></div>
+                        <div class="stud-3d" style="top:12px;left:16px"></div>
+                        <div class="stud-3d" style="top:12px;right:16px"></div>
+                        <div class="stud-3d" style="bottom:12px;left:16px"></div>
+                        <div class="stud-3d" style="bottom:12px;right:16px"></div>
+                        <div class="controls-content">
+                            <div class="controls-label">Controls</div>
+                            <button class="btn-3d-main">
+                                <div class="btn-main-depth"></div>
+                                <div class="btn-main-face">
+                                    <span class="btn-icon">🚀</span>
+                                    <span class="btn-text">Continue</span>
+                                    <span class="btn-hint">advance 1 day</span>
+                                </div>
+                            </button>
+                            <div class="button-grid-3d">
+                                <button class="btn-3d">
+                                    <div class="btn-depth"></div>
+                                    <div class="btn-face">
+                                        <span class="btn-icon">🎣</span>
+                                        <span class="btn-text">Hunt</span>
+                                        <span class="btn-hint">−1 day</span>
+                                    </div>
+                                </button>
+                                <button class="btn-3d">
+                                    <div class="btn-depth"></div>
+                                    <div class="btn-face">
+                                        <span class="btn-icon">📊</span>
+                                        <span class="btn-text">Status</span>
+                                    </div>
+                                </button>
+                                <button class="btn-3d">
+                                    <div class="btn-depth"></div>
+                                    <div class="btn-face">
+                                        <span class="btn-icon">🗺️</span>
+                                        <span class="btn-text">Map</span>
+                                    </div>
+                                </button>
+                                <button class="btn-3d">
+                                    <div class="btn-depth"></div>
+                                    <div class="btn-face">
+                                        <span class="btn-icon">🎨</span>
+                                        <span class="btn-text">Aesthetic</span>
+                                    </div>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    'use strict';
+
+    // Starfield
+    const canvas = document.getElementById('starfield');
+    const ctx = canvas.getContext('2d');
+    const stars = [];
+    const STAR_COUNT = 400;
+    const WARP_SPEED = 0.4;
+    let w, h;
+
+    function initStarfield() {
+        w = canvas.width = window.innerWidth;
+        h = canvas.height = window.innerHeight;
+    }
+
+    function createStar() {
+        return {
+            x: (Math.random() - 0.5) * w * 3,
+            y: (Math.random() - 0.5) * h * 3,
+            z: Math.random() * 2000,
+            prevX: 0,
+            prevY: 0
+        };
+    }
+
+    function initStars() {
+        stars.length = 0;
+        for (let i = 0; i < STAR_COUNT; i++) {
+            stars.push(createStar());
+        }
+    }
+
+    function drawStarfield() {
+        ctx.fillStyle = 'rgba(3, 8, 16, 0.25)';
+        ctx.fillRect(0, 0, w, h);
+
+        const cx = w / 2;
+        const cy = h / 2;
+
+        for (let i = 0; i < stars.length; i++) {
+            const s = stars[i];
+
+            s.prevX = (s.x / s.z) * 400 + cx;
+            s.prevY = (s.y / s.z) * 400 + cy;
+
+            s.z -= WARP_SPEED;
+
+            if (s.z <= 0.5) {
+                Object.assign(s, createStar());
+                s.z = 2000;
+                continue;
+            }
+
+            const sx = (s.x / s.z) * 400 + cx;
+            const sy = (s.y / s.z) * 400 + cy;
+
+            if (sx < -50 || sx > w + 50 || sy < -50 || sy > h + 50) {
+                Object.assign(s, createStar());
+                s.z = 2000;
+                continue;
+            }
+
+            const depth = 1 - s.z / 2000;
+            const size = depth * 2.5 + 0.3;
+            const alpha = depth * 0.8 + 0.1;
+
+            const dx = sx - s.prevX;
+            const dy = sy - s.prevY;
+            const trail = Math.sqrt(dx * dx + dy * dy);
+
+            if (trail > 1.5) {
+                ctx.beginPath();
+                ctx.moveTo(s.prevX, s.prevY);
+                ctx.lineTo(sx, sy);
+                ctx.strokeStyle = `rgba(200, 210, 240, ${alpha * 0.4})`;
+                ctx.lineWidth = size * 0.5;
+                ctx.stroke();
+            }
+
+            ctx.beginPath();
+            ctx.arc(sx, sy, size, 0, Math.PI * 2);
+            const brightness = Math.floor(180 + depth * 75);
+            ctx.fillStyle = `rgba(${brightness}, ${brightness + 10}, ${brightness + 30}, ${alpha})`;
+            ctx.fill();
+        }
+
+        requestAnimationFrame(drawStarfield);
+    }
+
+    initStarfield();
+    initStars();
+    drawStarfield();
+
+    window.addEventListener('resize', () => {
+        initStarfield();
+    });
+
+    // Cockpit parallax
+    const cockpit = document.getElementById('cockpitScene7');
+    let targetRotX = 0;
+    let targetRotY = 0;
+    let currentRotX = 0;
+    let currentRotY = 0;
+    const MAX_ROT = 3;
+
+    document.addEventListener('mousemove', (e) => {
+        const nx = (e.clientX / window.innerWidth - 0.5) * 2;
+        const ny = (e.clientY / window.innerHeight - 0.5) * 2;
+
+        targetRotY = nx * MAX_ROT;
+        targetRotX = -ny * MAX_ROT;
+    });
+
+    if (window.DeviceOrientationEvent) {
+        window.addEventListener('deviceorientation', (e) => {
+            if (e.gamma !== null && e.beta !== null) {
+                targetRotY = Math.max(-MAX_ROT, Math.min(MAX_ROT, e.gamma * 0.15));
+                targetRotX = Math.max(-MAX_ROT, Math.min(MAX_ROT, (e.beta - 45) * 0.1));
+            }
+        });
+    }
+
+    function animateParallax() {
+        currentRotX += (targetRotX - currentRotX) * 0.06;
+        currentRotY += (targetRotY - currentRotY) * 0.06;
+
+        cockpit.style.transform =
+            `rotateX(${currentRotX}deg) rotateY(${currentRotY}deg)`;
+
+        requestAnimationFrame(animateParallax);
+    }
+    animateParallax();
+
+    // Viewscreen: set image/caption from injected data (bot passes same URL as Journey View: getContextImageUrl('day', session))
+    (function initViewscreen() {
+        const img = document.getElementById('viewscreenImage');
+        const captionEl = document.getElementById('viewscreenCaption');
+        const viewUrl = (typeof window.__MINI_APP_VIEW_IMAGE_URL !== 'undefined' && window.__MINI_APP_VIEW_IMAGE_URL)
+            ? window.__MINI_APP_VIEW_IMAGE_URL
+            : (img && img.getAttribute('data-view-src'));
+        if (img && viewUrl) {
+            img.src = viewUrl;
+            img.onerror = function() { this.removeAttribute('src'); };
+        }
+        if (captionEl && typeof window.__MINI_APP_VIEW_CAPTION !== 'undefined' && window.__MINI_APP_VIEW_CAPTION) {
+            captionEl.textContent = window.__MINI_APP_VIEW_CAPTION;
+        }
+    })();
+
+    // Linear gauge needle animation
+    const linearGauges = document.querySelectorAll('.gauge-linear');
+    linearGauges.forEach((gauge, index) => {
+        const value = parseFloat(gauge.getAttribute('data-value')) || 0;
+        const max = parseFloat(gauge.getAttribute('data-max')) || 100;
+        const clamped = Math.max(0, Math.min(max, value));
+        const pct = max > 0 ? clamped / max : 0;
+        const needle = gauge.querySelector('.gauge-needle');
+
+        if (!needle) return;
+
+        // start from left
+        needle.style.setProperty('--needle-pos', '0%');
+
+        setTimeout(() => {
+            const target = (pct * 100).toFixed(1) + '%';
+            needle.style.setProperty('--needle-pos', target);
+        }, 600 + index * 150);
+    });
+})();
+</script>
+
+</body>
+</html>
+

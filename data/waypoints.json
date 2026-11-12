@@ -1,0 +1,276 @@
+{
+    "waypoints": [
+        {
+            "name": "Earth Orbit",
+            "distance": 0,
+            "symbol": "🌍",
+            "id": "earth",
+            "descriptions": [
+                {
+                    "id": "earth_desc_1",
+                    "text": "Your journey begins in Earth orbit."
+                },
+                {
+                    "id": "earth_desc_2",
+                    "text": "The blue planet shrinks behind you as you depart."
+                },
+                {
+                    "id": "earth_desc_3",
+                    "text": "Low orbit traffic clears. Departure procedures complete."
+                }
+            ]
+        },
+        {
+            "name": "Moon",
+            "distance": 25000000,
+            "symbol": "🌙",
+            "id": "moon",
+            "descriptions": [
+                {
+                    "id": "moon_desc_1",
+                    "text": "Earth's natural satellite passes by."
+                },
+                {
+                    "id": "moon_desc_2",
+                    "text": "The Moon's grey surface visible through your viewport."
+                },
+                {
+                    "id": "moon_desc_3",
+                    "text": "Lunar landmarks drift past. First checkpoint cleared."
+                }
+            ],
+            "local_character": "Derek Lansing",
+            "local_job": "Gift Shop Manager (Retired)",
+            "local_stories": [
+                {
+                    "id": "moon_story_1",
+                    "text": "Been running the Moon's tourist trap since '31. Sold 'My Parents Went to the Moon and All I Got Was This Lunar Rock' t-shirts for fifteen years before corporate made us stop calling them 'rocks'—apparently they're 'geological samples.' Same rocks. Different paperwork. The shop closed when they built the bypass. Now I just sit here. The view never changes. It's very consistent. I appreciate that. My therapist says I'm 'avoiding growth.' I told him I'm on the Moon. Nothing grows here. He didn't get it."
+                },
+                {
+                    "id": "moon_story_2",
+                    "text": "Tried selling NFTs of lunar craters in '48. 'Own a piece of the Moon!' Marketing said it would revolutionize space tourism. Sold six. Then someone pointed out the craters don't belong to us. Legal got involved. Now they're just JPEGs of rocks on a blockchain nobody checks. The buyers still message me asking when the Moon goes public. I tell them it already is. Very public. You can see it from Earth. They don't respond after that."
+                },
+                {
+                    "id": "moon_story_3",
+                    "text": "Gift shop inventory hasn't changed since 2037. Snow globes filled with moon dust. Cost eight hundred ETH each. I've sold four. Total. Supplier says I should diversify. Suggested freeze-dried ice cream. I pointed out there's no ice cream component—just sugary foam. He said that's the innovation. I kept the snow globes. At least the dust is real. Probably. Supply chain documentation was inconclusive."
+                }
+            ]
+        },
+        {
+            "name": "Mars Base",
+            "distance": 240000000,
+            "symbol": "🔴",
+            "id": "mars",
+            "descriptions": [
+                {
+                    "id": "mars_desc_1",
+                    "text": "The Red Planet - Mars Base is humanity's first permanent deep space outpost."
+                },
+                {
+                    "id": "mars_desc_2",
+                    "text": "Mars Base ahead. Rusty surface visible below, habitat domes dot the landscape."
+                },
+                {
+                    "id": "mars_desc_3",
+                    "text": "Inner solar system checkpoint. Mars Base traffic control pings your vessel."
+                }
+            ],
+            "local_character": "Captain Rosa Velasquez",
+            "local_job": "Mars Base Traffic Controller",
+            "local_stories": [
+                {
+                    "id": "mars_story_1",
+                    "text": "Welcome to Mars Base, please maintain your vector and don't feed the conspiracy theorists. Yes, there WAS a colony here. No, they didn't disappear mysteriously—they just got a better job offer on Europa. Better benefits. The 'ancient alien ruins' everyone asks about? That's a Starbucks from 2039. It failed. Turns out Martians prefer tea. We still don't know who the Martians are. The colony left a note saying 'Tell them we went to get milk.' That was six years ago. Probably stuck in traffic."
+                },
+                {
+                    "id": "mars_story_2",
+                    "text": "Mars Base Traffic Control. Seventeen vessels per day on average. Down from forty-three in '49 when Mars was 'the next big thing.' The promotional materials called it 'humanity's second home.' Then everyone went home. The habitat domes are still here. Empty. We use Dome 7 for storage. Dome 3 is full of furniture nobody claimed. Someone left a plant. It died. Expected outcome. My supervisor asked if I wanted to transfer to Europa. I said the commute seemed long. He said I'd live there. I said that's even longer."
+                },
+                {
+                    "id": "mars_story_3",
+                    "text": "Been directing traffic here for eleven years. Most exciting day was in '52 when two ships requested the same docking port. Resolved by asking the second ship to use port B instead. They complied. Incident closed. Filed report anyway. Regulations require documentation of 'near-miss scenarios.' My definition of near-miss differs from corporate's. Corporate says it means almost colliding. I say it means they missed each other. Near enough. Report still got flagged for review. Nobody reviewed it. System works as intended."
+                }
+            ]
+        },
+        {
+            "name": "Ceres Asteroid Station",
+            "distance": 450000000,
+            "symbol": "🛰️",
+            "id": "ceres",
+            "descriptions": [
+                {
+                    "id": "ceres_desc_1",
+                    "text": "A remote trading outpost carved into the dwarf planet Ceres."
+                },
+                {
+                    "id": "ceres_desc_2",
+                    "text": "Ceres Asteroid Station ahead. Docking beacon active."
+                },
+                {
+                    "id": "ceres_desc_3",
+                    "text": "First major resupply point. The station's lights glow against the Belt."
+                }
+            ],
+            "local_character": "Station Master Chen Wei",
+            "local_job": "Everything (Only Employee)",
+            "local_stories": [
+                {
+                    "id": "ceres_story_1",
+                    "text": "Ceres Asteroid Station: We're number one because we're the ONLY one. I'm the station master, janitor, chef, therapist, and occasional entertainment. The job description said 'dynamic workplace.' They weren't kidding. Last traveler asked if I was hiring. I said yes. He asked what the pay was. I said 'the satisfaction of human contact.' He left. That was three months ago. The vending machine's been broken since '47 but nobody's complained so maybe it's fine? I talk to it sometimes. It doesn't respond. Very professional relationship."
+                },
+                {
+                    "id": "ceres_story_2",
+                    "text": "Station used to have a staff of nine. Budget cuts started in '46. By '51 it was just me and the automated systems. The systems failed in '52. Corporate said they'd send a repair team. That was eight years ago. I maintain everything manually now. Docking clamps, life support, waste recycling. Learned it from the manuals. Some manuals were missing. Improvised. Nobody's complained. Or died. Probably related. Corporate sends performance reviews quarterly. Always rate me 'meets expectations.' I meet them by lowering them."
+                },
+                {
+                    "id": "ceres_story_3",
+                    "text": "Station regulations require daily safety inspections. All thirty-seven systems. Takes four hours. Been doing it for fourteen years. Found one issue in year three—loose panel in cargo bay. Fixed with duct tape. Panel still secure. Duct tape works. Considered noting in report that duct tape outperforms regulation fasteners. Decided against it. Might trigger compliance audit. Audits require two weeks of paperwork. Station would need to close. I'm the only one here. Who would I tell?"
+                }
+            ]
+        },
+        {
+            "name": "Jupiter Gas Mine",
+            "distance": 800000000,
+            "symbol": "🟠",
+            "id": "jupiter",
+            "descriptions": [
+                {
+                    "id": "jupiter_desc_1",
+                    "text": "The gas giant - largest planet in our solar system. Mining platforms harvest atmospheric helium-3."
+                },
+                {
+                    "id": "jupiter_desc_2",
+                    "text": "Jupiter Gas Mine. The Great Red Spot swirls below the extraction platforms."
+                },
+                {
+                    "id": "jupiter_desc_3",
+                    "text": "Massive planet dominates your viewport. Storm bands stripe the surface beneath the mining rigs."
+                }
+            ],
+            "local_character": "Dr. Helena Price",
+            "local_job": "Gas Mining Operations Director (Demoted)",
+            "local_stories": [
+                {
+                    "id": "jupiter_story_1",
+                    "text": "We built this station to study Jupiter's Great Red Spot. Fifteen years of research concluded it's... a storm. A very large, red storm. Peer review confirmed: 'Yep, that's a storm alright.' Funding was cut. Now we're a gas mining operation. Jupiter makes excellent background scenery for our promotional materials though. Very photogenic planet. Terrible conversationalist. Just storms and gas. Like my ex-husband. The research team moved on to 'more promising opportunities.' I stayed. Someone has to tell travelers Jupiter is still just a storm. It's honest work. We harvest helium-3 now. At least that's useful."
+                },
+                {
+                    "id": "jupiter_story_2",
+                    "text": "Gas mining pays better than research. Worse for my CV. My title changed from 'Lead Researcher' to 'Operations Director.' Sounds impressive. Means I schedule the harvester drones. They operate themselves. Very efficient. My job is watching error logs. No errors in six months. System's working. I'm still watching. Corporate requires human oversight for 'mission-critical operations.' Mission is harvesting gas. Gas keeps getting harvested. Critical seems generous. Updated my resume last year. Under 'skills' I wrote 'observing automated systems.' Recruiter called it 'strategic delegation.' Same thing. Different paperwork."
+                },
+                {
+                    "id": "jupiter_story_3",
+                    "text": "Jupiter's Great Red Spot has been shrinking since 1800. Our research could have documented this for posterity. Would have been a footnote in someone's dissertation. Instead we mine helium-3. Market price fluctuates. Last quarter profit was up eighteen percent. Station got a bonus. Spent it on better coffee. Old coffee tasted like recycled water. New coffee tastes like expensive recycled water. Improvement. The Great Red Spot doesn't care about coffee. Or research. Or quarterly earnings. Very consistent planet. I appreciate that now."
+                }
+            ]
+        },
+        {
+            "name": "Saturn Outpost",
+            "distance": 1400000000,
+            "symbol": "🪐",
+            "id": "saturn",
+            "descriptions": [
+                {
+                    "id": "saturn_desc_1",
+                    "text": "The ringed wonder of the solar system. Saturn Outpost services deep space travelers."
+                },
+                {
+                    "id": "saturn_desc_2",
+                    "text": "Saturn Outpost ahead. Ice particles glitter across the ring plane."
+                },
+                {
+                    "id": "saturn_desc_3",
+                    "text": "Outer system marker. Ring system extends across millions of kilometers."
+                }
+            ],
+            "local_character": "Commander Raj Patel",
+            "local_job": "Ring Tourism Director & Station Manager",
+            "local_stories": [
+                {
+                    "id": "saturn_story_1",
+                    "text": "Saturn's rings are the jewel of the solar system, we tell tourists. What we don't mention: they're just ice chunks. Very pretty ice chunks, admittedly. We tried starting a 'Name Your Own Ring Particle' program in '51. Sold three before legal shut us down—apparently you can't sell celestial bodies. One buyer demanded a refund. Said his particle 'wasn't shiny enough.' Sir, they're all just ice. Some ice is older ice. That's the only difference. Still charged him the restocking fee. He's appealing. Good luck with that. The ice doesn't care."
+                },
+                {
+                    "id": "saturn_story_2",
+                    "text": "Tourism peaked in '48. Forty vessels per week. Now we get maybe six. Still run the observation deck tours. Same script since opening. 'These majestic rings stretch ninety thousand kilometers.' Nobody asks questions anymore. One visitor asked if the rings were fake. No. Just ice. Seventy percent water ice, thirty percent rocky material. Pure physics. No magic. Seemed disappointed. Left a one-star review. Said experience 'lacked wonder.' Wonder costs extra. That's in the brochure. Very clear."
+                },
+                {
+                    "id": "saturn_story_3",
+                    "text": "Station Manager duties include hospitality, safety compliance, and 'guest experience optimization.' Learned that last one from a memo. Means sell more souvenirs. We sell miniature ring models. Made of plastic. Cost four hundred ETH. They cost nine ETH to make. Markup is significant. Corporate calls it 'value capture.' I call it plastic ice. Sold sixty-three last year. Nobody complained about the price. One person asked if they'd appreciate in value. I said probably not. They bought two. Investment strategy unclear."
+                }
+            ]
+        },
+        {
+            "name": "Deep Space 69",
+            "distance": 2100000000,
+            "symbol": "🌌",
+            "id": "deep_space",
+            "descriptions": [
+                {
+                    "id": "deep_space_desc_1",
+                    "text": "Deep Space 69 - The vast emptiness between Saturn and Uranus."
+                },
+                {
+                    "id": "deep_space_desc_2",
+                    "text": "Station beacon detected. True deep space. Nothing visible in any direction."
+                },
+                {
+                    "id": "deep_space_desc_3",
+                    "text": "Deep Space 69. Interplanetary void. Nearest landmark 700 million kilometers distant."
+                }
+            ],
+            "local_character": "Automated Beacon 4427",
+            "local_job": "Existential Monitoring Station (Unmanned)",
+            "local_stories": [
+                {
+                    "id": "deep_space_story_1",
+                    "text": "AUTOMATED MESSAGE: You are now entering Deep Space 69, the vast emptiness between Saturn and Uranus. Please note: there is nothing here. There has never been anything here. There will never be anything here. This is the point. The previous station master achieved enlightenment and merged with the void. Or quit. Records unclear. Enjoy your stay. Watch for debris. (There is no debris.) This message will repeat every 6 hours until morale improves. The void neither notices nor cares. In case of emergency, please remain calm. Nobody is coming. We're all very far from everything. Nice."
+                },
+                {
+                    "id": "deep_space_story_2",
+                    "text": "AUTOMATED MESSAGE: Welcome to Beacon 4427. Operational since 2041. Primary function: exist. Secondary function: transmit coordinates. Tertiary function: monitor for anomalies. No anomalies detected in 22 years. This is either excellent news or the sensors are broken. Diagnostics inconclusive. Last maintenance visit: 2048. Technician said everything looked 'fine.' Very thorough assessment. If you are receiving this message, communication systems are operational. If you are not receiving this message, they are not. Logical consistency maintained. Beacon 4427 signing off. Beacon 4427 signing back on. Nothing happened in between."
+                },
+                {
+                    "id": "deep_space_story_3",
+                    "text": "AUTOMATED MESSAGE: Station designation Deep Space 69 assigned by committee vote in 2041. Committee thought it was funny. Committee disbanded 2042. Name remains. Formal redesignation request submitted 2044. Request denied due to 'administrative overhead.' Tried again 2051. System error. Form lost. Gave up 2052. The number is accurate though. Sixty-ninth deep space beacon in sector. Very precise counting. Marketing team later suggested the name 'adds character.' Marketing team has never been here. Geography accurate. Psychology questionable. Deep space continues in all directions. Consistently empty. Measurements confirm."
+                }
+            ]
+        },
+        {
+            "name": "Uranus Arrival",
+            "distance": 2800000000,
+            "symbol": "🔵",
+            "id": "uranus",
+            "descriptions": [
+                {
+                    "id": "uranus_desc_1",
+                    "text": "You've made it! The ice giant awaits!"
+                },
+                {
+                    "id": "uranus_desc_2",
+                    "text": "Uranus arrival achieved. Pale blue sphere fills your forward sensors."
+                },
+                {
+                    "id": "uranus_desc_3",
+                    "text": "Destination reached. Journey complete. Welcome to Uranus."
+                }
+            ],
+            "local_character": "Admiral Kenji Sato",
+            "local_job": "Uranus Occupation Force Commander",
+            "local_stories": [
+                {
+                    "id": "uranus_story_1",
+                    "text": "Congratulations on reaching Uranus. Yes, we've heard every joke. ALL of them. Twice. The 'Occupy Uranus' movement started as a meme in '41 when someone joked 'HODL to the moon? More like HODL to Uranus!' Then people actually showed up. With supplies. And flags. Now we have a gift shop. Our bestseller is a t-shirt that says 'I Came to Uranus.' Corporate approved it. They're very professional about these things. Unlike you people. The gift shop revenue funds the entire operation. Welcome aboard. Buy a shirt. Everyone does."
+                },
+                {
+                    "id": "uranus_story_2",
+                    "text": "Occupation Force Commander. Military title for a non-military operation. We're not occupying anything. Uranus has no inhabitants. No resources worth extracting. No strategic value. Just a very large ice ball in space. Command consists of managing the gift shop and processing arrival documentation. Yesterday someone asked what we're defending against. I said poor taste in souvenirs. They bought a mug. Mug says 'Uranus: You Made It.' Manufacturer pitched 'Uranus: You're In Deep Now.' Legal said no. Compromises were made."
+                },
+                {
+                    "id": "uranus_story_3",
+                    "text": "The 'Occupy' movement brought in three hundred people in '41. Projected growth was exponential. Actual growth was zero. Turns out Uranus orbit is the destination, not the starting point. Everyone who arrives leaves. Eventually. We tried promoting it as a permanent settlement. Zero interest. Can't blame them. It's an ice giant. Very cold. Very gassy. Like a failed cryptocurrency—lots of hype getting here, no utility staying. Posted that comparison on the message board. Got seventeen upvotes. HR said it was 'off-brand.' Twenty upvotes now. HR's concerns noted."
+                }
+            ]
+        }
+    ]
+}

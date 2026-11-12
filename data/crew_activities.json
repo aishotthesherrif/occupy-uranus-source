@@ -1,0 +1,39 @@
+{
+  "chad_activities": {
+    "Captain": [
+      "📋 Reviewing mission logs and navigation charts",
+      "📡 Coordinating with mission control back on Earth",
+      "👥 Monitoring chad vibes and ship systems",
+      "🗺️ Planning the next phase of the journey",
+      "📢 Conducting daily chad briefings"
+    ],
+    "Engineer": [
+      "🔧 Performing routine maintenance on life support systems",
+      "⚙️ Calibrating the ship's propulsion systems",
+      "⛽ Monitoring fuel consumption and efficiency",
+      "🔍 Running diagnostics on critical ship components",
+      "⚡ Optimizing power distribution throughout the vessel"
+    ],
+    "Quant": [
+      "📊 Running quantitative models for optimal route efficiency",
+      "📈 Analyzing risk-adjusted navigation strategies",
+      "🧮 Building algorithms for fuel cost optimization",
+      "📉 Backtesting trajectory models against historical data",
+      "💹 Calculating probability distributions for waypoint arrival"
+    ],
+    "Medic": [
+      "🩺 Conducting routine health checkups on the chad",
+      "🌬️ Monitoring air quality and life support systems",
+      "🚨 Preparing emergency medical protocols",
+      "🔬 Studying the effects of long-term space travel",
+      "💊 Maintaining the ship's medical supplies inventory"
+    ],
+    "HODLer": [
+      "💎 Managing the ship's ETH reserves and crypto portfolio",
+      "📊 Analyzing blockchain data and market trends",
+      "🔐 Securing digital wallets and smart contracts",
+      "🚀 Researching DeFi opportunities for mission funding",
+      "📈 Monitoring ETH price and optimizing transactions"
+    ]
+  }
+}
